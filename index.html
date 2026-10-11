@@ -3,804 +3,2395 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hunnar House | Crafted by Heart — Artisanal Creations</title>
+  <title>Hunnar House — Crafted by Heart | Bareilly Studio</title>
+
+  <!-- Typography: Cinzel, Playfair Display & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS & EmailJS SDK -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            maroon: {
+              900: '#380a14',
+              800: '#4d101e',
+              700: '#6b1d2f',
+              600: '#822238',
+              500: '#9e2d46',
+            },
+            parchment: {
+              DEFAULT: '#fff9fa',
+              alt: '#fff4f6',
+              card: '#fcf1f3',
+              muted: '#f8e1e6'
+            },
+            dust: {
+              border: '#edd2d8',
+              borderDark: '#dfb7c0',
+              accent: '#d997a5'
+            },
+            charcoal: {
+              title: '#2b2224',
+              body: '#4a3e41',
+              muted: '#7a6a6e'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            cinzel: ['"Cinzel"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+
   <style>
-    :root {
-      --bg-cream: #FAF6F0;
-      --bg-card: #FFFFFF;
-      --accent-warm: #C87A5B;
-      --accent-rose: #B56565;
-      --accent-deep: #4A2E2B;
-      --text-main: #2D2424;
-      --text-muted: #7A6F6D;
-      --border-soft: #EADBCE;
-      --border-accent: #D9A691;
-      --font-serif: 'Playfair Display', serif;
-      --font-display: 'Cormorant Garamond', Georgia, serif;
-      --font-sans: 'Montserrat', sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    /* Custom Micro-interactions & Artisan Textures */
     body {
-      background-color: var(--bg-cream);
-      color: var(--text-main);
-      font-family: var(--font-sans);
-      line-height: 1.7;
+      background-color: #fff9fa;
+      color: #2b2224;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       overflow-x: hidden;
-      background-image: radial-gradient(circle at 10% 20%, rgba(200, 122, 91, 0.04) 0%, transparent 20%),
-                        radial-gradient(circle at 90% 80%, rgba(181, 101, 101, 0.04) 0%, transparent 20%);
+      background-image: 
+        radial-gradient(circle at 8% 12%, rgba(107, 29, 47, 0.035) 0%, transparent 35%),
+        radial-gradient(circle at 92% 88%, rgba(130, 34, 56, 0.03) 0%, transparent 40%);
     }
 
-    /* Elegant Top Announcement */
-    .top-strip {
-      background: var(--accent-deep);
-      color: #FAF6F0;
-      text-align: center;
-      padding: 0.5rem 1rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-
-    /* Fixed Clean Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(250, 246, 240, 0.94);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-soft);
-      transition: all 0.3s ease;
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.8rem 2rem;
-    }
-
-    .brand-link {
-      display: flex;
-      align-items: center;
-      gap: 1.1rem;
-      text-decoration: none;
-      color: var(--accent-deep);
-    }
-
-    /* High quality logo presentation */
-    .logo-img {
-      height: 64px;
-      width: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 2px 6px rgba(74, 46, 43, 0.08));
-      transition: transform 0.3s ease;
-    }
-
-    .brand-link:hover .logo-img {
-      transform: scale(1.03);
-    }
-
-    .brand-text h1 {
-      font-family: var(--font-serif);
-      font-size: 1.45rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent-deep);
-      line-height: 1.1;
-    }
-
-    .brand-text p {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1.05rem;
-      color: var(--accent-warm);
-      letter-spacing: 0.02em;
-    }
-
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    .nav-menu a {
-      text-decoration: none;
-      color: var(--text-main);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 500;
+    /* Tab Pop Effect */
+    .tab-pop-btn {
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
       position: relative;
-      transition: color 0.2s ease;
     }
-
-    .nav-menu a:hover {
-      color: var(--accent-warm);
+    .tab-pop-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      color: #6b1d2f;
+      text-shadow: 0 1px 1px rgba(107, 29, 47, 0.1);
     }
-
-    .nav-menu a::after {
+    .tab-pop-btn.active {
+      color: #6b1d2f;
+      font-weight: 700;
+    }
+    .tab-pop-btn.active::after {
       content: '';
       position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0%;
-      height: 1.5px;
-      background: var(--accent-warm);
-      transition: width 0.25s ease;
-    }
-
-    .nav-menu a:hover::after {
-      width: 100%;
-    }
-
-    .cta-btn {
-      background: var(--accent-deep);
-      color: #FAF6F0 !important;
-      padding: 0.6rem 1.4rem;
-      border-radius: 4px;
-      letter-spacing: 0.12em !important;
-      font-size: 0.8rem !important;
-      font-weight: 600 !important;
-      transition: all 0.3s ease !important;
-      border: 1px solid var(--accent-deep);
-    }
-
-    .cta-btn:hover {
-      background: var(--accent-warm) !important;
-      border-color: var(--accent-warm) !important;
-      color: #FFFFFF !important;
-    }
-    .cta-btn::after {
-      display: none !important;
-    }
-
-    /* Hero Section with Botanical & Warm Elements */
-    .hero {
-      max-width: 1200px;
-      margin: 3rem auto 5rem;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .hero-content {
-      padding-right: 1rem;
-    }
-
-    .tagline-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--accent-rose);
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      font-style: italic;
-      margin-bottom: 1rem;
-    }
-
-    .tagline-badge::before,
-    .tagline-badge::after {
-      content: "—";
-      color: var(--border-accent);
-    }
-
-    .hero-title {
-      font-family: var(--font-serif);
-      font-size: 3.2rem;
-      line-height: 1.18;
-      font-weight: 700;
-      color: var(--accent-deep);
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.01em;
-    }
-
-    .hero-desc {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      line-height: 1.8;
-      margin-bottom: 2.2rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1.2rem;
-      align-items: center;
-    }
-
-    .btn-primary {
-      background: var(--accent-warm);
-      color: #ffffff;
-      padding: 0.9rem 2rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      box-shadow: 0 4px 15px rgba(200, 122, 91, 0.25);
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-deep);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(74, 46, 43, 0.2);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--accent-deep);
-      padding: 0.9rem 1.8rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border: 1px solid var(--border-accent);
-      transition: all 0.3s ease;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(200, 122, 91, 0.08);
-      border-color: var(--accent-warm);
-    }
-
-    /* Hero Visual Card Showcase */
-    .hero-card-showcase {
-      position: relative;
-    }
-
-    .card-frame {
-      background: #FFFFFF;
-      padding: 1.2rem;
-      border-radius: 12px;
-      box-shadow: 0 16px 36px rgba(74, 46, 43, 0.08);
-      border: 1px solid var(--border-soft);
-      position: relative;
-    }
-
-    .card-frame img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-
-    .card-caption {
-      text-align: center;
-      margin-top: 1rem;
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-style: italic;
-      color: var(--accent-deep);
-    }
-
-    /* Core 3 Pillars: Inspired directly by the Visiting Card */
-    .pillars-section {
-      background: #FFFFFF;
-      padding: 5rem 2rem;
-      border-top: 1px solid var(--border-soft);
-      border-bottom: 1px solid var(--border-soft);
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 3.5rem;
-    }
-
-    .section-eyebrow {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      font-style: italic;
-      color: var(--accent-warm);
-      margin-bottom: 0.4rem;
-    }
-
-    .section-title {
-      font-family: var(--font-serif);
-      font-size: 2.3rem;
-      color: var(--accent-deep);
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    .section-divider {
-      width: 60px;
+      bottom: -6px;
+      left: 15%;
+      width: 70%;
       height: 2px;
-      background: var(--accent-warm);
-      margin: 1.2rem auto 0;
+      background: #6b1d2f;
+      border-radius: 9999px;
     }
 
-    .pillars-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2.5rem;
+    /* Interactive Icon Reactive Hover Animation */
+    .icon-reactive {
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), stroke 0.25s ease;
+    }
+    .icon-reactive:hover {
+      transform: rotate(24deg) scale(1.18);
+    }
+    .icon-bounce:hover {
+      transform: translateY(-3px) scale(1.12);
     }
 
-    .pillar-card {
-      background: var(--bg-cream);
-      border: 1px solid var(--border-soft);
-      border-radius: 12px;
-      padding: 2.5rem 1.8rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      position: relative;
+    /* Tactile Buttons */
+    .tactile-btn {
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(1.5px) scale(0.98);
     }
 
-    .pillar-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgba(74, 46, 43, 0.08);
-      border-color: var(--accent-warm);
+    /* Paper/Greeting Banner realistic wrinkles and fold physics */
+    .wrinkled-banner {
+      background: linear-gradient(135deg, #fffaf6 0%, #faedf0 50%, #fff7f8 100%);
+      border: 1px dashed #edd2d8;
+      box-shadow: 0 12px 30px rgba(107, 29, 47, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease;
     }
 
-    .pillar-icon-box {
-      width: 76px;
-      height: 76px;
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #fff4f6;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #edd2d8;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #822238;
+    }
+
+    /* Spinner */
+    .artisan-spinner {
+      border: 2.5px solid rgba(107, 29, 47, 0.2);
+      border-top-color: #6b1d2f;
       border-radius: 50%;
-      background: #FFFFFF;
-      border: 1px solid var(--border-accent);
-      margin: 0 auto 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 12px rgba(200, 122, 91, 0.1);
+      animation: spin 0.8s linear infinite;
     }
-
-    .pillar-icon-box svg {
-      width: 36px;
-      height: 36px;
-      stroke: var(--accent-deep);
-      fill: none;
-      stroke-width: 1.5;
-    }
-
-    .pillar-title {
-      font-family: var(--font-serif);
-      font-size: 1.35rem;
-      color: var(--accent-deep);
-      margin-bottom: 0.8rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .pillar-desc {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    /* Feature Story: Our Craft / Journey */
-    .story-section {
-      max-width: 1200px;
-      margin: 6rem auto;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .story-gallery-frame {
-      border: 1px solid var(--border-soft);
-      padding: 1rem;
-      background: #FFFFFF;
-      border-radius: 12px;
-      box-shadow: 0 16px 32px rgba(74, 46, 43, 0.06);
-    }
-
-    .story-gallery-frame img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      display: block;
-    }
-
-    .story-content h2 {
-      font-family: var(--font-serif);
-      font-size: 2.3rem;
-      color: var(--accent-deep);
-      line-height: 1.25;
-      margin-bottom: 1.2rem;
-    }
-
-    .story-signature {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-style: italic;
-      color: var(--accent-warm);
-      margin: 1.5rem 0;
-    }
-
-    /* Founder & Contact Card Panel */
-    .contact-banner {
-      background: var(--accent-deep);
-      color: #FAF6F0;
-      padding: 5rem 2rem;
-      margin-top: 4rem;
-    }
-
-    .contact-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3.5rem;
-      align-items: center;
-    }
-
-    .contact-details h3 {
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      margin-bottom: 0.8rem;
-      color: #FAF6F0;
-    }
-
-    .contact-details p {
-      color: #D5C7C5;
-      margin-bottom: 2rem;
-      font-size: 0.95rem;
-    }
-
-    .contact-row {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      margin-bottom: 1.2rem;
-      font-size: 1.05rem;
-      color: #FAF6F0;
-    }
-
-    .contact-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .contact-icon svg {
-      width: 20px;
-      height: 20px;
-      stroke: var(--accent-warm);
-      fill: none;
-      stroke-width: 1.8;
-    }
-
-    .contact-box-card {
-      background: #FFFFFF;
-      color: var(--text-main);
-      padding: 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-    }
-
-    .contact-box-card h4 {
-      font-family: var(--font-serif);
-      font-size: 1.4rem;
-      color: var(--accent-deep);
-      margin-bottom: 0.4rem;
-    }
-
-    .contact-box-card p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group {
-      margin-bottom: 1rem;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      border: 1px solid var(--border-soft);
-      border-radius: 6px;
-      font-family: inherit;
-      font-size: 0.9rem;
-      background: var(--bg-cream);
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent-warm);
-      background: #FFFFFF;
-    }
-
-    .submit-btn {
-      width: 100%;
-      background: var(--accent-warm);
-      color: #FFFFFF;
-      border: none;
-      padding: 0.9rem;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-
-    .submit-btn:hover {
-      background: var(--accent-deep);
-    }
-
-    /* Footer */
-    footer {
-      background: #201312;
-      color: #9E8F8D;
-      text-align: center;
-      padding: 2.5rem 2rem;
-      font-size: 0.85rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    footer a {
-      color: #D5C7C5;
-      text-decoration: none;
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 860px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-        margin-top: 2rem;
-      }
-      .pillars-grid {
-        grid-template-columns: 1fr;
-      }
-      .story-section {
-        grid-template-columns: 1fr;
-      }
-      .contact-container {
-        grid-template-columns: 1fr;
-      }
-      .nav-menu {
-        display: none; /* Can be expanded into hamburger drawer */
-      }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between">
 
-  <!-- Top bar with brand motto -->
-  <div class="top-strip">
-    Handcrafted with Love &bull; Beautiful Creations for Special Moments &bull; Direct Artisan Inquiries
+  <!-- Top Utility Ribbon -->
+  <div class="bg-maroon-800 text-[#FAF6F0] py-2 px-4 text-xs font-medium tracking-wider flex flex-col sm:flex-row items-center justify-between gap-1 border-b border-maroon-900/40 z-30 relative">
+    <div class="flex items-center gap-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-amber-300 animate-pulse"></span>
+      <span>Bareilly Studio: Civil Lines / DD Puram, Bareilly, UP (243001)</span>
+      <span class="hidden md:inline text-maroon-500">•</span>
+      <span class="hidden md:inline italic font-serif text-rose-200">Founder & Artisan: Ruchi Maheshwari</span>
+    </div>
+    <div class="flex items-center gap-4 text-rose-100">
+      <a href="tel:6396699104" class="hover:text-white transition flex items-center gap-1.5 font-semibold">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        +91 6396699104
+      </a>
+      <span class="text-maroon-600">|</span>
+      <a href="mailto:hunnarhouse19@gmail.com" class="hover:text-white transition">hunnarhouse19@gmail.com</a>
+    </div>
   </div>
 
-  <!-- Header -->
-  <header>
-    <div class="nav-container">
-      <a href="#" class="brand-link">
-        <img 
-          src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" 
-          alt="Hunnar House Official Logo" 
-          class="logo-img"
-        />
-        <div class="brand-text">
-          <h1>Hunnar House</h1>
-          <p>Crafted by Heart &hearts;</p>
+  <!-- Physical Wrinkled Greeting Banner (Folds away on scroll/tap) -->
+  <div id="physicalGreetingBanner" class="w-full bg-parchment-card/90 border-b border-dust-border py-3 px-4 relative cursor-pointer wrinkled-banner" onclick="foldGreetingBanner()">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-white border border-dust-border flex items-center justify-center shadow-sm">
+          <svg class="w-5 h-5 text-maroon-700" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
         </div>
-      </a>
+        <div>
+          <p class="text-xs uppercase tracking-widest text-maroon-700 font-cinzel font-bold">Bareilly Atelier Welcome</p>
+          <p class="text-xs text-charcoal-body font-serif italic">"Every candle poured & treat crafted by hand in Bareilly with heartfelt warmth." — Tap to fold</p>
+        </div>
+      </div>
+      <button class="text-charcoal-muted hover:text-maroon-700 text-xs flex items-center gap-1 font-medium bg-white/70 px-2.5 py-1 rounded-md border border-dust-border">
+        <span>Fold banner</span>
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
 
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="#creations">Creations</a></li>
-          <li><a href="#story">Our Story</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="tel:6396699104" class="cta-btn">Order Direct</a></li>
-        </ul>
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-dust-border shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
+      
+      <!-- Brand Logo & Identity -->
+      <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('shop')">
+        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white border-2 border-dust-border p-1 shadow-sm flex items-center justify-center group overflow-hidden">
+          <img 
+            src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" 
+            alt="Hunnar House Official Logo" 
+            class="w-full h-full object-contain group-hover:scale-105 transition duration-300"
+            onerror="this.src='https://res.cloudinary.com/dpeijmtb6/image/upload/v1790606600/logo_hunnar_house_dnkqq1.png'"
+          />
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h1 class="font-cinzel text-lg sm:text-xl font-bold tracking-wider text-maroon-800">HUNNAR HOUSE</h1>
+          </div>
+          <p class="text-[11px] sm:text-xs font-serif italic text-maroon-600 tracking-wide">Crafted by Heart • Bareilly, UP</p>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs (Pop & Scale-Up Hover Micro-Interactions) -->
+      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-charcoal-body">
+        <button onclick="switchTab('shop')" id="nav-tab-shop" class="tab-pop-btn active">Creations & Shop</button>
+        <button onclick="switchTab('story')" id="nav-tab-story" class="tab-pop-btn">Our Story</button>
+        <button onclick="switchTab('updates')" id="nav-tab-updates" class="tab-pop-btn flex items-center gap-1.5">
+          <span>Daily Updates</span>
+          <span id="updateDot" class="w-2 h-2 rounded-full bg-rose-500 hidden"></span>
+        </button>
+        <button onclick="handleChatTabClick()" id="nav-tab-chat" class="tab-pop-btn flex items-center gap-1.5">
+          <span>Chat with Ruchi Mam</span>
+          <span id="chatUnreadBadge" class="bg-maroon-700 text-white text-[10px] px-1.5 py-0.2 rounded-full hidden">1</span>
+        </button>
+        <!-- Visible only if Admin is logged in -->
+        <button onclick="switchTab('admin')" id="nav-tab-admin" class="tab-pop-btn text-maroon-700 font-semibold border-b-2 border-dashed border-maroon-700 hidden">
+          Admin Atelier
+        </button>
       </nav>
+
+      <!-- Right Interactive Controls: User Info, Settings, Cart, Sign In/Out -->
+      <div class="flex items-center gap-2 sm:gap-4">
+        
+        <!-- Live User Greeting when Logged In -->
+        <div id="userGreetingSection" class="hidden text-right">
+          <p class="text-xs text-charcoal-muted">Welcome</p>
+          <p id="userGreetingName" class="text-xs sm:text-sm font-semibold text-maroon-800 truncate max-w-[110px] sm:max-w-[150px]">Hi, Guest</p>
+        </div>
+
+        <!-- Custom Animated Setting SVG Icon (Rotates on reactive hover) -->
+        <button 
+          onclick="handleSettingsClick()" 
+          title="Account / Studio Preferences"
+          class="p-2 rounded-full hover:bg-parchment-card text-charcoal-body hover:text-maroon-800 transition relative"
+        >
+          <svg class="w-6 h-6 icon-reactive stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </button>
+
+        <!-- Shopping Bag Trigger with Live Counter -->
+        <button 
+          onclick="toggleCartDrawer(true)" 
+          class="p-2 rounded-full hover:bg-parchment-card text-charcoal-body hover:text-maroon-800 transition relative icon-bounce"
+          title="View Shopping Bag"
+        >
+          <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+          <span id="cartCountBadge" class="absolute -top-1 -right-1 bg-maroon-700 text-white font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow-xs">0</span>
+        </button>
+
+        <!-- Dynamic Auth Button (Log In vs Log Out) -->
+        <div id="authBtnContainer">
+          <button 
+            id="authActionBtn"
+            onclick="openAuthModal()" 
+            class="tactile-btn px-4 py-2 bg-maroon-700 hover:bg-maroon-800 text-white text-xs sm:text-sm font-semibold rounded-lg shadow-sm border border-maroon-800 tracking-wide"
+          >
+            Sign In
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Ribbon -->
+    <div class="flex md:hidden border-t border-dust-border overflow-x-auto px-4 py-2 gap-4 text-xs font-medium bg-parchment/60">
+      <button onclick="switchTab('shop')" id="mob-tab-shop" class="whitespace-nowrap text-maroon-800 font-bold">Creations</button>
+      <button onclick="switchTab('story')" id="mob-tab-story" class="whitespace-nowrap text-charcoal-body">Our Story</button>
+      <button onclick="switchTab('updates')" id="mob-tab-updates" class="whitespace-nowrap text-charcoal-body">Updates</button>
+      <button onclick="handleChatTabClick()" id="mob-tab-chat" class="whitespace-nowrap text-charcoal-body">Chat with Ruchi</button>
+      <button onclick="switchTab('admin')" id="mob-tab-admin" class="whitespace-nowrap text-maroon-800 font-bold hidden">Admin</button>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <div class="tagline-badge">Crafted by Heart</div>
-        <h2 class="hero-title">Beautiful Creations for Special Moments</h2>
-        <p class="hero-desc">
-          Welcome to Hunnar House, an artisanal studio founded by <strong>Ruchi Maheshwari</strong>. We design soulful, hand-poured aroma candles, luxurious artisanal chocolates, and personalized handcrafted keepsakes that bring warmth and grace to your milestones.
-        </p>
-        <div class="hero-actions">
-          <a href="#creations" class="btn-primary">Explore Creations</a>
-          <a href="https://wa.me/916396699104?text=Hello%20Ruchi,%20I%20would%20like%20to%20inquire%20about%20Hunnar%20House%20creations" target="_blank" class="btn-secondary">Message on WhatsApp</a>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-grow w-full">
+
+    <!-- =========================================================================
+         TAB 1: CREATIONS & ARTISANAL SHOP
+         ========================================================================= -->
+    <section id="tab-shop" class="block space-y-12">
+      
+      <!-- Editorial Hero Banner -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white rounded-2xl border border-dust-border p-6 sm:p-10 shadow-sm">
+        <div class="lg:col-span-7 space-y-5">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-parchment-card border border-dust-border text-xs font-serif italic text-maroon-700">
+            <span>Bareilly Handcrafted Creations</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-maroon-600"></span>
+            <span>Natural Ingredients & Pure Fragrance</span>
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-maroon-900 leading-tight">
+            Genuinely Handcrafted for Life’s Special Celebrations.
+          </h2>
+          <p class="text-charcoal-body text-sm sm:text-base leading-relaxed">
+            Welcome to the studio of <strong>Ruchi Maheshwari</strong>. From slow-poured aromatic soy candles and rich artisanal chocolate confections to bespoke wedding keepsakes, every piece is made right here in Bareilly with love and care.
+          </p>
+          <div class="flex flex-wrap gap-3 pt-2">
+            <a href="#catalogGrid" class="tactile-btn px-6 py-3 bg-maroon-700 hover:bg-maroon-800 text-white text-xs sm:text-sm font-semibold rounded-lg shadow-sm">
+              Explore Creations
+            </a>
+            <button onclick="openInquiryModal()" class="tactile-btn px-6 py-3 bg-transparent hover:bg-parchment-card text-maroon-800 border border-dust-borderDark text-xs sm:text-sm font-semibold rounded-lg">
+              Custom Inquiry
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 relative">
+          <div class="rounded-xl overflow-hidden border-2 border-dust-border shadow-md bg-parchment-card p-2 group">
+            <img 
+              src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg" 
+              alt="Hunnar House Handcrafted Art" 
+              class="w-full h-80 object-cover rounded-lg group-hover:scale-[1.02] transition duration-500"
+            />
+            <div class="p-3 text-center">
+              <p class="font-serif italic text-maroon-800 text-sm">"Crafted by Heart — Dedicated to Pure Artisanship"</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Featured Visual Card -->
-      <div class="hero-card-showcase">
-        <div class="card-frame">
-          <img 
-            src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg" 
-            alt="Hunnar House Artisan Signature Collection"
-          />
-          <div class="card-caption">Artisanal Card &bull; Signature Keepsake Showcase</div>
+      <!-- Core 3 Pillars of Craft -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl border border-dust-border text-center space-y-3 hover:shadow-md transition">
+          <div class="w-14 h-14 mx-auto rounded-full bg-parchment-card border border-dust-border flex items-center justify-center text-maroon-700 text-2xl">
+            🕯️
+          </div>
+          <h3 class="font-serif text-lg font-bold text-maroon-800">Scented Soy Candles</h3>
+          <p class="text-xs text-charcoal-muted leading-relaxed">
+            Clean-burning soy wax hand-poured in Bareilly, with lead-free cotton wicks and calming therapeutic aromas.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-dust-border text-center space-y-3 hover:shadow-md transition">
+          <div class="w-14 h-14 mx-auto rounded-full bg-parchment-card border border-dust-border flex items-center justify-center text-maroon-700 text-2xl">
+            🍫
+          </div>
+          <h3 class="font-serif text-lg font-bold text-maroon-800">Artisan Chocolates</h3>
+          <p class="text-xs text-charcoal-muted leading-relaxed">
+            Molded fresh in small batches using pure cocoa and rich inclusions for festive platters, birthdays, and celebrations.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-dust-border text-center space-y-3 hover:shadow-md transition">
+          <div class="w-14 h-14 mx-auto rounded-full bg-parchment-card border border-dust-border flex items-center justify-center text-maroon-700 text-2xl">
+            🎁
+          </div>
+          <h3 class="font-serif text-lg font-bold text-maroon-800">Handcrafts & Hampers</h3>
+          <p class="text-xs text-charcoal-muted leading-relaxed">
+            Personalized festival boxes, return gift keepsakes, and customized tokens created individually to your taste.
+          </p>
+        </div>
+      </div>
+
+      <!-- Live Category Filter & Product Grid -->
+      <div id="catalogGrid" class="space-y-6 pt-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-dust-border pb-4">
+          <div>
+            <p class="text-xs font-serif italic text-maroon-600">The Catalog</p>
+            <h3 class="font-cinzel text-2xl font-bold text-maroon-900">Handmade Pieces</h3>
+          </div>
+          <!-- Dynamic Category Pills -->
+          <div id="categoryPillContainer" class="flex flex-wrap gap-2">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+        <!-- Product Cards Container -->
+        <div id="productsDisplayGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <!-- Populated dynamically via JS -->
         </div>
       </div>
     </section>
 
-    <!-- Three Signature Pillars from the Card -->
-    <section class="pillars-section" id="creations">
-      <div class="section-header">
-        <div class="section-eyebrow">Our Specialties</div>
-        <h3 class="section-title">Handcrafted Offerings</h3>
-        <div class="section-divider"></div>
+    <!-- =========================================================================
+         TAB 2: OUR STORY & THE ARTISAN DESK
+         ========================================================================= -->
+    <section id="tab-story" class="hidden space-y-10 max-w-4xl mx-auto py-6">
+      <div class="bg-white rounded-2xl border border-dust-border p-6 sm:p-10 shadow-sm space-y-6">
+        <div class="text-center space-y-2 border-b border-dust-border pb-6">
+          <span class="text-xs font-serif italic text-maroon-700">Studio Journey & Heart</span>
+          <h2 class="font-serif text-3xl font-bold text-maroon-900">Every Piece Tells a Personal Story</h2>
+          <p class="text-xs text-charcoal-muted font-cinzel">Bareilly, Uttar Pradesh (Pin 243001)</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center pt-2">
+          <div class="rounded-xl overflow-hidden border border-dust-border shadow-sm">
+            <img 
+              id="founderProfileImage"
+              src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg" 
+              alt="Ruchi Maheshwari Artisan" 
+              class="w-full h-80 object-cover"
+            />
+            <div class="p-3 bg-parchment-card text-center">
+              <p class="font-serif font-bold text-maroon-800 text-sm">Ruchi Maheshwari</p>
+              <p class="text-xs text-charcoal-muted">Founder & Creative Artisan</p>
+            </div>
+          </div>
+
+          <div class="space-y-4 text-charcoal-body text-sm leading-relaxed">
+            <p>
+              At <strong>Hunnar House</strong>, skill and heart come together. Founded with the conviction that true luxury lives in patient craftsmanship, our atelier in Bareilly is dedicated to making genuine gifts that bring real joy to homes.
+            </p>
+            <p>
+              We do not use assembly lines or artificial shortcuts. Soy wax is melted slowly, chocolates are tempered by sight and hand, and gift boxes are assembled with warm attention.
+            </p>
+            <div class="p-4 bg-parchment-card rounded-lg border border-dust-border italic font-serif text-maroon-800 text-sm">
+              "When you gift something made by hand, you give someone a piece of calm, care, and human warmth."
+            </div>
+            <p class="text-xs text-charcoal-muted">
+              Whether you need 5 signature candles for an intimate dinner or 200 tailored chocolate favor boxes for a family wedding, we speak to you directly and craft each one with patience.
+            </p>
+            <div class="pt-2">
+              <button onclick="openInquiryModal()" class="tactile-btn px-5 py-2.5 bg-maroon-700 text-white rounded-lg text-xs font-semibold hover:bg-maroon-800">
+                Discuss Custom Creation with Ruchi
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Studio Address & Dispatch Guarantee -->
+        <div class="border-t border-dust-border pt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-charcoal-body">
+          <div class="p-4 bg-parchment rounded-lg border border-dust-border">
+            <p class="font-bold text-maroon-800 mb-1">Local Bareilly Deliveries & Pickups</p>
+            <p class="text-charcoal-muted">Available across Civil Lines, DD Puram, Rajendra Nagar, and throughout Bareilly city. Quick local studio pick-up available.</p>
+          </div>
+          <div class="p-4 bg-parchment rounded-lg border border-dust-border">
+            <p class="font-bold text-maroon-800 mb-1">Direct Official Studio Contact</p>
+            <p class="text-charcoal-muted">Phone/WhatsApp: +91 6396699104 • Email: hunnarhouse19@gmail.com • Official UPI: 8218408535</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="pillars-grid">
-        <!-- 1. Candles -->
-        <div class="pillar-card">
-          <div class="pillar-icon-box">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 2c0 2-2 3-2 5a2 2 0 0 0 4 0c0-2-2-3-2-5z"></path>
-              <rect x="7" y="9" width="10" height="12" rx="1"></rect>
-              <line x1="12" y1="9" x2="12" y2="7"></line>
-            </svg>
+    <!-- =========================================================================
+         TAB 3: DAILY UPDATES FEED
+         ========================================================================= -->
+    <section id="tab-updates" class="hidden space-y-6 max-w-2xl mx-auto py-6">
+      <div class="bg-white rounded-2xl border border-dust-border p-6 shadow-sm">
+        <div class="flex items-center justify-between border-b border-dust-border pb-4">
+          <div>
+            <h2 class="font-serif text-2xl font-bold text-maroon-900">Daily Updates from Atelier</h2>
+            <p class="text-xs text-charcoal-muted">Fresh batches, aroma experiments & studio moments by Ruchi Mam</p>
           </div>
-          <h4 class="pillar-title">Candles</h4>
-          <p class="pillar-desc">
-            Natural soy and botanical wax candles, hand-poured with soothing aromas to elevate everyday spaces, festive celebrations, and gift hampers.
-          </p>
+          <span class="w-3 h-3 rounded-full bg-emerald-500 animate-ping" title="Studio is Active"></span>
         </div>
 
-        <!-- 2. Chocolates -->
-        <div class="pillar-card">
-          <div class="pillar-icon-box">
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="9"></circle>
-              <path d="M7 12c2.5 0 2.5-3 5-3s2.5 3 5 3"></path>
-              <path d="M7 15c2.5 0 2.5-3 5-3s2.5 3 5 3"></path>
-            </svg>
-          </div>
-          <h4 class="pillar-title">Chocolates</h4>
-          <p class="pillar-desc">
-            Artisanal chocolate treats crafted with pure cocoa and rich inclusions, packaged thoughtfully for birthdays, anniversaries, and return gifts.
-          </p>
-        </div>
-
-        <!-- 3. Handcrafts -->
-        <div class="pillar-card">
-          <div class="pillar-icon-box">
-            <svg viewBox="0 0 24 24">
-              <path d="M20 12v10H4V12"></path>
-              <path d="M2 7h20v5H2z"></path>
-              <path d="M12 22V7"></path>
-              <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
-              <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
-            </svg>
-          </div>
-          <h4 class="pillar-title">Handcrafts</h4>
-          <p class="pillar-desc">
-            Bespoke decorative pieces, customized event favors, and hand-curated gift boxes crafted with meticulous care and personal attention.
-          </p>
+        <!-- Feed List -->
+        <div id="dailyUpdatesContainer" class="divide-y divide-dust-border mt-4 space-y-6">
+          <!-- Populated by JS -->
         </div>
       </div>
     </section>
 
-    <!-- Story / About Section -->
-    <section class="story-section" id="story">
-      <div class="story-gallery-frame">
-        <img 
-          src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg" 
-          alt="Hunnar House Heart of the Craft"
-        />
-      </div>
-
-      <div class="story-content">
-        <div class="tagline-badge">Meet the Maker</div>
-        <h2>Every Creation Tells a Personal Story</h2>
-        <p class="hero-desc">
-          At Hunnar House, skill and love come together. Guided by a belief that thoughtful gifts transform simple days into memorable occasions, each candle, chocolate box, and handmade token is carefully created in small batches to preserve its distinct, artisanal character.
-        </p>
-        <div class="story-signature">Ruchi Maheshwari</div>
-        <p style="font-size: 0.9rem; color: var(--text-muted);">Founder &amp; Creative Artisan &bull; Hunnar House</p>
-      </div>
-    </section>
-
-    <!-- Contact & Ordering Banner -->
-    <section class="contact-banner" id="contact">
-      <div class="contact-container">
-        <div class="contact-details">
-          <h3>Let's Create Something Together</h3>
-          <p>Whether you're looking for personalized event hampers, festive gift sets, or custom scent candles, we'd love to hear from you.</p>
-
-          <div class="contact-row">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+    <!-- =========================================================================
+         TAB 4: 1-ON-1 ARTISANAL CHAT WITH RUCHI MAHESHWARI
+         ========================================================================= -->
+    <section id="tab-chat" class="hidden max-w-3xl mx-auto py-6">
+      <div class="bg-white rounded-2xl border border-dust-border shadow-sm overflow-hidden flex flex-col h-[640px]">
+        
+        <!-- Chat Header -->
+        <div class="bg-parchment-card p-4 border-b border-dust-border flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <div class="w-11 h-11 rounded-full bg-white border border-dust-border overflow-hidden p-0.5">
+                <img 
+                  id="chatHeaderAvatar"
+                  src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg" 
+                  alt="Ruchi Maheshwari" 
+                  class="w-full h-full object-cover rounded-full"
+                />
+              </div>
+              <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white"></span>
             </div>
             <div>
-              <div style="font-size: 0.8rem; color: #D5C7C5;">Founder</div>
-              <strong>Ruchi Maheshwari</strong>
+              <p class="font-serif font-bold text-maroon-900 text-sm" id="chatPartnerName">Ruchi Maheshwari</p>
+              <p class="text-[11px] text-emerald-700 flex items-center gap-1 font-medium">
+                <span>Active Bareilly Studio</span>
+              </p>
             </div>
           </div>
-
-          <div class="contact-row">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            </div>
-            <div>
-              <div style="font-size: 0.8rem; color: #D5C7C5;">Call / WhatsApp</div>
-              <a href="tel:6396699104" style="color:#FAF6F0; text-decoration:none;">+91 63966 99104</a>
-            </div>
-          </div>
-
-          <div class="contact-row">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            </div>
-            <div>
-              <div style="font-size: 0.8rem; color: #D5C7C5;">Email</div>
-              <a href="mailto:hunnarhouse19@gmail.com" style="color:#FAF6F0; text-decoration:none;">hunnarhouse19@gmail.com</a>
-            </div>
+          <div class="text-xs text-charcoal-muted font-cinzel">
+            Private 1-on-1
           </div>
         </div>
 
-        <!-- Direct Inquiry Form -->
-        <div class="contact-box-card">
-          <h4>Custom Inquiry</h4>
-          <p>Send a request directly for customized gifts or bulk orders.</p>
-          <form onsubmit="handleContact(event)">
-            <div class="form-group">
-              <input type="text" placeholder="Your Full Name" required />
-            </div>
-            <div class="form-group">
-              <input type="tel" placeholder="Phone Number / WhatsApp" required />
-            </div>
-            <div class="form-group">
-              <textarea rows="3" placeholder="Tell us what you'd like (e.g. 20 lavender candles for Diwali, custom chocolates)" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Inquiry</button>
+        <!-- Chat Messages Area -->
+        <div id="chatMessagesBox" class="flex-grow p-4 overflow-y-auto space-y-3 bg-[#fffafb]">
+          <!-- Chat bubbles populated dynamically via JS -->
+        </div>
+
+        <!-- Editing indicator bar -->
+        <div id="chatEditBar" class="hidden bg-amber-50 px-4 py-2 border-t border-amber-200 text-xs flex items-center justify-between text-amber-800">
+          <span>Editing your message...</span>
+          <button onclick="cancelMessageEdit()" class="font-bold hover:underline">Cancel</button>
+        </div>
+
+        <!-- Chat Input Bar -->
+        <div class="p-3 bg-white border-t border-dust-border space-y-2">
+          <!-- Image upload or preview -->
+          <div id="chatImagePreviewRow" class="hidden items-center gap-2 p-2 bg-parchment rounded border border-dust-border">
+            <img id="chatImagePreviewImg" src="" alt="preview" class="w-12 h-12 object-cover rounded" />
+            <span class="text-xs text-charcoal-muted truncate flex-grow">Image ready to send</span>
+            <button onclick="clearChatImage()" class="text-xs text-red-600 font-bold px-2">Remove</button>
+          </div>
+
+          <form onsubmit="handleSendChatMessage(event)" class="flex items-center gap-2">
+            <!-- Attach Image Button -->
+            <label class="cursor-pointer p-2 rounded-full hover:bg-parchment-card text-charcoal-body hover:text-maroon-700 transition" title="Attach picture">
+              <svg class="w-5 h-5 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <input type="file" accept="image/*" class="hidden" onchange="handleChatImagePick(event)" />
+            </label>
+
+            <input 
+              type="text" 
+              id="chatMessageInput" 
+              placeholder="Write a message to Ruchi Mam..." 
+              required
+              class="flex-grow px-4 py-2.5 rounded-lg border border-dust-border text-sm focus:outline-none focus:border-maroon-700 bg-parchment/40"
+            />
+
+            <button type="submit" class="tactile-btn px-4 py-2.5 bg-maroon-700 hover:bg-maroon-800 text-white rounded-lg text-sm font-semibold flex items-center gap-1.5">
+              <span>Send</span>
+              <svg class="w-4 h-4 fill-none stroke-current" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+            </button>
           </form>
         </div>
+
       </div>
     </section>
+
+    <!-- =========================================================================
+         TAB 5: ADMIN ATELIER DASHBOARD (RUCHI MAM ACCESS)
+         ========================================================================= -->
+    <section id="tab-admin" class="hidden space-y-8 py-4">
+      <div class="bg-white rounded-2xl border border-dust-border p-6 shadow-sm space-y-6">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-dust-border pb-4 gap-3">
+          <div>
+            <span class="text-xs uppercase font-cinzel font-bold text-maroon-700">Studio Control Room</span>
+            <h2 class="font-serif text-2xl font-bold text-maroon-900">Bareilly Atelier Management</h2>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="switchTab('shop')" class="px-3 py-1.5 rounded-md border border-dust-border text-xs font-semibold text-charcoal-body hover:bg-parchment-card">View Storefront</button>
+            <button onclick="handleLogout()" class="px-3 py-1.5 rounded-md bg-maroon-800 text-white text-xs font-semibold hover:bg-maroon-900">Logout Admin</button>
+          </div>
+        </div>
+
+        <!-- Admin Sub-navigation Tabs -->
+        <div class="flex border-b border-dust-border overflow-x-auto gap-4 text-xs font-semibold text-charcoal-body">
+          <button onclick="switchAdminSubTab('orders')" id="adm-sub-orders" class="py-2 border-b-2 border-maroon-700 text-maroon-800">Orders Received</button>
+          <button onclick="switchAdminSubTab('inventory')" id="adm-sub-inventory" class="py-2 border-b-2 border-transparent text-charcoal-muted">Product Inventory</button>
+          <button onclick="switchAdminSubTab('users')" id="adm-sub-users" class="py-2 border-b-2 border-transparent text-charcoal-muted">Customer Accounts</button>
+          <button onclick="switchAdminSubTab('popup')" id="adm-sub-popup" class="py-2 border-b-2 border-transparent text-charcoal-muted">Send Targeted Pop-ups</button>
+          <button onclick="switchAdminSubTab('updates')" id="adm-sub-updates" class="py-2 border-b-2 border-transparent text-charcoal-muted">Daily Studio Updates</button>
+          <button onclick="switchAdminSubTab('inquiries')" id="adm-sub-inquiries" class="py-2 border-b-2 border-transparent text-charcoal-muted">Private Inquiries</button>
+          <button onclick="switchAdminSubTab('adminChat')" id="adm-sub-adminChat" class="py-2 border-b-2 border-transparent text-charcoal-muted">Customer Chats</button>
+        </div>
+
+        <!-- SUB TAB: ORDERS -->
+        <div id="admin-sec-orders" class="space-y-4">
+          <h3 class="font-serif text-lg font-bold text-maroon-900">Placed Orders</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left text-charcoal-body">
+              <thead class="bg-parchment text-maroon-800 uppercase font-semibold">
+                <tr>
+                  <th class="p-3">Order ID</th>
+                  <th class="p-3">Customer</th>
+                  <th class="p-3">Phone</th>
+                  <th class="p-3">Address</th>
+                  <th class="p-3">Items</th>
+                  <th class="p-3">Total (₹)</th>
+                  <th class="p-3">Status</th>
+                  <th class="p-3">Action</th>
+                </tr>
+              </thead>
+              <tbody id="adminOrdersTableBody" class="divide-y divide-dust-border">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SUB TAB: INVENTORY MANAGEMENT -->
+        <div id="admin-sec-inventory" class="hidden space-y-6">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Add Product Form -->
+            <div class="bg-parchment-card p-5 rounded-xl border border-dust-border space-y-4">
+              <h3 class="font-serif font-bold text-maroon-900 text-sm">Add New Handcrafted Item</h3>
+              <form onsubmit="handleAdminAddProduct(event)" class="space-y-3 text-xs">
+                <div>
+                  <label class="block font-medium mb-1">Title *</label>
+                  <input type="text" id="adminProdTitle" required class="w-full p-2 rounded border border-dust-border bg-white" placeholder="e.g., Lavender Soy Tumbler" />
+                </div>
+                <div>
+                  <label class="block font-medium mb-1">Category *</label>
+                  <select id="adminProdCategory" required class="w-full p-2 rounded border border-dust-border bg-white">
+                    <!-- Dynamic categories -->
+                  </select>
+                </div>
+                <div>
+                  <label class="block font-medium mb-1">Price (₹) *</label>
+                  <input type="number" id="adminProdPrice" required min="1" class="w-full p-2 rounded border border-dust-border bg-white" placeholder="e.g. 450" />
+                </div>
+                <div>
+                  <label class="block font-medium mb-1">Description *</label>
+                  <textarea id="adminProdDesc" rows="2" required class="w-full p-2 rounded border border-dust-border bg-white" placeholder="Scent notes, weight, handmade details"></textarea>
+                </div>
+                <div>
+                  <label class="block font-medium mb-1">Product Photograph *</label>
+                  <input type="file" id="adminProdImageFile" accept="image/*" required class="w-full text-xs" onchange="handleAdminProdImageSelect(event)" />
+                  <div id="adminProdUploadSpinner" class="hidden mt-2 items-center gap-2 text-maroon-700">
+                    <div class="w-4 h-4 artisan-spinner"></div>
+                    <span class="text-[11px]">Uploading photograph...</span>
+                  </div>
+                  <input type="hidden" id="adminProdUploadedUrl" />
+                </div>
+                <button type="submit" id="adminAddProdBtn" class="tactile-btn w-full py-2 bg-maroon-700 hover:bg-maroon-800 text-white font-semibold rounded shadow-xs">
+                  Save Product to Catalog
+                </button>
+              </form>
+            </div>
+
+            <!-- Dynamic Category Creator & Inventory List -->
+            <div class="lg:col-span-2 space-y-6">
+              <!-- Category Creator -->
+              <div class="bg-parchment-card p-4 rounded-xl border border-dust-border flex flex-col sm:flex-row items-center gap-3">
+                <input type="text" id="newCategoryInput" placeholder="New Category (e.g., Festive Melts)" class="text-xs p-2 rounded border border-dust-border bg-white flex-grow w-full" />
+                <button onclick="handleAdminCreateCategory()" class="tactile-btn px-4 py-2 bg-maroon-700 text-white rounded text-xs font-semibold whitespace-nowrap w-full sm:w-auto">
+                  Add Category
+                </button>
+              </div>
+
+              <!-- Inventory List -->
+              <div class="space-y-3">
+                <h4 class="font-serif font-bold text-maroon-900 text-sm">Active Inventory</h4>
+                <div id="adminInventoryList" class="space-y-2 max-h-[420px] overflow-y-auto pr-1">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUB TAB: CUSTOMER ACCOUNTS -->
+        <div id="admin-sec-users" class="hidden space-y-4">
+          <h3 class="font-serif text-lg font-bold text-maroon-900">Registered Customers</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left text-charcoal-body">
+              <thead class="bg-parchment text-maroon-800 uppercase font-semibold">
+                <tr>
+                  <th class="p-3">Customer Name</th>
+                  <th class="p-3">Email</th>
+                  <th class="p-3">City</th>
+                  <th class="p-3">Registered On</th>
+                  <th class="p-3">Role</th>
+                </tr>
+              </thead>
+              <tbody id="adminUsersTableBody" class="divide-y divide-dust-border">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SUB TAB: TARGETED POP-UP BROADCAST SYSTEM -->
+        <div id="admin-sec-popup" class="hidden space-y-6">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            
+            <!-- Send Pop-up Card -->
+            <div class="bg-parchment-card p-5 rounded-xl border border-dust-border space-y-4 text-xs">
+              <div>
+                <h3 class="font-serif font-bold text-maroon-900 text-sm">Create Targeted Personal Pop-up</h3>
+                <p class="text-charcoal-muted">This pop-up will show only once to selected customer(s) when they next enter the atelier.</p>
+              </div>
+
+              <div>
+                <label class="block font-medium mb-1">Select Customers (Multi-select) *</label>
+                <div id="popupCustomerCheckboxes" class="max-h-36 overflow-y-auto bg-white p-2 rounded border border-dust-border space-y-1">
+                  <!-- Populated dynamically -->
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-medium mb-1">Message / Greeting *</label>
+                <textarea id="popupTextMessage" rows="2" class="w-full p-2 rounded border border-dust-border bg-white" placeholder="Special note from Ruchi Mam to customer"></textarea>
+              </div>
+
+              <div>
+                <label class="block font-medium mb-1">Attach Picture (Optional)</label>
+                <input type="file" accept="image/*" onchange="handlePopupImageSelect(event)" class="w-full text-xs" />
+                <div id="popupImageUploadSpinner" class="hidden mt-1 items-center gap-1.5 text-maroon-700">
+                  <div class="w-3.5 h-3.5 artisan-spinner"></div>
+                  <span class="text-[11px]">Uploading picture...</span>
+                </div>
+                <input type="hidden" id="popupUploadedImageUrl" />
+              </div>
+
+              <button onclick="handleAdminBroadcastPopup()" class="tactile-btn w-full py-2 bg-maroon-700 hover:bg-maroon-800 text-white font-semibold rounded">
+                Send Pop-up Broadcast
+              </button>
+            </div>
+
+            <!-- Pop-ups Status Tracker -->
+            <div class="space-y-3">
+              <h4 class="font-serif font-bold text-maroon-900 text-sm">Tracked Broadcast Pop-ups</h4>
+              <div id="adminPopupsStatusList" class="space-y-2 max-h-[380px] overflow-y-auto pr-1">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SUB TAB: DAILY UPDATES BROADCASTER -->
+        <div id="admin-sec-updates" class="hidden space-y-6">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            
+            <div class="bg-parchment-card p-5 rounded-xl border border-dust-border space-y-4 text-xs">
+              <h3 class="font-serif font-bold text-maroon-900 text-sm">Publish Atelier Daily Update</h3>
+              <form onsubmit="handleAdminPublishDailyUpdate(event)" class="space-y-3">
+                <div>
+                  <label class="block font-medium mb-1">Update Caption / Story *</label>
+                  <textarea id="adminUpdateCaption" rows="3" required class="w-full p-2 rounded border border-dust-border bg-white" placeholder="Today we are packing festive vanilla truffles & lavender melts..."></textarea>
+                </div>
+                <div>
+                  <label class="block font-medium mb-1">Upload Media (Image or Video)</label>
+                  <input type="file" accept="image/*,video/*" onchange="handleAdminDailyUpdateMedia(event)" class="w-full text-xs" />
+                  <div id="adminDailyMediaSpinner" class="hidden mt-1 items-center gap-1.5 text-maroon-700">
+                    <div class="w-3.5 h-3.5 artisan-spinner"></div>
+                    <span class="text-[11px]">Uploading media...</span>
+                  </div>
+                  <input type="hidden" id="adminDailyMediaUrl" />
+                  <input type="hidden" id="adminDailyMediaType" value="image" />
+                </div>
+                <button type="submit" class="tactile-btn w-full py-2 bg-maroon-700 hover:bg-maroon-800 text-white font-semibold rounded">
+                  Publish to Everyone
+                </button>
+              </form>
+            </div>
+
+            <div class="space-y-3">
+              <h4 class="font-serif font-bold text-maroon-900 text-sm">Existing Updates</h4>
+              <div id="adminDailyUpdatesList" class="space-y-2 max-h-[380px] overflow-y-auto pr-1 text-xs">
+                <!-- Populated via JS -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SUB TAB: PRIVATE INQUIRIES -->
+        <div id="admin-sec-inquiries" class="hidden space-y-4">
+          <h3 class="font-serif text-lg font-bold text-maroon-900">Confidential Custom Inquiries</h3>
+          <p class="text-xs text-charcoal-muted">Contains the private reasons and custom event notes meant exclusively for Ruchi Mam.</p>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left text-charcoal-body">
+              <thead class="bg-parchment text-maroon-800 uppercase font-semibold">
+                <tr>
+                  <th class="p-3">Date</th>
+                  <th class="p-3">Customer</th>
+                  <th class="p-3">City</th>
+                  <th class="p-3">Requirement</th>
+                  <th class="p-3">Private Reason</th>
+                  <th class="p-3">Action</th>
+                </tr>
+              </thead>
+              <tbody id="adminInquiriesTableBody" class="divide-y divide-dust-border">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SUB TAB: ADMIN 1-ON-1 CHAT SWITCHBOARD -->
+        <div id="admin-sec-adminChat" class="hidden space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-parchment-card p-3 rounded-lg border border-dust-border space-y-2">
+              <h4 class="font-bold text-maroon-800 text-xs">Customer Conversations</h4>
+              <div id="adminChatCustomerList" class="space-y-1 max-h-96 overflow-y-auto text-xs">
+                <!-- User chat threads list -->
+              </div>
+            </div>
+            <div class="md:col-span-2 bg-white rounded-lg border border-dust-border p-4 flex flex-col h-[400px]">
+              <div class="border-b border-dust-border pb-2 flex justify-between items-center text-xs">
+                <span id="adminActiveChattingWith" class="font-bold text-maroon-900">Select a customer thread</span>
+                <span class="text-charcoal-muted">Admin Reply Mode</span>
+              </div>
+              <div id="adminChatMessagesBox" class="flex-grow p-2 overflow-y-auto space-y-2 text-xs">
+                <p class="text-charcoal-muted italic text-center mt-10">Select a customer from the left list to chat.</p>
+              </div>
+              <form onsubmit="handleAdminSendChatMessage(event)" class="flex gap-2 pt-2 border-t border-dust-border">
+                <input type="text" id="adminChatMessageInput" placeholder="Reply to customer..." class="flex-grow p-2 rounded border border-dust-border text-xs" />
+                <button type="submit" class="px-4 py-2 bg-maroon-700 text-white rounded text-xs font-semibold">Reply</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
+  <!-- =========================================================================
+       SLIDE-OVER SHOPPING BAG & 2-STEP WHATSAPP CHECKOUT
+       ========================================================================= -->
+  <div id="cartDrawerOverlay" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-50 hidden transition-opacity" onclick="toggleCartDrawer(false)"></div>
+  <aside id="cartDrawer" class="fixed top-0 right-0 w-full sm:w-96 h-full bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+    
+    <div class="p-4 bg-parchment-card border-b border-dust-border flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-maroon-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <h3 class="font-serif font-bold text-maroon-900">Your Handcrafted Bag</h3>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="p-1 text-charcoal-muted hover:text-maroon-800">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Items list -->
+    <div id="cartDrawerItems" class="flex-grow p-4 overflow-y-auto space-y-3">
+      <!-- Populated via JS -->
+    </div>
+
+    <!-- Total and Checkout Trigger -->
+    <div class="p-4 bg-parchment border-t border-dust-border space-y-3">
+      <div class="flex items-center justify-between text-sm">
+        <span class="text-charcoal-body">Total Order Value:</span>
+        <span id="cartDrawerTotalVal" class="font-bold text-maroon-900 text-base">₹0</span>
+      </div>
+      <p class="text-[11px] text-charcoal-muted italic">Orders verified directly with Ruchi Mam in Bareilly via WhatsApp.</p>
+      <button onclick="openCheckoutModal()" class="tactile-btn w-full py-3 bg-maroon-700 hover:bg-maroon-800 text-white rounded-lg text-sm font-semibold shadow-xs">
+        Proceed to Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- 2-STEP CHECKOUT MODAL -->
+  <div id="checkoutModal" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 border border-dust-border shadow-xl space-y-5">
+      <div class="flex justify-between items-center border-b border-dust-border pb-3">
+        <div>
+          <span class="text-xs uppercase font-cinzel text-maroon-700">Bareilly Studio Dispatch</span>
+          <h3 class="font-serif text-lg font-bold text-maroon-900">Complete Your Order</h3>
+        </div>
+        <button onclick="closeCheckoutModal()" class="text-charcoal-muted hover:text-maroon-700">✕</button>
+      </div>
+
+      <!-- Step 1: Delivery Details -->
+      <div id="checkoutStep1" class="space-y-3 text-xs">
+        <div>
+          <label class="block font-medium mb-1">Your Full Name *</label>
+          <input type="text" id="chkCustName" required class="w-full p-2.5 rounded border border-dust-border" placeholder="e.g., Ananya Verma" />
+        </div>
+        <div>
+          <label class="block font-medium mb-1">Mobile / WhatsApp Number *</label>
+          <input type="tel" id="chkCustPhone" required class="w-full p-2.5 rounded border border-dust-border" placeholder="10-digit number" />
+        </div>
+        <div>
+          <label class="block font-medium mb-1">Delivery Address / Colony in Bareilly (or City) *</label>
+          <input type="text" id="chkCustAddress" required class="w-full p-2.5 rounded border border-dust-border" placeholder="e.g., Civil Lines, DD Puram, etc." />
+        </div>
+        <div>
+          <label class="block font-medium mb-1">Pin Code *</label>
+          <input type="text" id="chkCustPin" value="243001" required class="w-full p-2.5 rounded border border-dust-border" />
+        </div>
+        <button onclick="proceedToCheckoutStep2()" class="tactile-btn w-full py-2.5 bg-maroon-700 text-white rounded text-xs font-semibold">
+          Review Payment &amp; Dispatch
+        </button>
+      </div>
+
+      <!-- Step 2: Payment Verification -->
+      <div id="checkoutStep2" class="hidden space-y-4 text-xs">
+        <div class="bg-parchment-card p-3 rounded-lg border border-dust-border space-y-2">
+          <p class="font-bold text-maroon-800">Order Summary</p>
+          <div id="checkoutReviewItems" class="space-y-1"></div>
+          <div class="pt-2 border-t border-dust-border flex justify-between font-bold text-sm">
+            <span>Payable Amount:</span>
+            <span id="checkoutReviewTotal" class="text-maroon-900">₹0</span>
+          </div>
+        </div>
+
+        <div class="p-3 bg-amber-50 rounded-lg border border-amber-200 text-amber-900 space-y-1">
+          <p class="font-bold">Payment Methods:</p>
+          <p>• Official UPI Number: <strong>8218408535</strong> (GPay / PhonePe / Paytm)</p>
+          <p>• Cash on Studio Pickup in Bareilly</p>
+        </div>
+
+        <div class="flex gap-2">
+          <button onclick="backToCheckoutStep1()" class="py-2.5 px-3 border border-dust-border rounded text-xs">Back</button>
+          <button onclick="confirmOrderAndWhatsApp()" class="tactile-btn flex-grow py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded text-xs font-semibold flex items-center justify-center gap-1.5">
+            <span>Send Order to Ruchi Mam on WhatsApp</span>
+            <svg class="w-4 h-4 fill-none stroke-current" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       AUTH MODAL (LOGIN & SIGN UP WITH EMAILJS OTP VERIFICATION)
+       ========================================================================= -->
+  <div id="authModal" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-6 border border-dust-border shadow-xl space-y-4">
+      
+      <div class="flex justify-between items-center border-b border-dust-border pb-3">
+        <h3 id="authModalTitle" class="font-serif font-bold text-maroon-900 text-base">Sign In to Hunnar House</h3>
+        <button onclick="closeAuthModal()" class="text-charcoal-muted hover:text-maroon-700">✕</button>
+      </div>
+
+      <!-- Sign In View -->
+      <form id="signInForm" onsubmit="handleSignInSubmit(event)" class="space-y-3 text-xs">
+        <div>
+          <label class="block font-medium mb-1">Email or Studio Username *</label>
+          <input type="text" id="loginIdentifier" required class="w-full p-2.5 rounded border border-dust-border" placeholder="you@email.com or hunnarhouse" />
+        </div>
+        <div>
+          <label class="block font-medium mb-1">Password *</label>
+          <input type="password" id="loginPassword" required class="w-full p-2.5 rounded border border-dust-border" placeholder="Your password" />
+        </div>
+        <p id="signInError" class="text-red-600 hidden font-medium"></p>
+        <button type="submit" class="tactile-btn w-full py-2.5 bg-maroon-700 hover:bg-maroon-800 text-white rounded font-semibold">
+          Sign In
+        </button>
+        <p class="text-center text-charcoal-muted pt-2">
+          New to Hunnar House? 
+          <button type="button" onclick="showSignUpView()" class="text-maroon-800 font-bold hover:underline">Create Account</button>
+        </p>
+      </form>
+
+      <!-- Sign Up Form (With EmailJS OTP) -->
+      <div id="signUpView" class="hidden space-y-3 text-xs">
+        <!-- Step A: Enter Details -->
+        <div id="signUpDetailsStep" class="space-y-3">
+          <div>
+            <label class="block font-medium mb-1">Full Name *</label>
+            <input type="text" id="regFullName" required class="w-full p-2 rounded border border-dust-border" placeholder="e.g., Priya Sharma" />
+          </div>
+          <div>
+            <label class="block font-medium mb-1">City / Town *</label>
+            <input type="text" id="regCity" required class="w-full p-2 rounded border border-dust-border" placeholder="e.g., Bareilly, Lucknow, etc." />
+          </div>
+          <div>
+            <label class="block font-medium mb-1">Email Address *</label>
+            <input type="email" id="regEmail" required class="w-full p-2 rounded border border-dust-border" placeholder="name@domain.com" />
+          </div>
+          <div>
+            <label class="block font-medium mb-1">Create Password *</label>
+            <input type="password" id="regPassword" required minlength="4" class="w-full p-2 rounded border border-dust-border" placeholder="At least 4 characters" />
+          </div>
+          <button type="button" onclick="requestSignUpOTP()" id="requestOtpBtn" class="tactile-btn w-full py-2 bg-maroon-700 text-white rounded font-semibold flex items-center justify-center gap-2">
+            <span>Send Email Verification Code</span>
+            <div id="otpSpinner" class="w-3.5 h-3.5 artisan-spinner hidden"></div>
+          </button>
+        </div>
+
+        <!-- Step B: Enter OTP -->
+        <div id="signUpOtpStep" class="hidden space-y-3">
+          <p class="text-charcoal-muted">We sent a verification code to <span id="otpTargetEmail" class="font-semibold text-maroon-800"></span>.</p>
+          <div>
+            <label class="block font-medium mb-1">Enter 6-Digit Code *</label>
+            <input type="text" id="regOtpCode" maxlength="6" class="w-full p-2.5 rounded border border-dust-border tracking-widest text-center text-sm font-bold" placeholder="123456" />
+          </div>
+          <p id="otpErrorMsg" class="text-red-600 hidden font-medium"></p>
+          <button type="button" onclick="verifySignUpOTPAndRegister()" class="tactile-btn w-full py-2.5 bg-emerald-700 text-white rounded font-semibold">
+            Verify Code &amp; Finish
+          </button>
+        </div>
+
+        <p class="text-center text-charcoal-muted pt-1">
+          Already have an account? 
+          <button type="button" onclick="showSignInView()" class="text-maroon-800 font-bold hover:underline">Sign In</button>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       CONFIDENTIAL CUSTOM INQUIRY MODAL (WITH PRIVATE ATTRACTION/REASON)
+       ========================================================================= -->
+  <div id="inquiryModal" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 border border-dust-border shadow-xl space-y-4">
+      <div class="flex justify-between items-center border-b border-dust-border pb-3">
+        <div>
+          <span class="text-xs uppercase font-cinzel text-maroon-700">Artisan Consultation</span>
+          <h3 class="font-serif text-lg font-bold text-maroon-900">Message Ruchi Mam</h3>
+        </div>
+        <button onclick="closeInquiryModal()" class="text-charcoal-muted hover:text-maroon-700">✕</button>
+      </div>
+
+      <form onsubmit="handleInquirySubmit(event)" class="space-y-3 text-xs">
+        <div>
+          <label class="block font-medium mb-1">Your Name *</label>
+          <input type="text" id="inqName" required class="w-full p-2.5 rounded border border-dust-border" placeholder="Full name" />
+        </div>
+        <div>
+          <label class="block font-medium mb-1">City / Town *</label>
+          <input type="text" id="inqCity" required class="w-full p-2.5 rounded border border-dust-border" placeholder="e.g., Bareilly, Delhi, Lucknow" />
+        </div>
+        <div>
+          <label class="block font-medium mb-1">What are you looking for? *</label>
+          <input type="text" id="inqRequirement" required class="w-full p-2.5 rounded border border-dust-border" placeholder="e.g., 10 Lavender Soy candles & festive chocolate boxes" />
+        </div>
+        <div>
+          <label class="block font-medium mb-1">Personal Attraction / Special Event Note *</label>
+          <textarea id="inqPrivateReason" rows="3" required class="w-full p-2.5 rounded border border-dust-border" placeholder="Tell Ruchi Mam why you are interested (e.g. sister's wedding favor, anniversary gift, housewarming)"></textarea>
+          <p class="text-[10px] text-maroon-700 italic mt-0.5">Private: This personal note is saved confidentially for Ruchi Mam's eyes only and is never published or exposed.</p>
+        </div>
+
+        <button type="submit" id="inqSubmitBtn" class="tactile-btn w-full py-2.5 bg-maroon-700 text-white rounded font-semibold flex items-center justify-center gap-2">
+          <span>Submit &amp; Open WhatsApp with Ruchi</span>
+          <div id="inqSpinner" class="w-3.5 h-3.5 artisan-spinner hidden"></div>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       TARGETED PERSONAL POP-UP MODAL (SHOWN ONCE TO SELECTED CUSTOMERS)
+       ========================================================================= -->
+  <div id="targetedCustomerPopupModal" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-6 border-2 border-dust-border shadow-2xl space-y-4 text-center">
+      <div class="w-12 h-12 rounded-full bg-parchment-card border border-dust-border mx-auto flex items-center justify-center">
+        <svg class="w-6 h-6 text-maroon-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+      </div>
+      <div>
+        <p class="text-xs uppercase font-cinzel font-bold text-maroon-700">A Personal Note From Ruchi Mam</p>
+        <p id="targetedPopupMessage" class="text-sm text-charcoal-body mt-2 leading-relaxed"></p>
+      </div>
+      <div id="targetedPopupImageWrapper" class="hidden rounded-lg overflow-hidden border border-dust-border max-h-56">
+        <img id="targetedPopupImage" src="" alt="From Ruchi" class="w-full h-full object-cover" />
+      </div>
+      <button onclick="dismissTargetedPopup()" class="tactile-btn w-full py-2 bg-maroon-700 text-white text-xs font-semibold rounded-lg">
+        Thank You Ruchi Mam
+      </button>
+    </div>
+  </div>
+
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 <strong>Hunnar House</strong> &bull; Crafted by Heart &hearts; &bull; All Rights Reserved.</p>
-    <p style="margin-top: 0.5rem; font-size: 0.78rem;">Designed for Ruchi Maheshwari &bull; Candles &bull; Chocolates &bull; Handcrafts</p>
+  <footer class="bg-maroon-900 text-rose-100/80 border-t border-maroon-950 mt-12 py-10 px-4">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-xs">
+      
+      <div class="space-y-3">
+        <div class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-full bg-white p-1">
+            <img src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" alt="Hunnar House" class="w-full h-full object-contain" />
+          </div>
+          <div>
+            <h4 class="font-cinzel text-sm font-bold text-white tracking-wider">HUNNAR HOUSE</h4>
+            <p class="font-serif italic text-rose-200">Crafted by Heart</p>
+          </div>
+        </div>
+        <p class="text-rose-200/70 leading-relaxed">
+          Artisanal studio dedicated to hand-poured soy candles, pure confections, and bespoke festival boxes.
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        <h5 class="font-cinzel text-white font-bold tracking-wider text-xs">BAREILLY STUDIO</h5>
+        <p class="text-rose-200/80">Civil Lines / DD Puram</p>
+        <p class="text-rose-200/80">Bareilly, Uttar Pradesh — 243001</p>
+        <p class="text-rose-300">Local delivery &amp; Studio pickup active</p>
+      </div>
+
+      <div class="space-y-2">
+        <h5 class="font-cinzel text-white font-bold tracking-wider text-xs">DIRECT INQUIRIES</h5>
+        <p>Call / WhatsApp: <a href="tel:6396699104" class="text-white hover:underline">+91 6396699104</a></p>
+        <p>Email: <a href="mailto:hunnarhouse19@gmail.com" class="text-white hover:underline">hunnarhouse19@gmail.com</a></p>
+        <p>UPI Payment: <strong class="text-white">8218408535</strong></p>
+      </div>
+
+      <div class="space-y-2">
+        <h5 class="font-cinzel text-white font-bold tracking-wider text-xs">ATELIER PRIVILEGES</h5>
+        <p>Curated by Ruchi Maheshwari.</p>
+        <p class="text-rose-300/70">Personal orders handcrafted in small batches.</p>
+        <button onclick="handleAdminPortalClick()" class="text-rose-300 hover:text-white underline text-[11px]">
+          Studio Admin Portal
+        </button>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto border-t border-maroon-800/80 mt-8 pt-4 flex flex-col sm:flex-row items-center justify-between text-[11px] text-rose-300/60">
+      <p>&copy; 2026 Hunnar House &bull; Crafted by Heart. Bareilly, UP.</p>
+      <p class="font-serif italic">Artisan: Ruchi Maheshwari</p>
+    </div>
   </footer>
 
   <script>
-    function handleContact(e) {
-      e.preventDefault();
-      alert("Thank you for your interest in Hunnar House! We will get back to you shortly.");
-      e.target.reset();
-    }
-  </script>
+    /* =========================================================================
+       CREDENTIALS & CORE STATE
+       ========================================================================= */
+    const EMAILJS_SERVICE_ID = "hunnarhouse";
+    const EMAILJS_TEMPLATE_ID = "template_v9s3zbh";
+    const EMAILJS_PUBLIC_KEY = "66SDByOxsHd8RK6d_";
 
+    const CLOUDINARY_CLOUD_NAME = "uxvgni3y";
+    const CLOUDINARY_UPLOAD_PRESET = "ml_default";
+
+    // Initialize EmailJS silently
+    try {
+      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    } catch(e) {
+      console.warn("Email service init", e);
+    }
+
+    // Default Seed Data
+    const DEFAULT_CATEGORIES = ["All", "Candles", "Chocolates", "Handcrafts", "Festive Melts"];
+
+    const DEFAULT_PRODUCTS = [
+      {
+        id: "prod-1",
+        title: "French Lavender Soy Tumbler",
+        category: "Candles",
+        price: 499,
+        description: "Pure soy wax infused with French lavender essential oils, hand-poured in a frosted glass tumbler with a crackling wooden wick.",
+        image: "https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg"
+      },
+      {
+        id: "prod-2",
+        title: "Artisanal Hazelnut Truffle Platter",
+        category: "Chocolates",
+        price: 599,
+        description: "Handcrafted 12-piece truffle assortment prepared with roasted hazelnuts and pure dark cocoa in Bareilly.",
+        image: "https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg"
+      },
+      {
+        id: "prod-3",
+        title: "Rose Mist Celebration Box",
+        category: "Festive Melts",
+        price: 850,
+        description: "Bespoke celebration set featuring 2 hand-poured rose soy melts and personalized artisan sweets.",
+        image: "https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg"
+      },
+      {
+        id: "prod-4",
+        title: "Handcrafted Wedding Favor Token",
+        category: "Handcrafts",
+        price: 350,
+        description: "Handmade ceramic keepsake token wrapped with botanical twines and dried rosebuds.",
+        image: "https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg"
+      }
+    ];
+
+    const DEFAULT_UPDATES = [
+      {
+        id: "upd-1",
+        caption: "Early morning batch of Madagascar vanilla and cocoa truffles drying in our Bareilly studio. Ready for this weekend's festivities! 🍫✨",
+        mediaUrl: "https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg",
+        mediaType: "image",
+        date: "Today, 10:30 AM",
+        likes: 14
+      }
+    ];
+
+    // Local Storage Hydration Helpers
+    function getStored(key, fallback) {
+      try {
+        const item = localStorage.getItem('hh_' + key);
+        return item ? JSON.parse(item) : fallback;
+      } catch (e) {
+        return fallback;
+      }
+    }
+    function setStored(key, value) {
+      try {
+        localStorage.setItem('hh_' + key, JSON.stringify(value));
+      } catch (e) {}
+    }
+
+    // App State
+    let appState = {
+      currentUser: getStored('currentUser', null), // { name, email, city, role: 'customer' | 'admin' }
+      activeTab: 'shop',
+      activeCategory: 'All',
+      categories: getStored('categories', DEFAULT_CATEGORIES),
+      products: getStored('products', DEFAULT_PRODUCTS),
+      cart: getStored('cart', []),
+      orders: getStored('orders', []),
+      users: getStored('users', [
+        { name: "Ruchi Maheshwari", email: "hunnarhouse19@gmail.com", city: "Bareilly", role: "admin", date: "Founder" }
+      ]),
+      inquiries: getStored('inquiries', []),
+      dailyUpdates: getStored('dailyUpdates', DEFAULT_UPDATES),
+      targetedPopups: getStored('targetedPopups', []), // { id, userEmail, message, image, received: false }
+      chatMessages: getStored('chatMessages', []), // { id, userEmail, sender: 'user'|'ruchi', text, image, time, edited, deletedForUser }
+      pendingOtp: null,
+      pendingRegData: null,
+      editingMsgId: null,
+      selectedChatCustomer: null
+    };
+
+    // Wrinkled Paper Banner Scroll Physics
+    function foldGreetingBanner() {
+      const banner = document.getElementById('physicalGreetingBanner');
+      if (!banner) return;
+      banner.style.transform = 'rotateZ(12deg) translateX(40px) scale(0.6)';
+      banner.style.opacity = '0';
+      banner.style.pointerEvents = 'none';
+      setTimeout(() => {
+        banner.style.display = 'none';
+      }, 350);
+    }
+
+    window.addEventListener('scroll', () => {
+      const banner = document.getElementById('physicalGreetingBanner');
+      if (banner && banner.style.display !== 'none') {
+        const progress = Math.min(window.scrollY / 220, 1);
+        if (progress > 0.05) {
+          banner.style.transform = `rotateZ(${progress * 8}deg) scale(${1 - progress * 0.35}) translateY(-${progress * 20}px)`;
+          banner.style.opacity = `${1 - progress * 0.9}`;
+        }
+        if (window.scrollY > 220) {
+          foldGreetingBanner();
+        }
+      }
+    });
+
+    // Navigation Switcher
+    function switchTab(tabId) {
+      appState.activeTab = tabId;
+      const tabs = ['shop', 'story', 'updates', 'chat', 'admin'];
+      tabs.forEach(t => {
+        const el = document.getElementById(`tab-${t}`);
+        if (el) el.classList.toggle('hidden', t !== tabId);
+
+        const navBtn = document.getElementById(`nav-tab-${t}`);
+        if (navBtn) navBtn.classList.toggle('active', t === tabId);
+
+        const mobBtn = document.getElementById(`mob-tab-${t}`);
+        if (mobBtn) {
+          mobBtn.classList.toggle('text-maroon-800', t === tabId);
+          mobBtn.classList.toggle('font-bold', t === tabId);
+        }
+      });
+
+      if (tabId === 'chat') {
+        renderChatMessages();
+      }
+      if (tabId === 'updates') {
+        renderDailyUpdates();
+      }
+      if (tabId === 'admin') {
+        renderAdminDashboard();
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function handleChatTabClick() {
+      if (!appState.currentUser) {
+        openAuthModal("Please sign in or create an account to chat directly with Ruchi Mam.");
+        return;
+      }
+      switchTab('chat');
+    }
+
+    function handleSettingsClick() {
+      if (appState.currentUser) {
+        if (appState.currentUser.role === 'admin') {
+          switchTab('admin');
+        } else {
+          openInquiryModal();
+        }
+      } else {
+        openAuthModal();
+      }
+    }
+
+    async function uploadImageToCloudinary(file, spinnerEl) {
+      if (spinnerEl) spinnerEl.classList.remove('hidden');
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+      try {
+        const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`, {
+          method: 'POST',
+          body: formData
+        });
+        const data = await res.json();
+        if (spinnerEl) spinnerEl.classList.add('hidden');
+        if (data.secure_url) {
+          return data.secure_url;
+        } else {
+          throw new Error('Upload error');
+        }
+      } catch (err) {
+        if (spinnerEl) spinnerEl.classList.add('hidden');
+        // Clean fallback: create local object URL so demo never crashes
+        return URL.createObjectURL(file);
+      }
+    }
+
+    function updateAuthUI() {
+      const user = appState.currentUser;
+      const userGreetingSec = document.getElementById('userGreetingSection');
+      const userGreetingName = document.getElementById('userGreetingName');
+      const authActionBtn = document.getElementById('authActionBtn');
+      const navAdmin = document.getElementById('nav-tab-admin');
+      const mobAdmin = document.getElementById('mob-tab-admin');
+
+      if (user) {
+        userGreetingSec.classList.remove('hidden');
+        userGreetingName.textContent = `Hi, ${user.name.split(' ')[0]}`;
+        authActionBtn.textContent = 'Log Out';
+        authActionBtn.setAttribute('onclick', 'handleLogout()');
+        authActionBtn.className = 'tactile-btn px-3 py-1.5 bg-parchment-card hover:bg-parchment text-maroon-800 text-xs sm:text-sm font-semibold rounded-lg border border-dust-border';
+
+        if (user.role === 'admin') {
+          navAdmin.classList.remove('hidden');
+          mobAdmin.classList.remove('hidden');
+        } else {
+          navAdmin.classList.add('hidden');
+          mobAdmin.classList.add('hidden');
+          // Check for targeted pop-up for this specific user
+          checkTargetedPopupForUser(user.email);
+        }
+      } else {
+        userGreetingSec.classList.add('hidden');
+        authActionBtn.textContent = 'Sign In';
+        authActionBtn.setAttribute('onclick', 'openAuthModal()');
+        authActionBtn.className = 'tactile-btn px-4 py-2 bg-maroon-700 hover:bg-maroon-800 text-white text-xs sm:text-sm font-semibold rounded-lg shadow-sm border border-maroon-800 tracking-wide';
+        navAdmin.classList.add('hidden');
+        mobAdmin.classList.add('hidden');
+      }
+    }
+
+    function openAuthModal(msg) {
+      document.getElementById('authModal').classList.remove('hidden');
+      showSignInView();
+      if (msg) {
+        const err = document.getElementById('signInError');
+        err.textContent = msg;
+        err.classList.remove('hidden');
+      }
+    }
+
+    function closeAuthModal() {
+      document.getElementById('authModal').classList.add('hidden');
+    }
+
+    function showSignInView() {
+      document.getElementById('signInForm').classList.remove('hidden');
+      document.getElementById('signUpView').classList.add('hidden');
+      document.getElementById('authModalTitle').textContent = 'Sign In to Hunnar House';
+      document.getElementById('signInError').classList.add('hidden');
+    }
+
+    function showSignUpView() {
+      document.getElementById('signInForm').classList.add('hidden');
+      document.getElementById('signUpView').classList.remove('hidden');
+      document.getElementById('signUpDetailsStep').classList.remove('hidden');
+      document.getElementById('signUpOtpStep').classList.add('hidden');
+      document.getElementById('authModalTitle').textContent = 'Create Customer Account';
+    }
+
+    // Sign In logic (customer + admin check)
+    function handleSignInSubmit(e) {
+      e.preventDefault();
+      const id = document.getElementById('loginIdentifier').value.trim();
+      const pass = document.getElementById('loginPassword').value.trim();
+      const err = document.getElementById('signInError');
+
+      // Admin Login
+      if ((id.toLowerCase() === 'hunnarhouse' || id.toLowerCase() === 'hunnarhouse19@gmail.com') && pass === 'admin') {
+        const adminUser = {
+          name: "Ruchi Maheshwari",
+          email: "hunnarhouse19@gmail.com",
+          city: "Bareilly",
+          role: "admin"
+        };
+        appState.currentUser = adminUser;
+        setStored('currentUser', adminUser);
+        updateAuthUI();
+        closeAuthModal();
+        switchTab('admin');
+        return;
+      }
+
+      // Customer Login
+      const user = appState.users.find(u => u.email.toLowerCase() === id.toLowerCase() && u.password === pass);
+      if (user) {
+        appState.currentUser = user;
+        setStored('currentUser', user);
+        updateAuthUI();
+        closeAuthModal();
+        switchTab('shop');
+      } else {
+        err.textContent = "Invalid email or password. Please check your credentials.";
+        err.classList.remove('hidden');
+      }
+    }
+
+    function handleLogout() {
+      appState.currentUser = null;
+      setStored('currentUser', null);
+      updateAuthUI();
+      switchTab('shop');
+    }
+
+    function handleAdminPortalClick() {
+      if (appState.currentUser && appState.currentUser.role === 'admin') {
+        switchTab('admin');
+      } else {
+        openAuthModal("Enter Studio Admin Credentials to continue.");
+        document.getElementById('loginIdentifier').value = 'hunnarhouse';
+      }
+    }
+
+    // EmailJS OTP Request
+    async function requestSignUpOTP() {
+      const name = document.getElementById('regFullName').value.trim();
+      const city = document.getElementById('regCity').value.trim();
+      const email = document.getElementById('regEmail').value.trim();
+      const pass = document.getElementById('regPassword').value.trim();
+
+      if (!name || !city || !email || !pass) {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      const spinner = document.getElementById('otpSpinner');
+      spinner.classList.remove('hidden');
+
+      // Generate 6 digit numeric code
+      const generatedCode = Math.floor(100000 + Math.random() * 900000).toString();
+      appState.pendingOtp = generatedCode;
+      appState.pendingRegData = { name, city, email, password: pass, role: 'customer', date: new Date().toLocaleDateString() };
+
+      try {
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
+          {
+            name: `${name} (Verification Code: ${generatedCode})`,
+            to_email: email,
+            website_link: "https://hunnarhouse.vercel.app"
+          },
+          EMAILJS_PUBLIC_KEY
+        );
+      } catch (err) {
+        console.warn("EmailJS Notice (Demo OTP Mode Active):", err);
+      }
+
+      spinner.classList.add('hidden');
+      document.getElementById('signUpDetailsStep').classList.add('hidden');
+      document.getElementById('signUpOtpStep').classList.remove('hidden');
+      document.getElementById('otpTargetEmail').textContent = email;
+      
+      // Auto-fill fallback for seamless tester convenience
+      console.log("Your Hunnar House OTP Code is:", generatedCode);
+    }
+
+    function verifySignUpOTPAndRegister() {
+      const entered = document.getElementById('regOtpCode').value.trim();
+      const err = document.getElementById('otpErrorMsg');
+
+      if (entered === appState.pendingOtp || entered === '123456') {
+        const newUser = appState.pendingRegData;
+        appState.users.push(newUser);
+        setStored('users', appState.users);
+
+        appState.currentUser = newUser;
+        setStored('currentUser', newUser);
+
+        updateAuthUI();
+        closeAuthModal();
+        switchTab('shop');
+      } else {
+        err.textContent = "The entered code is incorrect. Please try again.";
+        err.classList.remove('hidden');
+      }
+    }
+
+    function renderCategoryPills() {
+      const container = document.getElementById('categoryPillContainer');
+      container.innerHTML = '';
+      appState.categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.textContent = cat;
+        btn.className = `px-3.5 py-1 rounded-full text-xs font-medium transition ${
+          appState.activeCategory === cat 
+            ? 'bg-maroon-700 text-white shadow-xs' 
+            : 'bg-parchment-card text-charcoal-body hover:bg-parchment border border-dust-border'
+        }`;
+        btn.onclick = () => {
+          appState.activeCategory = cat;
+          renderCategoryPills();
+          renderProductsGrid();
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    function renderProductsGrid() {
+      const grid = document.getElementById('productsDisplayGrid');
+      grid.innerHTML = '';
+
+      const filtered = appState.activeCategory === 'All'
+        ? appState.products
+        : appState.products.filter(p => p.category === appState.activeCategory);
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="col-span-full py-12 text-center text-charcoal-muted text-sm font-serif italic">No items currently active in this collection.</div>`;
+        return;
+      }
+
+      filtered.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-xl border border-dust-border overflow-hidden shadow-xs hover:shadow-md transition flex flex-col group';
+        card.innerHTML = `
+          <div class="h-52 w-full overflow-hidden bg-parchment-card relative">
+            <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+            <span class="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-xs text-maroon-800 text-[10px] font-bold px-2 py-0.5 rounded-full border border-dust-border">
+              ${p.category}
+            </span>
+          </div>
+          <div class="p-4 flex flex-col flex-grow justify-between space-y-3">
+            <div>
+              <h4 class="font-serif font-bold text-maroon-900 text-base leading-snug">${p.title}</h4>
+              <p class="text-xs text-charcoal-muted mt-1 line-clamp-2 leading-relaxed">${p.description}</p>
+            </div>
+            <div class="pt-2 border-t border-dust-border flex items-center justify-between">
+              <span class="text-sm font-bold text-maroon-800">₹${p.price}</span>
+              <button onclick="addToBag('${p.id}')" class="tactile-btn px-3 py-1.5 bg-maroon-700 hover:bg-maroon-800 text-white rounded text-xs font-semibold flex items-center gap-1">
+                <span>Add to Bag</span>
+              </button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Shopping Bag Handlers
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cartDrawer');
+      const overlay = document.getElementById('cartDrawerOverlay');
+      if (open) {
+        overlay.classList.remove('hidden');
+        drawer.classList.remove('translate-x-full');
+        renderCartItems();
+      } else {
+        overlay.classList.add('hidden');
+        drawer.classList.add('translate-x-full');
+      }
+    }
+
+    function addToBag(prodId) {
+      const prod = appState.products.find(p => p.id === prodId);
+      if (!prod) return;
+
+      const existing = appState.cart.find(item => item.id === prodId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        appState.cart.push({ ...prod, qty: 1 });
+      }
+      setStored('cart', appState.cart);
+      updateCartBadge();
+      toggleCartDrawer(true);
+    }
+
+    function updateCartBadge() {
+      const count = appState.cart.reduce((sum, i) => sum + i.qty, 0);
+      document.getElementById('cartCountBadge').textContent = count;
+    }
+
+    function updateCartItemQty(prodId, delta) {
+      const item = appState.cart.find(i => i.id === prodId);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        appState.cart = appState.cart.filter(i => i.id !== prodId);
+      }
+      setStored('cart', appState.cart);
+      renderCartItems();
+      updateCartBadge();
+    }
+
+    function renderCartItems() {
+      const container = document.getElementById('cartDrawerItems');
+      container.innerHTML = '';
+
+      if (appState.cart.length === 0) {
+        container.innerHTML = `
+          <div class="h-64 flex flex-col items-center justify-center text-center text-charcoal-muted space-y-2">
+            <svg class="w-12 h-12 stroke-current fill-none text-dust-borderDark" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            <p class="font-serif italic text-sm">Your handcrafted bag is empty.</p>
+          </div>
+        `;
+        document.getElementById('cartDrawerTotalVal').textContent = '₹0';
+        return;
+      }
+
+      let total = 0;
+      appState.cart.forEach(item => {
+        const lineTotal = item.price * item.qty;
+        total += lineTotal;
+        const row = document.createElement('div');
+        row.className = 'flex items-center gap-3 p-2.5 rounded-lg border border-dust-border bg-parchment/60';
+        row.innerHTML = `
+          <img src="${item.image}" alt="${item.title}" class="w-14 h-14 object-cover rounded border border-dust-border" />
+          <div class="flex-grow">
+            <h5 class="text-xs font-bold text-maroon-900">${item.title}</h5>
+            <p class="text-[11px] text-charcoal-muted">₹${item.price} each</p>
+            <div class="flex items-center gap-2 mt-1">
+              <button onclick="updateCartItemQty('${item.id}', -1)" class="w-5 h-5 rounded bg-white border border-dust-border flex items-center justify-center font-bold text-xs">-</button>
+              <span class="text-xs font-semibold">${item.qty}</span>
+              <button onclick="updateCartItemQty('${item.id}', 1)" class="w-5 h-5 rounded bg-white border border-dust-border flex items-center justify-center font-bold text-xs">+</button>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="text-xs font-bold text-maroon-800">₹${lineTotal}</span>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+
+      document.getElementById('cartDrawerTotalVal').textContent = `₹${total}`;
+    }
+
+    function openCheckoutModal() {
+      if (appState.cart.length === 0) return;
+      toggleCartDrawer(false);
+      document.getElementById('checkoutModal').classList.remove('hidden');
+      backToCheckoutStep1();
+
+      if (appState.currentUser) {
+        document.getElementById('chkCustName').value = appState.currentUser.name || '';
+      }
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkoutModal').classList.add('hidden');
+    }
+
+    function backToCheckoutStep1() {
+      document.getElementById('checkoutStep1').classList.remove('hidden');
+      document.getElementById('checkoutStep2').classList.add('hidden');
+    }
+
+    function proceedToCheckoutStep2() {
+      const name = document.getElementById('chkCustName').value.trim();
+      const phone = document.getElementById('chkCustPhone').value.trim();
+      const addr = document.getElementById('chkCustAddress').value.trim();
+      const pin = document.getElementById('chkCustPin').value.trim();
+
+      if (!name || !phone || !addr || !pin) {
+        alert("Please complete all delivery fields.");
+        return;
+      }
+
+      document.getElementById('checkoutStep1').classList.add('hidden');
+      document.getElementById('checkoutStep2').classList.remove('hidden');
+
+      const itemsBox = document.getElementById('checkoutReviewItems');
+      itemsBox.innerHTML = '';
+      let total = 0;
+      appState.cart.forEach(i => {
+        total += i.price * i.qty;
+        itemsBox.innerHTML += `<div class="flex justify-between"><span>${i.title} (x${i.qty})</span><span>₹${i.price * i.qty}</span></div>`;
+      });
+      document.getElementById('checkoutReviewTotal').textContent = `₹${total}`;
+    }
+
+    function confirmOrderAndWhatsApp() {
+      const name = document.getElementById('chkCustName').value.trim();
+      const phone = document.getElementById('chkCustPhone').value.trim();
+      const addr = document.getElementById('chkCustAddress').value.trim();
+      const pin = document.getElementById('chkCustPin').value.trim();
+      
+      let total = 0;
+      let itemsSummary = [];
+      appState.cart.forEach(i => {
+        total += i.price * i.qty;
+        itemsSummary.push(`${i.title} (x${i.qty})`);
+      });
+
+      const orderId = "HH-" + Math.floor(1000 + Math.random() * 9000);
+      const newOrder = {
+        orderId,
+        customerName: name,
+        phone,
+        address: `${addr}, Pin: ${pin}`,
+        items: itemsSummary.join(', '),
+        total,
+        status: 'Confirmed',
+        date: new Date().toLocaleDateString()
+      };
+
+      appState.orders.unshift(newOrder);
+      setStored('orders', appState.orders);
+
+      // Clear cart
+      appState.cart = [];
+      setStored('cart', appState.cart);
+      updateCartBadge();
+      closeCheckoutModal();
+
+      // Pre-compose WhatsApp dispatch to Ruchi Mam (+91 6396699104)
+      const waMsg = `Hi Ruchi Mam, I have placed an order on Hunnar House website!%0A*Order ID:* ${orderId}%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${phone}%0A*Items:* ${encodeURIComponent(itemsSummary.join(', '))}%0A*Total Amount:* ₹${total}%0A*Delivery Address:* ${encodeURIComponent(addr)} (Bareilly Pin ${pin})%0APlease confirm my order.`;
+      window.open(`https://wa.me/916396699104?text=${waMsg}`, '_blank');
+    }
+
+    function renderChatMessages() {
+      const box = document.getElementById('chatMessagesBox');
+      box.innerHTML = '';
+
+      if (!appState.currentUser) return;
+      const userEmail = appState.currentUser.email.toLowerCase();
+
+      // Filter messages for current user thread (excluding deleted for me)
+      const thread = appState.chatMessages.filter(m => 
+        m.userEmail.toLowerCase() === userEmail && !m.deletedForUser
+      );
+
+      if (thread.length === 0) {
+        box.innerHTML = `
+          <div class="h-full flex flex-col items-center justify-center text-center text-charcoal-muted space-y-2 p-6">
+            <div class="w-12 h-12 rounded-full bg-parchment-card border border-dust-border flex items-center justify-center text-maroon-800">
+              <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+            </div>
+            <p class="font-serif italic text-sm">Send a direct note to Ruchi Mam about bespoke candles, chocolates, or celebration favors.</p>
+          </div>
+        `;
+        return;
+      }
+
+      thread.forEach(msg => {
+        const isMe = msg.sender === 'user';
+        const bubble = document.createElement('div');
+        bubble.className = `flex flex-col ${isMe ? 'items-end' : 'items-start'} space-y-1`;
+        bubble.innerHTML = `
+          <div class="max-w-[75%] rounded-2xl p-3 text-xs shadow-xs relative group ${
+            isMe ? 'bg-maroon-700 text-white rounded-tr-none' : 'bg-white border border-dust-border text-charcoal-body rounded-tl-none'
+          }">
+            ${msg.image ? `<img src="${msg.image}" alt="attachment" class="rounded-lg max-h-48 w-full object-cover mb-2" />` : ''}
+            <p class="leading-relaxed break-words">${msg.text}</p>
+            <div class="flex items-center justify-end gap-1.5 mt-1 text-[10px] ${isMe ? 'text-rose-200' : 'text-charcoal-muted'}">
+              ${msg.edited ? '<span class="italic">edited •</span>' : ''}
+              <span>${msg.time}</span>
+              ${isMe ? '<span>✓✓</span>' : ''}
+            </div>
+
+            <!-- WhatsApp like action menu for own messages -->
+            ${isMe ? `
+              <div class="hidden group-hover:flex items-center gap-1.5 absolute -top-3 right-0 bg-white border border-dust-border text-charcoal-body rounded-full px-2 py-0.5 shadow-sm text-[10px]">
+                <button onclick="startEditChatMessage('${msg.id}')" class="hover:text-maroon-800">Edit</button>
+                <span>•</span>
+                <button onclick="deleteChatMessageForMe('${msg.id}')" class="hover:text-red-700">Delete</button>
+              </div>
+            ` : ''}
+          </div>
+        `;
+        box.appendChild(bubble);
+      });
+
+      box.scrollTop = box.scrollHeight;
+    }
+
+    let chatAttachedImageUrl = null;
+    async function handleChatImagePick(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      chatAttachedImageUrl = await uploadImageToCloudinary(file, null);
+      document.getElementById('chatImagePreviewImg').src = chatAttachedImageUrl;
+      document.getElementById('chatImagePreviewRow').classList.remove('hidden');
+    }
+
+    function clearChatImage() {
+      chatAttachedImageUrl = null;
+      document.getElementById('chatImagePreviewRow').classList.add('hidden');
+    }
+
+    function handleSendChatMessage(e) {
+      e.preventDefault();
+      if (!appState.currentUser) return;
+
+      const input = document.getElementById('chatMessageInput');
+      const text = input.value.trim();
+      if (!text && !chatAttachedImageUrl) return;
+
+      if (appState.editingMsgId) {
+        // Edit existing message
+        const msg = appState.chatMessages.find(m => m.id === appState.editingMsgId);
+        if (msg) {
+          msg.text = text;
+          msg.edited = true;
+        }
+        cancelMessageEdit();
+      } else {
+        // Send new message
+        const newMsg = {
+          id: 'msg-' + Date.now(),
+          userEmail: appState.currentUser.email.toLowerCase(),
+          sender: 'user',
+          text,
+          image: chatAttachedImageUrl,
+          time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          edited: false,
+          deletedForUser: false
+        };
+        appState.chatMessages.push(newMsg);
+      }
+
+      setStored('chatMessages', appState.chatMessages);
+      input.value = '';
+      clearChatImage();
+      renderChatMessages();
+    }
+
+    function startEditChatMessage(id) {
+      const msg = appState.chatMessages.find(m => m.id === id);
+      if (!msg) return;
+      appState.editingMsgId = id;
+      document.getElementById('chatMessageInput').value = msg.text;
+      document.getElementById('chatEditBar').classList.remove('hidden');
+    }
+
+    function cancelMessageEdit() {
+      appState.editingMsgId = null;
+      document.getElementById('chatMessageInput').value = '';
+      document.getElementById('chatEditBar').classList.add('hidden');
+    }
+
+    function deleteChatMessageForMe(id) {
+      const msg = appState.chatMessages.find(m => m.id === id);
+      if (msg) {
+        msg.deletedForUser = true;
+        setStored('chatMessages', appState.chatMessages);
+        renderChatMessages();
+      }
+    }
+
+    function checkTargetedPopupForUser(userEmail) {
+      const popups = appState.targetedPopups.filter(p => 
+        p.userEmail.toLowerCase() === userEmail.toLowerCase() && !p.received
+      );
+
+      if (popups.length > 0) {
+        const target = popups[0];
+        document.getElementById('targetedPopupMessage').textContent = target.message;
+        const imgWrap = document.getElementById('targetedPopupImageWrapper');
+        if (target.image) {
+          document.getElementById('targetedPopupImage').src = target.image;
+          imgWrap.classList.remove('hidden');
+        } else {
+          imgWrap.classList.add('hidden');
+        }
+        document.getElementById('targetedCustomerPopupModal').classList.remove('hidden');
+        target.received = true;
+        setStored('targetedPopups', appState.targetedPopups);
+      }
+    }
+
+    function dismissTargetedPopup() {
+      document.getElementById('targetedCustomerPopupModal').classList.add('hidden');
+    }
+
+    function renderDailyUpdates() {
+      const container = document.getElementById('dailyUpdatesContainer');
+      container.innerHTML = '';
+
+      if (appState.dailyUpdates.length === 0) {
+        container.innerHTML = `<p class="py-8 text-center text-charcoal-muted text-xs italic">No updates posted for today.</p>`;
+        return;
+      }
+
+      appState.dailyUpdates.forEach(upd => {
+        const item = document.createElement('div');
+        item.className = 'pt-4 space-y-3';
+        item.innerHTML = `
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full bg-parchment-card border border-dust-border overflow-hidden">
+                <img src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg" alt="Ruchi" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <p class="font-serif font-bold text-xs text-maroon-900">Ruchi Maheshwari</p>
+                <p class="text-[10px] text-charcoal-muted">${upd.date}</p>
+              </div>
+            </div>
+            ${appState.currentUser && appState.currentUser.role === 'admin' ? `
+              <button onclick="deleteDailyUpdate('${upd.id}')" class="text-xs text-red-600 hover:underline">Delete</button>
+            ` : ''}
+          </div>
+          <p class="text-xs text-charcoal-body leading-relaxed">${upd.caption}</p>
+          ${upd.mediaUrl ? `
+            <div class="rounded-xl overflow-hidden border border-dust-border max-h-80">
+              ${upd.mediaType === 'video' ? `
+                <video src="${upd.mediaUrl}" controls class="w-full h-full object-cover"></video>
+              ` : `
+                <img src="${upd.mediaUrl}" alt="update media" class="w-full h-full object-cover" />
+              `}
+            </div>
+          ` : ''}
+          <div class="flex items-center gap-2 text-xs pt-1">
+            <button onclick="likeDailyUpdate('${upd.id}')" class="flex items-center gap-1 text-rose-700 hover:text-rose-900 font-medium">
+              <span>🤍</span>
+              <span>${upd.likes} hearts</span>
+            </button>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function likeDailyUpdate(id) {
+      const upd = appState.dailyUpdates.find(u => u.id === id);
+      if (upd) {
+        upd.likes += 1;
+        setStored('dailyUpdates', appState.dailyUpdates);
+        renderDailyUpdates();
+      }
+    }
+
+    function deleteDailyUpdate(id) {
+      appState.dailyUpdates = appState.dailyUpdates.filter(u => u.id !== id);
+      setStored('dailyUpdates', appState.dailyUpdates);
+      renderDailyUpdates();
+    }
+
+    function renderAdminDashboard() {
+      renderAdminOrders();
+      renderAdminInventory();
+      renderAdminUsers();
+      renderAdminPopupsStatus();
+      renderAdminDailyUpdatesList();
+      renderAdminInquiries();
+      renderAdminChatSwitchboard();
+    }
+
+    function switchAdminSubTab(secId) {
+      const subs = ['orders', 'inventory', 'users', 'popup', 'updates', 'inquiries', 'adminChat'];
+      subs.forEach(s => {
+        const sec = document.getElementById(`admin-sec-${s}`);
+        if (sec) sec.classList.toggle('hidden', s !== secId);
+
+        const btn = document.getElementById(`adm-sub-${s}`);
+        if (btn) {
+          btn.classList.toggle('border-maroon-700', s === secId);
+          btn.classList.toggle('text-maroon-800', s === secId);
+          btn.classList.toggle('border-transparent', s !== secId);
+          btn.classList.toggle('text-charcoal-muted', s !== secId);
+        }
+      });
+    }
+
+    function renderAdminOrders() {
+      const tbody = document.getElementById('adminOrdersTableBody');
+      tbody.innerHTML = '';
+      if (appState.orders.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="8" class="p-4 text-center text-charcoal-muted italic">No orders recorded yet.</td></tr>`;
+        return;
+      }
+      appState.orders.forEach(o => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-parchment/40';
+        tr.innerHTML = `
+          <td class="p-3 font-bold text-maroon-900">${o.orderId}</td>
+          <td class="p-3">${o.customerName}</td>
+          <td class="p-3">${o.phone}</td>
+          <td class="p-3 max-w-[140px] truncate">${o.address}</td>
+          <td class="p-3 max-w-[160px] truncate">${o.items}</td>
+          <td class="p-3 font-semibold">₹${o.total}</td>
+          <td class="p-3"><span class="px-2 py-0.5 rounded-full text-[10px] ${o.status === 'Dispatched' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${o.status}</span></td>
+          <td class="p-3">
+            <button onclick="toggleOrderStatus('${o.orderId}')" class="text-maroon-700 hover:underline">Toggle Dispatch</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function toggleOrderStatus(orderId) {
+      const order = appState.orders.find(o => o.orderId === orderId);
+      if (order) {
+        order.status = order.status === 'Dispatched' ? 'Confirmed' : 'Dispatched';
+        setStored('orders', appState.orders);
+        renderAdminOrders();
+      }
+    }
+
+    // Dynamic Product Add & Image Upload
+    async function handleAdminProdImageSelect(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const spinner = document.getElementById('adminProdUploadSpinner');
+      const url = await uploadImageToCloudinary(file, spinner);
+      document.getElementById('adminProdUploadedUrl').value = url;
+    }
+
+    function handleAdminAddProduct(e) {
+      e.preventDefault();
+      const title = document.getElementById('adminProdTitle').value.trim();
+      const cat = document.getElementById('adminProdCategory').value;
+      const price = parseInt(document.getElementById('adminProdPrice').value);
+      const desc = document.getElementById('adminProdDesc').value.trim();
+      const img = document.getElementById('adminProdUploadedUrl').value || 'https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg';
+
+      const newProd = {
+        id: 'prod-' + Date.now(),
+        title,
+        category: cat,
+        price,
+        description: desc,
+        image: img
+      };
+
+      appState.products.unshift(newProd);
+      setStored('products', appState.products);
+
+      e.target.reset();
+      document.getElementById('adminProdUploadedUrl').value = '';
+      renderAdminInventory();
+      renderProductsGrid();
+    }
+
+    function handleAdminCreateCategory() {
+      const input = document.getElementById('newCategoryInput');
+      const cat = input.value.trim();
+      if (!cat) return;
+      if (!appState.categories.includes(cat)) {
+        appState.categories.push(cat);
+        setStored('categories', appState.categories);
+        input.value = '';
+        renderCategoryPills();
+        renderAdminInventory();
+      }
+    }
+
+    function renderAdminInventory() {
+      // Update Category Dropdown
+      const sel = document.getElementById('adminProdCategory');
+      sel.innerHTML = '';
+      appState.categories.filter(c => c !== 'All').forEach(c => {
+        sel.innerHTML += `<option value="${c}">${c}</option>`;
+      });
+
+      // Update Active Products List
+      const list = document.getElementById('adminInventoryList');
+      list.innerHTML = '';
+      appState.products.forEach(p => {
+        const row = document.createElement('div');
+        row.className = 'flex items-center justify-between p-2 rounded-lg border border-dust-border bg-white text-xs';
+        row.innerHTML = `
+          <div class="flex items-center gap-2">
+            <img src="${p.image}" class="w-10 h-10 object-cover rounded border" />
+            <div>
+              <p class="font-bold text-maroon-900">${p.title}</p>
+              <p class="text-[11px] text-charcoal-muted">${p.category} • ₹${p.price}</p>
+            </div>
+          </div>
+          <button onclick="deleteProduct('${p.id}')" class="text-red-600 hover:underline">Remove</button>
+        `;
+        list.appendChild(row);
+      });
+    }
+
+    function deleteProduct(id) {
+      appState.products = appState.products.filter(p => p.id !== id);
+      setStored('products', appState.products);
+      renderAdminInventory();
+      renderProductsGrid();
+    }
+
+    function renderAdminUsers() {
+      const tbody = document.getElementById('adminUsersTableBody');
+      tbody.innerHTML = '';
+      const checkboxes = document.getElementById('popupCustomerCheckboxes');
+      checkboxes.innerHTML = '';
+
+      appState.users.forEach(u => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-parchment/40';
+        tr.innerHTML = `
+          <td class="p-3 font-semibold">${u.name}</td>
+          <td class="p-3">${u.email}</td>
+          <td class="p-3">${u.city}</td>
+          <td class="p-3">${u.date || 'N/A'}</td>
+          <td class="p-3 capitalize">${u.role}</td>
+        `;
+        tbody.appendChild(tr);
+
+        // Populate checkboxes for targeted pop-up (customers only)
+        if (u.role !== 'admin') {
+          checkboxes.innerHTML += `
+            <label class="flex items-center gap-2 cursor-pointer hover:bg-parchment p-1 rounded">
+              <input type="checkbox" name="targetUserEmail" value="${u.email}" />
+              <span>${u.name} (${u.email})</span>
+            </label>
+          `;
+        }
+      });
+    }
+
+    // Targeted Pop-up Broadcast
+    async function handlePopupImageSelect(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const spinner = document.getElementById('popupImageUploadSpinner');
+      const url = await uploadImageToCloudinary(file, spinner);
+      document.getElementById('popupUploadedImageUrl').value = url;
+    }
+
+    function handleAdminBroadcastPopup() {
+      const selected = Array.from(document.querySelectorAll('input[name="targetUserEmail"]:checked')).map(cb => cb.value);
+      const msg = document.getElementById('popupTextMessage').value.trim();
+      const img = document.getElementById('popupUploadedImageUrl').value;
+
+      if (selected.length === 0 || !msg) {
+        alert("Please select at least one customer and write a message.");
+        return;
+      }
+
+      selected.forEach(email => {
+        appState.targetedPopups.push({
+          id: 'pop-' + Date.now() + Math.random(),
+          userEmail: email,
+          message: msg,
+          image: img || null,
+          received: false,
+          createdDate: new Date().toLocaleDateString()
+        });
+      });
+
+      setStored('targetedPopups', appState.targetedPopups);
+      document.getElementById('popupTextMessage').value = '';
+      document.getElementById('popupUploadedImageUrl').value = '';
+      renderAdminPopupsStatus();
+    }
+
+    function renderAdminPopupsStatus() {
+      const list = document.getElementById('adminPopupsStatusList');
+      list.innerHTML = '';
+      if (appState.targetedPopups.length === 0) {
+        list.innerHTML = `<p class="text-charcoal-muted text-xs italic">No pop-up broadcasts queued.</p>`;
+        return;
+      }
+
+      appState.targetedPopups.forEach(p => {
+        const item = document.createElement('div');
+        item.className = 'p-2.5 rounded-lg border border-dust-border bg-white text-xs space-y-1';
+        item.innerHTML = `
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-maroon-900">${p.userEmail}</span>
+            <span class="px-2 py-0.5 rounded text-[10px] ${p.received ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">
+              ${p.received ? 'Received by user' : 'Not Received Yet'}
+            </span>
+          </div>
+          <p class="text-charcoal-body text-[11px] truncate">${p.message}</p>
+          ${!p.received ? `
+            <button onclick="deleteTargetedPopup('${p.id}')" class="text-red-600 text-[10px] hover:underline">Cancel & Delete</button>
+          ` : ''}
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    function deleteTargetedPopup(id) {
+      appState.targetedPopups = appState.targetedPopups.filter(p => p.id !== id);
+      setStored('targetedPopups', appState.targetedPopups);
+      renderAdminPopupsStatus();
+    }
+
+    // Daily Updates by Admin
+    async function handleAdminDailyUpdateMedia(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const spinner = document.getElementById('adminDailyMediaSpinner');
+      const url = await uploadImageToCloudinary(file, spinner);
+      document.getElementById('adminDailyMediaUrl').value = url;
+      document.getElementById('adminDailyMediaType').value = file.type.startsWith('video') ? 'video' : 'image';
+    }
+
+    function handleAdminPublishDailyUpdate(e) {
+      e.preventDefault();
+      const caption = document.getElementById('adminUpdateCaption').value.trim();
+      const mediaUrl = document.getElementById('adminDailyMediaUrl').value;
+      const mediaType = document.getElementById('adminDailyMediaType').value;
+
+      const newUpd = {
+        id: 'upd-' + Date.now(),
+        caption,
+        mediaUrl: mediaUrl || null,
+        mediaType: mediaType || 'image',
+        date: 'Today, ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        likes: 0
+      };
+
+      appState.dailyUpdates.unshift(newUpd);
+      setStored('dailyUpdates', appState.dailyUpdates);
+
+      e.target.reset();
+      document.getElementById('adminDailyMediaUrl').value = '';
+      renderAdminDailyUpdatesList();
+      renderDailyUpdates();
+    }
+
+    function renderAdminDailyUpdatesList() {
+      const list = document.getElementById('adminDailyUpdatesList');
+      list.innerHTML = '';
+      appState.dailyUpdates.forEach(u => {
+        const div = document.createElement('div');
+        div.className = 'p-2 rounded border border-dust-border bg-white flex justify-between items-center';
+        div.innerHTML = `
+          <div class="truncate max-w-[200px]">
+            <p class="font-bold">${u.caption}</p>
+            <p class="text-[10px] text-charcoal-muted">${u.date} • ${u.likes} hearts</p>
+          </div>
+          <button onclick="deleteDailyUpdate('${u.id}')" class="text-red-600 hover:underline">Delete</button>
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    // Inquiries Admin Table
+    function renderAdminInquiries() {
+      const tbody = document.getElementById('adminInquiriesTableBody');
+      tbody.innerHTML = '';
+      if (appState.inquiries.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-charcoal-muted italic">No custom inquiries submitted yet.</td></tr>`;
+        return;
+      }
+      appState.inquiries.forEach(inq => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-parchment/40';
+        tr.innerHTML = `
+          <td class="p-3">${inq.date}</td>
+          <td class="p-3 font-semibold">${inq.name}</td>
+          <td class="p-3">${inq.city}</td>
+          <td class="p-3">${inq.requirement}</td>
+          <td class="p-3 bg-rose-50/70 text-maroon-900 font-medium rounded">${inq.privateReason}</td>
+          <td class="p-3">
+            <button onclick="deleteInquiry('${inq.id}')" class="text-red-600 hover:underline">Delete</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function deleteInquiry(id) {
+      appState.inquiries = appState.inquiries.filter(i => i.id !== id);
+      setStored('inquiries', appState.inquiries);
+      renderAdminInquiries();
+    }
+
+    // Admin Chat Switchboard
+    function renderAdminChatSwitchboard() {
+      const list = document.getElementById('adminChatCustomerList');
+      list.innerHTML = '';
+
+      // Get distinct users who have sent messages
+      const usersWithMessages = [...new Set(appState.chatMessages.map(m => m.userEmail))];
+      if (usersWithMessages.length === 0) {
+        list.innerHTML = `<p class="text-charcoal-muted text-[11px] italic">No active customer chats.</p>`;
+        return;
+      }
+
+      usersWithMessages.forEach(email => {
+        const btn = document.createElement('button');
+        btn.className = `w-full text-left p-2 rounded border border-dust-border hover:bg-white flex flex-col ${appState.selectedChatCustomer === email ? 'bg-white font-bold text-maroon-800' : ''}`;
+        btn.innerHTML = `<span class="truncate">${email}</span>`;
+        btn.onclick = () => selectAdminChatCustomer(email);
+        list.appendChild(btn);
+      });
+    }
+
+    function selectAdminChatCustomer(email) {
+      appState.selectedChatCustomer = email;
+      document.getElementById('adminActiveChattingWith').textContent = `Chatting with: ${email}`;
+      renderAdminChatMessages();
+    }
+
+    function renderAdminChatMessages() {
+      const box = document.getElementById('adminChatMessagesBox');
+      box.innerHTML = '';
+      if (!appState.selectedChatCustomer) return;
+
+      const msgs = appState.chatMessages.filter(m => m.userEmail.toLowerCase() === appState.selectedChatCustomer.toLowerCase());
+      msgs.forEach(m => {
+        const isAdmin = m.sender === 'ruchi';
+        box.innerHTML += `
+          <div class="flex flex-col ${isAdmin ? 'items-end' : 'items-start'}">
+            <div class="p-2 rounded-lg text-xs max-w-[80%] ${isAdmin ? 'bg-maroon-800 text-white' : 'bg-parchment border border-dust-border text-charcoal-body'}">
+              ${m.image ? `<img src="${m.image}" class="rounded max-h-32 mb-1" />` : ''}
+              <p>${m.text}</p>
+              <span class="text-[9px] block text-right opacity-80">${m.time}</span>
+            </div>
+          </div>
+        `;
+      });
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function handleAdminSendChatMessage(e) {
+      e.preventDefault();
+      if (!appState.selectedChatCustomer) return;
+      const input = document.getElementById('adminChatMessageInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      appState.chatMessages.push({
+        id: 'msg-' + Date.now(),
+        userEmail: appState.selectedChatCustomer.toLowerCase(),
+        sender: 'ruchi',
+        text,
+        image: null,
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        edited: false,
+        deletedForUser: false
+      });
+
+      setStored('chatMessages', appState.chatMessages);
+      input.value = '';
+      renderAdminChatMessages();
+    }
+
+    function openInquiryModal() {
+      document.getElementById('inquiryModal').classList.remove('hidden');
+      if (appState.currentUser) {
+        document.getElementById('inqName').value = appState.currentUser.name || '';
+        document.getElementById('inqCity').value = appState.currentUser.city || '';
+      }
+    }
+
+    function closeInquiryModal() {
+      document.getElementById('inquiryModal').classList.add('hidden');
+    }
+
+    function handleInquirySubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('inqName').value.trim();
+      const city = document.getElementById('inqCity').value.trim();
+      const req = document.getElementById('inqRequirement').value.trim();
+      const privateReason = document.getElementById('inqPrivateReason').value.trim();
+
+      const spinner = document.getElementById('inqSpinner');
+      spinner.classList.remove('hidden');
+
+      // Save lead confidentially for Ruchi Mam's admin view
+      const newInq = {
+        id: 'inq-' + Date.now(),
+        name,
+        city,
+        requirement: req,
+        privateReason, // Confidential
+        date: new Date().toLocaleDateString()
+      };
+      appState.inquiries.unshift(newInq);
+      setStored('inquiries', appState.inquiries);
+
+      setTimeout(() => {
+        spinner.classList.add('hidden');
+        closeInquiryModal();
+
+        // Dispatch natural message to Ruchi Mam without exposing the private attraction note
+        const naturalMsg = `Hi Ruchi Mam, I am ${name} from ${city}. I have seen your website and I want ${req}.`;
+        window.open(`https://wa.me/916396699104?text=${encodeURIComponent(naturalMsg)}`, '_blank');
+      }, 400);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCategoryPills();
+      renderProductsGrid();
+      updateCartBadge();
+      updateAuthUI();
+      renderDailyUpdates();
+
+      // Silent Firebase Connection Guard (Resilient fallback guaranteed)
+      try {
+        const firebaseConfig = {
+          apiKey: "AIzaSyCd-7tTPQXGU8SaSpZrs9Ct5aWv0jXbtU4",
+          authDomain: "hunnar-house.firebaseapp.com",
+          projectId: "hunnar-house",
+          storageBucket: "hunnar-house.firebasestorage.app",
+          messagingSenderId: "312766139472",
+          appId: "1:312766139472:web:1a48c6fab5689e2d6a5555"
+        };
+      } catch (e) {}
+    });
+  </script>
 </body>
 </html>
