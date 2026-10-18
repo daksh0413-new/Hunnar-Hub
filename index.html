@@ -3,13 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hunnar House — Crafted by Heart | Coming Soon</title>
-  
-  <!-- Favicon & Fonts -->
+  <title>Hunnar House — Crafted by Heart | Opening Soon</title>
+
+  <!-- Browser Top Tab Icon (Favicon) -->
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" />
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -17,100 +24,143 @@
   <div class="ambient-glow glow-1"></div>
   <div class="ambient-glow glow-2"></div>
 
-  <div class="wrapper">
-    <!-- Brand Header -->
-    <header class="header">
-      <div class="logo-ring">
+  <!-- Sticky Scroll-Reactive Header -->
+  <header class="top-nav" id="topNav">
+    <div class="nav-container">
+      <a href="#" class="nav-brand">
         <img 
           src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" 
-          alt="Hunnar House Emblem" 
-          class="logo-img"
+          alt="Hunnar House Logo" 
+          class="nav-logo"
+        />
+        <div class="nav-brand-text">
+          <span class="nav-title">HUNNAR HOUSE</span>
+          <span class="nav-sub">Crafted by Heart</span>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <a href="https://wa.me/916396699104" target="_blank" rel="noopener" class="nav-btn-wa">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <!-- Hero / Main Launch Section -->
+    <section class="hero-section scroll-reveal">
+      <div class="hero-logo-ring">
+        <img 
+          src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" 
+          alt="Hunnar House Atelier Emblem" 
+          class="hero-logo-img"
         />
       </div>
-      <h1 class="brand-title">HUNNAR HOUSE</h1>
-      <p class="brand-tagline">Crafted by Heart</p>
-    </header>
 
-    <!-- Center Card -->
-    <main class="card">
       <div class="status-pill">
         <span class="status-dot"></span>
-        Studio Opening in November
+        <i class="fa-solid fa-sparkles"></i> Atelier Opening in 15 Days
       </div>
 
-      <h2 class="card-title">Something heartfelt is being poured.</h2>
-      <p class="card-desc">
-        We are crafting an intimate collection of hand-poured scented soy candles, artisanal gourmet chocolates, and bespoke gifting hampers.
+      <h1 class="hero-headline">Something heartfelt is being poured.</h1>
+      <p class="hero-subtext">
+        Our studio doors open soon in Bareilly. Hand-poured botanical soy candles, artisanal gourmet chocolates, and bespoke celebratory hampers crafted with pure soul.
       </p>
 
-      <!-- Category Tags -->
-      <div class="tags-row">
-        <span class="tag">Soy Candles</span>
-        <span class="tag">Artisan Chocolates</span>
-        <span class="tag">Bespoke Hampers</span>
-      </div>
-
-      <!-- 15-Day Countdown Timer -->
+      <!-- 15-Day Live Countdown Timer -->
       <div class="timer-container">
-        <div class="timer-unit">
+        <div class="timer-box">
           <span class="num" id="days">15</span>
           <span class="lbl">DAYS</span>
         </div>
-        <div class="timer-separator">:</div>
-        <div class="timer-unit">
+        <div class="timer-sep">:</div>
+        <div class="timer-box">
           <span class="num" id="hours">00</span>
           <span class="lbl">HOURS</span>
         </div>
-        <div class="timer-separator">:</div>
-        <div class="timer-unit">
+        <div class="timer-sep">:</div>
+        <div class="timer-box">
           <span class="num" id="minutes">00</span>
-          <span class="lbl">MINUTES</span>
+          <span class="lbl">MINS</span>
         </div>
-        <div class="timer-separator">:</div>
-        <div class="timer-unit">
+        <div class="timer-sep">:</div>
+        <div class="timer-box">
           <span class="num" id="seconds">00</span>
-          <span class="lbl">SECONDS</span>
+          <span class="lbl">SECS</span>
         </div>
       </div>
 
-      <!-- Notification Form -->
+      <!-- Private Opening Notification Form -->
       <form class="notify-form" id="notifyForm">
-        <input 
-          type="email" 
-          id="emailInput" 
-          placeholder="Enter your email to receive an opening invite..." 
-          required 
-          autocomplete="email"
-        />
-        <button type="submit" id="submitBtn">Notify Me</button>
+        <div class="input-wrap">
+          <i class="fa-regular fa-envelope input-icon"></i>
+          <input 
+            type="email" 
+            id="emailInput" 
+            placeholder="Enter your email for opening invites..." 
+            required 
+            autocomplete="email"
+          />
+        </div>
+        <button type="submit" id="submitBtn">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>Notify Me</span>
+        </button>
       </form>
       <div id="formFeedback" class="form-feedback"></div>
+    </section>
 
-      <!-- Quick Action Buttons -->
-      <div class="quick-actions">
-        <a href="https://wa.me/916396699104" target="_blank" rel="noopener" class="action-btn action-whatsapp">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-          </svg>
-          Chat on WhatsApp
+    <!-- Atelier Craft Offerings Grid -->
+    <section class="craft-section scroll-reveal">
+      <h2 class="section-title">From Our Atelier</h2>
+      <div class="craft-grid">
+        <div class="craft-card">
+          <div class="craft-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+          <h3>Soy Wax Candles</h3>
+          <p>Hand-poured with natural botanical essences and clean cotton wicks for long, warm aromas.</p>
+        </div>
+        <div class="craft-card">
+          <div class="craft-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+          <h3>Artisan Chocolates</h3>
+          <p>Small-batch chocolates infused with hand-selected ingredients and single-origin cacao.</p>
+        </div>
+        <div class="craft-card">
+          <div class="craft-icon"><i class="fa-solid fa-gift"></i></div>
+          <h3>Bespoke Hampers</h3>
+          <p>Curated luxury gift packaging styled with fine silks, handwritten notes, and personalized touches.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Studio Contact Banner -->
+    <section class="inquiry-banner scroll-reveal">
+      <h3>Have an early corporate order or bespoke request?</h3>
+      <p>Talk directly with our Bareilly atelier team on WhatsApp or phone.</p>
+      <div class="inquiry-actions">
+        <a href="https://wa.me/916396699104" target="_blank" rel="noopener" class="btn btn-wa">
+          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
         </a>
-        <a href="mailto:hunnarhouse19@gmail.com" class="action-btn action-email">
-          Email Atelier
+        <a href="tel:+916396699104" class="btn btn-tel">
+          <i class="fa-solid fa-phone"></i> +91 6396699104
         </a>
       </div>
-    </main>
+    </section>
+  </main>
 
-    <!-- Studio Details Footer -->
-    <footer class="footer">
-      <p class="location">Civil Lines, Bareilly, Uttar Pradesh</p>
-      <div class="contact-links">
-        <a href="tel:+916396699104">+91 6396699104</a>
-        <span class="sep">&bull;</span>
-        <a href="mailto:hunnarhouse19@gmail.com">hunnarhouse19@gmail.com</a>
-      </div>
-      <p class="legal">&copy; Hunnar House Atelier. All rights reserved.</p>
-    </footer>
-  </div>
+  <!-- Atelier Footer -->
+  <footer class="footer">
+    <p class="location">
+      <i class="fa-solid fa-location-dot"></i> Civil Lines, Bareilly, Uttar Pradesh
+    </p>
+    <div class="contact-links">
+      <a href="tel:+916396699104"><i class="fa-solid fa-phone"></i> +91 6396699104</a>
+      <span class="sep">&bull;</span>
+      <a href="mailto:hunnarhouse19@gmail.com"><i class="fa-regular fa-envelope"></i> hunnarhouse19@gmail.com</a>
+    </div>
+    <p class="copyright">&copy; Hunnar House Atelier. All rights reserved.</p>
+  </footer>
 
   <script src="app.js"></script>
 </body>
