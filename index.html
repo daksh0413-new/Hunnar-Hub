@@ -3,16 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Firebase App</title>
+  <title>Hunnar Hub — Coming Soon</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Firebase Web App</h1>
-    <button id="actionBtn">Click Me</button>
+  <div class="card">
+    <span class="badge">Under Construction</span>
+    <h1>Hunnar Hub</h1>
+    <p class="subtitle">Something exciting is in the works! Sign up below to get notified as soon as we launch.</p>
+
+    <form id="notifyForm">
+      <div class="input-group">
+        <input 
+          type="email" 
+          id="emailInput" 
+          placeholder="Enter your email address" 
+          required 
+        />
+        <button type="submit" id="submitBtn">Notify Me</button>
+      </div>
+    </form>
+
+    <p id="statusMsg" class="status-msg"></p>
   </div>
 
-  <!-- Load script as a module for modern Firebase -->
   <script type="module" src="app.js"></script>
 </body>
 </html>
