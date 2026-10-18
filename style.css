@@ -1,56 +1,79 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ============================================================
+   HUNNAR HOUSE LUXURY ATELIER THEME
+   Palette: Alabaster, Textured Linen, Rose Mist & Royal Maroon
+   ============================================================ */
 
 :root {
-  --maroon: #6b1d2f;
-  --maroon-dark: #4d1320;
-  --rose-mist: #f6e8ea;
-  --rose-border: rgba(107, 29, 47, 0.18);
-  --alabaster: #faf7f2;
-  --charcoal: #2b2b2b;
-  --muted: #6e6b68;
+  /* Primary Brand Colors */
+  --hh-maroon: #6b1d2f;          /* Deep royal maroon / wine accent */
+  --hh-maroon-dark: #4d1320;     /* Rich hover state */
+  --hh-maroon-light: #8b2c42;    /* Soft accent wine */
+
+  /* Neutral & Base Colors */
+  --hh-alabaster: #faf7f2;       /* Warm linen / ivory paper background */
+  --hh-card-bg: rgba(255, 255, 255, 0.88); /* Translucent atelier card */
+  --hh-rose-mist: #f6e8ea;       /* Blush-rose highlight tint */
+  --hh-rose-border: rgba(107, 29, 47, 0.16); /* Delicate rose-wine border */
+
+  /* Typography Colors */
+  --hh-text-main: #2b2627;       /* Soft charcoal for high legibility */
+  --hh-text-muted: #736c6e;      /* Subtle slate warm gray */
+  --hh-white: #ffffff;
+
+  /* Typography Stacks */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Radii & Shadows */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-pill: 9999px;
+  --shadow-subtle: 0 4px 20px rgba(107, 29, 47, 0.05);
+  --shadow-card: 0 16px 40px rgba(107, 29, 47, 0.08);
 }
 
+/* Base Body Styling with gentle morning light gradient */
 body, html {
-  min-height: 100%;
-  font-family: 'Montserrat', sans-serif;
-  color: var(--charcoal);
-  background-color: var(--alabaster);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  color: var(--hh-text-main);
+  background-color: var(--hh-alabaster);
   background-image: 
-    radial-gradient(circle at 10% 20%, rgba(246, 232, 234, 0.8) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(235, 218, 222, 0.7) 0%, transparent 40%);
+    radial-gradient(ellipse at 15% 15%, rgba(246, 232, 234, 0.85) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 85%, rgba(238, 220, 224, 0.65) 0%, transparent 45%);
   background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* Page Frame */
 .page-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 20px 24px;
+  padding: 48px 24px 28px;
 }
 
-/* Header & Logo */
+/* Circular Atelier Emblem */
 .brand-header {
   text-align: center;
   margin-bottom: 24px;
 }
 
 .logo-wrapper {
-  width: 96px;
-  height: 96px;
-  margin: 0 auto 14px;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 16px;
   border-radius: 50%;
-  background: #ffffff;
+  background: var(--hh-white);
+  border: 1px solid var(--hh-rose-border);
+  box-shadow: var(--shadow-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 24px rgba(107, 29, 47, 0.08);
-  border: 1px solid var(--rose-border);
   padding: 8px;
 }
 
@@ -62,111 +85,105 @@ body, html {
 }
 
 .brand-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-serif);
   font-size: 32px;
   font-weight: 700;
-  letter-spacing: 4px;
-  color: var(--maroon);
+  letter-spacing: 5px;
+  color: var(--hh-maroon);
 }
 
 .brand-tagline {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-serif);
   font-style: italic;
-  font-size: 18px;
-  color: var(--muted);
-  letter-spacing: 1px;
-  margin-top: 4px;
+  font-size: 19px;
+  color: var(--hh-text-muted);
+  letter-spacing: 1.5px;
+  margin-top: 2px;
 }
 
-/* Center Card */
+/* Frosted Glass Editorial Card */
 .main-card {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(14px);
-  border: 1px solid var(--rose-border);
-  box-shadow: 0 20px 45px rgba(107, 29, 47, 0.07);
-  border-radius: 20px;
-  max-width: 620px;
+  background: var(--hh-card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--hh-rose-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  max-width: 600px;
   width: 100%;
-  padding: 42px 32px;
+  padding: 44px 36px;
   text-align: center;
 }
 
 .badge {
   display: inline-block;
-  background: var(--rose-mist);
-  color: var(--maroon);
+  background: var(--hh-rose-mist);
+  color: var(--hh-maroon);
   font-size: 11px;
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: 2px;
-  padding: 6px 14px;
-  border-radius: 50px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
   margin-bottom: 20px;
 }
 
 .headline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 32px;
+  font-family: var(--font-serif);
+  font-size: 34px;
   font-weight: 600;
-  color: var(--maroon);
+  color: var(--hh-maroon);
   line-height: 1.25;
   margin-bottom: 12px;
 }
 
 .subheadline {
-  font-size: 14px;
+  font-size: 14.5px;
   line-height: 1.7;
-  color: var(--muted);
-  margin-bottom: 32px;
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
+  color: var(--hh-text-muted);
+  max-width: 460px;
+  margin: 0 auto 32px;
 }
 
-/* Countdown Grid */
+/* Luxury Flip-Style Timer Blocks */
 .countdown-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  margin-bottom: 32px;
+  margin-bottom: 34px;
 }
 
 .time-box {
-  background: #ffffff;
-  border: 1px solid var(--rose-border);
-  border-radius: 12px;
-  padding: 16px 8px;
-  box-shadow: 0 4px 12px rgba(107, 29, 47, 0.04);
-  transition: transform 0.2s ease;
-}
-
-.time-box:hover {
-  transform: translateY(-2px);
+  background: var(--hh-white);
+  border: 1px solid var(--hh-rose-border);
+  border-radius: var(--radius-sm);
+  padding: 16px 6px;
+  box-shadow: 0 4px 10px rgba(107, 29, 47, 0.04);
 }
 
 .time-val {
   display: block;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-serif);
   font-size: 38px;
   font-weight: 700;
-  color: var(--maroon);
+  color: var(--hh-maroon);
   line-height: 1;
 }
 
 .time-label {
+  display: block;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 1.5px;
-  color: var(--muted);
+  color: var(--hh-text-muted);
   margin-top: 6px;
-  display: block;
 }
 
-/* Action Buttons */
+/* Atelier Buttons */
 .actions {
   display: flex;
-  gap: 12px;
   justify-content: center;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
@@ -175,42 +192,42 @@ body, html {
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.5px;
-  padding: 12px 24px;
-  border-radius: 8px;
+  padding: 12px 22px;
+  border-radius: var(--radius-sm);
   transition: all 0.25s ease;
 }
 
 .btn-primary {
-  background-color: var(--maroon);
-  color: #ffffff;
+  background-color: var(--hh-maroon);
+  color: var(--hh-white);
 }
 
 .btn-primary:hover {
-  background-color: var(--maroon-dark);
-  box-shadow: 0 6px 18px rgba(107, 29, 47, 0.25);
+  background-color: var(--hh-maroon-dark);
+  box-shadow: 0 6px 16px rgba(107, 29, 47, 0.25);
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--maroon);
-  border: 1px solid var(--rose-border);
+  color: var(--hh-maroon);
+  border: 1px solid var(--hh-rose-border);
 }
 
 .btn-secondary:hover {
-  background-color: var(--rose-mist);
+  background-color: var(--hh-rose-mist);
 }
 
-/* Footer Details */
+/* Footer Section */
 .studio-footer {
   text-align: center;
-  margin-top: 32px;
+  margin-top: 36px;
   font-size: 13px;
-  color: var(--muted);
+  color: var(--hh-text-muted);
 }
 
 .location {
   font-weight: 500;
-  color: var(--charcoal);
+  color: var(--hh-text-main);
   margin-bottom: 6px;
 }
 
@@ -223,7 +240,7 @@ body, html {
 }
 
 .footer-links a {
-  color: var(--maroon);
+  color: var(--hh-maroon);
   text-decoration: none;
   font-weight: 500;
 }
@@ -233,7 +250,7 @@ body, html {
 }
 
 .dot {
-  color: var(--rose-border);
+  color: var(--hh-rose-border);
 }
 
 .copyright {
@@ -241,13 +258,13 @@ body, html {
   opacity: 0.7;
 }
 
-/* Responsiveness */
-@media (max-width: 520px) {
+/* Mobile Responsiveness */
+@media (max-width: 540px) {
   .headline {
-    font-size: 26px;
+    font-size: 27px;
   }
   .time-val {
-    font-size: 28px;
+    font-size: 30px;
   }
   .time-box {
     padding: 12px 4px;
