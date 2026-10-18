@@ -1,9 +1,8 @@
-// Import the Firebase SDK modules from CDN (no npm/build step required)
+// Import Firebase SDK via CDN (works natively in browser without install)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
-// Import services you need, for example Firestore:
-// import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
 
-// Your web app's Firebase configuration
+// TODO: Replace with your actual Firebase project credentials
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
   authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
@@ -13,10 +12,44 @@ const firebaseConfig = {
   appId: "YOUR_APP_ID"
 };
 
-// Initialize Firebase
+// Initialize Firebase & Firestore
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-// Your UI code
-document.getElementById("actionBtn").addEventListener("click", () => {
-  alert("Firebase initialized successfully!");
+// DOM elements
+const form = document.getElementById("notifyForm");
+const emailInput = document.getElementById("emailInput");
+const submitBtn = document.getElementById("submitBtn");
+const statusMsg = document.getElementById("statusMsg");
+
+// Form submit event
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = emailInput.value.trim();
+
+  if (!email) return;
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Saving...";
+  statusMsg.className = "status-msg";
+  statusMsg.textContent = "";
+
+  try {
+    // Stores into a 'waitlist' collection in Firestore
+    await addDoc(collection(db, "waitlist"), {
+      email: email,
+      createdAt: serverTimestamp()
+    });
+
+    statusMsg.className = "status-msg success";
+    statusMsg.textContent = "Thanks! We will let you know when we launch.";
+    emailInput.value = "";
+  } catch (error) {
+    console.error("Error saving email:", error);
+    statusMsg.className = "status-msg error";
+    statusMsg.textContent = "Something went wrong. Please try again.";
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Notify Me";
+  }
 });
