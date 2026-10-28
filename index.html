@@ -3,460 +3,499 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pastel Arch Experience</title>
+  <title>Hunnar Hub - Discover & Showcase Talent</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-peach: #ffd1b3;
-      --bg-rose: #ffc2d1;
-      --bg-cream: #ffe5d9;
-      --bg-lavender: #d8bbff;
-      --text-main: #33272a;
-      --text-muted: #594a4e;
-      --surface: rgba(255, 255, 255, 0.75);
-      --surface-border: rgba(255, 255, 255, 0.9);
-      --accent: #e76f51;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      --transition-smooth: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      --primary: #ff5722;
+      --primary-glow: rgba(255, 87, 34, 0.4);
+      --accent: #ff9800;
+      --bg-dark: #0f111a;
+      --card-bg: rgba(25, 28, 41, 0.7);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text: #f0f2f5;
+      --text-muted: #9aa0a6;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text-main);
+      background-color: var(--bg-dark);
+      color: var(--text);
+      overflow-x: hidden;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      /* Warm Pastel Mesh Gradient Background */
-      background-color: var(--bg-cream);
-      background-image: 
-        radial-gradient(at 10% 20%, var(--bg-rose) 0px, transparent 50%),
-        radial-gradient(at 90% 15%, var(--bg-lavender) 0px, transparent 50%),
-        radial-gradient(at 50% 50%, var(--bg-cream) 0px, transparent 60%),
-        radial-gradient(at 80% 85%, var(--bg-peach) 0px, transparent 50%),
-        radial-gradient(at 20% 90%, var(--bg-rose) 0px, transparent 50%);
-      background-attachment: fixed;
-      background-size: cover;
     }
 
-    /* --- Header Styles --- */
+    /* Ambient Lighting Background */
+    .glow-circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      z-index: -1;
+      opacity: 0.5;
+    }
+
+    .glow-1 {
+      width: 450px;
+      height: 450px;
+      background: var(--primary);
+      top: -50px;
+      left: -100px;
+    }
+
+    .glow-2 {
+      width: 400px;
+      height: 400px;
+      background: #7c4dff;
+      bottom: 50px;
+      right: -50px;
+    }
+
+    /* Navbar */
     header {
-      width: 100%;
-      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: var(--surface);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--surface-border);
+      padding: 1.5rem 5%;
+      border-bottom: 1px solid var(--border-color);
+      backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 10;
     }
 
-    .brand {
+    .logo {
+      font-size: 1.6rem;
       font-weight: 700;
-      font-size: 1.25rem;
-      letter-spacing: -0.5px;
-      color: var(--text-main);
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 0.5px;
     }
 
-    .header-actions {
+    .nav-links {
       display: flex;
-      align-items: center;
-      gap: 1.25rem;
-    }
-
-    /* Google Sign-in Button */
-    .google-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: #ffffff;
-      color: #3c4043;
-      border: 1px solid #dadce0;
-      border-radius: 20px;
-      padding: 0.5rem 1rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-      cursor: pointer;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-      transition: all 0.2s ease;
-    }
-
-    .google-btn:hover {
-      background: #f8f9fa;
-      border-color: #c6c9ce;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-    }
-
-    .google-btn svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    /* Notification Bell & Dropdown */
-    .notification-wrapper {
-      position: relative;
-    }
-
-    .notification-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.4rem;
-      border-radius: 50%;
-      color: var(--text-main);
-      transition: background 0.2s ease;
-    }
-
-    .notification-btn:hover {
-      background: rgba(0, 0, 0, 0.05);
-    }
-
-    .notification-badge {
-      position: absolute;
-      top: 2px;
-      right: 2px;
-      background: var(--accent);
-      color: #ffffff;
-      font-size: 0.65rem;
-      font-weight: 700;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid #ffffff;
-    }
-
-    .notification-dropdown {
-      position: absolute;
-      top: calc(100% + 10px);
-      right: 0;
-      width: 320px;
-      max-height: 400px;
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-      z-index: 200;
-      animation: fadeIn 0.2s ease;
-    }
-
-    .notification-dropdown.active {
-      display: flex;
-    }
-
-    .notification-header {
-      padding: 1rem;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border-bottom: 1px solid #f0f0f0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .notification-list {
+      gap: 2rem;
       list-style: none;
-      overflow-y: auto;
-      max-height: 320px;
     }
 
-    .notification-item {
-      padding: 0.85rem 1rem;
-      border-bottom: 1px solid #f9f9f9;
-      font-size: 0.85rem;
-      line-height: 1.4;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-
-    .notification-item.unread {
-      background: #fff8f6;
-    }
-
-    .notification-title {
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .notification-desc {
+    .nav-links a {
       color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
     }
 
-    .notification-time {
-      font-size: 0.7rem;
-      color: #999;
+    .nav-links a:hover {
+      color: var(--text);
     }
 
-    /* --- Main Canvas / Hero Container --- */
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem 1.5rem;
+    .btn-action {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px var(--primary-glow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 87, 34, 0.6);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 6rem 1rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(45deg, var(--primary), #ffc107);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    /* Skill Showcases / Cards */
+    .features-section {
+      padding: 4rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
 
-    /* Asymmetric Arch Frame morphing to Circle */
-    .arch-frame {
-      width: 320px;
-      height: 420px;
-      /* Asymmetrical, organic arch style */
-      border-radius: 170px 140px 30px 40px;
-      background: var(--surface);
-      border: 3px solid var(--surface-border);
-      box-shadow: var(--shadow);
-      overflow: hidden;
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 87, 34, 0.3);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Modal for OTP Verification */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(6px);
       display: flex;
       align-items: center;
       justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal {
+      background: #161925;
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2.5rem;
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
       position: relative;
-      cursor: pointer;
-      transition: var(--transition-smooth);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
     }
 
-    .arch-frame:hover {
-      /* Perfect circle on hover */
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-      transform: translateY(-4px);
+    .modal-overlay.active .modal {
+      transform: scale(1);
     }
 
-    .arch-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    .arch-frame:hover img {
-      transform: scale(1.06);
-    }
-
-    .interactive-label {
-      font-size: 0.9rem;
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5rem;
       color: var(--text-muted);
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    /* Controls Panel */
-    .controls {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .action-btn {
-      padding: 0.6rem 1.25rem;
-      border: 1px solid var(--surface-border);
-      background: var(--surface);
-      border-radius: 12px;
-      color: var(--text-main);
-      font-weight: 600;
-      font-size: 0.85rem;
       cursor: pointer;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-      transition: all 0.2s ease;
+      background: none;
+      border: none;
     }
 
-    .action-btn:hover {
-      background: #ffffff;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    .modal h2 {
+      margin-bottom: 0.5rem;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-8px); }
-      to { opacity: 1; transform: translateY(0); }
+    .modal p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .input-box {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .input-box:focus {
+      border-color: var(--primary);
+    }
+
+    .otp-inputs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .otp-inputs input {
+      width: 45px;
+      height: 50px;
+      text-align: center;
+      font-size: 1.2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: #fff;
+      outline: none;
+    }
+
+    .otp-inputs input:focus {
+      border-color: var(--primary);
+    }
+
+    .demo-alert {
+      display: none;
+      background: rgba(255, 87, 34, 0.15);
+      border: 1px solid var(--primary);
+      padding: 0.6rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      color: #ff9800;
+    }
+
+    .success-alert {
+      display: none;
+      background: rgba(76, 175, 80, 0.15);
+      border: 1px solid #4caf50;
+      padding: 0.6rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      color: #81c784;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .nav-links {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Application Header -->
+  <div class="glow-circle glow-1"></div>
+  <div class="glow-circle glow-2"></div>
+
+  <!-- Header -->
   <header>
-    <div class="brand">PastelStudio</div>
-
-    <div class="header-actions">
-      <!-- Google Sign In Button -->
-      <button class="google-btn" id="googleSignInBtn">
-        <svg viewBox="0 0 24 24">
-          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-        </svg>
-        Sign in with Google
-      </button>
-
-      <!-- Notification Center -->
-      <div class="notification-wrapper">
-        <button class="notification-btn" id="notifBell" aria-label="Notifications">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-          </svg>
-          <span class="notification-badge" id="notifBadge">0</span>
-        </button>
-
-        <div class="notification-dropdown" id="notifDropdown">
-          <div class="notification-header">
-            <span>Announcements</span>
-            <span style="font-size: 0.75rem; color: var(--text-muted);" id="notifCount">0 unread</span>
-          </div>
-          <ul class="notification-list" id="notifList">
-            <!-- Dynamic elements loaded here -->
-          </ul>
-        </div>
-      </div>
-    </div>
+    <div class="logo">Hunnar Hub</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#explore">Explore</a></li>
+    </ul>
+    <button class="btn-action" onclick="openModal()">Get Started</button>
   </header>
 
-  <!-- Interactive Visual Showcase -->
-  <main>
-    <div class="arch-frame" id="interactiveArch" title="Hover to morph">
-      <img 
-        src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" 
-        alt="Artistic botanical frame content"
-      />
-    </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-badge">Welcome to the Creative Space</div>
+    <h1>Turn Your <span>Hunnar</span> Into Endless Opportunities</h1>
+    <p>A modern platform dedicated to empowering local talents, creators, and skilled artisans to showcase their craft directly to the world.</p>
+    <button class="btn-action" onclick="openModal()">Join with Mobile OTP</button>
+  </section>
 
-    <div class="interactive-label">Hover image to morph shape</div>
-
-    <div class="controls">
-      <button class="action-btn" id="addAnnouncementBtn">Trigger Announcement</button>
-      <button class="action-btn" id="addPopupBtn">Trigger Dialog</button>
+  <!-- Showcase Cards Section -->
+  <section class="features-section" id="categories">
+    <h2 class="section-title">Explore Talents</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">🎨</div>
+        <h3>Creative Arts</h3>
+        <p>Traditional paintings, digital art, crafting, and unique handmade goods.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧵</div>
+        <h3>Handicrafts</h3>
+        <p>Pottery, textile design, embroidery, and culturally rich custom items.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎵</div>
+        <h3>Music & Media</h3>
+        <p>Vocal performances, instrument playing, production, and video editing.</p>
+      </div>
     </div>
-  </main>
+  </section>
+
+  <!-- OTP Modal -->
+  <div class="modal-overlay" id="otpModal">
+    <div class="modal">
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      
+      <!-- Step 1: Request Phone -->
+      <div id="step-phone">
+        <h2>Verify Details</h2>
+        <p>Enter your contact number to receive a one-time password demo.</p>
+        <input type="tel" id="user-phone" class="input-box" placeholder="e.g. 9876543210" maxlength="10">
+        <button class="btn-action" style="width: 100%;" onclick="sendOtp()">Send OTP</button>
+      </div>
+
+      <!-- Step 2: Enter OTP -->
+      <div id="step-verify" style="display: none;">
+        <h2>Enter Verification Code</h2>
+        <p>Please enter the 4-digit code generated below.</p>
+        <div class="demo-alert" id="demoAlert"></div>
+        <div class="otp-inputs">
+          <input type="text" maxlength="1" oninput="moveFocus(this, 1)" id="otp-1">
+          <input type="text" maxlength="1" oninput="moveFocus(this, 2)" id="otp-2">
+          <input type="text" maxlength="1" oninput="moveFocus(this, 3)" id="otp-3">
+          <input type="text" maxlength="1" oninput="moveFocus(this, 4)" id="otp-4">
+        </div>
+        <div class="success-alert" id="successAlert">Verification successful! Welcome to Hunnar Hub.</div>
+        <button class="btn-action" style="width: 100%;" onclick="verifyOtp()">Confirm</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Hunnar Hub. All rights reserved.</p>
+  </footer>
 
   <script>
-    // --- State Management ---
-    const notifications = [
-      {
-        id: 1,
-        title: "Welcome to the Platform",
-        desc: "Explore the new pastel mesh interface and interactive components.",
-        time: "Just now",
-        unread: true
-      }
-    ];
+    let generatedOtp = "";
 
-    const notifBell = document.getElementById('notifBell');
-    const notifDropdown = document.getElementById('notifDropdown');
-    const notifBadge = document.getElementById('notifBadge');
-    const notifCount = document.getElementById('notifCount');
-    const notifList = document.getElementById('notifList');
-    const googleBtn = document.getElementById('googleSignInBtn');
+    function openModal() {
+      document.getElementById('otpModal').classList.add('active');
+    }
 
-    // --- Render Notifications ---
-    function renderNotifications() {
-      notifList.innerHTML = "";
-      const unreadCount = notifications.filter(n => n.unread).length;
+    function closeModal() {
+      document.getElementById('otpModal').classList.remove('active');
+      resetOtpForm();
+    }
 
-      notifBadge.textContent = unreadCount;
-      notifBadge.style.display = unreadCount > 0 ? "flex" : "none";
-      notifCount.textContent = `${unreadCount} unread`;
-
-      if (notifications.length === 0) {
-        notifList.innerHTML = `<li class="notification-item" style="text-align:center; color:#888;">No announcements yet</li>`;
+    function sendOtp() {
+      const phone = document.getElementById('user-phone').value.trim();
+      if (phone.length < 10) {
+        alert("Please enter a valid 10-digit mobile number.");
         return;
       }
 
-      notifications.forEach(item => {
-        const li = document.createElement('li');
-        li.className = `notification-item ${item.unread ? 'unread' : ''}`;
-        li.innerHTML = `
-          <div class="notification-title">${escapeHtml(item.title)}</div>
-          <div class="notification-desc">${escapeHtml(item.desc)}</div>
-          <div class="notification-time">${item.time}</div>
-        `;
-        notifList.appendChild(li);
-      });
+      // Generate a mock 4-digit OTP
+      generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
+
+      document.getElementById('step-phone').style.display = 'none';
+      document.getElementById('step-verify').style.display = 'block';
+
+      const demoAlert = document.getElementById('demoAlert');
+      demoAlert.style.display = 'block';
+      demoAlert.innerText = `Demo OTP generated: ${generatedOtp}`;
     }
 
-    function addNotification(title, desc) {
-      notifications.unshift({
-        id: Date.now(),
-        title: title,
-        desc: desc,
-        time: "Just now",
-        unread: true
-      });
-      renderNotifications();
+    function moveFocus(current, index) {
+      if (current.value.length === 1 && index < 4) {
+        document.getElementById(`otp-${index + 1}`).focus();
+      }
     }
 
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
-    }
+    function verifyOtp() {
+      const enteredOtp = 
+        document.getElementById('otp-1').value +
+        document.getElementById('otp-2').value +
+        document.getElementById('otp-3').value +
+        document.getElementById('otp-4').value;
 
-    // --- Event Listeners ---
-    notifBell.addEventListener('click', (e) => {
-      e.stopPropagation();
-      notifDropdown.classList.toggle('active');
-
-      // Mark items as read once viewed
-      if (notifDropdown.classList.contains('active')) {
+      if (enteredOtp === generatedOtp) {
+        document.getElementById('demoAlert').style.display = 'none';
+        const success = document.getElementById('successAlert');
+        success.style.display = 'block';
         setTimeout(() => {
-          notifications.forEach(n => n.unread = false);
-          renderNotifications();
-        }, 1200);
+          closeModal();
+        }, 2000);
+      } else {
+        alert("Invalid code. Please check the code displayed above and try again.");
       }
-    });
+    }
 
-    document.addEventListener('click', (e) => {
-      if (!notifDropdown.contains(e.target) && !notifBell.contains(e.target)) {
-        notifDropdown.classList.remove('active');
+    function resetOtpForm() {
+      document.getElementById('step-phone').style.display = 'block';
+      document.getElementById('step-verify').style.display = 'none';
+      document.getElementById('user-phone').value = '';
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById(`otp-${i}`).value = '';
       }
-    });
-
-    googleBtn.addEventListener('click', () => {
-      addNotification("Authentication Info", "Google Sign-in service initiated.");
-      alert("Sign-in process triggered.");
-    });
-
-    document.getElementById('addAnnouncementBtn').addEventListener('click', () => {
-      const sampleAnnouncements = [
-        "New pastel design system launched.",
-        "System maintenance scheduled for weekend.",
-        "Your profile settings have been refreshed."
-      ];
-      const randomText = sampleAnnouncements[Math.floor(Math.random() * sampleAnnouncements.length)];
-      addNotification("Broadcast Announcement", randomText);
-    });
-
-    document.getElementById('addPopupBtn').addEventListener('click', () => {
-      const popupMessage = "This event dialog is tracked in your notification log.";
-      addNotification("Dialog Event", popupMessage);
-      alert(popupMessage);
-    });
-
-    // Initial render
-    renderNotifications();
+      document.getElementById('demoAlert').style.display = 'none';
+      document.getElementById('successAlert').style.display = 'none';
+    }
   </script>
 </body>
 </html>
