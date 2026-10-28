@@ -3,499 +3,395 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hunnar Hub - Discover & Showcase Talent</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #ff5722;
-      --primary-glow: rgba(255, 87, 34, 0.4);
-      --accent: #ff9800;
-      --bg-dark: #0f111a;
-      --card-bg: rgba(25, 28, 41, 0.7);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --text: #f0f2f5;
-      --text-muted: #9aa0a6;
-    }
+  <title>Hunnar House | Handmade Gifts & Candles</title>
+  <meta name="description" content="Shop beautiful handmade gifts, yummy chocolates, and sweet-smelling candles for every celebration." />
+  
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="bsO3Wcmwg8HeskQwjh50f8aGdXcOBYx1ygl2lnGT0DM" />
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-    }
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text);
-      overflow-x: hidden;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+  <link rel="stylesheet" href="styles.css" />
 
-    /* Ambient Lighting Background */
-    .glow-circle {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(120px);
-      z-index: -1;
-      opacity: 0.5;
-    }
-
-    .glow-1 {
-      width: 450px;
-      height: 450px;
-      background: var(--primary);
-      top: -50px;
-      left: -100px;
-    }
-
-    .glow-2 {
-      width: 400px;
-      height: 400px;
-      background: #7c4dff;
-      bottom: 50px;
-      right: -50px;
-    }
-
-    /* Navbar */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 5%;
-      border-bottom: 1px solid var(--border-color);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .logo {
-      font-size: 1.6rem;
-      font-weight: 700;
-      background: linear-gradient(45deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 0.5px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .btn-action {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
-      border: none;
-      padding: 0.6rem 1.4rem;
-      font-size: 0.95rem;
-      font-weight: 600;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 4px 15px var(--primary-glow);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn-action:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 87, 34, 0.6);
-    }
-
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 6rem 1rem 3rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      padding: 0.4rem 1rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-color);
-      border-radius: 50px;
-      font-size: 0.85rem;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-    }
-
-    .hero h1 span {
-      background: linear-gradient(45deg, var(--primary), #ffc107);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero p {
-      color: var(--text-muted);
-      font-size: 1.15rem;
-      margin-bottom: 2.5rem;
-      line-height: 1.6;
-    }
-
-    /* Skill Showcases / Cards */
-    .features-section {
-      padding: 4rem 5%;
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-      font-size: 2rem;
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 2.5rem 1.5rem;
-      text-align: center;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(255, 87, 34, 0.3);
-    }
-
-    .card-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    /* Modal for OTP Verification */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 100;
-    }
-
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .modal {
-      background: #161925;
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 2.5rem;
-      width: 90%;
-      max-width: 420px;
-      text-align: center;
-      position: relative;
-      transform: scale(0.9);
-      transition: transform 0.3s ease;
-    }
-
-    .modal-overlay.active .modal {
-      transform: scale(1);
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 1.5rem;
-      color: var(--text-muted);
-      cursor: pointer;
-      background: none;
-      border: none;
-    }
-
-    .modal h2 {
-      margin-bottom: 0.5rem;
-    }
-
-    .modal p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .input-box {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      color: #fff;
-      font-size: 1rem;
-      margin-bottom: 1.2rem;
-      outline: none;
-      transition: border-color 0.3s ease;
-    }
-
-    .input-box:focus {
-      border-color: var(--primary);
-    }
-
-    .otp-inputs {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 1.5rem;
-    }
-
-    .otp-inputs input {
-      width: 45px;
-      height: 50px;
-      text-align: center;
-      font-size: 1.2rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      color: #fff;
-      outline: none;
-    }
-
-    .otp-inputs input:focus {
-      border-color: var(--primary);
-    }
-
-    .demo-alert {
-      display: none;
-      background: rgba(255, 87, 34, 0.15);
-      border: 1px solid var(--primary);
-      padding: 0.6rem;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      margin-bottom: 1rem;
-      color: #ff9800;
-    }
-
-    .success-alert {
-      display: none;
-      background: rgba(76, 175, 80, 0.15);
-      border: 1px solid #4caf50;
-      padding: 0.6rem;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      margin-bottom: 1rem;
-      color: #81c784;
-    }
-
-    /* Footer */
-    footer {
-      margin-top: auto;
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      .nav-links {
-        display: none;
-      }
-    }
-  </style>
+  <!-- Firebase App & Services (v9 compat for direct browser script execution) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
 
-  <div class="glow-circle glow-1"></div>
-  <div class="glow-circle glow-2"></div>
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header" id="mainHeader">
+    <div class="header-container">
+      <a href="#home" class="brand-logo-container">
+        <img 
+          src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" 
+          alt="Hunnar House Logo" 
+          class="brand-logo" 
+        />
+      </a>
 
-  <!-- Header -->
-  <header>
-    <div class="logo">Hunnar Hub</div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#categories">Categories</a></li>
-      <li><a href="#explore">Explore</a></li>
-    </ul>
-    <button class="btn-action" onclick="openModal()">Get Started</button>
-  </header>
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#shop" class="nav-link">Shop</a>
+        <a href="#gifts" class="nav-link">Gifts</a>
+        <a href="#chocolates" class="nav-link">Chocolates</a>
+        <a href="#candles" class="nav-link">Candles</a>
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-badge">Welcome to the Creative Space</div>
-    <h1>Turn Your <span>Hunnar</span> Into Endless Opportunities</h1>
-    <p>A modern platform dedicated to empowering local talents, creators, and skilled artisans to showcase their craft directly to the world.</p>
-    <button class="btn-action" onclick="openModal()">Join with Mobile OTP</button>
-  </section>
+      <div class="header-actions">
+        <!-- Live Search Trigger -->
+        <button class="action-btn" id="searchTriggerBtn" title="Search items" aria-label="Open search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
 
-  <!-- Showcase Cards Section -->
-  <section class="features-section" id="categories">
-    <h2 class="section-title">Explore Talents</h2>
-    <div class="cards-grid">
-      <div class="card">
-        <div class="card-icon">🎨</div>
-        <h3>Creative Arts</h3>
-        <p>Traditional paintings, digital art, crafting, and unique handmade goods.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🧵</div>
-        <h3>Handicrafts</h3>
-        <p>Pottery, textile design, embroidery, and culturally rich custom items.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🎵</div>
-        <h3>Music & Media</h3>
-        <p>Vocal performances, instrument playing, production, and video editing.</p>
+        <!-- Notification Bell (stores announcements & updates) -->
+        <div class="notification-wrapper">
+          <button class="action-btn" id="notifTriggerBtn" title="Announcements & Updates" aria-label="View notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge" id="notifCountBadge">0</span>
+          </button>
+          
+          <div class="notification-dropdown" id="notificationDropdown">
+            <div class="notif-header">
+              <h3>Store Announcements</h3>
+              <button class="text-btn" id="markAllReadBtn">Clear</button>
+            </div>
+            <div class="notif-body" id="notifListContainer">
+              <p class="empty-notif">No new announcements right now.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cart Button -->
+        <button class="action-btn" id="cartTriggerBtn" title="Shopping Cart" aria-label="Open shopping cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="badge" id="cartBadge">0</span>
+        </button>
+
+        <!-- Auth Section -->
+        <div id="authActionsContainer">
+          <button class="btn btn-google" id="googleSignInBtn">
+            <i class="fa-brands fa-google"></i>
+            <span>Sign in with Google</span>
+          </button>
+          
+          <div class="user-menu-wrapper" id="userMenuWrapper" style="display: none;">
+            <button class="avatar-btn" id="userAvatarBtn">
+              <img id="userAvatarImg" src="" alt="Profile" />
+            </button>
+            <div class="user-dropdown" id="userDropdown">
+              <div class="user-info">
+                <strong id="userName">User</strong>
+                <span id="userEmail">user@example.com</span>
+              </div>
+              <hr />
+              <button class="dropdown-item" id="myOrdersBtn"><i class="fa-solid fa-box"></i> My Orders</button>
+              <button class="dropdown-item admin-only" id="adminDashboardBtn" style="display: none;">
+                <i class="fa-solid fa-shield-halved"></i> Admin Studio
+              </button>
+              <button class="dropdown-item" id="signOutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- OTP Modal -->
-  <div class="modal-overlay" id="otpModal">
-    <div class="modal">
-      <button class="close-btn" onclick="closeModal()">&times;</button>
-      
-      <!-- Step 1: Request Phone -->
-      <div id="step-phone">
-        <h2>Verify Details</h2>
-        <p>Enter your contact number to receive a one-time password demo.</p>
-        <input type="tel" id="user-phone" class="input-box" placeholder="e.g. 9876543210" maxlength="10">
-        <button class="btn-action" style="width: 100%;" onclick="sendOtp()">Send OTP</button>
-      </div>
-
-      <!-- Step 2: Enter OTP -->
-      <div id="step-verify" style="display: none;">
-        <h2>Enter Verification Code</h2>
-        <p>Please enter the 4-digit code generated below.</p>
-        <div class="demo-alert" id="demoAlert"></div>
-        <div class="otp-inputs">
-          <input type="text" maxlength="1" oninput="moveFocus(this, 1)" id="otp-1">
-          <input type="text" maxlength="1" oninput="moveFocus(this, 2)" id="otp-2">
-          <input type="text" maxlength="1" oninput="moveFocus(this, 3)" id="otp-3">
-          <input type="text" maxlength="1" oninput="moveFocus(this, 4)" id="otp-4">
+  <!-- ==================== HERO SECTION ==================== -->
+  <main>
+    <section class="hero-section" id="home">
+      <div class="hero-mesh-background"></div>
+      <div class="hero-container">
+        <div class="hero-content">
+          <span class="eyebrow-tag"><i class="fa-solid fa-heart"></i> Crafted by Heart</span>
+          <h1 class="hero-title">Empowering people. Preserving heritage. Creating opportunities.</h1>
+          <p class="hero-desc">
+            Thoughtfully crafted handmade gifts, gourmet chocolates, and artisan candles made to spread love and joy for every special celebration.
+          </p>
+          <div class="hero-buttons">
+            <a href="#shop" class="btn btn-primary">Shop Collection <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#about" class="btn btn-secondary">Our Story</a>
+          </div>
+          <div class="trust-pills">
+            <span><i class="fa-solid fa-check"></i> 100% Pure Artisan Craft</span>
+            <span><i class="fa-solid fa-check"></i> Direct UPI Checkout</span>
+          </div>
         </div>
-        <div class="success-alert" id="successAlert">Verification successful! Welcome to Hunnar Hub.</div>
-        <button class="btn-action" style="width: 100%;" onclick="verifyOtp()">Confirm</button>
-      </div>
 
+        <div class="hero-visual">
+          <!-- Frame with Morphing Shape -->
+          <div class="organic-frame-container" id="ruchiFrameWrapper">
+            <div class="organic-arch-mask" tabindex="0" role="img" aria-label="Ruchi Maheshwari, Founder and Artisan">
+              <img 
+                src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg" 
+                alt="Ruchi Maheshwari - Hunnar House" 
+                class="artisan-img" 
+                id="heroArtisanImg"
+              />
+            </div>
+            <div class="floating-stat-card">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <div>
+                <strong>Handcrafted</strong>
+                <p>Made with warmth &amp; care</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== MEMBER DAILY UPDATES ==================== -->
+    <section class="updates-section" id="memberUpdatesSection" style="display: none;">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Today's Studio Journal</h2>
+          <p class="section-sub">Exclusive live work and fresh studio announcements for members</p>
+        </div>
+        <div class="updates-grid" id="updatesGrid"></div>
+      </div>
+    </section>
+
+    <!-- ==================== SHOP CATALOG ==================== -->
+    <section class="catalog-section" id="shop">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Explore Creations</h2>
+          <p class="section-sub">Select from gifts, homemade sweets, and aromatic candles</p>
+          <div class="filter-pills" id="categoryFilterBar">
+            <button class="filter-btn active" data-category="all">All Items</button>
+            <button class="filter-btn" data-category="gifts">Gifts</button>
+            <button class="filter-btn" data-category="chocolates">Chocolates</button>
+            <button class="filter-btn" data-category="candles">Candles</button>
+          </div>
+        </div>
+        <div class="products-grid" id="productsGrid">
+          <p class="status-msg">Loading handmade collection...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT US ==================== -->
+    <section class="about-section" id="about">
+      <div class="container about-grid">
+        <div class="about-card">
+          <span class="eyebrow-tag">Behind the Craft</span>
+          <h2>A Note From Ruchi Maheshwari</h2>
+          <p>
+            Welcome to Hunnar House. Every candle is poured by hand, every chocolate is blended with pure ingredients, and each gift box is curated with warmth and deep attention to detail.
+          </p>
+          <p>
+            We believe that gifting is not merely exchanging items—it is about sharing love, encouragement, and genuine care. Thank you for welcoming our pieces into your homes and memorable occasions.
+          </p>
+          <div class="signature">Ruchi Maheshwari</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <h2>Get in Touch</h2>
+          <p>Have questions about bulk hampers, custom scents, or orders? We are here to help!</p>
+          <div class="contact-methods">
+            <a href="https://wa.me/916396699104" target="_blank" rel="noopener" class="contact-pill">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp: +91 6396699104
+            </a>
+            <a href="mailto:hunnarhouse19@gmail.com" class="contact-pill">
+              <i class="fa-solid fa-envelope"></i> hunnarhouse19@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Hunnar House. Crafted by Heart. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== LIVE SEARCH MODAL ==================== -->
+  <div class="modal-overlay" id="searchModal" aria-hidden="true">
+    <div class="search-modal-box">
+      <div class="search-input-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="liveSearchInput" placeholder="Search chocolates, candles, gift boxes..." autocomplete="off" />
+        <button class="close-btn" id="closeSearchBtn">&times;</button>
+      </div>
+      <div class="search-results-list" id="searchResultsContainer">
+        <p class="search-tip">Type at least 2 characters to search...</p>
+      </div>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 Hunnar Hub. All rights reserved.</p>
-  </footer>
+  <!-- ==================== CART DRAWER ==================== -->
+  <div class="drawer-overlay" id="cartDrawer" aria-hidden="true">
+    <div class="cart-drawer-panel">
+      <div class="drawer-header">
+        <h3>Your Shopping Bag</h3>
+        <button class="close-btn" id="closeCartBtn">&times;</button>
+      </div>
+      <div class="drawer-body" id="cartItemsList">
+        <p class="empty-msg">Your shopping bag is empty.</p>
+      </div>
+      <div class="drawer-footer" id="cartFooterSection" style="display: none;">
+        <div class="price-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotalVal">₹0</span>
+        </div>
+        <div class="price-row">
+          <span>Delivery</span>
+          <span id="cartDeliveryVal">₹50</span>
+        </div>
+        <div class="price-row total-row">
+          <span>Total Amount</span>
+          <span id="cartTotalVal">₹0</span>
+        </div>
+        <button class="btn btn-primary btn-block" id="proceedCheckoutBtn">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
 
-  <script>
-    let generatedOtp = "";
+  <!-- ==================== CHECKOUT MODAL ==================== -->
+  <div class="modal-overlay" id="checkoutModal" aria-hidden="true">
+    <div class="checkout-card">
+      <div class="card-head">
+        <h3>Confirm Delivery &amp; Payment</h3>
+        <button class="close-btn" id="closeCheckoutBtn">&times;</button>
+      </div>
+      <form id="checkoutForm" class="checkout-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="custName">Full Name</label>
+            <input type="text" id="custName" required />
+          </div>
+          <div class="form-group">
+            <label for="custPhone">Phone Number</label>
+            <input type="tel" id="custPhone" pattern="[0-9]{10}" placeholder="10-digit mobile" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="custStreet">House / Street Details</label>
+          <input type="text" id="custStreet" placeholder="Flat, House no., Apartment name" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="custArea">Area / Landmark</label>
+            <input type="text" id="custArea" placeholder="Nearby landmark" required />
+          </div>
+          <div class="form-group">
+            <label for="custPin">PIN Code</label>
+            <input type="text" id="custPin" pattern="[0-9]{6}" placeholder="6-digit PIN" required />
+          </div>
+        </div>
 
-    function openModal() {
-      document.getElementById('otpModal').classList.add('active');
-    }
+        <div class="payment-method-box">
+          <h4>Payment Method: UPI Direct</h4>
+          <p class="payment-id-display">UPI ID: <strong>8218498535@fam</strong></p>
+          <div class="checkout-summary-box">
+            <span>Payable Total:</span>
+            <strong id="checkoutTotalDisplay">₹0</strong>
+          </div>
+        </div>
 
-    function closeModal() {
-      document.getElementById('otpModal').classList.remove('active');
-      resetOtpForm();
-    }
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-block" id="placeOrderBtn">
+            Confirm &amp; Pay via UPI
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-    function sendOtp() {
-      const phone = document.getElementById('user-phone').value.trim();
-      if (phone.length < 10) {
-        alert("Please enter a valid 10-digit mobile number.");
-        return;
-      }
+  <!-- ==================== ORDER SUCCESS & RECEIPT MODAL ==================== -->
+  <div class="modal-overlay" id="receiptModal" aria-hidden="true">
+    <div class="receipt-card">
+      <div class="no-print modal-top-actions">
+        <button class="btn btn-secondary" id="printReceiptBtn"><i class="fa-solid fa-print"></i> Print Receipt</button>
+        <button class="close-btn" id="closeReceiptBtn">&times;</button>
+      </div>
+      <div class="printable-receipt" id="printableReceiptContent">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
 
-      // Generate a mock 4-digit OTP
-      generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
+  <!-- ==================== ADMIN STUDIO MODAL ==================== -->
+  <div class="modal-overlay" id="adminModal" aria-hidden="true">
+    <div class="admin-modal-card">
+      <div class="admin-header">
+        <h2>Hunnar House Admin Studio</h2>
+        <button class="close-btn" id="closeAdminBtn">&times;</button>
+      </div>
+      <div class="admin-tabs">
+        <button class="tab-btn active" data-tab="adminProducts">Products</button>
+        <button class="tab-btn" data-tab="adminUpdates">Announcements</button>
+        <button class="tab-btn" data-tab="adminOrders">Orders</button>
+      </div>
+      <div class="admin-body">
+        <!-- Product Manager -->
+        <div class="admin-tab-pane active" id="adminProducts">
+          <form id="newProductForm" class="admin-form">
+            <h4>Add New Product</h4>
+            <div class="form-row">
+              <input type="text" id="prodTitle" placeholder="Item Name" required />
+              <input type="number" id="prodPrice" placeholder="Price (₹)" required />
+            </div>
+            <div class="form-row">
+              <select id="prodCategory" required>
+                <option value="gifts">Gifts</option>
+                <option value="chocolates">Chocolates</option>
+                <option value="candles">Candles</option>
+              </select>
+              <input type="url" id="prodImgUrl" placeholder="Image URL (Cloudinary)" required />
+            </div>
+            <textarea id="prodDesc" placeholder="Item description" rows="2" required></textarea>
+            <button type="submit" class="btn btn-primary">Save Product</button>
+          </form>
+          <hr />
+          <h4>Current Inventory</h4>
+          <div class="admin-item-list" id="adminProductsList"></div>
+        </div>
 
-      document.getElementById('step-phone').style.display = 'none';
-      document.getElementById('step-verify').style.display = 'block';
+        <!-- Announcements / Updates -->
+        <div class="admin-tab-pane" id="adminUpdates">
+          <form id="newUpdateForm" class="admin-form">
+            <h4>Publish Announcement</h4>
+            <input type="text" id="updateTitle" placeholder="Title" required />
+            <textarea id="updateContent" placeholder="Announcement content" rows="3" required></textarea>
+            <button type="submit" class="btn btn-primary">Publish Update</button>
+          </form>
+          <hr />
+          <h4>Published Updates</h4>
+          <div class="admin-item-list" id="adminUpdatesList"></div>
+        </div>
 
-      const demoAlert = document.getElementById('demoAlert');
-      demoAlert.style.display = 'block';
-      demoAlert.innerText = `Demo OTP generated: ${generatedOtp}`;
-    }
+        <!-- Orders -->
+        <div class="admin-tab-pane" id="adminOrders">
+          <h4>Customer Orders</h4>
+          <div class="admin-item-list" id="adminOrdersList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    function moveFocus(current, index) {
-      if (current.value.length === 1 && index < 4) {
-        document.getElementById(`otp-${index + 1}`).focus();
-      }
-    }
-
-    function verifyOtp() {
-      const enteredOtp = 
-        document.getElementById('otp-1').value +
-        document.getElementById('otp-2').value +
-        document.getElementById('otp-3').value +
-        document.getElementById('otp-4').value;
-
-      if (enteredOtp === generatedOtp) {
-        document.getElementById('demoAlert').style.display = 'none';
-        const success = document.getElementById('successAlert');
-        success.style.display = 'block';
-        setTimeout(() => {
-          closeModal();
-        }, 2000);
-      } else {
-        alert("Invalid code. Please check the code displayed above and try again.");
-      }
-    }
-
-    function resetOtpForm() {
-      document.getElementById('step-phone').style.display = 'block';
-      document.getElementById('step-verify').style.display = 'none';
-      document.getElementById('user-phone').value = '';
-      for (let i = 1; i <= 4; i++) {
-        document.getElementById(`otp-${i}`).value = '';
-      }
-      document.getElementById('demoAlert').style.display = 'none';
-      document.getElementById('successAlert').style.display = 'none';
-    }
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
