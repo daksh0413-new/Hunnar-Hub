@@ -1,488 +1,1734 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hunnar House | Direct Delivery & Real-Time Fulfillment Dashboard</title>
-    <!-- Leaflet OpenStreetMap Engine -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Google Site Verification -->
+  <meta name="google-site-verification" content="bsO3Wcmwg8HeskQwjh50f8aGdXcOBYx1ygl2lnGT0DM" />
+
+  <!-- Search Engine Optimization (SEO) -->
+  <title>Hunnar House — Crafted by Heart | Luxury Artisanal Atelier</title>
+  <meta name="description" content="Hunnar House is a premier luxury atelier offering hand-poured scented soy wax candles, single-origin artisanal chocolates, and bespoke celebratory gift hampers." />
+  <meta name="keywords" content="Hunnar House, luxury candles, artisanal chocolates, bespoke hampers, scented soy candles, luxury gift atelier, Bareilly gifts, gourmet treats" />
+  <meta name="author" content="Hunnar House Atelier" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hunnar House — Crafted by Heart" />
+  <meta property="og:description" content="Discover hand-poured soy candles, artisanal confections, and bespoke celebratory hampers crafted with meticulous soul." />
+  <meta property="og:image" content="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" />
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM: $10,000 EDITORIAL ATELIER LUXURY BRAND
+       ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --maroon: #6b1d2f;
+      --maroon-dark: #49121f;
+      --maroon-light: #8e2b41;
+      --gold: #d4af37;
+      --gold-soft: #f4e8c1;
+      --alabaster: #faf7f2;
+      --ivory: #ffffff;
+      --charcoal: #1f1b1c;
+      --muted: #6e6768;
+      --border-rose: rgba(107, 29, 47, 0.14);
+      --glass-bg: rgba(255, 255, 255, 0.85);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--alabaster);
+      color: var(--charcoal);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Ambient Lighting */
+    .ambient-glow {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+    }
+    .glow-1 {
+      width: 500px;
+      height: 500px;
+      top: -150px;
+      left: -100px;
+      background: #f7d7dc;
+    }
+    .glow-2 {
+      width: 600px;
+      height: 600px;
+      bottom: -150px;
+      right: -100px;
+      background: #eee0d1;
+    }
+
+    /* ============================================================
+       TOP NAVIGATION BAR
+       ============================================================ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+      background: transparent;
+    }
+    .navbar.scrolled {
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 12px 5%;
+      border-bottom: 1px solid var(--border-rose);
+      box-shadow: 0 10px 30px rgba(107, 29, 47, 0.05);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--ivory);
+      padding: 3px;
+      border: 1px solid var(--border-rose);
+      box-shadow: 0 4px 15px rgba(107, 29, 47, 0.08);
+      transition: var(--transition);
+    }
+    .nav-brand-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--maroon);
+      line-height: 1;
+    }
+    .nav-brand-sub {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-link {
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: var(--charcoal);
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--maroon);
+      transition: var(--transition);
+    }
+    .nav-link:hover {
+      color: var(--maroon);
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .cart-btn {
+      background: transparent;
+      border: none;
+      font-size: 18px;
+      color: var(--maroon);
+      cursor: pointer;
+      position: relative;
+      padding: 6px;
+    }
+    .cart-badge {
+      position: absolute;
+      top: 0;
+      right: -4px;
+      background: var(--maroon);
+      color: var(--ivory);
+      font-size: 10px;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* User Profile Chip & Login Button */
+    .btn-login {
+      background: var(--maroon);
+      color: var(--ivory);
+      border: none;
+      padding: 9px 22px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-login:hover {
+      background: var(--maroon-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(107, 29, 47, 0.25);
+    }
+
+    .user-profile-menu {
+      display: none;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      cursor: pointer;
+    }
+    .avatar-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--maroon);
+      color: var(--gold-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 12px rgba(107, 29, 47, 0.2);
+      border: 2px solid var(--gold-soft);
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+    }
+    .user-dropdown {
+      position: absolute;
+      top: 52px;
+      right: 0;
+      background: var(--ivory);
+      border: 1px solid var(--border-rose);
+      border-radius: 12px;
+      width: 230px;
+      box-shadow: 0 16px 36px rgba(107, 29, 47, 0.12);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 1001;
+    }
+    .user-dropdown.show {
+      display: flex;
+    }
+    .dropdown-header {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      background: var(--rose-mist);
+    }
+    .dropdown-header p {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--maroon);
+    }
+    .dropdown-header small {
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .dropdown-item {
+      padding: 11px 16px;
+      font-size: 13px;
+      color: var(--charcoal);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: var(--transition);
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+    }
+    .dropdown-item:hover {
+      background: #fbf5f6;
+      color: var(--maroon);
+    }
+
+    /* ============================================================
+       HERO BANNER SECTION
+       ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 130px 20px 80px;
+      z-index: 1;
+    }
+    .hero-content {
+      max-width: 820px;
+    }
+    .atelier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(107, 29, 47, 0.08);
+      color: var(--maroon);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      border: 1px solid var(--border-rose);
+      animation: pulseGlow 2.5s infinite ease-in-out;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 6vw, 76px);
+      line-height: 1.1;
+      font-weight: 600;
+      color: var(--maroon);
+      margin-bottom: 22px;
+      letter-spacing: -0.5px;
+    }
+    .hero-subtitle {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 620px;
+      margin: 0 auto 36px;
+      font-weight: 300;
+    }
+    .hero-cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--maroon);
+      color: var(--ivory);
+      text-decoration: none;
+      padding: 14px 34px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-primary:hover {
+      background: var(--maroon-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(107, 29, 47, 0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--maroon);
+      border: 1.5px solid var(--maroon);
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: var(--transition);
+    }
+    .btn-outline:hover {
+      background: rgba(107, 29, 47, 0.05);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       EDITORIAL FEATURES STRIP
+       ============================================================ */
+    .features-strip {
+      padding: 60px 5%;
+      position: relative;
+      z-index: 1;
+    }
+    .strip-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+    .strip-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--border-rose);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 32px 26px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .strip-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(107, 29, 47, 0.08);
+      border-color: var(--maroon);
+    }
+    .strip-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #fbf1f3;
+      color: var(--maroon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin: 0 auto 18px;
+    }
+    .strip-card h3 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--maroon);
+      margin-bottom: 8px;
+    }
+    .strip-card p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       ATELIER CATALOGUE SECTION
+       ============================================================ */
+    .section {
+      padding: 90px 5%;
+      position: relative;
+      z-index: 1;
+    }
+    .section-head {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 55px;
+    }
+    .section-tag {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4vw, 48px);
+      color: var(--maroon);
+      line-height: 1.2;
+    }
+
+    .products-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 32px;
+    }
+    .product-card {
+      background: var(--ivory);
+      border: 1px solid var(--border-rose);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 50px rgba(107, 29, 47, 0.12);
+    }
+    .product-img-box {
+      height: 290px;
+      position: relative;
+      overflow: hidden;
+      background: #f4ecef;
+    }
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .product-card:hover .product-img {
+      transform: scale(1.06);
+    }
+    .product-tag-chip {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      color: var(--maroon);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: 50px;
+      text-transform: uppercase;
+    }
+    .product-info {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+    .product-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .product-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      padding-top: 16px;
+    }
+    .product-price {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--maroon);
+    }
+    .btn-add-cart {
+      background: var(--maroon);
+      color: var(--ivory);
+      border: none;
+      padding: 9px 18px;
+      border-radius: 50px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-add-cart:hover {
+      background: var(--maroon-dark);
+      transform: scale(1.03);
+    }
+
+    /* ============================================================
+       FOUNDER STORY / ABOUT ATELIER
+       ============================================================ */
+    .about-atelier {
+      background: #f5ebe6;
+      border-top: 1px solid var(--border-rose);
+      border-bottom: 1px solid var(--border-rose);
+    }
+    .about-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-img-frame {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(107, 29, 47, 0.15);
+      border: 8px solid var(--ivory);
+    }
+    .about-img-frame img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .about-text h3 {
+      font-family: var(--font-serif);
+      font-size: 42px;
+      color: var(--maroon);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .about-text p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .signature-area {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 26px;
+      color: var(--maroon);
+      margin-top: 20px;
+    }
+
+    /* ============================================================
+       FLOATING "CHAT WITH RUCHI" WIDGET (UNLOCKED POST-LOGIN)
+       ============================================================ */
+    .chat-ruchi-trigger {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 990;
+      background: var(--maroon);
+      color: var(--ivory);
+      border: none;
+      padding: 14px 24px;
+      border-radius: 50px;
+      box-shadow: 0 12px 30px rgba(107, 29, 47, 0.35);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: none; /* revealed upon login */
+      align-items: center;
+      gap: 10px;
+      transition: var(--transition);
+    }
+    .chat-ruchi-trigger:hover {
+      background: var(--maroon-dark);
+      transform: translateY(-3px) scale(1.02);
+    }
+    .ruchi-badge-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    .chat-modal-window {
+      position: fixed;
+      bottom: 95px;
+      right: 28px;
+      width: 370px;
+      max-width: calc(100vw - 40px);
+      height: 520px;
+      background: var(--ivory);
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+      border: 1px solid var(--border-rose);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 991;
+    }
+    .chat-modal-window.open {
+      display: flex;
+    }
+    .chat-head {
+      background: var(--maroon);
+      color: var(--ivory);
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .chat-head-user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .chat-head-user img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-soft);
+    }
+    .chat-head-user div h4 {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .chat-head-user div small {
+      font-size: 11px;
+      color: #ffd8df;
+    }
+    .chat-close-btn {
+      background: none;
+      border: none;
+      color: var(--ivory);
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .chat-messages {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #faf7f5;
+    }
+    .msg-bubble {
+      max-width: 80%;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+    .msg-ruchi {
+      align-self: flex-start;
+      background: #ffffff;
+      color: var(--charcoal);
+      border: 1px solid var(--border-rose);
+      border-bottom-left-radius: 2px;
+    }
+    .msg-user {
+      align-self: flex-end;
+      background: var(--maroon);
+      color: var(--ivory);
+      border-bottom-right-radius: 2px;
+    }
+    .chat-input-bar {
+      padding: 12px;
+      background: #ffffff;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      display: flex;
+      gap: 8px;
+    }
+    .chat-input-bar input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1px solid #e0d8d8;
+      border-radius: 50px;
+      font-size: 13px;
+      outline: none;
+    }
+    .chat-input-bar input:focus {
+      border-color: var(--maroon);
+    }
+    .chat-send-btn {
+      background: var(--maroon);
+      color: #fff;
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ============================================================
+       ADMIN CONSOLE DRAWER (EXCLUSIVE TO RUCHI)
+       ============================================================ */
+    .admin-bar {
+      display: none;
+      background: #1a060b;
+      color: var(--gold-soft);
+      padding: 8px 5%;
+      font-size: 12px;
+      font-weight: 600;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    .admin-bar.active {
+      display: flex;
+    }
+    .admin-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      z-index: 1050;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .admin-modal.show {
+      display: flex;
+    }
+    .admin-modal-card {
+      background: var(--ivory);
+      border-radius: 20px;
+      max-width: 600px;
+      width: 100%;
+      padding: 32px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .admin-modal-card h3 {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      color: var(--maroon);
+      margin-bottom: 18px;
+    }
+    .admin-field {
+      margin-bottom: 18px;
+    }
+    .admin-field label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--charcoal);
+    }
+    .admin-field input, .admin-field textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #d4c7c7;
+      border-radius: 8px;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+    }
+
+    /* ============================================================
+       LOGIN / SIGNUP MODAL
+       ============================================================ */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(8px);
+      z-index: 1020;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-backdrop.show {
+      display: flex;
+    }
+    .modal-card {
+      background: var(--ivory);
+      border-radius: 24px;
+      max-width: 440px;
+      width: 100%;
+      padding: 40px;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .modal-title {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      color: var(--maroon);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .modal-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--charcoal);
+    }
+    .form-group input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #decbcb;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      transition: var(--transition);
+    }
+    .form-group input:focus {
+      border-color: var(--maroon);
+      box-shadow: 0 0 0 3px rgba(107, 29, 47, 0.12);
+    }
+    .btn-submit-form {
+      width: 100%;
+      background: var(--maroon);
+      color: var(--ivory);
+      border: none;
+      padding: 13px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: var(--transition);
+    }
+    .btn-submit-form:hover {
+      background: var(--maroon-dark);
+    }
+
+    /* Profile Edit Modal */
+    .avatar-preview-box {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      border: 3px solid var(--maroon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--maroon);
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Cart Drawer */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 400px;
+      max-width: 100vw;
+      height: 100vh;
+      background: var(--ivory);
+      box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+      z-index: 1040;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      padding: 30px 24px;
+    }
+    .cart-drawer.open {
+      right: 0;
+    }
+    .cart-drawer-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ece4e4;
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+    }
+    .cart-items-list {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .cart-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background: #faf6f6;
+      border-radius: 10px;
+    }
+    .cart-drawer-foot {
+      border-top: 1px solid #ece4e4;
+      padding-top: 20px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #140508;
+      color: #ede2e4;
+      padding: 80px 5% 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      z-index: 1;
+    }
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto 60px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+    }
+    .footer-brand h4 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      letter-spacing: 2px;
+      color: var(--gold-soft);
+      margin-bottom: 14px;
+    }
+    .footer-brand p {
+      font-size: 13.5px;
+      color: #baa4a7;
+      line-height: 1.7;
+      max-width: 320px;
+    }
+    .footer-col h5 {
+      font-size: 14px;
+      color: var(--gold-soft);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      color: #baa4a7;
+      text-decoration: none;
+      font-size: 13.5px;
+      transition: var(--transition);
+    }
+    .footer-links a:hover {
+      color: var(--gold-soft);
+      padding-left: 4px;
+    }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: #8c787b;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .about-wrap {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
 </head>
-<body style="font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 20px; background-color: #f7f9fc; color: #333333;">
+<body>
 
-    <!-- Global Application Banner -->
-    <table width="100%" cellpadding="10" cellspacing="0" style="background-color: #6b1d2f; color: #ffffff; border-radius: 6px;">
-        <tr>
-            <td align="left">
-                <h2 style="margin: 0; font-size: 22px;">HUNNAR HOUSE &mdash; Atelier Logistics Engine</h2>
-                <small style="color: #f3d4db;">Synchronized Multi-Role Dispatch Platform</small>
-            </td>
-            <td align="right">
-                <label for="roleSwitchSelect" style="font-weight: bold; margin-right: 8px;">Active Interface Role:</label>
-                <select id="roleSwitchSelect" onchange="switchApplicationRole()" style="padding: 6px 12px; font-weight: bold; border-radius: 4px; border: 1px solid #ffffff;">
-                    <option value="user">Customer Order & Delivery Portal</option>
-                    <option value="admin">Operations & Admin Live Board</option>
-                </select>
-            </td>
-        </tr>
-    </table>
+  <!-- Ambient Light Backdrops -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
 
-    <hr style="border: none; border-top: 1px solid #d1d5db; margin: 20px 0;">
+  <!-- Admin Bar for Ruchi -->
+  <div class="admin-bar" id="adminBar">
+    <div>
+      <i class="fa-solid fa-crown"></i> <strong>Ruchi Atelier Console:</strong> You are browsing with full Master Editor privileges.
+    </div>
+    <button onclick="openAdminEditor()" style="background: var(--gold); border: none; padding: 4px 14px; border-radius: 20px; font-weight: 700; cursor: pointer;">
+      Edit Site Content
+    </button>
+  </div>
 
-    <!-- ========================================================================= -->
-    <!-- USER INTERFACE: CATALOGUE, LEAFLET MAP ADDRESS PICKER, & CHECKOUT         -->
-    <!-- ========================================================================= -->
-    <div id="userSectionWrapper">
-        <table width="100%" cellpadding="15" cellspacing="0">
-            <tr valign="top">
-                <!-- Left Column: Product Selection & Order Formation -->
-                <td width="50%" style="background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px;">
-                    <h3 style="margin-top: 0; color: #6b1d2f; border-bottom: 2px solid #6b1d2f; padding-bottom: 8px;">1. Select Atelier Goods</h3>
-                    
-                    <table width="100%" cellpadding="8" cellspacing="0" border="1" style="border-collapse: collapse; border-color: #e5e7eb;">
-                        <tr style="background-color: #f9fafb;">
-                            <th>Item Name</th>
-                            <th>Description</th>
-                            <th>Price</th>
-                            <th>Action</th>
-                        </tr>
-                        <tr>
-                            <td><b>Royal Scented Soy Candle</b></td>
-                            <td>Amber, Sandalwood &amp; Jasmine infusion</td>
-                            <td>₹850</td>
-                            <td align="center"><button type="button" onclick="appendItemToCart('Royal Scented Soy Candle', 850)" style="padding: 5px 10px; background-color: #6b1d2f; color: #ffffff; border: none; cursor: pointer; border-radius: 4px;">Add +</button></td>
-                        </tr>
-                        <tr>
-                            <td><b>Artisanal Truffle Assortment</b></td>
-                            <td>Single-origin 70% dark cocoa box</td>
-                            <td>₹650</td>
-                            <td align="center"><button type="button" onclick="appendItemToCart('Artisanal Truffle Assortment', 650)" style="padding: 5px 10px; background-color: #6b1d2f; color: #ffffff; border: none; cursor: pointer; border-radius: 4px;">Add +</button></td>
-                        </tr>
-                        <tr>
-                            <td><b>Bespoke Celebration Hamper</b></td>
-                            <td>Complete festive edition with custom seal</td>
-                            <td>₹2,400</td>
-                            <td align="center"><button type="button" onclick="appendItemToCart('Bespoke Celebration Hamper', 2400)" style="padding: 5px 10px; background-color: #6b1d2f; color: #ffffff; border: none; cursor: pointer; border-radius: 4px;">Add +</button></td>
-                        </tr>
-                    </table>
+  <!-- Main Navigation -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-brand">
+      <img src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" alt="Hunnar House Logo" class="brand-logo-img" />
+      <div>
+        <div class="nav-brand-title">HUNNAR HOUSE</div>
+        <div class="nav-brand-sub">Crafted by Heart</div>
+      </div>
+    </a>
 
-                    <h4 style="margin-top: 20px; margin-bottom: 8px;">Your Shopping Cart</h4>
-                    <div id="cartContentsDisplay" style="border: 1px dashed #9ca3af; padding: 10px; min-height: 50px; background-color: #fdfdfd;">
-                        <i>Cart is empty. Select items above.</i>
-                    </div>
-                    <p style="text-align: right; font-size: 16px; font-weight: bold; margin-top: 10px;">
-                        Cart Grand Total: ₹<span id="cartGrandTotalValue">0</span>
-                    </p>
+    <ul class="nav-links">
+      <li><a href="#catalogue" class="nav-link">Creations</a></li>
+      <li><a href="#story" class="nav-link">Our Atelier</a></li>
+      <li><a href="#craft" class="nav-link">Philosophy</a></li>
+      <li><a href="#contact" class="nav-link">Inquiries</a></li>
+    </ul>
 
-                    <h3 style="color: #6b1d2f; border-bottom: 2px solid #6b1d2f; padding-bottom: 8px; margin-top: 25px;">2. Contact Details</h3>
-                    <table width="100%" cellpadding="6" cellspacing="0">
-                        <tr>
-                            <td width="30%"><label for="customerNameInput"><b>Full Name:</b></label></td>
-                            <td><input type="text" id="customerNameInput" placeholder="e.g. Aditi Sharma" style="width: 95%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="customerPhoneInput"><b>Phone Number:</b></label></td>
-                            <td><input type="tel" id="customerPhoneInput" placeholder="+91 9876543210" style="width: 95%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;"></td>
-                        </tr>
-                    </table>
-                </td>
+    <div class="nav-actions">
+      <!-- Cart Icon -->
+      <button class="cart-btn" onclick="toggleCartDrawer()">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-badge" id="cartCount">0</span>
+      </button>
 
-                <!-- Right Column: Dual-Input Delivery Address & Interactive Map Selection -->
-                <td width="50%" style="background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px;">
-                    <h3 style="margin-top: 0; color: #6b1d2f; border-bottom: 2px solid #6b1d2f; padding-bottom: 8px;">3. Set Delivery Address (Type or Pin on Map)</h3>
-                    
-                    <p style="margin: 0 0 10px 0; font-size: 13px; color: #4b5563;">
-                        Write your address directly into the field below, or click/drag the pin anywhere on the interactive map to automatically update the address and coordinates.
-                    </p>
+      <!-- Logged Out Button -->
+      <button class="btn-login" id="loginBtn" onclick="openLoginModal()">
+        <i class="fa-regular fa-user"></i> Sign In
+      </button>
 
-                    <label for="manualAddressInput"><b>Complete Postal / Street Address:</b></label><br>
-                    <textarea id="manualAddressInput" rows="3" placeholder="Click on the map or type manual address here..." style="width: 98%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-top: 5px; margin-bottom: 10px;"></textarea>
+      <!-- Logged In User Avatar & Dropdown -->
+      <div class="user-profile-menu" id="userProfileMenu" onclick="toggleUserDropdown(event)">
+        <div class="avatar-circle" id="userAvatarCircle">DM</div>
+        <div class="user-dropdown" id="userDropdown">
+          <div class="dropdown-header">
+            <p id="dropdownUserName">Daksh Maheshwari</p>
+            <small id="dropdownUserEmail">daksh@example.com</small>
+          </div>
+          <button class="dropdown-item" onclick="openEditProfileModal()">
+            <i class="fa-regular fa-id-badge"></i> Edit Profile & Photo
+          </button>
+          <button class="dropdown-item" onclick="openChatWithRuchi()">
+            <i class="fa-regular fa-comments"></i> Chat with Ruchi
+          </button>
+          <button class="dropdown-item" onclick="logoutUser()" style="color: #dc2626;">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-                    <table width="100%" cellpadding="4" cellspacing="0" style="margin-bottom: 10px; background-color: #f3f4f6; border-radius: 4px;">
-                        <tr>
-                            <td><small><b>Selected Latitude:</b> <span id="displayLat">28.3670</span></small></td>
-                            <td><small><b>Selected Longitude:</b> <span id="displayLng">79.4304</span></small></td>
-                            <td align="right">
-                                <button type="button" onclick="locateUserPosition()" style="padding: 4px 8px; font-size: 11px; cursor: pointer;">Locate My GPS</button>
-                            </td>
-                        </tr>
-                    </table>
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="atelier-badge">
+        <i class="fa-solid fa-gem"></i> Hand-Poured Artisanal Luxury
+      </span>
+      <h1 class="hero-title" id="liveHeroTitle">Something heartfelt is being poured.</h1>
+      <p class="hero-subtitle" id="liveHeroSub">
+        Welcome to Hunnar House. An intimate atelier dedicated to hand-poured botanical soy candles, single-origin confectionery chocolates, and bespoke celebratory gift hampers.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#catalogue" class="btn-primary">
+          Explore Collection <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="https://wa.me/916396699104" target="_blank" class="btn-outline">
+          <i class="fa-brands fa-whatsapp"></i> Speak to Studio
+        </a>
+      </div>
+    </div>
+  </section>
 
-                    <!-- Leaflet OpenStreetMap Viewport -->
-                    <div id="leafletMapContainer" style="width: 100%; height: 260px; border: 1px solid #9ca3af; border-radius: 4px;"></div>
+  <!-- Feature Highlights -->
+  <section class="features-strip" id="craft">
+    <div class="strip-grid">
+      <div class="strip-card">
+        <div class="strip-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+        <h3>Soy Wax Candles</h3>
+        <p>Pure golden botanical wax blended with French perfume oils for clean, soothing 60-hour aromas.</p>
+      </div>
+      <div class="strip-card">
+        <div class="strip-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+        <h3>Artisan Chocolates</h3>
+        <p>Small-batch Belgian and single-origin truffles hand-crafted with toasted dry fruits and rich ganache.</p>
+      </div>
+      <div class="strip-card">
+        <div class="strip-icon"><i class="fa-solid fa-gift"></i></div>
+        <h3>Bespoke Hampers</h3>
+        <p>Curated luxury gift packaging styled with fine silks, wax seals, and personalized heartfelt letters.</p>
+      </div>
+    </div>
+  </section>
 
-                    <div style="margin-top: 20px;">
-                        <button type="button" id="submitOrderBtn" onclick="transmitOrderToBackend()" style="width: 100%; padding: 12px; background-color: #10b981; color: #ffffff; font-size: 16px; font-weight: bold; border: none; border-radius: 6px; cursor: pointer;">
-                            Confirm &amp; Place Delivery Order
-                        </button>
-                    </div>
-                </td>
-            </tr>
-        </table>
+  <!-- Products Section -->
+  <section class="section" id="catalogue">
+    <div class="section-head">
+      <span class="section-tag">Limited Atelier Editions</span>
+      <h2 class="section-title">Crafted by Heart for You</h2>
+    </div>
 
-        <!-- Active Customer Order Tracking Timeline -->
-        <div style="margin-top: 25px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px;">
-            <h3 style="margin-top: 0; color: #6b1d2f;">Live Track of Your Recent Order</h3>
-            <div id="userTrackingContainer">
-                <p><i>No order placed in this active session yet.</i></p>
+    <div class="products-grid">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-img-box">
+          <span class="product-tag-chip">Signature</span>
+          <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=700&q=80" alt="Royal Scented Soy Candle" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div>
+            <h3 class="product-title">Royal Oud & Amber Soy Candle</h3>
+            <p class="product-desc">Infused with amber resin, dark oud, and gentle vanilla orchid. Hand-poured into gold-trimmed frosted glass.</p>
+          </div>
+          <div class="product-footer">
+            <span class="product-price">₹1,150</span>
+            <button class="btn-add-cart" onclick="addToCart('Royal Oud & Amber Soy Candle', 1150)">
+              <i class="fa-solid fa-plus"></i> Add to Bag
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-img-box">
+          <span class="product-tag-chip">Gourmet</span>
+          <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=700&q=80" alt="Artisan Truffles" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div>
+            <h3 class="product-title">70% Single Origin Cocoa Truffles</h3>
+            <p class="product-desc">Silky dark chocolate ganache infused with roasted hazelnuts and salted caramel pearls in a velvet keepsake box.</p>
+          </div>
+          <div class="product-footer">
+            <span class="product-price">₹850</span>
+            <button class="btn-add-cart" onclick="addToCart('70% Single Origin Cocoa Truffles', 850)">
+              <i class="fa-solid fa-plus"></i> Add to Bag
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-img-box">
+          <span class="product-tag-chip">Artisanal</span>
+          <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=700&q=80" alt="Celebration Hamper" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div>
+            <h3 class="product-title">Imperial Atelier Hamper</h3>
+            <p class="product-desc">Contains twin signature candles, artisanal truffle box, fragrant ceramic room mist, and customized gold seal note.</p>
+          </div>
+          <div class="product-footer">
+            <span class="product-price">₹2,800</span>
+            <button class="btn-add-cart" onclick="addToCart('Imperial Atelier Hamper', 2800)">
+              <i class="fa-solid fa-plus"></i> Add to Bag
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder Atelier Story -->
+  <section class="section about-atelier" id="story">
+    <div class="about-wrap">
+      <div class="about-img-frame">
+        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=900&q=80" alt="Hunnar House Atelier Creation" />
+      </div>
+      <div class="about-text">
+        <span class="section-tag">About Hunnar House</span>
+        <h3>From Bareilly with Love, Poured with Soul.</h3>
+        <p id="liveStoryText">
+          Hunnar House was born out of an appreciation for quiet luxury, slow craft, and heartfelt sensory memories. Every candle is poured by hand in small batches, every chocolate recipe balanced with gourmet dedication.
+        </p>
+        <p>
+          When you receive a parcel from Hunnar House, you aren't just opening a box—you are unwrapping hours of patience, care, and genuine artistry.
+        </p>
+        <div class="signature-area">Ruchi &bull; Founder &amp; Creative Master</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>HUNNAR HOUSE</h4>
+        <p>Luxury hand-crafted atelier dedicated to slow artisan craft, scented candles, and celebratory bespoke hampers.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Atelier</h5>
+        <ul class="footer-links">
+          <li><a href="#catalogue">Candle Works</a></li>
+          <li><a href="#catalogue">Confectionery</a></li>
+          <li><a href="#catalogue">Gift Hampers</a></li>
+          <li><a href="#story">Our Journey</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/916396699104" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp Studio</a></li>
+          <li><a href="mailto:hunnarhouse19@gmail.com"><i class="fa-regular fa-envelope"></i> Email Atelier</a></li>
+          <li><a href="tel:+916396699104"><i class="fa-solid fa-phone"></i> +91 6396699104</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Studio Location</h5>
+        <p style="font-size: 13.5px; color: #baa4a7; line-height: 1.7;">
+          Civil Lines, Bareilly,<br />
+          Uttar Pradesh, India
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; Hunnar House. Crafted by Heart. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       FLOATING "CHAT WITH RUCHI" WIDGET (UNLOCKED UPON LOGIN)
+       ============================================================ -->
+  <button class="chat-ruchi-trigger" id="chatRuchiBtn" onclick="toggleChatWithRuchi()">
+    <span class="ruchi-badge-dot"></span>
+    <i class="fa-regular fa-comments"></i> Chat with Ruchi
+  </button>
+
+  <div class="chat-modal-window" id="chatModalWindow">
+    <div class="chat-head">
+      <div class="chat-head-user">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Ruchi" />
+        <div>
+          <h4>Ruchi &bull; Atelier Founder</h4>
+          <small>Active & Ready to help</small>
+        </div>
+      </div>
+      <button class="chat-close-btn" onclick="toggleChatWithRuchi()">&times;</button>
+    </div>
+    <div class="chat-messages" id="chatMessagesBox">
+      <div class="msg-bubble msg-ruchi">
+        Warm greetings! Welcome to Hunnar House. How can I help customize your order or gift box today?
+      </div>
+    </div>
+    <div class="chat-input-bar">
+      <input type="text" id="chatInputMessage" placeholder="Ask about hampers, scents, or delivery..." onkeydown="if(event.key==='Enter') sendChatMessage()" />
+      <button class="chat-send-btn" onclick="sendChatMessage()">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       LOGIN / SIGNUP MODAL
+       ============================================================ -->
+  <div class="modal-backdrop" id="loginModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeLoginModal()">&times;</button>
+      <h3 class="modal-title">Welcome to Atelier</h3>
+      <p class="modal-subtitle">Sign in to unlock bespoke orders &amp; direct chat with Ruchi.</p>
+
+      <form id="authForm" onsubmit="handleFormLogin(event)">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="loginName" placeholder="e.g. Daksh Maheshwari" required />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="loginEmail" placeholder="yourname@gmail.com (or ruchi@hunnarhouse.com for Admin)" required />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required />
+        </div>
+        <button type="submit" class="btn-submit-form">Enter Hunnar House</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       PROFILE / PHOTO EDIT MODAL
+       ============================================================ */
+  <div class="modal-backdrop" id="editProfileModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeEditProfileModal()">&times;</button>
+      <h3 class="modal-title">Edit Your Profile</h3>
+      <p class="modal-subtitle">Update your display name or set a profile picture image URL.</p>
+
+      <div class="avatar-preview-box" id="avatarPreviewLarge">DM</div>
+
+      <form onsubmit="handleSaveProfile(event)">
+        <div class="form-group">
+          <label>Display Name</label>
+          <input type="text" id="editNameInput" required />
+        </div>
+        <div class="form-group">
+          <label>Profile Picture URL (Optional)</label>
+          <input type="url" id="editPhotoUrlInput" placeholder="https://... (leave empty for letter initials)" />
+        </div>
+        <button type="submit" class="btn-submit-form">Save Profile Changes</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       ADMIN CONTENT EDITOR (RUCHI ONLY)
+       ============================================================ -->
+  <div class="admin-modal" id="adminEditorModal">
+    <div class="admin-modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3 style="margin: 0;">Ruchi's Atelier Content Editor</h3>
+        <button onclick="closeAdminEditor()" style="background: none; border: none; font-size: 22px; cursor: pointer;">&times;</button>
+      </div>
+
+      <div class="admin-field">
+        <label>Hero Headline</label>
+        <input type="text" id="adminHeadlineInput" value="Something heartfelt is being poured." />
+      </div>
+
+      <div class="admin-field">
+        <label>Hero Subtitle</label>
+        <textarea id="adminSubtitleInput" rows="3">Welcome to Hunnar House. An intimate atelier dedicated to hand-poured botanical soy candles, single-origin confectionery chocolates, and bespoke celebratory gift hampers.</textarea>
+      </div>
+
+      <div class="admin-field">
+        <label>Founder Story Section</label>
+        <textarea id="adminStoryInput" rows="4">Hunnar House was born out of an appreciation for quiet luxury, slow craft, and heartfelt sensory memories. Every candle is poured by hand in small batches, every chocolate recipe balanced with gourmet dedication.</textarea>
+      </div>
+
+      <button onclick="saveAdminChanges()" class="btn-submit-form" style="background: var(--gold); color: #1c050b; font-weight: 700;">
+        Publish Live to Website
+      </button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SHOPPING BAG DRAWER
+       ============================================================ -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-head">
+      <h3 style="font-family: var(--font-serif); font-size: 24px; color: var(--maroon);">Your Atelier Bag</h3>
+      <button onclick="toggleCartDrawer()" style="background: none; border: none; font-size: 22px; cursor: pointer;">&times;</button>
+    </div>
+    <div class="cart-items-list" id="cartItemsList">
+      <p style="color: var(--muted); text-align: center; margin-top: 40px;">Your bag is currently empty.</p>
+    </div>
+    <div class="cart-drawer-foot">
+      <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: 700; margin-bottom: 16px;">
+        <span>Total</span>
+        <span id="cartTotalPrice">₹0</span>
+      </div>
+      <a href="https://wa.me/916396699104?text=Hello%20Hunnar%20House,%20I%20would%20like%20to%20place%20an%20order." target="_blank" class="btn-primary" style="width: 100%; justify-content: center;">
+        Checkout via WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CORE JAVASCRIPT CONTROLLER (NO EXTERNAL LIBS NEEDED)
+       ============================================================ -->
+  <script>
+    // --- 1. User & Authentication State ---
+    let currentUser = null;
+    let cart = [];
+
+    // Check local storage for persistent session
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedUser = localStorage.getItem('hh_user');
+      if (savedUser) {
+        currentUser = JSON.parse(savedUser);
+        applyUserState();
+      }
+
+      // Load any live edited content
+      const savedHeroTitle = localStorage.getItem('hh_hero_title');
+      const savedHeroSub = localStorage.getItem('hh_hero_sub');
+      const savedStory = localStorage.getItem('hh_story');
+
+      if (savedHeroTitle) document.getElementById('liveHeroTitle').innerText = savedHeroTitle;
+      if (savedHeroSub) document.getElementById('liveHeroSub').innerText = savedHeroSub;
+      if (savedStory) document.getElementById('liveStoryText').innerText = savedStory;
+    });
+
+    // Helper: Compute initials (e.g. "Daksh Maheshwari" -> "DM")
+    function getInitials(name) {
+      if (!name) return 'HH';
+      const parts = name.trim().split(' ');
+      if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+      return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    }
+
+    // Modal Triggers
+    function openLoginModal() { document.getElementById('loginModal').classList.add('show'); }
+    function closeLoginModal() { document.getElementById('loginModal').classList.remove('show'); }
+
+    function handleFormLogin(e) {
+      e.preventDefault();
+      const name = document.getElementById('loginName').value.trim();
+      const email = document.getElementById('loginEmail').value.trim();
+
+      const isAdmin = (email.toLowerCase() === 'ruchi@hunnarhouse.com');
+
+      currentUser = {
+        name: name,
+        email: email,
+        photoUrl: '',
+        role: isAdmin ? 'admin' : 'user'
+      };
+
+      localStorage.setItem('hh_user', JSON.stringify(currentUser));
+      applyUserState();
+      closeLoginModal();
+    }
+
+    function applyUserState() {
+      if (!currentUser) return;
+
+      document.getElementById('loginBtn').style.display = 'none';
+      const userMenu = document.getElementById('userProfileMenu');
+      userMenu.style.display = 'flex';
+
+      document.getElementById('dropdownUserName').innerText = currentUser.name;
+      document.getElementById('dropdownUserEmail').innerText = currentUser.email;
+
+      renderAvatar();
+
+      // Show Chat with Ruchi for logged-in users
+      document.getElementById('chatRuchiBtn').style.display = 'inline-flex';
+
+      // Check for Admin privileges
+      if (currentUser.role === 'admin') {
+        document.getElementById('adminBar').classList.add('active');
+        document.getElementById('navbar').style.top = '36px';
+      } else {
+        document.getElementById('adminBar').classList.remove('active');
+        document.getElementById('navbar').style.top = '0';
+      }
+    }
+
+    function renderAvatar() {
+      const avatarEl = document.getElementById('userAvatarCircle');
+      if (currentUser.photoUrl && currentUser.photoUrl.trim() !== '') {
+        avatarEl.style.backgroundImage = `url('${currentUser.photoUrl}')`;
+        avatarEl.innerText = '';
+      } else {
+        avatarEl.style.backgroundImage = 'none';
+        avatarEl.innerText = getInitials(currentUser.name);
+      }
+    }
+
+    function logoutUser() {
+      localStorage.removeItem('hh_user');
+      currentUser = null;
+      document.getElementById('loginBtn').style.display = 'inline-flex';
+      document.getElementById('userProfileMenu').style.display = 'none';
+      document.getElementById('userDropdown').classList.remove('show');
+      document.getElementById('chatRuchiBtn').style.display = 'none';
+      document.getElementById('chatModalWindow').classList.remove('open');
+      document.getElementById('adminBar').classList.remove('active');
+      document.getElementById('navbar').style.top = '0';
+    }
+
+    function toggleUserDropdown(e) {
+      e.stopPropagation();
+      document.getElementById('userDropdown').classList.toggle('show');
+    }
+
+    window.addEventListener('click', () => {
+      const drop = document.getElementById('userDropdown');
+      if (drop) drop.classList.remove('show');
+    });
+
+    // Profile Edit
+    function openEditProfileModal() {
+      document.getElementById('editNameInput').value = currentUser.name;
+      document.getElementById('editPhotoUrlInput').value = currentUser.photoUrl || '';
+      updatePreviewBox();
+      document.getElementById('editProfileModal').classList.add('show');
+    }
+    function closeEditProfileModal() {
+      document.getElementById('editProfileModal').classList.remove('show');
+    }
+    function updatePreviewBox() {
+      const preview = document.getElementById('avatarPreviewLarge');
+      const photo = document.getElementById('editPhotoUrlInput').value;
+      const name = document.getElementById('editNameInput').value;
+      if (photo && photo.trim() !== '') {
+        preview.style.backgroundImage = `url('${photo}')`;
+        preview.innerText = '';
+      } else {
+        preview.style.backgroundImage = 'none';
+        preview.innerText = getInitials(name);
+      }
+    }
+    document.getElementById('editPhotoUrlInput').addEventListener('input', updatePreviewBox);
+    document.getElementById('editNameInput').addEventListener('input', updatePreviewBox);
+
+    function handleSaveProfile(e) {
+      e.preventDefault();
+      currentUser.name = document.getElementById('editNameInput').value.trim();
+      currentUser.photoUrl = document.getElementById('editPhotoUrlInput').value.trim();
+
+      localStorage.setItem('hh_user', JSON.stringify(currentUser));
+      applyUserState();
+      closeEditProfileModal();
+    }
+
+    // --- 2. Chat with Ruchi Functionality ---
+    function toggleChatWithRuchi() {
+      document.getElementById('chatModalWindow').classList.toggle('open');
+    }
+    function openChatWithRuchi() {
+      document.getElementById('chatModalWindow').classList.add('open');
+    }
+
+    function sendChatMessage() {
+      const input = document.getElementById('chatInputMessage');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const chatBox = document.getElementById('chatMessagesBox');
+      const userBubble = document.createElement('div');
+      userBubble.className = 'msg-bubble msg-user';
+      userBubble.innerText = text;
+      chatBox.appendChild(userBubble);
+      input.value = '';
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      // Realistic automated reply from Ruchi
+      setTimeout(() => {
+        const ruchiBubble = document.createElement('div');
+        ruchiBubble.className = 'msg-bubble msg-ruchi';
+        ruchiBubble.innerText = "Thank you, " + (currentUser ? currentUser.name.split(' ')[0] : 'dear') + "! I have received your message. I am currently reviewing your request in the studio and will respond right away.";
+        chatBox.appendChild(ruchiBubble);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }, 1000);
+    }
+
+    // --- 3. Admin Live Editor (Ruchi Privilege) ---
+    function openAdminEditor() {
+      document.getElementById('adminEditorModal').classList.add('show');
+    }
+    function closeAdminEditor() {
+      document.getElementById('adminEditorModal').classList.remove('show');
+    }
+    function saveAdminChanges() {
+      const hTitle = document.getElementById('adminHeadlineInput').value;
+      const hSub = document.getElementById('adminSubtitleInput').value;
+      const hStory = document.getElementById('adminStoryInput').value;
+
+      document.getElementById('liveHeroTitle').innerText = hTitle;
+      document.getElementById('liveHeroSub').innerText = hSub;
+      document.getElementById('liveStoryText').innerText = hStory;
+
+      localStorage.setItem('hh_hero_title', hTitle);
+      localStorage.setItem('hh_hero_sub', hSub);
+      localStorage.setItem('hh_story', hStory);
+
+      closeAdminEditor();
+      alert("Atelier Website changes are now published live!");
+    }
+
+    // --- 4. Cart Bag Drawer ---
+    function toggleCartDrawer() {
+      document.getElementById('cartDrawer').classList.toggle('open');
+    }
+
+    function addToCart(title, price) {
+      cart.push({ title, price });
+      updateCartDisplay();
+      toggleCartDrawer();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+      const list = document.getElementById('cartItemsList');
+      const count = document.getElementById('cartCount');
+      const total = document.getElementById('cartTotalPrice');
+
+      count.innerText = cart.length;
+
+      if (cart.length === 0) {
+        list.innerHTML = '<p style="color: var(--muted); text-align: center; margin-top: 40px;">Your bag is currently empty.</p>';
+        total.innerText = '₹0';
+        return;
+      }
+
+      let sum = 0;
+      let html = '';
+      cart.forEach((item, index) => {
+        sum += item.price;
+        html += `
+          <div class="cart-item-row">
+            <div>
+              <strong style="font-size: 13.5px;">${item.title}</strong>
+              <div style="color: var(--maroon); font-size: 13px; font-weight: 600;">₹${item.price}</div>
             </div>
-        </div>
-    </div>
+            <button onclick="removeFromCart(${index})" style="background: none; border: none; color: #dc2626; cursor: pointer; font-size: 14px;">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        `;
+      });
 
-    <!-- ========================================================================= -->
-    <!-- ADMIN INTERFACE: REAL-TIME FULFILLMENT BOARD & STATUS CONTROLS            -->
-    <!-- ========================================================================= -->
-    <div id="adminSectionWrapper" style="display: none;">
-        <table width="100%" cellpadding="10" cellspacing="0" style="background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 20px;">
-            <tr>
-                <td>
-                    <h3 style="margin: 0; color: #6b1d2f;">Dispatch Command Center</h3>
-                    <small>Real-time order synchronization with live status updates</small>
-                </td>
-                <td align="right">
-                    <button type="button" onclick="synchronizeAdminOrders()" style="padding: 6px 14px; background-color: #2563eb; color: #ffffff; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">
-                        Force Refresh Orders
-                    </button>
-                </td>
-            </tr>
-        </table>
+      list.innerHTML = html;
+      total.innerText = '₹' + sum.toLocaleString('en-IN');
+    }
 
-        <div style="background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 15px;">
-            <table width="100%" cellpadding="8" cellspacing="0" border="1" style="border-collapse: collapse; border-color: #e5e7eb;" id="adminOrderTable">
-                <thead style="background-color: #f3f4f6;">
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Customer</th>
-                        <th>Contact</th>
-                        <th>Delivery Address &amp; Coordinates</th>
-                        <th>Items Ordered</th>
-                        <th>Total</th>
-                        <th>Current State</th>
-                        <th>Workflow Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="adminOrderTableBody">
-                    <tr>
-                        <td colspan="8" align="center"><i>Querying order server...</i></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- ========================================================================= -->
-    <!-- CLIENT JAVASCRIPT: APPLICATION LOGIC, MAP CONTROLLER, API CONNECTOR        -->
-    <!-- ========================================================================= -->
-    <script>
-        // Centralized State
-        let shoppingCart = [];
-        let activeLeafletMap = null;
-        let globalMarker = null;
-        let lastUserOrderId = null;
-        let adminPollingInterval = null;
-
-        // Default Anchor Coordinates (Bareilly, Uttar Pradesh)
-        const DEFAULT_LAT = 28.3670;
-        const DEFAULT_LNG = 79.4304;
-
-        // In-Memory Fallback State (Simulates Java backend when running without server)
-        let mockServerOrderDatabase = [];
-
-        window.addEventListener('DOMContentLoaded', () => {
-            initializeInteractiveMap(DEFAULT_LAT, DEFAULT_LNG);
-            startAdminPollingEngine();
-        });
-
-        // 1. Leaflet Map Initialization and Reverse Geocoding
-        function initializeInteractiveMap(lat, lng) {
-            activeLeafletMap = L.map('leafletMapContainer').setView([lat, lng], 13);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; OpenStreetMap Contributors'
-            }).addTo(activeLeafletMap);
-
-            globalMarker = L.marker([lat, lng], { draggable: true }).addTo(activeLeafletMap);
-
-            // Click on Map to relocate marker
-            activeLeafletMap.on('click', function(e) {
-                updatePointerCoordinates(e.latlng.lat, e.latlng.lng);
-            });
-
-            // Drag marker listener
-            globalMarker.on('dragend', function(e) {
-                const pos = e.target.getLatLng();
-                updatePointerCoordinates(pos.lat, pos.lng);
-            });
-        }
-
-        function updatePointerCoordinates(lat, lng) {
-            globalMarker.setLatLng([lat, lng]);
-            document.getElementById('displayLat').innerText = lat.toFixed(5);
-            document.getElementById('displayLng').innerText = lng.toFixed(5);
-            requestReverseGeocodeLookup(lat, lng);
-        }
-
-        // OpenStreetMap Nominatim Free Geocoder
-        function requestReverseGeocodeLookup(lat, lng) {
-            document.getElementById('manualAddressInput').placeholder = "Resolving street details from map coordinate...";
-            fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data && data.display_name) {
-                        document.getElementById('manualAddressInput').value = data.display_name;
-                    }
-                })
-                .catch(err => {
-                    console.warn("Geocoding lookup notice: ", err);
-                    document.getElementById('manualAddressInput').placeholder = "Enter street or building instructions manually...";
-                });
-        }
-
-        function locateUserPosition() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (pos) => {
-                        const userLat = pos.coords.latitude;
-                        const userLng = pos.coords.longitude;
-                        activeLeafletMap.setView([userLat, userLng], 15);
-                        updatePointerCoordinates(userLat, userLng);
-                    },
-                    (error) => {
-                        alert("Geolocation request denied or unavailable. Please pin manually on map.");
-                    }
-                );
-            } else {
-                alert("Geolocation is not supported by your browser.");
-            }
-        }
-
-        // 2. Shopping Cart Logic
-        function appendItemToCart(name, price) {
-            shoppingCart.push({ name: name, price: price });
-            refreshCartDisplay();
-        }
-
-        function removeCartItemByIndex(index) {
-            shoppingCart.splice(index, 1);
-            refreshCartDisplay();
-        }
-
-        function refreshCartDisplay() {
-            const container = document.getElementById('cartContentsDisplay');
-            const totalDisplay = document.getElementById('cartGrandTotalValue');
-            
-            if (shoppingCart.length === 0) {
-                container.innerHTML = '<i>Cart is empty. Select items above.</i>';
-                totalDisplay.innerText = "0";
-                return;
-            }
-
-            let html = '<table width="100%" cellpadding="4" cellspacing="0">';
-            let grandTotal = 0;
-            shoppingCart.forEach((item, idx) => {
-                grandTotal += item.price;
-                html += `<tr>
-                    <td>${item.name}</td>
-                    <td align="right">₹${item.price}</td>
-                    <td width="30" align="center">
-                        <button type="button" onclick="removeCartItemByIndex(${idx})" style="color: red; border: none; background: none; cursor: pointer; font-weight: bold;">✕</button>
-                    </td>
-                </tr>`;
-            });
-            html += '</table>';
-            container.innerHTML = html;
-            totalDisplay.innerText = grandTotal.toLocaleString('en-IN');
-        }
-
-        // 3. User Order Submission (Sync with Java Server / Mock Server)
-        function transmitOrderToBackend() {
-            const name = document.getElementById('customerNameInput').value.trim();
-            const phone = document.getElementById('customerPhoneInput').value.trim();
-            const address = document.getElementById('manualAddressInput').value.trim();
-            const lat = parseFloat(document.getElementById('displayLat').innerText);
-            const lng = parseFloat(document.getElementById('displayLng').innerText);
-
-            if (shoppingCart.length === 0) {
-                alert("Cannot proceed: Your cart is empty.");
-                return;
-            }
-            if (!name || !phone || !address) {
-                alert("Please fill in your name, phone number, and delivery address before checkout.");
-                return;
-            }
-
-            let totalVal = 0;
-            let itemList = [];
-            shoppingCart.forEach(i => { totalVal += i.price; itemList.push(i.name); });
-
-            const payload = {
-                orderId: "HH-" + Math.floor(100000 + Math.random() * 900000),
-                customerName: name,
-                customerPhone: phone,
-                deliveryAddress: address,
-                latitude: lat,
-                longitude: lng,
-                items: itemList,
-                totalAmount: totalVal,
-                status: "RECEIVED",
-                timestamp: new Date().toLocaleTimeString()
-            };
-
-            // Attempt transmit to local Java Backend controller endpoint
-            fetch('/api/orders/place', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            })
-            .then(res => res.json())
-            .then(data => {
-                completeOrderFlow(data);
-            })
-            .catch(err => {
-                // Transparent in-memory fallback for local preview without active Spring Boot server
-                console.warn("Direct Java API uncontactable, using synchronized in-memory database: ", err);
-                mockServerOrderDatabase.push(payload);
-                completeOrderFlow(payload);
-            });
-        }
-
-        function completeOrderFlow(orderObj) {
-            lastUserOrderId = orderObj.orderId;
-            alert("Order placed successfully! Tracking ID: " + orderObj.orderId);
-            shoppingCart = [];
-            refreshCartDisplay();
-            renderCustomerTrackingBoard(orderObj);
-            synchronizeAdminOrders();
-        }
-
-        function renderCustomerTrackingBoard(orderObj) {
-            const container = document.getElementById('userTrackingContainer');
-            
-            const stages = ["RECEIVED", "PREPARING", "OUT_FOR_DELIVERY", "DELIVERED"];
-            const currentIdx = stages.indexOf(orderObj.status);
-
-            let statusTimelineHtml = '<div style="margin-top: 10px; margin-bottom: 10px;">';
-            stages.forEach((st, i) => {
-                const isPassed = i <= currentIdx;
-                const color = isPassed ? "#10b981" : "#9ca3af";
-                statusTimelineHtml += `<span style="font-weight: bold; color: ${color}; margin-right: 15px;">
-                    [${isPassed ? "✔" : "○"} ${st.replace(/_/g, ' ')}]
-                </span>`;
-            });
-            statusTimelineHtml += '</div>';
-
-            container.innerHTML = `
-                <table width="100%" cellpadding="6" cellspacing="0" style="background-color: #f9fafb; border: 1px solid #e5e7eb;">
-                    <tr>
-                        <td><b>Tracking ID:</b> ${orderObj.orderId}</td>
-                        <td><b>Placed Time:</b> ${orderObj.timestamp}</td>
-                        <td><b>Total Paid:</b> ₹${orderObj.totalAmount}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><b>Destination Address:</b> ${orderObj.deliveryAddress} (${orderObj.latitude.toFixed(4)}, ${orderObj.longitude.toFixed(4)})</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><b>Fulfillment Progress:</b> ${statusTimelineHtml}</td>
-                    </tr>
-                </table>
-            `;
-        }
-
-        // 4. Admin Management Logic
-        function switchApplicationRole() {
-            const role = document.getElementById('roleSwitchSelect').value;
-            if (role === 'admin') {
-                document.getElementById('userSectionWrapper').style.display = 'none';
-                document.getElementById('adminSectionWrapper').style.display = 'block';
-                synchronizeAdminOrders();
-            } else {
-                document.getElementById('adminSectionWrapper').style.display = 'none';
-                document.getElementById('userSectionWrapper').style.display = 'block';
-                if (activeLeafletMap) {
-                    setTimeout(() => { activeLeafletMap.invalidateSize(); }, 200);
-                }
-            }
-        }
-
-        function synchronizeAdminOrders() {
-            fetch('/api/orders/all')
-                .then(res => res.json())
-                .then(data => {
-                    populateAdminTable(data);
-                })
-                .catch(() => {
-                    // Pull from mock synchronized storage
-                    populateAdminTable(mockServerOrderDatabase);
-                });
-        }
-
-        function populateAdminTable(orders) {
-            const tbody = document.getElementById('adminOrderTableBody');
-            if (!orders || orders.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="8" align="center"><i>No orders waiting in queue.</i></td></tr>';
-                return;
-            }
-
-            let rows = '';
-            orders.slice().reverse().forEach(order => {
-                rows += `<tr>
-                    <td><b>${order.orderId}</b><br><small>${order.timestamp}</small></td>
-                    <td>${order.customerName}</td>
-                    <td>${order.customerPhone}</td>
-                    <td>
-                        <small>${order.deliveryAddress}</small><br>
-                        <a href="https://www.openstreetmap.org/?mlat=${order.latitude}&mlon=${order.longitude}#map=17/${order.latitude}/${order.longitude}" target="_blank" style="font-size: 11px; color: #2563eb;">View Map Pin (${order.latitude.toFixed(3)}, ${order.longitude.toFixed(3)})</a>
-                    </td>
-                    <td><small>${order.items.join(', ')}</small></td>
-                    <td><b>₹${order.totalAmount}</b></td>
-                    <td><b style="color: #6b1d2f;">${order.status}</b></td>
-                    <td>
-                        <select onchange="modifyOrderStatus('${order.orderId}', this.value)" style="padding: 4px; font-size: 12px;">
-                            <option value="">Update State...</option>
-                            <option value="RECEIVED">Received</option>
-                            <option value="PREPARING">Preparing</option>
-                            <option value="OUT_FOR_DELIVERY">Out for Delivery</option>
-                            <option value="DELIVERED">Delivered</option>
-                            <option value="CANCELLED">Cancel</option>
-                        </select>
-                    </td>
-                </tr>`;
-            });
-            tbody.innerHTML = rows;
-
-            // Synchronize customer status if customer tracking is visible
-            if (lastUserOrderId) {
-                const found = orders.find(o => o.orderId === lastUserOrderId);
-                if (found) {
-                    renderCustomerTrackingBoard(found);
-                }
-            }
-        }
-
-        function modifyOrderStatus(orderId, nextStatus) {
-            if (!nextStatus) return;
-
-            fetch(`/api/orders/update-status?orderId=${orderId}&status=${nextStatus}`, { method: 'POST' })
-                .then(res => res.json())
-                .then(updated => {
-                    synchronizeAdminOrders();
-                })
-                .catch(() => {
-                    const localOrder = mockServerOrderDatabase.find(o => o.orderId === orderId);
-                    if (localOrder) {
-                        localOrder.status = nextStatus;
-                        synchronizeAdminOrders();
-                    }
-                });
-        }
-
-        function startAdminPollingEngine() {
-            if (adminPollingInterval) clearInterval(adminPollingInterval);
-            adminPollingInterval = setInterval(() => {
-                synchronizeAdminOrders();
-            }, 3000); // Poll every 3 seconds for live syncing
-        }
-    </script>
+    // --- 5. Scroll Reactivity ---
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 30) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  </script>
 </body>
 </html>
