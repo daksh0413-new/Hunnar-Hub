@@ -3,1376 +3,1143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
+  <!-- Google Verification -->
   <meta name="google-site-verification" content="bsO3Wcmwg8HeskQwjh50f8aGdXcOBYx1ygl2lnGT0DM" />
-  <title>Hunnar House — Homemade Candles, Chocolates & Gift Hampers</title>
-  <meta name="description" content="Hunnar House makes fresh scented soy wax candles, sweet handmade chocolates, and beautiful gift hampers for every happy moment." />
 
-  <!-- Tab Icon (Favicon) -->
-  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" />
+  <!-- Page Title -->
+  <title>Hunnar House | Handmade Gifts &amp; Candles</title>
 
-  <!-- Simple Clean Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Primary SEO Meta Tags -->
+  <meta name="description" content="Handmade soy candles and sweet chocolates crafted with love by Ruchi Maheshwari. Explore our collection of handcrafted celebration gifts at Hunnar House — Crafted by Heart." />
+  <meta name="author" content="Ruchi Maheshwari" />
+  <meta name="keywords" content="Hunnar House, Crafted by Heart, Ruchi Maheshwari, Soy Wax Candles, Handmade Chocolates, Artisanal Gifts, Celebration Hampers" />
+  <link rel="canonical" href="https://hunnarhouse.vercel.app/" />
 
-  <!-- Cloudinary & EmailJS SDKs -->
-  <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" />
+  <link rel="shortcut icon" type="image/png" href="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" />
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Hunnar House" />
+  <meta property="og:url" content="https://hunnarhouse.vercel.app/" />
+  <meta property="og:title" content="Hunnar House | Handmade Gifts &amp; Candles" />
+  <meta property="og:description" content="Handmade soy candles and sweet chocolates crafted with love by Ruchi Maheshwari." />
+  <meta property="og:image" content="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
   <style>
-    /* ============================================================
-       CLEAN, FRIENDLY DESIGN (KIDS TO ADULTS)
-       ============================================================ */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     :root {
-      --brand-red: #6b1d2f;
-      --brand-dark: #4a101d;
-      --brand-soft: #fcf6f7;
-      --brand-border: #f0d5db;
-      --cream-bg: #faf7f2;
-      --pure-white: #ffffff;
-      --dark-text: #222222;
-      --light-text: #666666;
-      --green-wa: #25d366;
-      --green-dark: #128c7e;
-      --gold-star: #f59e0b;
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 22px;
-      --shadow: 0 10px 30px rgba(107, 29, 47, 0.08);
-      --font-body: 'Plus Jakarta Sans', sans-serif;
-      --font-title: 'Playfair Display', serif;
+      --wine: #4d101e;
+      --burgundy: #6b1d2f;
+      --rose: #822238;
+      --warm-bg: #fffaf7;
+      --card-bg: #ffffff;
+      --border-warm: #eadbd3;
+      --text-dark: #2b2224;
+      --text-muted: #5e5255;
+      --gold-gradient: linear-gradient(135deg, #ffd700 0%, #d4af37 50%, #aa7c11 100%);
+      --shadow-soft: 0 10px 30px rgba(77, 16, 30, 0.06);
     }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: var(--font-body);
-      background-color: var(--cream-bg);
-      color: var(--dark-text);
-      line-height: 1.5;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--warm-bg);
+      color: var(--text-dark);
+      line-height: 1.6;
     }
 
-    /* Top Announcement Bar */
-    .top-bar {
-      background: var(--brand-red);
-      color: var(--pure-white);
-      text-align: center;
-      padding: 8px 16px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    /* Main Navigation */
-    .nav-header {
-      background: var(--pure-white);
-      border-bottom: 1px solid var(--brand-border);
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-warm);
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: 12px 5%;
+    }
+
+    .top-announcement {
+      background: var(--wine);
+      color: #fff;
+      text-align: center;
+      padding: 6px 12px;
+      font-size: 12px;
+      display: none;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 16px;
     }
-    .brand-link {
+
+    .brand-group {
       display: flex;
       align-items: center;
       gap: 12px;
       text-decoration: none;
-      color: var(--brand-red);
-    }
-    .brand-logo {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 1px solid var(--brand-border);
-    }
-    .brand-name {
-      font-family: var(--font-title);
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: 1px;
+      cursor: pointer;
     }
 
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 20px;
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--border-warm);
+      object-fit: cover;
     }
-    .menu-btn {
+
+    .brand-text h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      color: var(--wine);
+      line-height: 1.1;
+    }
+
+    .brand-text p {
+      font-family: 'Playfair Display', serif;
+      font-size: 12px;
+      color: var(--burgundy);
+      font-style: italic;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-tab-btn {
       background: none;
       border: none;
-      font-family: var(--font-body);
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 14px;
-      font-weight: 600;
-      color: var(--dark-text);
+      font-weight: 500;
+      color: var(--text-dark);
+      padding: 8px 16px;
+      border-radius: 20px;
       cursor: pointer;
-      padding: 8px 12px;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-    }
-    .menu-btn:hover {
-      background: var(--brand-soft);
-      color: var(--brand-red);
+      transition: all 0.3s ease;
     }
 
-    .cart-bubble-btn {
-      background: var(--brand-soft);
-      color: var(--brand-red);
-      border: 1px solid var(--brand-border);
-      border-radius: 50px;
-      padding: 8px 18px;
-      font-weight: 700;
+    .nav-tab-btn:hover,
+    .nav-tab-btn.active {
+      background: var(--burgundy);
+      color: #ffffff;
+    }
+
+    .search-box { position: relative; }
+    .search-input {
+      padding: 8px 14px 8px 34px;
+      border: 1px solid var(--border-warm);
+      border-radius: 20px;
+      font-size: 13px;
+      outline: none;
+      width: 170px;
+      transition: width 0.3s ease;
+    }
+    .search-input:focus { width: 220px; border-color: var(--burgundy); }
+    .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 12px; }
+
+    .hero {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .hero-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      color: var(--wine);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .hero-content p { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--burgundy);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      border: none;
       cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn-primary:hover { background: var(--wine); }
+
+    .founder-frame {
+      position: relative;
+      cursor: pointer;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: 2px solid var(--border-warm);
+      transition: transform 0.4s ease;
+    }
+    .founder-frame:hover { transform: translateY(-4px); }
+    .founder-img { width: 100%; height: 380px; object-fit: cover; display: block; }
+    .founder-badge {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(43, 34, 36, 0.85));
+      color: #fff;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .tab-content { display: none; max-width: 1200px; margin: 0 auto; padding: 30px 24px 60px; }
+    .tab-content.active { display: block; }
+
+    .section-title { text-align: center; margin-bottom: 32px; }
+    .section-title h3 { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--wine); }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-warm);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover { transform: translateY(-4px); }
+
+    .product-thumb { width: 100%; height: 220px; object-fit: cover; }
+    .product-details { padding: 18px; display: flex; flex-direction: column; flex-grow: 1; }
+    .product-title { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--wine); margin-bottom: 6px; }
+    .product-desc { font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px; }
+    .product-price { font-weight: 700; color: var(--burgundy); font-size: 16px; margin-bottom: 12px; }
+
+    /* Star / Heart Rating Bar */
+    .rating-summary-bar {
       display: flex;
       align-items: center;
       gap: 8px;
+      margin-bottom: 14px;
     }
-
-    /* User Profile Chip */
-    .user-pill {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--brand-soft);
-      border: 1px solid var(--brand-border);
-      padding: 4px 12px 4px 6px;
-      border-radius: 50px;
-      cursor: pointer;
-    }
-    .user-initials {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: var(--brand-red);
-      color: var(--pure-white);
-      font-weight: 700;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .user-initials img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Role Banner */
-    .role-indicator {
-      display: none;
-      background: #1e293b;
-      color: #fff;
-      padding: 8px 5%;
-      font-size: 13px;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* Hero Banner */
-    .hero-box {
-      text-align: center;
-      padding: 60px 20px 40px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .hero-tag {
-      display: inline-block;
-      background: var(--brand-soft);
-      color: var(--brand-red);
-      border: 1px solid var(--brand-border);
-      padding: 6px 16px;
-      border-radius: 50px;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    .hero-box h1 {
-      font-family: var(--font-title);
-      font-size: clamp(32px, 5vw, 54px);
-      color: var(--brand-red);
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-    .hero-box p {
-      color: var(--light-text);
+    .stars-display {
+      display: inline-flex;
+      gap: 3px;
       font-size: 16px;
-      margin-bottom: 24px;
+      color: #d1c7c7;
     }
-
-    /* Product Cards */
-    .section-wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px 20px 60px;
+    .sharp-heart {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0px 1px 2px rgba(170, 124, 17, 0.4));
     }
-    .section-header-title {
-      font-family: var(--font-title);
-      font-size: 28px;
-      color: var(--brand-red);
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-    .item-card {
-      background: var(--pure-white);
-      border: 1px solid var(--brand-border);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-    }
-    .item-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-    .item-info {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      justify-content: space-between;
-    }
-    .item-name {
-      font-size: 18px;
+    .rating-score-badge {
       font-weight: 700;
-      color: var(--dark-text);
-      margin-bottom: 6px;
-    }
-    .item-desc {
-      font-size: 13px;
-      color: var(--light-text);
-      margin-bottom: 16px;
-    }
-    .item-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .item-price {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--brand-red);
-    }
-    .btn-buy {
-      background: var(--brand-red);
-      color: var(--pure-white);
-      border: none;
-      padding: 8px 18px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 13px;
-      cursor: pointer;
-    }
-    .btn-buy:hover {
-      background: var(--brand-dark);
-    }
-
-    /* Tabs (Store, Dashboard, Orders, Reviews) */
-    .tab-view {
-      display: none;
-    }
-    .tab-view.active {
-      display: block;
-    }
-
-    /* User & Admin Dashboard Cards */
-    .dash-box {
-      background: var(--pure-white);
-      border: 1px solid var(--brand-border);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow);
-    }
-    .dash-box h3 {
-      font-family: var(--font-title);
-      color: var(--brand-red);
-      margin-bottom: 16px;
-    }
-
-    /* Address Cards */
-    .address-card-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-    .address-card {
-      border: 2px solid #e2e8f0;
-      border-radius: var(--radius-sm);
-      padding: 14px;
-      cursor: pointer;
-      position: relative;
-    }
-    .address-card.selected {
-      border-color: var(--brand-red);
-      background: var(--brand-soft);
-    }
-    .address-badge {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      background: #e2e8f0;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-bottom: 6px;
-    }
-
-    /* ============================================================
-       WHATSAPP CHAT PORTAL WITH RUCHI
-       ============================================================ */
-    .chat-container {
-      background: #e5ddd5;
-      border-radius: var(--radius-md);
-      border: 1px solid #c8bebe;
-      height: 520px;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      position: relative;
-    }
-    .chat-header {
-      background: var(--brand-red);
-      color: #fff;
-      padding: 12px 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .chat-body {
-      flex: 1;
-      padding: 16px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .bubble {
-      max-width: 75%;
-      padding: 10px 14px;
-      border-radius: 12px;
-      font-size: 13.5px;
-      position: relative;
-    }
-    .bubble-ruchi {
-      align-self: flex-start;
-      background: #ffffff;
-      color: #000;
-      border-bottom-left-radius: 2px;
-    }
-    .bubble-user {
-      align-self: flex-end;
-      background: #dcf8c6;
-      color: #000;
-      border-bottom-right-radius: 2px;
-    }
-    .bubble-media {
-      max-width: 220px;
-      border-radius: 8px;
-      margin-top: 6px;
-      display: block;
-    }
-
-    /* Product Review Card inside chat */
-    .chat-review-card {
-      background: #fff;
-      border: 1px solid var(--brand-border);
-      border-radius: 10px;
-      padding: 12px;
-      margin-top: 6px;
-    }
-    .chat-review-card img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 8px;
-    }
-    .star-row {
-      color: var(--gold-star);
-      font-size: 18px;
-      margin: 8px 0;
-      cursor: pointer;
-    }
-
-    .chat-footer {
-      background: #f0f2f5;
-      padding: 10px 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      position: relative;
-    }
-    .chat-footer input {
-      flex: 1;
-      padding: 10px 16px;
-      border: 1px solid #ccc;
-      border-radius: 50px;
-      outline: none;
+      color: var(--burgundy);
       font-size: 14px;
     }
+    .rating-count {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
 
-    /* @ Popup for Ruchi */
-    .at-popup-menu {
-      position: absolute;
-      bottom: 60px;
-      left: 14px;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      width: 280px;
-      max-height: 220px;
-      overflow-y: auto;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      display: none;
-      z-index: 50;
-    }
-    .at-item {
+    .product-actions {
       display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      cursor: pointer;
-      border-bottom: 1px solid #eee;
+      gap: 8px;
+      margin-top: auto;
     }
-    .at-item:hover {
-      background: var(--brand-soft);
+
+    .query-card {
+      background: #ffffff;
+      border: 1px solid var(--border-warm);
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 32px;
+      box-shadow: var(--shadow-soft);
     }
-    .at-item img {
-      width: 36px;
-      height: 36px;
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--wine); }
+    .form-control {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border-warm);
       border-radius: 6px;
-      object-fit: cover;
+      font-size: 14px;
+      outline: none;
     }
+    .form-control:focus { border-color: var(--burgundy); }
 
     /* Modals */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 1000;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
       display: none;
       align-items: center;
       justify-content: center;
+      z-index: 1000;
       padding: 16px;
     }
-    .modal-overlay.open {
-      display: flex;
-    }
-    .modal-window {
-      background: #fff;
-      border-radius: var(--radius-lg);
-      max-width: 440px;
+    .modal-overlay.active { display: flex; }
+    .modal-card {
+      background: #ffffff;
+      border-radius: 14px;
       width: 100%;
-      padding: 28px;
-      max-height: 90vh;
+      max-width: 750px;
+      max-height: 85vh;
       overflow-y: auto;
-      box-shadow: var(--shadow);
+      padding: 28px;
+      position: relative;
     }
-    .form-group {
-      margin-bottom: 14px;
-    }
-    .form-group label {
-      display: block;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-    .form-group input, .form-group textarea, .form-group select {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #cbd5e1;
-      border-radius: var(--radius-sm);
-      font-size: 14px;
-      font-family: inherit;
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 18px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
     }
 
-    /* Checkout & Cart Drawer */
-    .drawer {
-      position: fixed;
-      top: 0;
-      right: -380px;
-      width: 360px;
-      max-width: 100vw;
-      height: 100vh;
-      background: #fff;
-      box-shadow: -10px 0 30px rgba(0,0,0,0.15);
-      z-index: 1010;
-      transition: right 0.3s ease;
+    .reviews-list {
       display: flex;
       flex-direction: column;
-      padding: 24px;
+      gap: 14px;
+      margin: 20px 0;
+      max-height: 250px;
+      overflow-y: auto;
     }
-    .drawer.open {
-      right: 0;
+    .review-item {
+      border: 1px solid var(--border-warm);
+      border-radius: 8px;
+      padding: 12px;
+      background: var(--warm-bg);
+      position: relative;
     }
+    .review-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .review-author { font-weight: 600; font-size: 14px; color: var(--wine); }
+    .review-city { font-size: 12px; color: var(--text-muted); }
+    .review-img { max-width: 80px; max-height: 80px; border-radius: 4px; object-fit: cover; margin-top: 6px; }
 
-    /* Order History Table */
-    table {
+    .data-table {
       width: 100%;
       border-collapse: collapse;
+      font-size: 13px;
       margin-top: 12px;
     }
-    th, td {
-      border: 1px solid #e2e8f0;
-      padding: 10px;
-      font-size: 13px;
+    .data-table th, .data-table td {
+      border: 1px solid var(--border-warm);
+      padding: 8px 10px;
       text-align: left;
     }
-    th {
-      background: #f8fafc;
-    }
+    .data-table th { background: #fdf5f2; color: var(--wine); }
 
-    /* Footer */
+    .admin-sub-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-warm);
+      padding-bottom: 10px;
+    }
+    .admin-tab-btn {
+      padding: 6px 14px;
+      background: #f7f3f0;
+      border: 1px solid var(--border-warm);
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--wine);
+    }
+    .admin-tab-btn.active { background: var(--burgundy); color: #fff; }
+
     footer {
-      background: #1a080d;
-      color: #fff;
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 13px;
-      margin-top: 60px;
+      background: #ffffff;
+      border-top: 1px solid var(--border-warm);
+      padding: 40px 24px 20px;
+      margin-top: 40px;
+    }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-warm);
+    }
+    .support-box {
+      background: var(--warm-bg);
+      border: 1px solid var(--border-warm);
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .support-input-row { display: flex; gap: 8px; }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .nav-tabs { display: none; }
+      .footer-container { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Announcement -->
-  <div class="top-bar">
-    🌸 Welcome to Hunnar House • Fresh Soy Wax Candles & Homemade Chocolates
-  </div>
+  <div class="top-announcement" id="topAnnouncementBar"></div>
 
-  <!-- Admin Bar for Ruchi -->
-  <div class="role-indicator" id="ruchiAdminBar">
-    <div>
-      <i class="fa-solid fa-crown" style="color: #f59e0b;"></i> 
-      <strong>Admin Mode Active:</strong> Logged in as Ruchi (Founder).
-    </div>
-    <button onclick="switchTab('admin-orders')" style="background: #f59e0b; border: none; padding: 4px 12px; font-weight: 700; border-radius: 4px; cursor: pointer;">
-      Manage Orders & Reviews
-    </button>
-  </div>
-
-  <!-- Navbar -->
-  <header class="nav-header">
-    <a href="#" class="brand-link" onclick="switchTab('store')">
-      <img src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" alt="Hunnar House" class="brand-logo" />
-      <div>
-        <div class="brand-name">HUNNAR HOUSE</div>
-        <small style="color: var(--light-text); font-size: 11px;">Crafted by Heart</small>
-      </div>
-    </a>
-
-    <div class="nav-menu">
-      <button class="menu-btn" onclick="switchTab('store')"><i class="fa-solid fa-store"></i> Shop</button>
-      <button class="menu-btn" id="navMyOrders" onclick="switchTab('orders')" style="display: none;"><i class="fa-solid fa-box"></i> My Orders</button>
-      <button class="menu-btn" id="navChatBtn" onclick="switchTab('chat')" style="display: none;"><i class="fa-brands fa-whatsapp"></i> Chat with Ruchi</button>
-
-      <!-- Cart Button -->
-      <button class="cart-bubble-btn" onclick="toggleCartDrawer()">
-        <i class="fa-solid fa-bag-shopping"></i>
-        Bag (<span id="cartCount">0</span>)
-      </button>
-
-      <!-- Sign In / Profile -->
-      <div id="loggedOutSection">
-        <button class="menu-btn" style="background: var(--brand-red); color: #fff; border-radius: 50px; padding: 8px 18px;" onclick="openAuthModal()">
-          Sign In
-        </button>
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <div class="brand-group" onclick="switchTab('home')">
+        <img class="brand-logo" src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" alt="Hunnar House Logo" />
+        <div class="brand-text">
+          <h1>Hunnar House</h1>
+          <p>Crafted by Heart &hearts;</p>
+        </div>
       </div>
 
-      <div id="loggedInSection" style="display: none;" class="user-pill" onclick="switchTab('dashboard')">
-        <div class="user-initials" id="userAvatarText">DM</div>
-        <div style="font-size: 13px; font-weight: 700;" id="userDisplayName">Daksh</div>
+      <ul class="nav-tabs">
+        <li><button class="nav-tab-btn active" onclick="switchTab('home')">Home</button></li>
+        <li><button class="nav-tab-btn" onclick="switchTab('candles')">Soy Candles</button></li>
+        <li><button class="nav-tab-btn" onclick="switchTab('chocolates')">Artisan Chocolates</button></li>
+        <li><button class="nav-tab-btn" onclick="switchTab('about')">About Artisan</button></li>
+        <li><button class="nav-tab-btn" onclick="switchTab('contact')">Direct Query</button></li>
+      </ul>
+
+      <div class="search-box">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" class="search-input" placeholder="Search creations..." oninput="handleSearch(this.value)" />
       </div>
     </div>
   </header>
 
-  <!-- ============================================================
-       TAB 1: STORE / SHOP
-       ============================================================ -->
-  <div class="tab-view active" id="tab-store">
-    <div class="hero-box">
-      <span class="hero-tag">Handcrafted With Love</span>
-      <h1>Simple Sweets & Scented Delights</h1>
-      <p>Every single candle and chocolate is made patiently by hand in Bareilly. Made to bring a warm smile to every child, parent, and home.</p>
-    </div>
-
-    <div class="section-wrap">
-      <div class="section-header-title">
-        <span>Our Special Creations</span>
+  <!-- TAB: Home -->
+  <main id="tab-home" class="tab-content active">
+    <div class="hero">
+      <div class="hero-content">
+        <h2>Handmade Treasures for Cherished Celebrations</h2>
+        <p>
+          Welcome to Hunnar House. Every soy candle, fresh chocolate treat, and gift hamper is handcrafted with attention, warmth, and care by Ruchi Maheshwari.
+        </p>
+        <button class="btn-primary" onclick="switchTab('candles')">Explore Creations</button>
       </div>
 
-      <div class="products-grid" id="productGrid">
-        <!-- Rendered with JavaScript -->
-      </div>
-    </div>
-  </div>
-
-  <!-- ============================================================
-       TAB 2: CUSTOMER DASHBOARD (Addresses & Profile)
-       ============================================================ -->
-  <div class="tab-view" id="tab-dashboard">
-    <div class="section-wrap">
-      <div class="section-header-title">
-        <span>My Account & Addresses</span>
-        <button onclick="logout()" style="background: none; border: 1px solid #cbd5e1; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 13px;">Sign Out</button>
-      </div>
-
-      <div class="dash-box">
-        <h3>Saved Delivery Addresses</h3>
-        <p style="font-size: 13px; color: var(--light-text); margin-bottom: 14px;">Select your default delivery location for 1-click WhatsApp order checkout.</p>
-        
-        <div class="address-card-list" id="addressListContainer">
-          <!-- Address cards go here -->
-        </div>
-
-        <button onclick="openNewAddressModal()" style="background: var(--brand-soft); border: 1px dashed var(--brand-red); color: var(--brand-red); font-weight: 700; padding: 10px 18px; border-radius: var(--radius-sm); cursor: pointer;">
-          + Add New Address
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ============================================================
-       TAB 3: ORDER HISTORY
-       ============================================================ -->
-  <div class="tab-view" id="tab-orders">
-    <div class="section-wrap">
-      <div class="section-header-title">
-        <span>My Order History</span>
-      </div>
-
-      <div class="dash-box">
-        <p style="font-size: 13px; color: var(--light-text); margin-bottom: 12px;">Here is the live status of all orders placed with Hunnar House.</p>
-        
-        <table>
-          <thead>
-            <tr>
-              <th>Order ID</th>
-              <th>Items</th>
-              <th>Total</th>
-              <th>Delivery Address</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody id="ordersTableBody">
-            <!-- Order history rows -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- ============================================================
-       TAB 4: WHATSAPP-STYLE CHAT WITH RUCHI
-       ============================================================ -->
-  <div class="tab-view" id="tab-chat">
-    <div class="section-wrap" style="max-width: 800px;">
-      <div class="chat-container">
-        <!-- Chat Header -->
-        <div class="chat-header">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" style="width: 38px; height: 38px; border-radius: 50%;" />
-            <div>
-              <strong style="font-size: 14px;">Ruchi (Hunnar House)</strong><br />
-              <small style="font-size: 11px; opacity: 0.85;">Online • Ready to help</small>
-            </div>
-          </div>
-          <span style="font-size: 12px; background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px;">
-            Direct Help
-          </span>
-        </div>
-
-        <!-- Chat Messages -->
-        <div class="chat-body" id="chatBody">
-          <div class="bubble bubble-ruchi">
-            Hello! I am Ruchi from Hunnar House. How can I help you customize your candles or sweet gift hampers today?
-          </div>
-        </div>
-
-        <!-- @ Product Menu for Ruchi -->
-        <div class="at-popup-menu" id="atPopupMenu">
-          <div style="padding: 8px 12px; font-size: 11px; font-weight: 700; color: #666; background: #f8fafc;">
-            SELECT PRODUCT TO REQUEST REVIEW:
-          </div>
-          <div id="atProductItems"></div>
-        </div>
-
-        <!-- Chat Input Bar -->
-        <div class="chat-footer">
-          <button onclick="uploadMediaCloudinary()" title="Send Photo/Video" style="background: none; border: none; font-size: 18px; color: #555; cursor: pointer;">
-            <i class="fa-solid fa-paperclip"></i>
-          </button>
-          <input 
-            type="text" 
-            id="chatInput" 
-            placeholder="Type your message... (Ruchi can type @ to ask reviews)" 
-            oninput="handleChatInput(event)"
-            onkeydown="if(event.key==='Enter') sendChatMessage()"
-          />
-          <button onclick="sendChatMessage()" style="background: var(--brand-red); color: #fff; border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer;">
-            <i class="fa-solid fa-paper-plane"></i>
-          </button>
+      <!-- Founder Photo Trigger -->
+      <div class="founder-frame" onclick="handleFounderClick()">
+        <img class="founder-img" src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg" alt="Ruchi Maheshwari — Artisan" />
+        <div class="founder-badge">
+          <span>Ruchi Maheshwari</span>
+          <small>Founder &bull; Crafted by Heart</small>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- ============================================================
-       TAB 5: RUCHI ADMIN ORDERS PANEL
-       ============================================================ -->
-  <div class="tab-view" id="tab-admin-orders">
-    <div class="section-wrap">
-      <div class="section-header-title">
-        <span>Ruchi's Studio Dispatch Control</span>
-      </div>
-
-      <div class="dash-box">
-        <h3>Live Received Orders</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Order ID</th>
-              <th>Customer</th>
-              <th>Items</th>
-              <th>Address</th>
-              <th>Update Status</th>
-            </tr>
-          </thead>
-          <tbody id="adminOrderTableBody">
-            <!-- Admin rows -->
-          </tbody>
-        </table>
-      </div>
+    <div class="section-title">
+      <h3>Handmade Collections</h3>
+      <p>Carefully made in small batches with love</p>
     </div>
-  </div>
+    <div class="product-grid" id="featuredGrid"></div>
+  </main>
 
-  <!-- ============================================================
-       CART & DIRECT WHATSAPP CHECKOUT DRAWER
-       ============================================================ -->
-  <div class="drawer" id="cartDrawer">
-    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 12px;">
-      <h3 style="font-family: var(--font-title); color: var(--brand-red);">Your Sweet Bag</h3>
-      <button onclick="toggleCartDrawer()" style="background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
+  <!-- TAB: Candles -->
+  <section id="tab-candles" class="tab-content">
+    <div class="section-title">
+      <h3>Aromatic Soy Wax Candles</h3>
+      <p>Clean-burning botanical wax poured with gentle essential oils</p>
     </div>
+    <div class="product-grid" id="candlesGrid"></div>
+  </section>
 
-    <div style="flex: 1; overflow-y: auto; margin-top: 16px;" id="cartItemList">
-      <!-- Items go here -->
+  <!-- TAB: Chocolates -->
+  <section id="tab-chocolates" class="tab-content">
+    <div class="section-title">
+      <h3>Fresh Artisan Chocolates</h3>
+      <p>Pure cocoa confections blended for celebrations and gifts</p>
     </div>
+    <div class="product-grid" id="chocolatesGrid"></div>
+  </section>
 
-    <div style="border-top: 1px solid #eee; padding-top: 16px;">
-      <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 16px; margin-bottom: 16px;">
-        <span>Total:</span>
-        <span id="cartTotalPrice">₹0</span>
+  <!-- TAB: About Us -->
+  <section id="tab-about" class="tab-content">
+    <div class="query-card" style="text-align: center;">
+      <h3 style="font-family:'Playfair Display',serif; font-size:26px; color:var(--wine); margin-bottom:12px;">Crafted by Heart</h3>
+      <p style="font-size:14.5px; color:var(--text-muted); line-height:1.8; margin-bottom:18px;">
+        At Hunnar House, skill and love come together. Guided by a belief that thoughtful gifts transform simple days into memorable occasions, each candle, chocolate box, and handmade token is carefully created in small batches to preserve its distinct, artisanal character.
+      </p>
+      <p style="font-family:'Cinzel',serif; font-size:15px; color:var(--wine); font-weight:700;">Ruchi Maheshwari</p>
+      <p style="font-size:13px; color:var(--burgundy);">Founder &amp; Creative Artisan</p>
+    </div>
+  </section>
+
+  <!-- TAB: Contact Form -->
+  <section id="tab-contact" class="tab-content">
+    <div class="query-card">
+      <div class="section-title" style="margin-bottom: 20px;">
+        <h3>Direct Inquiry</h3>
+        <p>Send a message directly for custom hampers, celebration favors, or bulk orders.</p>
       </div>
 
-      <p style="font-size: 12px; font-weight: 700; margin-bottom: 4px;">Delivering to:</p>
-      <div id="checkoutAddressNotice" style="font-size: 12px; color: var(--light-text); background: var(--brand-soft); padding: 8px; border-radius: 6px; margin-bottom: 12px;">
-        Please sign in and select an address.
-      </div>
-
-      <button onclick="checkoutToWhatsApp()" style="width: 100%; background: var(--green-wa); color: #fff; border: none; padding: 14px; border-radius: 50px; font-weight: 700; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
-        <i class="fa-brands fa-whatsapp" style="font-size: 20px;"></i> Order on WhatsApp
-      </button>
-    </div>
-  </div>
-
-  <!-- ============================================================
-       SIGN UP / SIGN IN MODAL
-       ============================================================ -->
-  <div class="modal-overlay" id="authModal">
-    <div class="modal-window">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-        <h3 style="font-family: var(--font-title); color: var(--brand-red);" id="authTitle">Create Your Account</h3>
-        <button onclick="closeAuthModal()" style="background: none; border: none; font-size: 22px; cursor: pointer;">&times;</button>
-      </div>
-
-      <!-- Quick Google Button -->
-      <button onclick="simulateGoogleLogin()" style="width: 100%; border: 1px solid #cbd5e1; background: #fff; padding: 10px; border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px;">
-        <i class="fa-brands fa-google" style="color: #ea4335;"></i> Continue with Google
-      </button>
-
-      <div style="text-align: center; font-size: 12px; color: #888; margin-bottom: 16px;">&mdash; OR ENTER DETAILS &mdash;</div>
-
-      <form onsubmit="handleAccountCreation(event)">
+      <form id="contactForm" onsubmit="handleContactSubmit(event)">
         <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" id="regName" placeholder="e.g. Daksh Maheshwari" required />
+          <label>Your Name</label>
+          <input type="text" id="custName" class="form-control" required />
         </div>
         <div class="form-group">
-          <label>Mobile Number (for Order Updates & OTP)</label>
-          <input type="tel" id="regPhone" placeholder="+91 9876543210" required />
+          <label>City</label>
+          <input type="text" id="custCity" class="form-control" required />
         </div>
         <div class="form-group">
           <label>Email Address</label>
-          <input type="email" id="regEmail" placeholder="name@example.com (or ruchi@hunnarhouse.com for Admin)" required />
+          <input type="email" id="custEmail" class="form-control" required />
         </div>
         <div class="form-group">
-          <label>Home or Work Delivery Address</label>
-          <textarea id="regAddress" rows="2" placeholder="House number, street, city, pin code..." required></textarea>
+          <label>Your Requirement / Message</label>
+          <textarea id="custMessage" class="form-control" rows="4" required></textarea>
         </div>
-        <button type="submit" style="width: 100%; background: var(--brand-red); color: #fff; border: none; padding: 12px; border-radius: 50px; font-weight: 700; cursor: pointer; margin-top: 10px;">
-          Create My Account
-        </button>
+        <button type="submit" class="btn-primary" style="width: 100%;">Send Inquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Reviews Modal -->
+  <div class="modal-overlay" id="reviewsModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeReviewsModal()">&times;</button>
+      <h3 id="modalProductTitle" style="font-family:'Playfair Display',serif; color:var(--wine); margin-bottom:6px;">Product Reviews</h3>
+      <div id="modalProductRatingSummary" class="rating-summary-bar"></div>
+
+      <div class="reviews-list" id="reviewsListContainer"></div>
+
+      <!-- Add Review Section -->
+      <h4 style="font-size:15px; margin-top:20px; color:var(--wine);">Add Your Review</h4>
+      <form onsubmit="handleAddReview(event)" style="margin-top:10px;">
+        <input type="hidden" id="reviewProductId" />
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" id="revName" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label>City</label>
+            <input type="text" id="revCity" class="form-control" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Rating (Stars/Hearts)</label>
+          <select id="revStars" class="form-control" required>
+            <option value="5">5 Hearts (Excellent)</option>
+            <option value="4">4 Hearts (Very Good)</option>
+            <option value="3">3 Hearts (Good)</option>
+            <option value="2">2 Hearts (Average)</option>
+            <option value="1">1 Heart (Poor)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Image URL (Optional)</label>
+          <input type="url" id="revImg" class="form-control" placeholder="https://..." />
+        </div>
+        <div class="form-group">
+          <label>Your Review Message</label>
+          <textarea id="revMsg" class="form-control" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;">Submit Review</button>
       </form>
     </div>
   </div>
 
-  <!-- ============================================================
-       ADD NEW ADDRESS MODAL
-       ============================================================ -->
-  <div class="modal-overlay" id="newAddressModal">
-    <div class="modal-window">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-        <h3 style="font-family: var(--font-title); color: var(--brand-red);">Add New Address</h3>
-        <button onclick="closeNewAddressModal()" style="background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
+  <!-- Admin Portal Modal -->
+  <div class="modal-overlay" id="adminPortalModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeAdminPortal()">&times;</button>
+      <h3 style="font-family:'Cinzel',serif; color:var(--wine); margin-bottom:14px;">Studio Admin Portal</h3>
+
+      <div class="admin-sub-tabs">
+        <button class="admin-tab-btn active" onclick="switchAdminDeck('deckInquiries')">Inquiries</button>
+        <button class="admin-tab-btn" onclick="switchAdminDeck('deckProducts')">Catalog</button>
+        <button class="admin-tab-btn" onclick="switchAdminDeck('deckReviews')">Moderate Reviews</button>
+        <button class="admin-tab-btn" onclick="switchAdminDeck('deckAnnouncements')">Broadcasts</button>
       </div>
-      <form onsubmit="saveNewAddress(event)">
-        <div class="form-group">
-          <label>Address Tag</label>
-          <select id="addrTag">
-            <option value="Home">Home</option>
-            <option value="Work">Work / Office</option>
-            <option value="Gift Receiver">Gift For a Friend</option>
-          </select>
+
+      <!-- Inquiries Deck -->
+      <div id="deckInquiries" class="admin-deck">
+        <h4 style="font-size:14px; margin-bottom:8px; color:var(--burgundy);">Customer Inquiries</h4>
+        <div style="overflow-x:auto;">
+          <table class="data-table">
+            <thead>
+              <tr><th>Date</th><th>Name</th><th>City</th><th>Email</th><th>Message</th></tr>
+            </thead>
+            <tbody id="inquiriesTableBody">
+              <tr><td colspan="5" style="text-align:center;">No inquiries received yet.</td></tr>
+            </tbody>
+          </table>
         </div>
-        <div class="form-group">
-          <label>Complete Street Address</label>
-          <textarea id="addrText" rows="3" placeholder="Building, colony, landmark, Bareilly..." required></textarea>
+      </div>
+
+      <!-- Product Catalog Deck -->
+      <div id="deckProducts" class="admin-deck" style="display:none;">
+        <h4 style="font-size:14px; margin-bottom:8px; color:var(--burgundy);">Add New Creation</h4>
+        <form onsubmit="handleCreateProduct(event)" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:18px;">
+          <div>
+            <label style="font-size:12px; font-weight:600;">Title</label>
+            <input type="text" id="newProdTitle" class="form-control" required />
+          </div>
+          <div>
+            <label style="font-size:12px; font-weight:600;">Category</label>
+            <select id="newProdCategory" class="form-control">
+              <option value="candles">Candles</option>
+              <option value="chocolates">Chocolates</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:12px; font-weight:600;">Price (₹)</label>
+            <input type="text" id="newProdPrice" class="form-control" placeholder="e.g. ₹499" required />
+          </div>
+          <div>
+            <label style="font-size:12px; font-weight:600;">Image URL</label>
+            <input type="url" id="newProdImg" class="form-control" placeholder="https://..." required />
+          </div>
+          <div style="grid-column: span 2;">
+            <label style="font-size:12px; font-weight:600;">Description</label>
+            <input type="text" id="newProdDesc" class="form-control" required />
+          </div>
+          <button type="submit" class="btn-primary" style="grid-column: span 2;">Add to Live Catalog</button>
+        </form>
+
+        <h4 style="font-size:14px; margin-top:20px; color:var(--burgundy);">Manage Catalog Items</h4>
+        <div style="overflow-x:auto;">
+          <table class="data-table">
+            <thead>
+              <tr><th>Title</th><th>Category</th><th>Price</th><th>Action</th></tr>
+            </thead>
+            <tbody id="adminProductsTableBody"></tbody>
+          </table>
         </div>
-        <button type="submit" style="width: 100%; background: var(--brand-red); color: #fff; border: none; padding: 12px; border-radius: 50px; font-weight: 700; cursor: pointer;">
-          Save Address
-        </button>
-      </form>
+      </div>
+
+      <!-- Reviews Moderation Deck -->
+      <div id="deckReviews" class="admin-deck" style="display:none;">
+        <h4 style="font-size:14px; margin-bottom:8px; color:var(--burgundy);">Manage &amp; Moderate Reviews</h4>
+        <div style="overflow-x:auto;">
+          <table class="data-table">
+            <thead>
+              <tr><th>Product</th><th>Reviewer</th><th>City</th><th>Stars</th><th>Message</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="adminReviewsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Announcements Deck -->
+      <div id="deckAnnouncements" class="admin-deck" style="display:none;">
+        <h4 style="font-size:14px; margin-bottom:8px; color:var(--burgundy);">Top Announcement Banner</h4>
+        <div class="form-group">
+          <input type="text" id="announcementTextInput" class="form-control" placeholder="e.g. Festive gift boxes available now!" />
+        </div>
+        <div style="display:flex; gap:10px;">
+          <button class="btn-primary" onclick="updateAnnouncement()">Publish</button>
+          <button class="btn-primary" style="background:#8a7c80;" onclick="clearAnnouncement()">Remove</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Footer -->
   <footer>
-    <p><strong>Hunnar House Atelier</strong> • Civil Lines, Bareilly, Uttar Pradesh</p>
-    <p style="margin-top: 6px; opacity: 0.7;">Crafted by Heart for all ages. Scented Soy Candles & Artisanal Chocolates.</p>
+    <div class="footer-container">
+      <div>
+        <h4 style="font-family:'Cinzel',serif; color:var(--wine); font-size:17px; margin-bottom:8px;">Hunnar House</h4>
+        <p style="font-size:13.5px; color:var(--text-muted);">Crafted by Heart &bull; Handmade Gifts, Chocolates &amp; Candles</p>
+        <p style="font-size:13px; color:var(--text-muted); margin-top:8px;">WhatsApp: +91 6396699104 &bull; hunnarhouse19@gmail.com</p>
+      </div>
+
+      <div class="support-box">
+        <p><strong>Support &amp; Portal Desk</strong>: Enter your email below for immediate assistance.</p>
+        <div class="support-input-row">
+          <input type="email" id="supportEmailInput" class="form-control" placeholder="Enter your email address" />
+          <button class="btn-primary" onclick="verifySupportEmail()">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:center; font-size:12px; color:#8a7c80; margin-top:20px;">
+      &copy; 2026 Hunnar House &bull; Crafted by Heart. All rights reserved.
+    </p>
   </footer>
 
-  <!-- ============================================================
-       JAVASCRIPT LOGIC
-       ============================================================ -->
   <script>
-    // 1. Initial State & Data
-    const products = [
+    const EMAILJS_CONFIG = {
+      serviceId: "hunnarhouse",
+      publicKey: "66SDByOxsHd8RK6d_",
+      templateId: "template_v9s3zbh"
+    };
+
+    emailjs.init(EMAILJS_CONFIG.publicKey);
+
+    // Initial Catalog with individual review objects
+    let catalog = JSON.parse(localStorage.getItem("hh_catalog")) || [
       {
         id: 1,
-        name: "Warm Amber Soy Candle",
-        price: 850,
-        desc: "Slow-burning soy wax candle with gentle vanilla and warm amber.",
-        img: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=600&q=80"
+        title: "Lavender Soy Candle",
+        category: "candles",
+        price: "₹499",
+        desc: "Lead-free wick, hand-poured pure soy wax with soothing natural aroma.",
+        img: "https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg",
+        reviews: [
+          { id: 101, name: "Sneha", city: "Mathura", stars: 5, msg: "The aroma is deeply calming and pleasant!", img: "" }
+        ]
       },
       {
         id: 2,
-        name: "Artisan Dark Truffle Box",
-        price: 650,
-        desc: "Box of 12 smooth dark chocolates filled with roasted nuts and caramel.",
-        img: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=600&q=80"
+        title: "Artisan Chocolate Truffle Box",
+        category: "chocolates",
+        price: "₹599",
+        desc: "Fresh handcrafted truffles prepared with pure cocoa and roasted nuts.",
+        img: "https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg",
+        reviews: [
+          { id: 102, name: "Aarav", city: "Delhi", stars: 4, msg: "Delicious, rich chocolates. Great packaging!", img: "" }
+        ]
       },
       {
         id: 3,
-        name: "Royal Celebration Hamper",
-        price: 2400,
-        desc: "Deluxe gift box with twin scented candles, chocolates, and greeting seal.",
-        img: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80"
+        title: "Signature Celebration Hamper",
+        category: "candles",
+        price: "₹1,299",
+        desc: "Festive keepsake hamper containing twin aroma candles and handcrafted favors.",
+        img: "https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg",
+        reviews: [
+          { id: 103, name: "Pooja", city: "Agra", stars: 5, msg: "An unforgettable, thoughtful gift basket.", img: "" }
+        ]
       }
     ];
 
-    let currentUser = null;
-    let cart = [];
-    let savedOrders = [];
+    let inquiries = JSON.parse(localStorage.getItem("hh_inquiries")) || [];
 
-    window.addEventListener('DOMContentLoaded', () => {
-      renderProducts();
-      loadStoredSession();
-      renderAtPopupItems();
-    });
-
-    // 2. Render Products
-    function renderProducts() {
-      const grid = document.getElementById('productGrid');
-      grid.innerHTML = products.map(p => `
-        <div class="item-card">
-          <img src="${p.img}" alt="${p.name}" />
-          <div class="item-info">
-            <div>
-              <div class="item-name">${p.name}</div>
-              <div class="item-desc">${p.desc}</div>
-            </div>
-            <div class="item-bottom">
-              <span class="item-price">₹${p.price}</span>
-              <button class="btn-buy" onclick="addToCart(${p.id})">Add to Bag</button>
-            </div>
-          </div>
-        </div>
-      `).join('');
+    function saveCatalog() {
+      localStorage.setItem("hh_catalog", JSON.stringify(catalog));
     }
 
-    // 3. User Session Management
-    function loadStoredSession() {
-      const stored = localStorage.getItem('hh_user_data');
-      if (stored) {
-        currentUser = JSON.parse(stored);
-        applyUserUI();
-      }
-      const orders = localStorage.getItem('hh_orders');
-      if (orders) {
-        savedOrders = JSON.parse(orders);
-        renderOrdersTable();
-      }
-    }
+    // Switch Top Navigation Tabs
+    function switchTab(tabKey) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-tab-btn').forEach(btn => btn.classList.remove('active'));
 
-    function applyUserUI() {
-      if (!currentUser) return;
+      const activeTab = document.getElementById(`tab-${tabKey}`);
+      if (activeTab) activeTab.classList.add('active');
 
-      document.getElementById('loggedOutSection').style.display = 'none';
-      document.getElementById('loggedInSection').style.display = 'flex';
-      document.getElementById('navMyOrders').style.display = 'inline-block';
-      document.getElementById('navChatBtn').style.display = 'inline-block';
+      const matchingBtn = Array.from(document.querySelectorAll('.nav-tab-btn')).find(b =>
+        b.getAttribute('onclick')?.includes(tabKey)
+      );
+      if (matchingBtn) matchingBtn.classList.add('active');
 
-      // Set initials or photo
-      const nameParts = currentUser.name.trim().split(' ');
-      const initials = nameParts.length > 1 
-        ? (nameParts[0][0] + nameParts[1][0]).toUpperCase() 
-        : nameParts[0].substring(0, 2).toUpperCase();
-      
-      const avatarBox = document.getElementById('userAvatarText');
-      if (currentUser.photoUrl) {
-        avatarBox.innerHTML = `<img src="${currentUser.photoUrl}" />`;
-      } else {
-        avatarBox.innerText = initials;
-      }
-
-      document.getElementById('userDisplayName').innerText = nameParts[0];
-
-      // Check if Ruchi Admin
-      if (currentUser.email.toLowerCase() === 'ruchi@hunnarhouse.com') {
-        document.getElementById('ruchiAdminBar').style.display = 'flex';
-      }
-
-      renderAddresses();
-      updateCheckoutAddressNotice();
-    }
-
-    // 4. Multiple Address Logic
-    function renderAddresses() {
-      if (!currentUser || !currentUser.addresses) return;
-      const list = document.getElementById('addressListContainer');
-      list.innerHTML = currentUser.addresses.map((a, i) => `
-        <div class="address-card ${a.isDefault ? 'selected' : ''}" onclick="setDefaultAddress(${i})">
-          <span class="address-badge">${a.tag}</span>
-          <p style="font-size: 13px; color: #333;">${a.text}</p>
-          ${a.isDefault ? '<small style="color: var(--brand-red); font-weight: 700;">(Selected for delivery)</small>' : ''}
-        </div>
-      `).join('');
-    }
-
-    function setDefaultAddress(index) {
-      currentUser.addresses.forEach((a, i) => a.isDefault = (i === index));
-      localStorage.setItem('hh_user_data', JSON.stringify(currentUser));
-      renderAddresses();
-      updateCheckoutAddressNotice();
-    }
-
-    function openNewAddressModal() {
-      document.getElementById('newAddressModal').classList.add('open');
-    }
-    function closeNewAddressModal() {
-      document.getElementById('newAddressModal').classList.remove('open');
-    }
-
-    function saveNewAddress(e) {
-      e.preventDefault();
-      const tag = document.getElementById('addrTag').value;
-      const text = document.getElementById('addrText').value.trim();
-      currentUser.addresses.push({ tag, text, isDefault: true });
-      currentUser.addresses.forEach((a, idx) => {
-        if (idx !== currentUser.addresses.length - 1) a.isDefault = false;
-      });
-      localStorage.setItem('hh_user_data', JSON.stringify(currentUser));
-      renderAddresses();
-      updateCheckoutAddressNotice();
-      closeNewAddressModal();
-      document.getElementById('addrText').value = '';
-    }
-
-    function updateCheckoutAddressNotice() {
-      const notice = document.getElementById('checkoutAddressNotice');
-      if (!currentUser) {
-        notice.innerText = "Please sign in to select an address.";
-        return;
-      }
-      const def = currentUser.addresses.find(a => a.isDefault);
-      if (def) {
-        notice.innerHTML = `<strong>${def.tag}:</strong> ${def.text}`;
-      } else {
-        notice.innerText = "No address selected. Please add one.";
-      }
-    }
-
-    // 5. Account Registration & Google Simulation
-    function openAuthModal() {
-      document.getElementById('authModal').classList.add('open');
-    }
-    function closeAuthModal() {
-      document.getElementById('authModal').classList.remove('open');
-    }
-
-    function handleAccountCreation(e) {
-      e.preventDefault();
-      const name = document.getElementById('regName').value.trim();
-      const phone = document.getElementById('regPhone').value.trim();
-      const email = document.getElementById('regEmail').value.trim();
-      const address = document.getElementById('regAddress').value.trim();
-
-      // Quick simulated OTP Verification prompt
-      const simulatedOtp = prompt(`OTP sent to ${phone}! Enter "1234" to confirm:`);
-      if (simulatedOtp !== "1234") {
-        alert("Incorrect OTP. Please enter 1234.");
-        return;
-      }
-
-      currentUser = {
-        name,
-        phone,
-        email,
-        photoUrl: '',
-        addresses: [{ tag: 'Home', text: address, isDefault: true }]
-      };
-
-      localStorage.setItem('hh_user_data', JSON.stringify(currentUser));
-      closeAuthModal();
-      applyUserUI();
-      alert(`Welcome to Hunnar House, ${name}! Your account is active.`);
-    }
-
-    function simulateGoogleLogin() {
-      const email = prompt("Enter Google Email Address:", "daksh@gmail.com");
-      if (!email) return;
-
-      currentUser = {
-        name: "Daksh Maheshwari",
-        phone: "+91 6396699104",
-        email: email,
-        photoUrl: '',
-        addresses: [{ tag: 'Home', text: 'Civil Lines, Bareilly, UP', isDefault: true }]
-      };
-
-      localStorage.setItem('hh_user_data', JSON.stringify(currentUser));
-      closeAuthModal();
-      applyUserUI();
-    }
-
-    function logout() {
-      localStorage.removeItem('hh_user_data');
-      currentUser = null;
-      location.reload();
-    }
-
-    // 6. Navigation Tabs
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-view').forEach(t => t.classList.remove('active'));
-      const target = document.getElementById(`tab-${tabId}`);
-      if (target) target.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
-
-      if (tabId === 'admin-orders') renderAdminTable();
-      if (tabId === 'orders') renderOrdersTable();
     }
 
-    // 7. Cart & WhatsApp Checkout
-    function toggleCartDrawer() {
-      document.getElementById('cartDrawer').classList.toggle('open');
+    // Compute average ratings and render sharp golden hearts
+    function getAverageRating(reviews = []) {
+      if (!reviews.length) return { avg: 0, count: 0 };
+      const sum = reviews.reduce((acc, r) => acc + Number(r.stars), 0);
+      return { avg: (sum / reviews.length).toFixed(1), count: reviews.length };
     }
 
-    function addToCart(productId) {
-      const product = products.find(p => p.id === productId);
-      cart.push(product);
-      updateCartUI();
-      toggleCartDrawer();
-    }
-
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      updateCartUI();
-    }
-
-    function updateCartUI() {
-      document.getElementById('cartCount').innerText = cart.length;
-      const list = document.getElementById('cartItemList');
-      const total = document.getElementById('cartTotalPrice');
-
-      if (cart.length === 0) {
-        list.innerHTML = '<p style="color: #888; text-align: center; margin-top: 30px;">Your bag is empty.</p>';
-        total.innerText = '₹0';
-        return;
+    function renderSharpRating(avgScore) {
+      let heartsHtml = '';
+      const rounded = Math.round(avgScore);
+      for (let i = 1; i <= 5; i++) {
+        heartsHtml += `<span class="${i <= rounded ? 'sharp-heart' : ''}">&#10084;</span>`;
       }
+      return heartsHtml;
+    }
 
-      let sum = 0;
-      list.innerHTML = cart.map((item, idx) => {
-        sum += item.price;
+    // Render Product Cards
+    function renderCatalog() {
+      const featuredGrid = document.getElementById("featuredGrid");
+      const candlesGrid = document.getElementById("candlesGrid");
+      const chocolatesGrid = document.getElementById("chocolatesGrid");
+
+      const cardHtml = item => {
+        const { avg, count } = getAverageRating(item.reviews);
         return `
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; background: #faf5f6; padding: 10px; border-radius: 8px;">
-            <div>
-              <div style="font-weight: 700; font-size: 13px;">${item.name}</div>
-              <div style="color: var(--brand-red); font-size: 12px; font-weight: 800;">₹${item.price}</div>
+          <div class="product-card" data-title="${item.title.toLowerCase()}">
+            <img src="${item.img}" alt="${item.title}" class="product-thumb" />
+            <div class="product-details">
+              <h4 class="product-title">${item.title}</h4>
+              <p class="product-desc">${item.desc}</p>
+              
+              <div class="rating-summary-bar">
+                <span class="rating-score-badge">(${avg > 0 ? avg : '0.0'})</span>
+                <div class="stars-display">${renderSharpRating(avg)}</div>
+                <span class="rating-count">(${count})</span>
+              </div>
+
+              <span class="product-price">${item.price}</span>
+              <div class="product-actions">
+                <button class="btn-primary" style="flex:1; padding:8px 12px; font-size:12px;" onclick="openReviewsModal(${item.id})">Reviews</button>
+                <button class="btn-primary" style="flex:1; padding:8px 12px; font-size:12px; background:var(--wine);" onclick="inquireProduct('${item.title}')">Inquire</button>
+              </div>
             </div>
-            <button onclick="removeFromCart(${idx})" style="background: none; border: none; color: #dc2626; cursor: pointer;">
-              <i class="fa-solid fa-trash"></i>
-            </button>
           </div>
         `;
-      }).join('');
-      total.innerText = '₹' + sum;
-    }
-
-    function checkoutToWhatsApp() {
-      if (cart.length === 0) {
-        alert("Your bag is empty. Please pick a product first!");
-        return;
-      }
-      if (!currentUser) {
-        openAuthModal();
-        return;
-      }
-
-      const defaultAddr = currentUser.addresses.find(a => a.isDefault) || currentUser.addresses[0];
-      if (!defaultAddr) {
-        alert("Please add a delivery address in your dashboard.");
-        switchTab('dashboard');
-        toggleCartDrawer();
-        return;
-      }
-
-      let grandTotal = 0;
-      const itemsList = cart.map((c, i) => {
-        grandTotal += c.price;
-        return `${i + 1}. ${c.name} (₹${c.price})`;
-      }).join('%0A');
-
-      const orderId = "HH-" + Math.floor(100000 + Math.random() * 900000);
-
-      // Save into Order History
-      const newOrder = {
-        orderId: orderId,
-        customerName: currentUser.name,
-        customerPhone: currentUser.phone,
-        address: defaultAddr.text,
-        items: cart.map(c => c.name).join(', '),
-        total: grandTotal,
-        status: "Received"
       };
-      savedOrders.push(newOrder);
-      localStorage.setItem('hh_orders', JSON.stringify(savedOrders));
 
-      // Build complete WhatsApp Message
-      const message = 
-        `*NEW ORDER - HUNNAR HOUSE*%0A` +
-        `--------------------------------%0A` +
-        `*Order ID:* ${orderId}%0A` +
-        `*Customer Name:* ${currentUser.name}%0A` +
-        `*Contact:* ${currentUser.phone}%0A` +
-        `*Delivery Address:* ${defaultAddr.text}%0A` +
-        `--------------------------------%0A` +
-        `*Items Ordered:*%0A${itemsList}%0A` +
-        `--------------------------------%0A` +
-        `*Total Amount:* ₹${grandTotal}%0A` +
-        `Please confirm my order and share payment details!`;
-
-      // Open WhatsApp to Ruchi (+91 6396699104)
-      window.open(`https://wa.me/916396699104?text=${message}`, '_blank');
-
-      cart = [];
-      updateCartUI();
-      toggleCartDrawer();
-      switchTab('orders');
+      if (featuredGrid) featuredGrid.innerHTML = catalog.map(cardHtml).join("");
+      if (candlesGrid) candlesGrid.innerHTML = catalog.filter(i => i.category === 'candles').map(cardHtml).join("");
+      if (chocolatesGrid) chocolatesGrid.innerHTML = catalog.filter(i => i.category === 'chocolates').map(cardHtml).join("");
     }
 
-    // 8. Order Tables (User & Admin)
-    function renderOrdersTable() {
-      const tbody = document.getElementById('ordersTableBody');
-      if (savedOrders.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="5" align="center">No orders placed yet.</td></tr>';
+    function inquireProduct(productName) {
+      switchTab('contact');
+      document.getElementById('custMessage').value = `Hello Ruchi, I would like to inquire about the ${productName}.`;
+    }
+
+    // Live Search
+    function handleSearch(query) {
+      const term = query.toLowerCase().trim();
+      document.querySelectorAll('.product-card').forEach(card => {
+        const title = card.getAttribute('data-title') || '';
+        card.style.display = title.includes(term) ? 'flex' : 'none';
+      });
+    }
+
+    // Reviews Modal Logic
+    function openReviewsModal(productId) {
+      const product = catalog.find(p => p.id === productId);
+      if (!product) return;
+
+      document.getElementById('reviewProductId').value = product.id;
+      document.getElementById('modalProductTitle').innerText = `${product.title} — Reviews`;
+
+      const { avg, count } = getAverageRating(product.reviews);
+      document.getElementById('modalProductRatingSummary').innerHTML = `
+        <span class="rating-score-badge">(${avg > 0 ? avg : '0.0'})</span>
+        <div class="stars-display">${renderSharpRating(avg)}</div>
+        <span class="rating-count">${count} customer rating(s)</span>
+      `;
+
+      const listContainer = document.getElementById('reviewsListContainer');
+      if (!product.reviews || !product.reviews.length) {
+        listContainer.innerHTML = `<p style="font-size:13px; color:var(--text-muted); text-align:center;">No reviews yet. Be the first to leave one!</p>`;
+      } else {
+        listContainer.innerHTML = product.reviews.map(r => `
+          <div class="review-item">
+            <div class="review-item-header">
+              <div>
+                <span class="review-author">${escapeHtml(r.name)}</span>
+                <span class="review-city">&bull; ${escapeHtml(r.city)}</span>
+              </div>
+              <div class="stars-display">${renderSharpRating(r.stars)}</div>
+            </div>
+            <p style="font-size:13.5px; color:var(--text-dark);">${escapeHtml(r.msg)}</p>
+            ${r.img ? `<img src="${escapeHtml(r.img)}" class="review-img" alt="Review Image" />` : ''}
+          </div>
+        `).join('');
+      }
+
+      document.getElementById('reviewsModal').classList.add('active');
+    }
+
+    function closeReviewsModal() {
+      document.getElementById('reviewsModal').classList.remove('active');
+    }
+
+    function handleAddReview(e) {
+      e.preventDefault();
+      const pId = Number(document.getElementById('reviewProductId').value);
+      const name = document.getElementById('revName').value.trim();
+      const city = document.getElementById('revCity').value.trim();
+      const stars = Number(document.getElementById('revStars').value);
+      const img = document.getElementById('revImg').value.trim();
+      const msg = document.getElementById('revMsg').value.trim();
+
+      const product = catalog.find(p => p.id === pId);
+      if (!product) return;
+
+      if (!product.reviews) product.reviews = [];
+      product.reviews.unshift({
+        id: Date.now(),
+        name,
+        city,
+        stars,
+        img,
+        msg
+      });
+
+      saveCatalog();
+      renderCatalog();
+      openReviewsModal(pId);
+      e.target.reset();
+    }
+
+    // Admin Triggers (Ruchi Maheshwari & Daksh Maheshwari)
+    function checkAdminAccess(nameOrEmail) {
+      const val = (nameOrEmail || '').trim().toLowerCase();
+      return val === "ruchi maheshwari" || 
+             val === "daksh maheshwari" || 
+             val === "hunnarhouse19@gmail.com" || 
+             val === "daksh0413@gmail.com";
+    }
+
+    function handleFounderClick() {
+      const enteredName = prompt("Please enter your name:");
+      if (!enteredName) return;
+
+      if (checkAdminAccess(enteredName)) {
+        openAdminPortal();
+      } else {
+        switchTab('contact');
+        document.getElementById('custName').value = enteredName.trim();
+      }
+    }
+
+    function verifySupportEmail() {
+      const email = document.getElementById("supportEmailInput").value.trim().toLowerCase();
+      if (checkAdminAccess(email)) {
+        openAdminPortal();
+      } else if (email) {
+        switchTab('contact');
+        document.getElementById('custEmail').value = email;
+      }
+    }
+
+    // Contact Form Submission
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById("custName").value.trim();
+      const city = document.getElementById("custCity").value.trim();
+      const email = document.getElementById("custEmail").value.trim();
+      const message = document.getElementById("custMessage").value.trim();
+
+      inquiries.unshift({
+        date: new Date().toLocaleDateString(),
+        name,
+        city,
+        email,
+        message
+      });
+      localStorage.setItem("hh_inquiries", JSON.stringify(inquiries));
+      renderInquiriesTable();
+
+      emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, {
+        name,
+        to_email: email,
+        city,
+        message
+      }).catch(() => {});
+
+      alert(`Namaste ${name}, your inquiry has been sent! We will contact you soon.`);
+      event.target.reset();
+    }
+
+    // Admin Portal Functions
+    function openAdminPortal() {
+      renderAdminCatalog();
+      renderAdminReviews();
+      renderInquiriesTable();
+      document.getElementById("adminPortalModal").classList.add("active");
+    }
+
+    function closeAdminPortal() {
+      document.getElementById("adminPortalModal").classList.remove("active");
+    }
+
+    function switchAdminDeck(deckId) {
+      document.querySelectorAll('.admin-deck').forEach(d => d.style.display = 'none');
+      document.querySelectorAll('.admin-tab-btn').forEach(b => b.classList.remove('active'));
+      const activeDeck = document.getElementById(deckId);
+      if (activeDeck) activeDeck.style.display = 'block';
+
+      const clickedBtn = Array.from(document.querySelectorAll('.admin-tab-btn')).find(b =>
+        b.getAttribute('onclick')?.includes(deckId)
+      );
+      if (clickedBtn) clickedBtn.classList.add('active');
+    }
+
+    function renderInquiriesTable() {
+      const tbody = document.getElementById("inquiriesTableBody");
+      if (!inquiries.length) {
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;">No inquiries received yet.</td></tr>`;
         return;
       }
-      tbody.innerHTML = savedOrders.slice().reverse().map(o => `
+      tbody.innerHTML = inquiries.map(inq => `
         <tr>
-          <td><strong>${o.orderId}</strong></td>
-          <td>${o.items}</td>
-          <td>₹${o.total}</td>
-          <td>${o.address}</td>
-          <td><span style="background: #fef3c7; color: #b45309; padding: 2px 8px; border-radius: 4px; font-weight: 700;">${o.status}</span></td>
+          <td>${inq.date}</td>
+          <td>${escapeHtml(inq.name)}</td>
+          <td>${escapeHtml(inq.city)}</td>
+          <td>${escapeHtml(inq.email)}</td>
+          <td>${escapeHtml(inq.message)}</td>
         </tr>
-      `).join('');
+      `).join("");
     }
 
-    function renderAdminTable() {
-      const tbody = document.getElementById('adminOrderTableBody');
-      if (savedOrders.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="5" align="center">No active orders.</td></tr>';
-        return;
-      }
-      tbody.innerHTML = savedOrders.slice().reverse().map((o, idx) => `
+    function handleCreateProduct(e) {
+      e.preventDefault();
+      const newItem = {
+        id: Date.now(),
+        title: document.getElementById("newProdTitle").value.trim(),
+        category: document.getElementById("newProdCategory").value,
+        price: document.getElementById("newProdPrice").value.trim(),
+        img: document.getElementById("newProdImg").value.trim(),
+        desc: document.getElementById("newProdDesc").value.trim(),
+        reviews: []
+      };
+
+      catalog.unshift(newItem);
+      saveCatalog();
+      renderCatalog();
+      renderAdminCatalog();
+      e.target.reset();
+      alert("Creation successfully added to live catalog!");
+    }
+
+    function renderAdminCatalog() {
+      const tbody = document.getElementById("adminProductsTableBody");
+      tbody.innerHTML = catalog.map(p => `
         <tr>
-          <td><strong>${o.orderId}</strong></td>
-          <td>${o.customerName} (${o.customerPhone})</td>
-          <td>${o.items}</td>
-          <td>${o.address}</td>
+          <td>${escapeHtml(p.title)}</td>
+          <td>${escapeHtml(p.category)}</td>
+          <td>${escapeHtml(p.price)}</td>
           <td>
-            <select onchange="updateOrderStatus('${o.orderId}', this.value)" style="padding: 4px;">
-              <option value="${o.status}">${o.status}</option>
-              <option value="Preparing in Studio">Preparing in Studio</option>
-              <option value="Out for Delivery">Out for Delivery</option>
-              <option value="Delivered">Delivered</option>
-            </select>
+            <button class="btn-primary" style="padding:4px 8px; font-size:11px; background:#b22222;" onclick="confirmDeleteProduct(${p.id})">Delete</button>
           </td>
         </tr>
-      `).join('');
+      `).join("");
     }
 
-    function updateOrderStatus(orderId, newStatus) {
-      const order = savedOrders.find(o => o.orderId === orderId);
-      if (order) {
-        order.status = newStatus;
-        localStorage.setItem('hh_orders', JSON.stringify(savedOrders));
-        renderAdminTable();
+    function confirmDeleteProduct(id) {
+      const target = catalog.find(p => p.id === id);
+      if (!target) return;
+      if (confirm(`Admin confirmation required: Are you sure you want to permanently delete "${target.title}"?`)) {
+        catalog = catalog.filter(p => p.id !== id);
+        saveCatalog();
+        renderCatalog();
+        renderAdminCatalog();
+        renderAdminReviews();
       }
     }
 
-    // 9. WhatsApp-Style Chat Logic & @ Product Review Tool
-    function handleChatInput(e) {
-      const val = e.target.value;
-      const atMenu = document.getElementById('atPopupMenu');
-      const isRuchi = currentUser && currentUser.email.toLowerCase() === 'ruchi@hunnarhouse.com';
-
-      // When Ruchi types '@', show products to ask reviews for
-      if (isRuchi && val.endsWith('@')) {
-        atMenu.style.display = 'block';
-      } else if (!val.includes('@')) {
-        atMenu.style.display = 'none';
-      }
-    }
-
-    function renderAtPopupItems() {
-      const box = document.getElementById('atProductItems');
-      box.innerHTML = products.map(p => `
-        <div class="at-item" onclick="sendProductReviewRequest(${p.id})">
-          <img src="${p.img}" />
-          <div>
-            <div style="font-weight: 700; font-size: 12px;">${p.name}</div>
-            <div style="font-size: 11px; color: var(--brand-red);">Ask for Rating</div>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function sendProductReviewRequest(productId) {
-      const product = products.find(p => p.id === productId);
-      document.getElementById('atPopupMenu').style.display = 'none';
-      document.getElementById('chatInput').value = '';
-
-      const chatBody = document.getElementById('chatBody');
-      const card = document.createElement('div');
-      card.className = 'bubble bubble-ruchi';
-      card.innerHTML = `
-        <strong>Review Request from Ruchi:</strong><br />
-        How was your experience with <b>${product.name}</b>?
-        <div class="chat-review-card">
-          <img src="${product.img}" />
-          <div class="star-row" onclick="submitStarRating('${product.name}')">
-            ★ ★ ★ ★ ★
-          </div>
-          <small style="color: #666;">Click stars to rate!</small>
-        </div>
-      `;
-      chatBody.appendChild(card);
-      chatBody.scrollTop = chatBody.scrollHeight;
-    }
-
-    function submitStarRating(productName) {
-      alert(`Thank you! Your 5-star review for "${productName}" has been submitted.`);
-      const chatBody = document.getElementById('chatBody');
-      const bubble = document.createElement('div');
-      bubble.className = 'bubble bubble-user';
-      bubble.innerText = `I gave 5 stars for ${productName}! Absolutely loved it.`;
-      chatBody.appendChild(bubble);
-      chatBody.scrollTop = chatBody.scrollHeight;
-    }
-
-    function sendChatMessage() {
-      const input = document.getElementById('chatInput');
-      const text = input.value.trim();
-      if (!text) return;
-
-      const chatBody = document.getElementById('chatBody');
-      const isRuchi = currentUser && currentUser.email.toLowerCase() === 'ruchi@hunnarhouse.com';
-
-      const bubble = document.createElement('div');
-      bubble.className = isRuchi ? 'bubble bubble-ruchi' : 'bubble bubble-user';
-      bubble.innerText = text;
-      chatBody.appendChild(bubble);
-
-      input.value = '';
-      document.getElementById('atPopupMenu').style.display = 'none';
-      chatBody.scrollTop = chatBody.scrollHeight;
-
-      // Automated sweet reply from Ruchi if customer chats
-      if (!isRuchi) {
-        setTimeout(() => {
-          const reply = document.createElement('div');
-          reply.className = 'bubble bubble-ruchi';
-          reply.innerText = "Thank you for messaging! I've received your note and will help you right away.";
-          chatBody.appendChild(reply);
-          chatBody.scrollTop = chatBody.scrollHeight;
-        }, 1000);
-      }
-    }
-
-    // 10. Cloudinary Media Upload in Chat
-    function uploadMediaCloudinary() {
-      // Connects to Cloudinary Media Widget
-      const myWidget = cloudinary.createUploadWidget({
-        cloudName: 'dpeijmtb6',
-        uploadPreset: 'ml_default' // Or your preset
-      }, (error, result) => {
-        if (!error && result && result.event === "success") {
-          const url = result.info.secure_url;
-          const chatBody = document.getElementById('chatBody');
-          const bubble = document.createElement('div');
-          bubble.className = 'bubble bubble-user';
-          
-          if (url.match(/\.(mp4|webm|mov)$/i)) {
-            bubble.innerHTML = `<video src="${url}" controls class="bubble-media"></video>`;
-          } else {
-            bubble.innerHTML = `<img src="${url}" class="bubble-media" />`;
-          }
-          chatBody.appendChild(bubble);
-          chatBody.scrollTop = chatBody.scrollHeight;
-        }
+    function renderAdminReviews() {
+      const tbody = document.getElementById("adminReviewsTableBody");
+      let allReviews = [];
+      catalog.forEach(p => {
+        (p.reviews || []).forEach(r => {
+          allReviews.push({ ...r, productId: p.id, productTitle: p.title });
+        });
       });
-      myWidget.open();
+
+      if (!allReviews.length) {
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;">No reviews to moderate.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = allReviews.map(r => `
+        <tr>
+          <td><strong>${escapeHtml(r.productTitle)}</strong></td>
+          <td>${escapeHtml(r.name)}</td>
+          <td>${escapeHtml(r.city)}</td>
+          <td>${r.stars} &#10084;</td>
+          <td>${escapeHtml(r.msg)}</td>
+          <td>
+            <button class="btn-primary" style="padding:4px 8px; font-size:11px; margin-bottom:4px;" onclick="editReview(${r.productId}, ${r.id})">Edit</button>
+            <button class="btn-primary" style="padding:4px 8px; font-size:11px; background:#b22222;" onclick="deleteReview(${r.productId}, ${r.id})">Delete</button>
+          </td>
+        </tr>
+      `).join("");
     }
+
+    function editReview(pId, rId) {
+      const prod = catalog.find(p => p.id === pId);
+      if (!prod) return;
+      const rev = prod.reviews.find(r => r.id === rId);
+      if (!rev) return;
+
+      const newMsg = prompt("Edit Review Message:", rev.msg);
+      if (newMsg !== null) {
+        rev.msg = newMsg;
+        saveCatalog();
+        renderCatalog();
+        renderAdminReviews();
+      }
+    }
+
+    function deleteReview(pId, rId) {
+      if (!confirm("Admin confirmation: Delete this review?")) return;
+      const prod = catalog.find(p => p.id === pId);
+      if (!prod) return;
+
+      prod.reviews = prod.reviews.filter(r => r.id !== rId);
+      saveCatalog();
+      renderCatalog();
+      renderAdminReviews();
+    }
+
+    function updateAnnouncement() {
+      const text = document.getElementById("announcementTextInput").value.trim();
+      const bar = document.getElementById("topAnnouncementBar");
+      if (text) {
+        bar.textContent = text;
+        bar.style.display = "block";
+        localStorage.setItem("hh_announcement", text);
+      }
+    }
+
+    function clearAnnouncement() {
+      const bar = document.getElementById("topAnnouncementBar");
+      bar.style.display = "none";
+      bar.textContent = "";
+      localStorage.removeItem("hh_announcement");
+      document.getElementById("announcementTextInput").value = "";
+    }
+
+    function escapeHtml(string) {
+      const el = document.createElement('div');
+      el.textContent = string;
+      return el.innerHTML;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCatalog();
+      const savedNotice = localStorage.getItem("hh_announcement");
+      if (savedNotice) {
+        const bar = document.getElementById("topAnnouncementBar");
+        bar.textContent = savedNotice;
+        bar.style.display = "block";
+      }
+    });
   </script>
 </body>
 </html>
