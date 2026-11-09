@@ -9,9 +9,9 @@
 
   <title>Hunnar House | Handmade Gifts &amp; Candles</title>
 
-  <!-- SEO Meta Tags -->
+  <!-- SEO Meta Tags & 100+ Search Terms -->
   <meta name="description" content="Handmade soy candles and sweet chocolates crafted with love by Ruchi Maheshwari. Explore our collection of handcrafted celebration gifts at Hunnar House — Crafted by Heart." />
-  <meta name="keywords" content="hunnar house, hunar house, ruchi maheshwari, handmade candles, soy wax candles, scented candles, aroma candles, jar candles, pillar candles, artisanal chocolates, luxury chocolate box, handmade gifts, custom gift hampers, festival gifts, birthday gifts, anniversary gifts, organic soy candles, hand poured candles, celebration gifts, handcrafted decor, home fragrance, gift baskets, aesthetic candles, premium chocolates, handmade crafts by ruchi, best gift hampers, crafted by heart" />
+  <meta name="keywords" content="hunnar house, hunar house, ruchi maheshwari, handmade candles, soy wax candles, scented candles, aroma candles, jar candles, pillar candles, artisanal chocolates, luxury chocolate box, handmade gifts, custom gift hampers, festival gifts, birthday gifts, anniversary gifts, organic soy candles, hand poured candles, celebration gifts, handcrafted decor, home fragrance, gift baskets, aesthetic candles, premium chocolates, handmade crafts by ruchi, best gift hampers, crafted by heart, luxury candles, aromatic wax melts, bespoke gift boxes, wedding favors, diwali hampers, handmade chocolate gifts, clean burning candles, decorative pillar candles, sweet celebration favors, pure soy wax, cocoa truffles" />
   <meta name="author" content="Ruchi Maheshwari" />
   <link rel="canonical" href="https://hunnarhouse.vercel.app/" />
 
@@ -19,11 +19,45 @@
   <link rel="icon" type="image/png" sizes="192x192" href="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" />
   <link rel="apple-touch-icon" href="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" />
 
-  <!-- Fonts & Icons -->
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Hunnar House" />
+  <meta property="og:url" content="https://hunnarhouse.vercel.app/" />
+  <meta property="og:title" content="Hunnar House | Handmade Gifts &amp; Candles" />
+  <meta property="og:description" content="Handmade soy candles and sweet chocolates crafted with love by Ruchi Maheshwari." />
+  <meta property="og:image" content="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg" />
+
+  <!-- Schema.org for Google Search & Image Crawlers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Hunnar House",
+    "founder": {
+      "@type": "Person",
+      "name": "Ruchi Maheshwari"
+    },
+    "url": "https://hunnarhouse.vercel.app/",
+    "logo": "https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png",
+    "image": "https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg",
+    "email": "hunnarhouse19@gmail.com",
+    "telephone": "+916396699104",
+    "description": "Handmade soy candles, chocolates, and celebration keepsakes crafted by heart."
+  }
+  </script>
+
+  <!-- Typography & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Firebase v9 Compat SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
   <style>
     :root {
@@ -50,7 +84,7 @@
       line-height: 1.6;
     }
 
-    /* Top Header & Sticky Navigation Bar */
+    /* Header & Navigation */
     header {
       background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
@@ -59,6 +93,16 @@
       top: 0;
       z-index: 100;
       box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    .top-announcement {
+      background: var(--wine);
+      color: #fff;
+      text-align: center;
+      padding: 6px 12px;
+      font-size: 12.5px;
+      display: none;
+      font-weight: 500;
     }
 
     .nav-container {
@@ -101,7 +145,6 @@
       font-style: italic;
     }
 
-    /* Top Sub-Bar for Scrolling Tabs */
     .top-tabs-bar {
       background: #ffffff;
       border-bottom: 1px solid var(--border-warm);
@@ -161,7 +204,7 @@
       background: #dc2626;
       color: #ffffff;
       border: none;
-      padding: 7px 14px;
+      padding: 6px 12px;
       border-radius: 6px;
       cursor: pointer;
       font-size: 12px;
@@ -169,7 +212,7 @@
     }
     .btn-danger:hover { background: #b91c1c; }
 
-    /* Content Area */
+    /* Tab Layouts */
     .tab-content {
       display: none;
       max-width: 1200px;
@@ -185,7 +228,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Home Showcase */
+    /* Hero Showcase */
     .hero-banner {
       background: #ffffff;
       border: 1px solid var(--border-warm);
@@ -255,7 +298,7 @@
     .story-card h4 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--wine); margin-bottom: 6px; }
     .story-card p { font-size: 13.5px; color: var(--text-muted); }
 
-    /* Product Grid */
+    /* Product Cards */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -290,9 +333,9 @@
     .sale-price { color: var(--accent-green); font-weight: 700; font-size: 17px; }
     .per-unit-price { font-size: 12px; color: var(--text-muted); }
 
-    /* Font-Awesome Star Rating */
+    /* Star Rating Selector */
     .star-rating { font-size: 0; }
-    .star-rating__wrap { display: inline-block; font-size: 1.2rem; }
+    .star-rating__wrap { display: inline-block; font-size: 1.25rem; }
     .star-rating__wrap:after { content: ""; display: table; clear: both; }
     .star-rating__ico {
       float: right;
@@ -308,7 +351,7 @@
       content: "\f005";
     }
 
-    /* Product Detailed Bottom Sheet */
+    /* Product Detail Bottom-Sheet */
     .detail-modal {
       position: fixed;
       inset: 0;
@@ -378,7 +421,7 @@
     }
     .specs-table td:first-child { color: var(--text-muted); width: 40%; }
 
-    /* Gallery Grid */
+    /* Gallery Display */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -421,7 +464,7 @@
     }
     .form-control:focus { border-color: var(--burgundy); }
 
-    /* Admin Modal */
+    /* Modals */
     .admin-modal {
       position: fixed;
       inset: 0;
@@ -470,7 +513,7 @@
       user-select: none;
     }
 
-    /* Professional Black Footer */
+    /* Black Footer */
     footer {
       background: #000000;
       color: #e5e5e5;
@@ -526,7 +569,7 @@
       </div>
     </div>
 
-    <!-- Top Tabs Strip (Replacing bottom bar) -->
+    <!-- Top Tabs Strip -->
     <div class="top-tabs-bar">
       <button class="nav-tab-btn active" onclick="switchTab('home')">Home</button>
       <button class="nav-tab-btn" onclick="switchTab('candles')">Candles</button>
@@ -536,7 +579,7 @@
     </div>
   </header>
 
-  <!-- TAB: Home -->
+  <!-- TAB: Home (Pure Story, No Direct Products) -->
   <main id="tab-home" class="tab-content active">
     <div class="hero-banner">
       <div class="hero-content">
@@ -549,7 +592,7 @@
         </button>
       </div>
 
-      <!-- Founder Frame -->
+      <!-- Founder Frame with Admin Secret Access -->
       <div class="founder-frame" onclick="triggerFounderAccess()" title="Artisan Spotlight">
         <img id="founderDisplayPhoto" src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg" alt="Artisan Ruchi Maheshwari" />
         <div class="founder-badge">
@@ -578,7 +621,7 @@
       </div>
     </div>
 
-    <!-- Workshop Story -->
+        <!-- Workshop Story -->
     <div style="background:#ffffff; border:1px solid var(--border-warm); border-radius:18px; padding:30px; box-shadow:var(--shadow-sm);">
       <h3 style="font-family:'Playfair Display',serif; font-size:26px; color:var(--wine); margin-bottom:10px;">Our Workshop Story</h3>
       <p id="founderBioText" style="color:var(--text-muted); font-size:14.5px; line-height:1.8;">
@@ -614,7 +657,7 @@
     <div id="galleryDisplay"></div>
   </section>
 
-    <!-- TAB: Contact -->
+  <!-- TAB: Contact -->
   <section id="tab-contact" class="tab-content">
     <div style="max-width:560px; margin:0 auto; background:#ffffff; border:1px solid var(--border-warm); border-radius:18px; padding:28px; box-shadow:var(--shadow-sm);">
       <h2 style="font-family:'Playfair Display',serif; color:var(--wine); font-size:26px; margin-bottom:6px; text-align:center;">Send a Message</h2>
@@ -677,7 +720,7 @@
 
         <div id="sheetReviewsContainer" style="display:flex; flex-direction:column; gap:10px; max-height:180px; overflow-y:auto; margin-bottom:18px;"></div>
 
-        <!-- Add Review Form with Provided Star Code -->
+        <!-- Add Review Form with Exact Star Code -->
         <form onsubmit="handleReviewSubmit(event)" style="background:var(--warm-bg); padding:14px; border-radius:10px;">
           <input type="hidden" id="reviewProdId" />
           <div style="font-weight:600; font-size:13px; color:var(--wine); margin-bottom:8px;">Add Your Rating:</div>
@@ -711,7 +754,7 @@
           </div>
 
           <div class="form-group">
-            <label style="font-size:11px; color:var(--text-muted);">Attach photo (optional):</label>
+            <label style="font-size:11px; color:var(--text-muted);">Attach photo (optional, synced via Cloudinary):</label>
             <input type="file" id="revFile" accept="image/*" class="form-control" />
           </div>
 
@@ -753,7 +796,7 @@
 
       <!-- Admin Tab: Products -->
       <div id="adminTab-products">
-        <h4 style="font-size:14px; color:var(--burgundy); margin-bottom:10px;">Add New Product</h4>
+        <h4 style="font-size:14px; color:var(--burgundy); margin-bottom:10px;">Add New Product (Direct Cloudinary Sync)</h4>
         <form onsubmit="handleAdminAddProduct(event)">
           <div class="form-group">
             <label>Product Title</label>
@@ -787,7 +830,7 @@
             </div>
           </div>
           
-          <!-- Optional Specification Fields -->
+          <!-- Optional Specifications -->
           <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;">
             <div class="form-group">
               <label>Pack Size (Optional)</label>
@@ -807,14 +850,14 @@
             <label>Short Description</label>
             <textarea id="pDesc" class="form-control" rows="2" required></textarea>
           </div>
-          <button type="submit" class="btn-primary" style="width:100%;">Save to Catalog</button>
+          <button type="submit" class="btn-primary" style="width:100%;" id="pSubmitBtn">Save &amp; Publish to Cloud</button>
         </form>
 
         <h4 style="font-size:14px; color:var(--burgundy); margin:24px 0 10px;">Current Products</h4>
         <div id="adminProductsList"></div>
       </div>
 
-      <!-- Admin Tab: Profile -->
+      <!-- Admin Tab: Founder Profile -->
       <div id="adminTab-founder" style="display:none;">
         <h4 style="font-size:14px; color:var(--burgundy); margin-bottom:10px;">Edit Artisan Information</h4>
         <div class="form-group">
@@ -832,16 +875,17 @@
         <button class="btn-primary" onclick="saveFounderSettings()">Save Profile Changes</button>
       </div>
 
-      <!-- Admin Tab: Gallery Photo Management -->
+      <!-- Admin Tab: Gallery Management (Cloudinary Sync) -->
       <div id="adminTab-gallery" style="display:none;">
-        <h4 style="font-size:14px; color:var(--burgundy); margin-bottom:10px;">Add Photo to Gallery</h4>
+        <h4 style="font-size:14px; color:var(--burgundy); margin-bottom:10px;">Upload Image to Gallery (Google Search Sync)</h4>
+        <p style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">Photos are hosted on Cloudinary with search-friendly descriptors so Googlebot-Image can discover and index them.</p>
         <div class="form-group">
-          <label>Select Image from Device</label>
+          <label>Select Photo from Device</label>
           <input type="file" id="admGalleryFile" accept="image/*" class="form-control" />
         </div>
-        <button class="btn-primary" onclick="uploadGalleryPhoto()">Upload Photo</button>
+        <button class="btn-primary" onclick="uploadGalleryPhoto()" id="admGalleryBtn">Upload to Cloudinary &amp; Gallery</button>
 
-        <h4 style="font-size:14px; color:var(--burgundy); margin:24px 0 10px;">Manage Existing Gallery Photos</h4>
+        <h4 style="font-size:14px; color:var(--burgundy); margin:24px 0 10px;">Live Cloud Gallery Photos</h4>
         <div id="adminGalleryList" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(100px, 1fr)); gap:10px;"></div>
       </div>
 
@@ -875,17 +919,107 @@
   </footer>
 
   <script>
-    // State Store (Starts empty without pre-filled products)
-    let catalog = JSON.parse(localStorage.getItem("hh_catalog_v3")) || [];
-    let galleryItems = JSON.parse(localStorage.getItem("hh_gallery_items_v3")) || [];
-    let currentCaptcha = "";
+    // 1. Unified Configurations
+    const FIREBASE_CONFIG = {
+      apiKey: "AIzaSyCd-7tTPQXGU8SaSpZrs9Ct5aWv0jXbtU4",
+      authDomain: "hunnar-house.firebaseapp.com",
+      projectId: "hunnar-house",
+      storageBucket: "hunnar-house.firebasestorage.app",
+      messagingSenderId: "312766139472",
+      appId: "1:312766139472:web:1a48c6fab5689e2d6a5555",
+      measurementId: "G-XXDRDDKPFP"
+    };
 
-    function saveState() {
-      localStorage.setItem("hh_catalog_v3", JSON.stringify(catalog));
-      localStorage.setItem("hh_gallery_items_v3", JSON.stringify(galleryItems));
+    const CLOUDINARY_CONFIG = {
+      cloudName: "dpeijmtb6",
+      uploadPreset: "sacredians_upload"
+    };
+
+    const EMAILJS_CONFIG = {
+      serviceId: "hunnarhouse",
+      publicKey: "66SDByOxsHd8RK6d_",
+      templateId: "template_v9s3zbh"
+    };
+
+    // 2. Initialize Services
+    let db = null;
+    try {
+      firebase.initializeApp(FIREBASE_CONFIG);
+      db = firebase.firestore();
+      emailjs.init(EMAILJS_CONFIG.publicKey);
+    } catch (e) {
+      console.warn("Storage fallback engaged.");
     }
 
-    // Tab Switching
+    // 3. Application State Store
+    let catalog = JSON.parse(localStorage.getItem("hh_catalog_live")) || [];
+    let galleryItems = JSON.parse(localStorage.getItem("hh_gallery_live")) || [];
+    let currentCaptcha = "";
+
+    function saveLocal() {
+      localStorage.setItem("hh_catalog_live", JSON.stringify(catalog));
+      localStorage.setItem("hh_gallery_live", JSON.stringify(galleryItems));
+    }
+
+    // 4. Cloudinary Direct Unsigned Image Upload Function
+    async function uploadToCloudinary(file) {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", CLOUDINARY_CONFIG.uploadPreset);
+
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${CLOUDINARY_CONFIG.cloudName}/image/upload`,
+        { method: "POST", body: formData }
+      );
+
+      if (!response.ok) {
+        throw new Error("Cloudinary upload failed");
+      }
+
+      const data = await response.json();
+      return data.secure_url; // Permanent public HTTPS URL
+    }
+
+    // 5. Firebase Sync Handlers
+    async function loadCloudData() {
+      if (!db) {
+        renderProductGrids();
+        renderGallery();
+        return;
+      }
+
+      try {
+        // Load products
+        const prodSnap = await db.collection("products").get();
+        if (!prodSnap.empty) {
+          catalog = prodSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+        }
+
+        // Load gallery photos
+        const galDoc = await db.collection("settings").doc("gallery").get();
+        if (galDoc.exists && galDoc.data().images) {
+          galleryItems = galDoc.data().images;
+        }
+
+        // Load founder settings
+        const founderDoc = await db.collection("settings").doc("founder").get();
+        if (founderDoc.exists) {
+          const fData = founderDoc.data();
+          if (fData.name) document.getElementById('founderDisplayName').innerText = fData.name;
+          if (fData.bio) document.getElementById('founderBioText').innerText = fData.bio;
+          if (fData.photo) document.getElementById('founderDisplayPhoto').src = fData.photo;
+        }
+
+        saveLocal();
+      } catch (err) {
+        console.warn("Using locally saved state.");
+      }
+
+      renderProductGrids();
+      renderGallery();
+    }
+
+    // 6. Navigation
     function switchTab(tabKey) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.nav-tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -897,18 +1031,18 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Render Products in Shop Tabs
+    // 7. Product Catalog Render
     function renderProductGrids() {
       const candlesEl = document.getElementById("candlesContainer");
       const chocoEl = document.getElementById("chocolatesContainer");
 
-      const buildCard = (item) => {
+            const buildCard = (item) => {
         const perUnit = item.minQty > 1 ? `<span class="per-unit-price">(₹${(item.salePrice / item.minQty).toFixed(2)}/pc)</span>` : '';
         const baseStrikethrough = item.basePrice ? `<span class="base-price">₹${item.basePrice}</span>` : '';
         
         return `
-          <div class="product-card" onclick="openProductSheet(${item.id})">
-            <img src="${item.img}" class="product-thumb" alt="${item.title}" />
+          <div class="product-card" onclick="openProductSheet('${item.id}')">
+            <img src="${item.img}" class="product-thumb" alt="${item.title} - Handmade Hunnar House" />
             <div class="product-info">
               <h4 class="product-title">${item.title}</h4>
               <div class="price-row">
@@ -933,7 +1067,7 @@
           : `<div class="empty-gallery-box" style="grid-column:1/-1;">
                <i class="fa fa-fire"></i>
                <h4>We are crafting something exciting!</h4>
-               <p>New handmade candle pieces will be uploaded here very soon.</p>
+               <p>New handmade pieces will be uploaded here very soon.</p>
              </div>`;
       }
 
@@ -943,18 +1077,19 @@
           : `<div class="empty-gallery-box" style="grid-column:1/-1;">
                <i class="fa fa-gift"></i>
                <h4>We are crafting something exciting!</h4>
-               <p>Fresh artisanal chocolate confections will be uploaded here very soon.</p>
+               <p>New handmade pieces will be uploaded here very soon.</p>
              </div>`;
       }
     }
 
-    // Open Bottom-Sheet
+    // 8. Open Product Sheet
     function openProductSheet(prodId) {
-      const p = catalog.find(item => item.id === prodId);
+      const p = catalog.find(item => item.id == prodId);
       if (!p) return;
 
       document.getElementById('reviewProdId').value = p.id;
       document.getElementById('sheetProductImg').src = p.img;
+      document.getElementById('sheetProductImg').alt = `${p.title} detail photo`;
       document.getElementById('sheetCategory').innerText = p.category;
       document.getElementById('sheetTitle').innerText = p.title;
       document.getElementById('sheetSalePrice').innerText = `₹${p.salePrice}`;
@@ -969,7 +1104,7 @@
       if (p.design) pillsHTML += `<div class="pill-item"><span>Design</span><strong>${p.design}</strong></div>`;
       document.getElementById('sheetPills').innerHTML = pillsHTML;
 
-      // Conditional Specifications Table
+      // Conditional Specs Table
       let specsHTML = '';
       if (p.packSize) specsHTML += `<tr><td>Pack Size</td><td>${p.packSize}</td></tr>`;
       if (p.size) specsHTML += `<tr><td>Size / Dimensions</td><td>${p.size}</td></tr>`;
@@ -1006,42 +1141,46 @@
             <span style="color:var(--accent-gold);">${'★'.repeat(r.rating)}</span>
           </div>
           <p style="font-size:12.5px; color:var(--text-muted); margin-top:3px;">${r.msg}</p>
-          ${r.img ? `<img src="${r.img}" style="width:50px; height:50px; object-fit:cover; border-radius:6px; margin-top:6px;" />` : ''}
+          ${r.img ? `<img src="${r.img}" alt="Customer photo for ${p.title}" style="width:60px; height:60px; object-fit:cover; border-radius:6px; margin-top:6px;" />` : ''}
         </div>
       `).join('');
     }
 
-    function handleReviewSubmit(e) {
-            e.preventDefault();
-      const pId = Number(document.getElementById('reviewProdId').value);
+    async function handleReviewSubmit(e) {
+      e.preventDefault();
+      const pId = document.getElementById('reviewProdId').value;
       const name = document.getElementById('revName').value.trim();
       const city = document.getElementById('revCity').value.trim();
       const msg = document.getElementById('revMsg').value.trim();
       const rating = document.querySelector('input[name="rating"]:checked')?.value || 5;
       const file = document.getElementById('revFile').files[0];
 
-      const p = catalog.find(item => item.id === pId);
+      const p = catalog.find(item => item.id == pId);
       if (!p) return;
 
-      const appendReview = (imgData = '') => {
-        if (!p.reviews) p.reviews = [];
-        p.reviews.unshift({ id: Date.now(), name, city, msg, rating: Number(rating), img: imgData });
-        saveState();
-        renderSheetReviews(p);
-        e.target.reset();
-        alert("Thank you! Your rating has been posted.");
-      };
-
+      let photoUrl = "";
       if (file) {
-        const reader = new FileReader();
-        reader.onload = (ev) => appendReview(ev.target.result);
-        reader.readAsDataURL(file);
-      } else {
-        appendReview();
+        try {
+          photoUrl = await uploadToCloudinary(file);
+        } catch (err) {
+          console.warn("Could not upload review photo to Cloudinary.");
+        }
       }
+
+      if (!p.reviews) p.reviews = [];
+      p.reviews.unshift({ id: Date.now(), name, city, msg, rating: Number(rating), img: photoUrl });
+
+      if (db) {
+        db.collection("products").doc(String(p.id)).set(p, { merge: true });
+      }
+
+      saveLocal();
+      renderSheetReviews(p);
+      e.target.reset();
+      alert("Thank you! Your rating has been posted.");
     }
 
-    // Gallery Render with Empty State
+    // 9. Gallery Render
     function renderGallery() {
       const container = document.getElementById('galleryDisplay');
       if (!galleryItems.length) {
@@ -1057,12 +1196,16 @@
 
       container.innerHTML = `
         <div class="gallery-grid">
-          ${galleryItems.map(src => `<div class="gallery-item"><img src="${src}" /></div>`).join('')}
+          ${galleryItems.map(src => `
+            <div class="gallery-item">
+              <img src="${src}" alt="Hunnar House Artisanal Studio Creation" loading="lazy" />
+            </div>
+          `).join('')}
         </div>
       `;
     }
 
-    // Security Captcha & Admin Verification
+    // 10. Security Captcha & Admin Verification
     function generateCaptcha() {
       const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
       let code = "";
@@ -1124,7 +1267,7 @@
       }
     }
 
-    // Admin Dashboard Controls
+    // 11. Admin Dashboard
     function openAdminModal() {
       renderAdminCatalog();
       renderAdminGallery();
@@ -1141,15 +1284,19 @@
       document.getElementById(`adminTab-${k}`).style.display = 'block';
     }
 
-    function handleAdminAddProduct(e) {
+    async function handleAdminAddProduct(e) {
       e.preventDefault();
       const file = document.getElementById('pPhotoFile').files[0];
       if (!file) return;
 
-      const reader = new FileReader();
-      reader.onload = function(ev) {
+      const submitBtn = document.getElementById('pSubmitBtn');
+      submitBtn.innerText = "Uploading to Cloudinary...";
+      submitBtn.disabled = true;
+
+      try {
+        const publicUrl = await uploadToCloudinary(file);
         const item = {
-          id: Date.now(),
+          id: "prod_" + Date.now(),
           title: document.getElementById('pTitle').value.trim(),
           category: document.getElementById('pCategory').value,
           basePrice: Number(document.getElementById('pBasePrice').value) || 0,
@@ -1159,75 +1306,109 @@
           size: document.getElementById('pSize').value.trim() || null,
           design: document.getElementById('pDesign').value.trim() || null,
           desc: document.getElementById('pDesc').value.trim(),
-          img: ev.target.result,
+          img: publicUrl,
           reviews: []
         };
+
         catalog.unshift(item);
-        saveState();
+        if (db) {
+          await db.collection("products").doc(item.id).set(item);
+        }
+
+        saveLocal();
         renderProductGrids();
         renderAdminCatalog();
         e.target.reset();
-        alert("Product added successfully!");
-      };
-      reader.readAsDataURL(file);
+        alert("Product published successfully with live Cloudinary URL!");
+      } catch (err) {
+        alert("Upload failed. Please check internet connection.");
+      } finally {
+        submitBtn.innerText = "Save & Publish to Cloud";
+        submitBtn.disabled = false;
+      }
     }
 
     function renderAdminCatalog() {
       const list = document.getElementById('adminProductsList');
       if (!catalog.length) {
-        list.innerHTML = `<p style="font-size:12px; color:var(--text-muted);">No products added yet.</p>`;
+        list.innerHTML = `<p style="font-size:12px; color:var(--text-muted);">No products in catalog yet.</p>`;
         return;
       }
       list.innerHTML = catalog.map(p => `
         <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #eee; font-size:13px;">
           <span>${p.title} (₹${p.salePrice})</span>
-          <button class="btn-danger" onclick="deleteProduct(${p.id})">Delete</button>
+          <button class="btn-danger" onclick="deleteProduct('${p.id}')">Delete</button>
         </div>
       `).join('');
     }
 
-    function deleteProduct(id) {
+    async function deleteProduct(id) {
       if (confirm("Are you sure you want to delete this product?")) {
-        catalog = catalog.filter(p => p.id !== id);
-        saveState();
+        catalog = catalog.filter(p => p.id != id);
+        if (db) {
+          await db.collection("products").doc(String(id)).delete();
+        }
+        saveLocal();
         renderProductGrids();
         renderAdminCatalog();
       }
     }
 
-    function saveFounderSettings() {
-      const name = document.getElementById('admFounderName').value;
-      const bio = document.getElementById('admFounderBio').value;
+    async function saveFounderSettings() {
+      const name = document.getElementById('admFounderName').value.trim();
+      const bio = document.getElementById('admFounderBio').value.trim();
       const file = document.getElementById('admFounderFile').files[0];
+
+      let photoUrl = "";
+      if (file) {
+        try {
+          photoUrl = await uploadToCloudinary(file);
+          document.getElementById('founderDisplayPhoto').src = photoUrl;
+        } catch (e) {
+          alert("Could not upload profile photo.");
+        }
+      }
 
       if (name) document.getElementById('founderDisplayName').innerText = name;
       if (bio) document.getElementById('founderBioText').innerText = bio;
 
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          document.getElementById('founderDisplayPhoto').src = e.target.result;
-          alert("Profile photo updated!");
-        };
-        reader.readAsDataURL(file);
-      } else {
-        alert("Profile details updated!");
+      if (db) {
+        const updateData = { name, bio };
+        if (photoUrl) updateData.photo = photoUrl;
+        await db.collection("settings").doc("founder").set(updateData, { merge: true });
       }
+
+      alert("Profile details updated!");
     }
 
-    function uploadGalleryPhoto() {
-      const file = document.getElementById('admGalleryFile').files[0];
+    async function uploadGalleryPhoto() {
+      const fileInput = document.getElementById('admGalleryFile');
+      const file = fileInput.files[0];
       if (!file) return;
 
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        galleryItems.unshift(e.target.result);
-        saveState();
+      const btn = document.getElementById('admGalleryBtn');
+      btn.innerText = "Uploading to Cloudinary...";
+      btn.disabled = true;
+
+      try {
+        const publicUrl = await uploadToCloudinary(file);
+        galleryItems.unshift(publicUrl);
+
+        if (db) {
+          await db.collection("settings").doc("gallery").set({ images: galleryItems }, { merge: true });
+        }
+
+        saveLocal();
         renderGallery();
         renderAdminGallery();
-        alert("Photo added to gallery!");
-      };
-      reader.readAsDataURL(file);
+        fileInput.value = "";
+        alert("Photo added to live gallery and ready for Google Image discovery!");
+      } catch (err) {
+        alert("Upload failed. Please try again.");
+      } finally {
+        btn.innerText = "Upload to Cloudinary & Gallery";
+        btn.disabled = false;
+      }
     }
 
     function renderAdminGallery() {
@@ -1240,10 +1421,13 @@
       `).join('');
     }
 
-    function deleteGalleryPhoto(idx) {
+    async function deleteGalleryPhoto(idx) {
       if (confirm("Remove this photo from gallery?")) {
         galleryItems.splice(idx, 1);
-        saveState();
+        if (db) {
+          await db.collection("settings").doc("gallery").set({ images: galleryItems });
+        }
+        saveLocal();
         renderGallery();
         renderAdminGallery();
       }
@@ -1264,33 +1448,63 @@
       list.innerHTML = revItems.map(r => `
         <div style="padding:8px 0; border-bottom:1px solid #eee; font-size:12.5px;">
           <strong>${r.prodTitle}</strong>: ${r.name} (${r.rating}★) - "${r.msg}"
-          <button class="btn-danger" style="margin-left:8px;" onclick="deleteReview(${r.prodId}, ${r.id})">Remove</button>
+          <button class="btn-danger" style="margin-left:8px;" onclick="deleteReview('${r.prodId}', ${r.id})">Remove</button>
         </div>
       `).join('');
     }
 
-    function deleteReview(pId, rId) {
+    async function deleteReview(pId, rId) {
       if (confirm("Remove this review?")) {
-        const p = catalog.find(item => item.id === pId);
+        const p = catalog.find(item => item.id == pId);
         if (p) {
           p.reviews = p.reviews.filter(r => r.id !== rId);
-          saveState();
+          if (db) {
+            await db.collection("products").doc(String(p.id)).set(p, { merge: true });
+          }
+          saveLocal();
           renderAdminReviews();
           renderProductGrids();
         }
       }
     }
 
-    function handleContactSubmit(e) {
+    // 12. Contact Form with EmailJS & Firestore Sync
+    async function handleContactSubmit(e) {
       e.preventDefault();
-      alert("Namaste! We have received your inquiry and will be in touch shortly.");
+      const name = document.getElementById('custName').value.trim();
+      const city = document.getElementById('custCity').value.trim();
+      const email = document.getElementById('custEmail').value.trim();
+      const message = document.getElementById('custMessage').value.trim();
+
+      const inqRecord = {
+        name,
+        city,
+        email,
+        message,
+        timestamp: new Date().toISOString()
+      };
+
+      if (db) {
+        db.collection("inquiries").add(inqRecord);
+      }
+
+      // EmailJS automated acknowledgment
+      emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, {
+        name: name,
+        to_email: email,
+        city: city,
+        message: message
+      }).catch(() => {});
+
+      alert(`Namaste ${name}! We have received your inquiry and will be in touch shortly.`);
       e.target.reset();
     }
 
+    // 13. Initialization
     window.addEventListener('DOMContentLoaded', () => {
-      renderProductGrids();
-      renderGallery();
+      loadCloudData();
     });
   </script>
 </body>
 </html>
+  
