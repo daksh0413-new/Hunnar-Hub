@@ -1,606 +1,1202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery & Review Hub</title>
-  
-  <!-- Font Awesome for Stars & Icons -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Verification -->
+  <meta name="google-site-verification" content="bsO3Wcmwg8HeskQwjh50f8aGdXcOBYx1ygl2lnGT0DM" />
+
+  <!-- Page Title -->
+  <title>Hunnar House | Handmade Gifts &amp; Candles</title>
+
+  <!-- SEO Meta Tags & Keywords -->
+  <meta name="description" content="Handmade soy candles and sweet chocolates crafted with love by Ruchi Maheshwari. Explore our collection of handcrafted celebration gifts at Hunnar House — Crafted by Heart." />
+  <meta name="keywords" content="hunnar house, hunar house, ruchi maheshwari, handmade candles, soy wax candles, scented candles, aroma candles, jar candles, pillar candles, artisanal chocolates, luxury chocolate box, handmade gifts, custom gift hampers, festival gifts, birthday gifts, anniversary gifts, organic soy candles, hand poured candles, celebration gifts, handcrafted decor, home fragrance, gift baskets, aesthetic candles, premium chocolates, handmade crafts by ruchi, best gift hampers, crafted by heart" />
+  <meta name="author" content="Ruchi Maheshwari" />
+  <link rel="canonical" href="https://hunnarhouse.vercel.app/" />
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" />
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" />
+
+  <!-- Fonts & Font Awesome 4.7 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
   <style>
     :root {
-      --bg-dark: #0f1115;
-      --card-bg: #1a1d24;
-      --card-border: #282c37;
-      --text-main: #f0f2f5;
-      --text-muted: #9ba1b0;
-      --accent: #ffb300;
-      --accent-hover: #ffa000;
-      --btn-bg: #2563eb;
-      --btn-hover: #1d4ed8;
-      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --wine: #4d101e;
+      --burgundy: #6b1d2f;
+      --rose: #822238;
+      --warm-bg: #fffaf7;
+      --card-bg: #ffffff;
+      --border-warm: #eadbd3;
+      --text-dark: #2b2224;
+      --text-muted: #6e6265;
+      --accent-green: #15803d;
+      --accent-gold: #ffb300;
+      --shadow-soft: 0 10px 25px rgba(77, 16, 30, 0.06);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--warm-bg);
+      color: var(--text-dark);
+      line-height: 1.6;
     }
 
-    /* Fixed Dark Header */
+    /* Top Announcement */
+    .top-announcement {
+      background: var(--wine);
+      color: #fff;
+      text-align: center;
+      padding: 6px 12px;
+      font-size: 12.5px;
+      display: none;
+      font-weight: 500;
+    }
+
+    /* Header */
     header {
-      background-color: #000000;
-      border-bottom: 1px solid #1f232b;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-warm);
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: 0.85rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
 
-    .brand {
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-group {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      font-weight: 700;
-      font-size: 1.15rem;
-      letter-spacing: -0.3px;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border-warm);
+      object-fit: cover;
+    }
+
+    .brand-text h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 18px;
+      color: var(--wine);
+      line-height: 1.1;
+    }
+
+    .brand-text p {
+      font-family: 'Playfair Display', serif;
+      font-size: 11.5px;
+      color: var(--burgundy);
+      font-style: italic;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-tab-btn {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .nav-tab-btn:hover,
+    .nav-tab-btn.active {
+      background: var(--burgundy);
       color: #ffffff;
     }
 
-    .brand i {
-      color: var(--accent);
-    }
-
-    /* Navigation Tabs */
-    .tab-bar {
-      display: flex;
-      background: #11141a;
-      padding: 0.25rem;
-      border-radius: 999px;
-      border: 1px solid #232732;
-    }
-
-    .tab-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      padding: 0.45rem 1rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .tab-btn.active {
-      background: #ffffff;
-      color: #000000;
-      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
-    }
-
-    /* Main Container */
-    main {
-      flex: 1;
-      width: 100%;
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 1.25rem;
-    }
-
-    .tab-content {
+    /* Mobile Bottom Navigation */
+    .mobile-tab-bar {
       display: none;
-      animation: fadeIn 0.3s ease;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border-top: 1px solid var(--border-warm);
+      padding: 6px 8px;
+      z-index: 200;
+      justify-content: space-around;
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
     }
 
-    .tab-content.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Card Box */
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-      margin-bottom: 1.25rem;
-    }
-
-    .card h2 {
-      font-size: 1.25rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .card p.desc {
-      color: var(--text-muted);
-      font-size: 0.88rem;
-      margin-bottom: 1.25rem;
-      line-height: 1.4;
-    }
-
-    /* Form Elements */
-    .form-group {
-      margin-bottom: 1.2rem;
-    }
-
-    label.field-label {
-      display: block;
-      font-size: 0.82rem;
+    .mob-tab-btn {
+      background: none;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      font-size: 10.5px;
       font-weight: 600;
       color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 0.4rem;
+      cursor: pointer;
     }
 
-    input[type="text"], textarea {
-      width: 100%;
-      background: #11141a;
-      border: 1px solid var(--card-border);
-      border-radius: 10px;
-      padding: 0.75rem 1rem;
-      color: var(--text-main);
-      font-size: 0.95rem;
-      outline: none;
-      transition: var(--transition);
+    .mob-tab-btn i { font-size: 16px; }
+    .mob-tab-btn.active { color: var(--burgundy); }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--burgundy);
+      color: #fff;
+      padding: 12px 26px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13.5px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-primary:hover { background: var(--wine); transform: translateY(-2px); }
+
+    /* Sections */
+    .tab-content { display: none; max-width: 1200px; margin: 0 auto; padding: 24px 20px 60px; }
+    .tab-content.active { display: block; animation: tabFadeIn 0.3s ease; }
+    @keyframes tabFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Home Page Showcase */
+    .hero-banner {
+      background: #ffffff;
+      border: 1px solid var(--border-warm);
+      border-radius: 16px;
+      padding: 40px 30px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 32px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow-soft);
     }
 
-    input[type="text"]:focus, textarea:focus {
-      border-color: var(--btn-bg);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    .hero-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      color: var(--wine);
+      line-height: 1.25;
+      margin-bottom: 14px;
     }
 
-    /* Provided Star Rating Styles with Dark-Mode Adjustment */
-    .star-rating {
-      font-size: 0;
-      margin: 0.4rem 0 0.8rem;
+    .hero-banner p { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.7; }
+
+    .founder-frame {
+      position: relative;
+      cursor: pointer;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid var(--border-warm);
+      box-shadow: var(--shadow-soft);
+      max-width: 320px;
+      margin: 0 auto;
+      transition: transform 0.3s;
+    }
+    .founder-frame:hover { transform: scale(1.02); }
+    .founder-frame img { width: 100%; height: 350px; object-fit: cover; display: block; }
+    .founder-badge {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(43, 34, 36, 0.9));
+      color: #fff;
+      padding: 14px;
+      text-align: center;
     }
 
-    .star-rating__wrap {
-      display: inline-block;
-      font-size: 1.5rem;
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 35px;
     }
 
-    .star-rating__wrap:after {
-      content: "";
-      display: table;
-      clear: both;
+    .story-card {
+      background: #ffffff;
+      border: 1px solid var(--border-warm);
+      border-radius: 12px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .story-card i { font-size: 26px; color: var(--burgundy); margin-bottom: 10px; }
+    .story-card h4 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--wine); margin-bottom: 6px; }
+    .story-card p { font-size: 13.5px; color: var(--text-muted); }
+
+    /* Product Cards */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
     }
 
+    .product-card {
+      background: #ffffff;
+      border: 1px solid var(--border-warm);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+
+    .product-thumb { width: 100%; height: 210px; object-fit: cover; }
+    .product-info { padding: 16px; display: flex; flex-direction: column; flex-grow: 1; }
+    .product-title { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--wine); margin-bottom: 6px; }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin: 8px 0;
+    }
+    .base-price { text-decoration: line-through; color: #999; font-size: 13px; }
+    .sale-price { color: var(--accent-green); font-weight: 700; font-size: 17px; }
+    .per-unit-price { font-size: 11.5px; color: var(--text-muted); margin-left: 2px; }
+
+    /* Exact Star Rating CSS */
+    .star-rating { font-size: 0; }
+    .star-rating__wrap { display: inline-block; font-size: 1.2rem; }
+    .star-rating__wrap:after { content: ""; display: table; clear: both; }
     .star-rating__ico {
       float: right;
-      padding-left: 6px;
+      padding-left: 3px;
       cursor: pointer;
-      color: var(--accent);
-      transition: transform 0.15s ease;
+      color: var(--accent-gold);
     }
-
-    .star-rating__ico:hover {
-      transform: scale(1.15);
-    }
-
-    .star-rating__ico:last-child {
-      padding-left: 0;
-    }
-
-    .star-rating__input {
-      display: none;
-    }
-
+    .star-rating__ico:last-child { padding-left: 0; }
+    .star-rating__input { display: none; }
     .star-rating__ico:hover:before,
     .star-rating__ico:hover ~ .star-rating__ico:before,
     .star-rating__input:checked ~ .star-rating__ico:before {
       content: "\f005";
     }
 
-    /* File Upload Box */
-    .upload-area {
-      border: 2px dashed #343a46;
-      background: #12151c;
-      border-radius: 12px;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      cursor: pointer;
-      transition: var(--transition);
-      position: relative;
-    }
-
-    .upload-area:hover, .upload-area.dragover {
-      border-color: var(--btn-bg);
-      background: #151a24;
-    }
-
-    .upload-area i {
-      font-size: 2rem;
-      color: var(--btn-bg);
-      margin-bottom: 0.5rem;
-    }
-
-    .upload-area span {
-      display: block;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-
-    input[type="file"] {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      cursor: pointer;
-    }
-
-    .preview-box {
-      margin-top: 0.8rem;
-      position: relative;
-      display: none;
-      border-radius: 10px;
-      overflow: hidden;
-      max-height: 220px;
-      border: 1px solid var(--card-border);
-    }
-
-    .preview-box img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-    }
-
-    /* Submit Button */
-    .submit-btn {
-      width: 100%;
-      background: var(--btn-bg);
-      color: #ffffff;
-      border: none;
-      padding: 0.85rem;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .submit-btn:hover {
-      background: var(--btn-hover);
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
-    }
-
-    .submit-btn:active {
-      transform: scale(0.98);
-    }
-
-    /* Gallery Grid View */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.85rem;
-    }
-
-    .gallery-item {
-      position: relative;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: var(--transition);
-      aspect-ratio: 1 / 1;
-    }
-
-    .gallery-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
-      border-color: #3f4555;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .gallery-info {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 0.6rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
-
-    .gallery-title {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #ffffff;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .gallery-rating {
-      color: var(--accent);
-      font-size: 0.75rem;
-    }
-
-    .empty-state {
-      text-align: center;
-      padding: 3rem 1rem;
-      color: var(--text-muted);
-      grid-column: span 2;
-    }
-
-    .empty-state i {
-      font-size: 2.5rem;
-      margin-bottom: 0.8rem;
-      opacity: 0.4;
-    }
-
-    /* Simple Image Lightbox */
-    .lightbox {
+    /* Product Detailed Bottom Sheet / Modal (Blinkit reference style) */
+    .detail-modal {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 1000;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .detail-modal.active { display: flex; }
+
+    .sheet-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 580px;
+      max-height: 90vh;
+      border-radius: 20px 20px 0 0;
+      overflow-y: auto;
+      padding: 24px 20px;
+      position: relative;
+      animation: slideUp 0.3s ease;
+    }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+    .sheet-close {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      background: #f1ebe7;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .pill-highlights {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 14px 0;
+    }
+
+    .pill-item {
+      background: #f8f6f5;
+      border: 1px solid var(--border-warm);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 12px;
+      text-align: center;
+    }
+    .pill-item span { display: block; color: var(--text-muted); font-size: 10px; }
+    .pill-item strong { color: var(--wine); }
+
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 12px 0 20px;
+    }
+    .specs-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border-warm);
+    }
+    .specs-table td:first-child { color: var(--text-muted); width: 40%; }
+
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 1/1;
+      border: 1px solid var(--border-warm);
+      cursor: pointer;
+    }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+    .empty-gallery-box {
+      text-align: center;
+      padding: 60px 20px;
+      background: #ffffff;
+      border: 1px dashed var(--border-warm);
+      border-radius: 16px;
+      margin-top: 20px;
+    }
+    .empty-gallery-box i { font-size: 40px; color: var(--burgundy); opacity: 0.5; margin-bottom: 12px; }
+    .empty-gallery-box h4 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--wine); margin-bottom: 6px; }
+    .empty-gallery-box p { font-size: 14px; color: var(--text-muted); max-width: 480px; margin: 0 auto; }
+
+    /* Forms */
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 12.5px; font-weight: 600; margin-bottom: 4px; color: var(--wine); }
+    .form-control {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border-warm);
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-family: inherit;
+      outline: none;
+    }
+
+    /* Admin Modal */
+    .admin-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 1100;
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 1000;
-      padding: 1rem;
+      padding: 16px;
+    }
+    .admin-modal.active { display: flex; }
+    .admin-card {
+      background: #ffffff;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 720px;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 24px;
+      position: relative;
     }
 
-    .lightbox.active {
-      display: flex;
+    /* Black Professional Footer */
+    footer {
+      background: #000000;
+      color: #e5e5e5;
+      padding: 50px 20px 70px;
+      margin-top: 50px;
     }
 
-    .lightbox img {
-      max-width: 100%;
-      max-height: 85vh;
-      border-radius: 12px;
-      box-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 36px;
     }
 
-    .lightbox-close {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      color: #ffffff;
-      font-size: 1.8rem;
-      cursor: pointer;
+    .footer-inner h3 { font-family: 'Cinzel', serif; color: #ffffff; font-size: 20px; margin-bottom: 8px; }
+    .footer-inner p { font-size: 13px; color: #a3a3a3; line-height: 1.7; }
+
+    .support-bar {
+      background: #111111;
+      border: 1px solid #262626;
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .support-bar input {
+      background: #1c1c1c;
+      border: 1px solid #333333;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .nav-tabs { display: none; }
+      .mobile-tab-bar { display: flex; }
+      .hero-banner { grid-template-columns: 1fr; padding: 24px 18px; }
+      .story-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .sheet-card { max-height: 94vh; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Dark Header -->
-  <header>
-    <div class="brand">
-      <i class="fa fa-star"></i>
-      <span>StarHub</span>
-    </div>
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement" id="topAnnouncementBar"></div>
 
-    <!-- Mode Selector Tabs -->
-    <div class="tab-bar">
-      <button class="tab-btn active" onclick="switchTab('review')">
-        <i class="fa fa-pencil"></i> Review
-      </button>
-      <button class="tab-btn" onclick="switchTab('gallery')">
-        <i class="fa fa-picture-o"></i> Gallery
-      </button>
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <div class="brand-group" onclick="switchTab('home')">
+        <img class="brand-logo" src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" alt="Hunnar House" />
+        <div class="brand-text">
+          <h1>Hunnar House</h1>
+          <p>Crafted by Heart &hearts;</p>
+        </div>
+      </div>
+
+      <ul class="nav-tabs">
+        <li><button class="nav-tab-btn active" onclick="switchTab('home')">Home</button></li>
+        <li><button class="nav-tab-btn" onclick="switchTab('candles')">Candles</button></li>
+        <li><button class="nav-tab-btn" onclick="switchTab('chocolates')">Chocolates</button></li>
+        <li><button class="nav-tab-btn" onclick="switchTab('gallery')">Gallery</button></li>
+        <li><button class="nav-tab-btn" onclick="switchTab('contact')">Inquire</button></li>
+      </ul>
     </div>
   </header>
 
-  <main>
-    <!-- TAB 1: Review & Upload -->
-    <section id="tab-review" class="tab-content active">
-      <div class="card">
-        <h2>Submit Your Review</h2>
-        <p class="desc">Rate the experience and upload a photo directly from your device.</p>
+  <!-- Mobile Bottom Tab Navigation -->
+  <nav class="mobile-tab-bar">
+    <button class="mob-tab-btn active" onclick="switchTab('home')"><i class="fa fa-home"></i><span>Home</span></button>
+    <button class="mob-tab-btn" onclick="switchTab('candles')"><i class="fa fa-fire"></i><span>Candles</span></button>
+    <button class="mob-tab-btn" onclick="switchTab('chocolates')"><i class="fa fa-gift"></i><span>Choco</span></button>
+    <button class="mob-tab-btn" onclick="switchTab('gallery')"><i class="fa fa-picture-o"></i><span>Gallery</span></button>
+    <button class="mob-tab-btn" onclick="switchTab('contact')"><i class="fa fa-envelope"></i><span>Help</span></button>
+  </nav>
 
-        <form id="submissionForm" onsubmit="handleFormSubmit(event)">
-          <!-- Item / Title -->
-          <div class="form-group">
-            <label class="field-label" for="itemTitle">Item or Place Name</label>
-            <input type="text" id="itemTitle" placeholder="e.g. Handmade Ceramic Cup" required>
+  <!-- TAB: Home (No products here, pure animated story & welcome) -->
+  <main id="tab-home" class="tab-content active">
+    <div class="hero-banner">
+      <div class="hero-content">
+        <h2>Warmth, Fragrance &amp; Sweet Celebrations</h2>
+        <p>
+          Welcome to our workshop. We hand-pour natural soy wax candles and prepare fresh artisanal cocoa treats to bring joy and sweetness to your special occasions.
+        </p>
+        <button class="btn-primary" onclick="switchTab('candles')">
+          Explore Our Products <i class="fa fa-arrow-right"></i>
+        </button>
+      </div>
+
+      <!-- Founder Frame with Admin Secret Access -->
+      <div class="founder-frame" onclick="triggerFounderAccess()" title="Artisan Spotlight">
+        <img id="founderDisplayPhoto" src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg" alt="Artisan Ruchi Maheshwari" />
+        <div class="founder-badge">
+          <strong id="founderDisplayName" style="font-family:'Cinzel',serif; font-size:15px; display:block;">Ruchi Maheshwari</strong>
+          <small style="color:#ffd8df; font-style:italic;">Founder &bull; Crafted by Heart</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Highlights Grid -->
+    <div class="story-grid">
+      <div class="story-card">
+        <i class="fa fa-leaf"></i>
+        <h4>100% Pure Soy Wax</h4>
+        <p>Smokeless, lead-free wicks with gentle, relaxing aroma oils for clean and peaceful burning.</p>
+      </div>
+      <div class="story-card">
+        <i class="fa fa-heart"></i>
+        <h4>Small-Batch Treats</h4>
+        <p>Handcrafted chocolates created using premium cocoa butter and roasted nuts.</p>
+      </div>
+      <div class="story-card">
+        <i class="fa fa-gift"></i>
+        <h4>Custom Celebrations</h4>
+        <p>Personalized keepsakes, wedding favors, and holiday hampers made to order.</p>
+      </div>
+    </div>
+
+    <!-- Artisan Narrative Section -->
+    <div style="background:#ffffff; border:1px solid var(--border-warm); border-radius:16px; padding:30px; margin-bottom:20px;">
+      <h3 style="font-family:'Playfair Display',serif; font-size:26px; color:var(--wine); margin-bottom:10px;">Our Workshop Story</h3>
+      <p id="founderBioText" style="color:var(--text-muted); font-size:14.5px; line-height:1.8;">
+        Every piece made at Hunnar House begins with patience and devotion. Guided by Ruchi Maheshwari, our workshop focuses on crafting products that turn ordinary spaces into warm memories. Whether it is a soothing lavender jar or a festive sweet platter, everything is poured by hand.
+      </p>
+    </div>
+  </main>
+
+  <!-- TAB: Candles -->
+  <section id="tab-candles" class="tab-content">
+    <div style="text-align:center; margin-bottom:24px;">
+      <h2 style="font-family:'Playfair Display',serif; color:var(--wine); font-size:28px;">Botanical Soy Candles</h2>
+      <p style="color:var(--text-muted); font-size:14px;">Select any creation to view pack options and complete details</p>
+    </div>
+    <div class="product-grid" id="candlesContainer"></div>
+  </section>
+
+  <!-- TAB: Chocolates -->
+  <section id="tab-chocolates" class="tab-content">
+    <div style="text-align:center; margin-bottom:24px;">
+      <h2 style="font-family:'Playfair Display',serif; color:var(--wine); font-size:28px;">Artisan Chocolates &amp; Favors</h2>
+      <p style="color:var(--text-muted); font-size:14px;">Made fresh with rich cocoa and nuts</p>
+    </div>
+    <div class="product-grid" id="chocolatesContainer"></div>
+  </section>
+
+    <!-- TAB: Gallery -->
+  <section id="tab-gallery" class="tab-content">
+    <div style="text-align:center; margin-bottom:20px;">
+      <h2 style="font-family:'Playfair Display',serif; color:var(--wine); font-size:28px;">Studio Showcase Gallery</h2>
+      <p style="color:var(--text-muted); font-size:14px;">Real creations photographed straight from our workshop table</p>
+    </div>
+    <div id="galleryDisplay"></div>
+  </section>
+
+  <!-- TAB: Contact / Inquire -->
+  <section id="tab-contact" class="tab-content">
+    <div style="max-width:560px; margin:0 auto; background:#ffffff; border:1px solid var(--border-warm); border-radius:16px; padding:28px;">
+      <h2 style="font-family:'Playfair Display',serif; color:var(--wine); font-size:26px; margin-bottom:6px; text-align:center;">Send a Message</h2>
+      <p style="color:var(--text-muted); font-size:13.5px; text-align:center; margin-bottom:20px;">We take custom celebration gift orders and general inquiries.</p>
+
+      <form id="contactForm" onsubmit="handleContactSubmit(event)">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" id="custName" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" id="custCity" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="custEmail" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label>Your Message / Requirement</label>
+          <textarea id="custMessage" class="form-control" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;">Submit Inquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Product Detail Bottom-Sheet (Styled like the uploaded Blinkit reference) -->
+  <div class="detail-modal" id="productDetailModal">
+    <div class="sheet-card">
+      <button class="sheet-close" onclick="closeProductSheet()">&times;</button>
+      
+      <img id="sheetProductImg" src="" style="width:100%; height:230px; object-fit:cover; border-radius:12px; margin-bottom:14px;" />
+      
+      <span id="sheetCategory" style="font-size:11.5px; text-transform:uppercase; color:var(--rose); font-weight:700;"></span>
+      <h2 id="sheetTitle" style="font-family:'Playfair Display',serif; color:var(--wine); font-size:22px; margin:4px 0 10px;"></h2>
+
+      <!-- Price Breakdown with Green Highlight -->
+      <div class="price-row" style="background:#fdfcfb; padding:10px 14px; border-radius:10px; border:1px solid var(--border-warm);">
+        <span class="sale-price" id="sheetSalePrice"></span>
+        <span class="base-price" id="sheetBasePrice"></span>
+        <span class="per-unit-price" id="sheetPerUnit"></span>
+      </div>
+
+      <!-- Highlights Pill Box -->
+      <div class="pill-highlights" id="sheetPills"></div>
+
+      <!-- Specifications Table -->
+      <h4 style="font-size:14px; margin:16px 0 8px; color:var(--wine);">Product Information</h4>
+      <table class="specs-table" id="sheetSpecs"></table>
+
+      <p id="sheetDesc" style="font-size:13.5px; color:var(--text-muted); line-height:1.7; margin-bottom:18px;"></p>
+
+      <!-- Star Rating Review Section inside Sheet -->
+      <div style="border-top:1px solid var(--border-warm); padding-top:16px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <h4 style="color:var(--wine); font-size:16px;">Customer Reviews</h4>
+          <span id="sheetReviewAverage" style="font-weight:700; color:var(--accent-gold); font-size:15px;"></span>
+        </div>
+
+        <div id="sheetReviewsContainer" style="display:flex; flex-direction:column; gap:10px; max-height:180px; overflow-y:auto; margin-bottom:18px;"></div>
+
+        <!-- Add Review Form -->
+        <form onsubmit="handleReviewSubmit(event)" style="background:var(--warm-bg); padding:14px; border-radius:10px;">
+          <input type="hidden" id="reviewProdId" />
+          <div style="font-weight:600; font-size:13px; color:var(--wine); margin-bottom:8px;">Add Your Rating:</div>
+          
+          <!-- Exact Star Rating Structure -->
+          <div class="star-rating" style="margin-bottom:10px;">
+            <div class="star-rating__wrap">
+              <input class="star-rating__input" id="star-rating-5" type="radio" name="rating" value="5" required>
+              <label class="star-rating__ico fa fa-star-o" for="star-rating-5" title="5 out of 5 stars"></label>
+              
+              <input class="star-rating__input" id="star-rating-4" type="radio" name="rating" value="4">
+              <label class="star-rating__ico fa fa-star-o" for="star-rating-4" title="4 out of 5 stars"></label>
+              
+              <input class="star-rating__input" id="star-rating-3" type="radio" name="rating" value="3">
+              <label class="star-rating__ico fa fa-star-o" for="star-rating-3" title="3 out of 5 stars"></label>
+              
+              <input class="star-rating__input" id="star-rating-2" type="radio" name="rating" value="2">
+              <label class="star-rating__ico fa fa-star-o" for="star-rating-2" title="2 out of 5 stars"></label>
+              
+              <input class="star-rating__input" id="star-rating-1" type="radio" name="rating" value="1">
+              <label class="star-rating__ico fa fa-star-o" for="star-rating-1" title="1 out of 5 stars"></label>
+            </div>
           </div>
 
-          <!-- Star Rating using provided code -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <input type="text" id="revName" class="form-control" placeholder="Your Name" required />
+            <input type="text" id="revCity" class="form-control" placeholder="Your City" required />
+          </div>
+
+          <div class="form-group" style="margin-top:8px;">
+            <textarea id="revMsg" class="form-control" rows="2" placeholder="Write feedback..." required></textarea>
+          </div>
+
+          <!-- Real File Upload for Review Image -->
           <div class="form-group">
-            <label class="field-label">Your Rating</label>
-            <div class="star-rating">
-              <div class="star-rating__wrap">
-                <input class="star-rating__input" id="star-rating-5" type="radio" name="rating" value="5" required>
-                <label class="star-rating__ico fa fa-star-o" for="star-rating-5" title="5 out of 5 stars"></label>
-                
-                <input class="star-rating__input" id="star-rating-4" type="radio" name="rating" value="4">
-                <label class="star-rating__ico fa fa-star-o" for="star-rating-4" title="4 out of 5 stars"></label>
-                
-                <input class="star-rating__input" id="star-rating-3" type="radio" name="rating" value="3">
-                <label class="star-rating__ico fa fa-star-o" for="star-rating-3" title="3 out of 5 stars"></label>
-                
-                <input class="star-rating__input" id="star-rating-2" type="radio" name="rating" value="2">
-                <label class="star-rating__ico fa fa-star-o" for="star-rating-2" title="2 out of 5 stars"></label>
-                
-                <input class="star-rating__input" id="star-rating-1" type="radio" name="rating" value="1">
-                <label class="star-rating__ico fa fa-star-o" for="star-rating-1" title="1 out of 5 stars"></label>
+            <label style="font-size:11px; color:var(--text-muted);">Attach photo (optional):</label>
+            <input type="file" id="revFile" accept="image/*" class="form-control" />
+          </div>
+
+          <button type="submit" class="btn-primary" style="width:100%; padding:8px;">Post Review</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Modal -->
+  <div class="admin-modal" id="adminModal">
+    <div class="admin-card">
+      <button class="sheet-close" onclick="closeAdminModal()">&times;</button>
+      <h3 style="font-family:'Cinzel',serif; color:var(--wine); margin-bottom:14px;">Studio Admin Dashboard</h3>
+
+      <div style="display:flex; gap:8px; border-bottom:1px solid var(--border-warm); padding-bottom:10px; margin-bottom:16px;">
+        <button class="nav-tab-btn active" onclick="switchAdminTab('products')">Products</button>
+        <button class="nav-tab-btn" onclick="switchAdminTab('founder')">Artisan Profile</button>
+        <button class="nav-tab-btn" onclick="switchAdminTab('gallery')">Gallery</button>
+        <button class="nav-tab-btn" onclick="switchAdminTab('reviews')">Reviews</button>
+      </div>
+
+      <!-- Admin Tab: Add/Edit Product -->
+      <div id="adminTab-products">
+        <h4 style="font-size:14px; color:var(--burgundy); margin-bottom:10px;">Add New Product</h4>
+        <form onsubmit="handleAdminAddProduct(event)">
+          <div class="form-group">
+            <label>Product Title</label>
+            <input type="text" id="pTitle" class="form-control" required />
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+            <div class="form-group">
+              <label>Category</label>
+              <select id="pCategory" class="form-control">
+                <option value="candles">Candles</option>
+                <option value="chocolates">Chocolates</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Upload Photo</label>
+              <input type="file" id="pPhotoFile" accept="image/*" class="form-control" required />
+            </div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;">
+            <div class="form-group">
+              <label>Original Price (MRP)</label>
+              <input type="number" id="pBasePrice" class="form-control" placeholder="149" />
+            </div>
+            <div class="form-group">
+              <label>Sale Price (₹)</label>
+              <input type="number" id="pSalePrice" class="form-control" placeholder="59" required />
+            </div>
+            <div class="form-group">
+              <label>Min. Quantity Limit</label>
+              <input type="number" id="pMinQty" class="form-control" placeholder="1" value="1" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Short Description</label>
+            <textarea id="pDesc" class="form-control" rows="2" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;">Save to Catalog</button>
+        </form>
+
+        <h4 style="font-size:14px; color:var(--burgundy); margin:20px 0 10px;">Current Products</h4>
+        <div id="adminProductsList"></div>
+      </div>
+
+      <!-- Admin Tab: Founder Profile -->
+      <div id="adminTab-founder" style="display:none;">
+        <h4 style="font-size:14px; color:var(--burgundy); margin-bottom:10px;">Edit Artisan Information</h4>
+        <div class="form-group">
+          <label>Artisan Name</label>
+          <input type="text" id="admFounderName" class="form-control" value="Ruchi Maheshwari" />
+        </div>
+        <div class="form-group">
+          <label>Workshop Narrative</label>
+          <textarea id="admFounderBio" class="form-control" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Replace Founder Photo</label>
+          <input type="file" id="admFounderFile" accept="image/*" class="form-control" />
+        </div>
+        <button class="btn-primary" onclick="saveFounderSettings()">Save Profile Changes</button>
+      </div>
+
+      <!-- Admin Tab: Gallery Management -->
+      <div id="adminTab-gallery" style="display:none;">
+        <h4 style="font-size:14px; color:var(--burgundy); margin-bottom:10px;">Upload Image to Gallery</h4>
+        <div class="form-group">
+          <label>Select Photo from Device</label>
+          <input type="file" id="admGalleryFile" accept="image/*" class="form-control" />
+        </div>
+        <button class="btn-primary" onclick="uploadGalleryPhoto()">Add to Gallery</button>
+      </div>
+
+      <!-- Admin Tab: Review Moderation -->
+      <div id="adminTab-reviews" style="display:none;">
+        <h4 style="font-size:14px; color:var(--burgundy); margin-bottom:10px;">Moderate Reviews</h4>
+        <div id="adminReviewsList"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Professional Dark Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h3>Hunnar House</h3>
+        <p>Crafted by Heart &bull; Handcrafted candles and fresh chocolate favors.</p>
+        <p style="margin-top:10px;">WhatsApp: +91 6396699104 &bull; hunnarhouse19@gmail.com</p>
+        <p style="font-size:12px; margin-top:20px; color:#666;">&copy; 2026 Hunnar House. All rights reserved.</p>
+      </div>
+
+      <div class="support-bar">
+        <h4 style="color:#fff; font-size:14px; margin-bottom:6px;">Support Desk</h4>
+        <p style="font-size:12px; margin-bottom:10px;">Enter your registered email for quick help and portal access:</p>
+        <div style="display:flex; gap:8px;">
+          <input type="email" id="footerSupportEmail" class="form-control" placeholder="Enter email" />
+          <button class="btn-primary" style="padding:8px 16px;" onclick="verifySupportEmail()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initial catalog data
+    let catalog = JSON.parse(localStorage.getItem("hh_catalog_v2")) || [
+      {
+        id: 1,
+        title: "Auradecor Stick Candle",
+        category: "candles",
+        basePrice: 149,
+        salePrice: 59,
+        minQty: 10,
+        img: "https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg",
+        desc: "Handcrafted solid stick candle for family celebrations and dining.",
+        packSize: "10 pcs",
+        wick: "1 Wick",
+        design: "Solid",
+        size: "5.3\"",
+        reviews: [
+          { id: 101, name: "Sneha", city: "Local", rating: 5, msg: "Loved the quality and clean burn!" }
+        ]
+      },
+      {
+        id: 2,
+        title: "Artisan Chocolate Truffle Box",
+        category: "chocolates",
+        basePrice: 399,
+        salePrice: 299,
+        minQty: 1,
+        img: "https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg",
+        desc: "Assorted dark and milk chocolate bites with roasted almonds and cashew butter.",
+        packSize: "6 pcs",
+        wick: "Pure Cocoa",
+        design: "Assorted",
+        size: "Regular",
+        reviews: []
+      }
+    ];
+
+    let galleryItems = JSON.parse(localStorage.getItem("hh_gallery_items")) || [];
+
+    function saveState() {
+      localStorage.setItem("hh_catalog_v2", JSON.stringify(catalog));
+      localStorage.setItem("hh_gallery_items", JSON.stringify(galleryItems));
+    }
+
+    // Tab Switching
+    function switchTab(tabKey) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-tab-btn, .mob-tab-btn').forEach(btn => btn.classList.remove('active'));
+
+      const activeTab = document.getElementById(`tab-${tabKey}`);
+      if (activeTab) activeTab.classList.add('active');
+
+      document.querySelectorAll(`button[onclick="switchTab('${tabKey}')"]`).forEach(b => b.classList.add('active'));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Render Cards in Shop Tabs
+    function renderProductGrids() {
+      const candlesEl = document.getElementById("candlesContainer");
+      const chocoEl = document.getElementById("chocolatesContainer");
+
+      const buildCard = (item) => {
+        const perUnit = item.minQty > 1 ? `(₹${(item.salePrice / item.minQty).toFixed(2)}/pc)` : '';
+        const baseStrikethrough = item.basePrice ? `<span class="base-price">₹${item.basePrice}</span>` : '';
+        
+        return `
+          <div class="product-card" onclick="openProductSheet(${item.id})">
+            <img src="${item.img}" class="product-thumb" alt="${item.title}" />
+            <div class="product-info">
+              <h4 class="product-title">${item.title}</h4>
+              <div class="price-row">
+                <span class="sale-price">₹${item.salePrice}</span>
+                ${baseStrikethrough}
+                <span class="per-unit-price">${perUnit}</span>
+              </div>
+              <div style="font-size:12px; color:var(--rose); font-weight:600;">
+                ${item.minQty > 1 ? `Min order: ${item.minQty} pcs` : 'Single unit order available'}
               </div>
             </div>
           </div>
+        `;
+      };
 
-          <!-- Notes -->
-          <div class="form-group">
-            <label class="field-label" for="itemNotes">Short Feedback</label>
-            <textarea id="itemNotes" rows="3" placeholder="What stood out to you?"></textarea>
+      if (candlesEl) candlesEl.innerHTML = catalog.filter(i => i.category === 'candles').map(buildCard).join('') || `<p style="grid-column:1/-1; text-align:center; color:var(--text-muted);">No candles added yet.</p>`;
+      if (chocoEl) chocoEl.innerHTML = catalog.filter(i => i.category === 'chocolates').map(buildCard).join('') || `<p style="grid-column:1/-1; text-align:center; color:var(--text-muted);">No chocolates added yet.</p>`;
+    }
+
+    // Open Bottom-Sheet
+    function openProductSheet(prodId) {
+      const p = catalog.find(item => item.id === prodId);
+      if (!p) return;
+
+      document.getElementById('reviewProdId').value = p.id;
+      document.getElementById('sheetProductImg').src = p.img;
+      document.getElementById('sheetCategory').innerText = p.category;
+      document.getElementById('sheetTitle').innerText = p.title;
+      document.getElementById('sheetSalePrice').innerText = `₹${p.salePrice}`;
+      document.getElementById('sheetBasePrice').innerText = p.basePrice ? `MRP ₹${p.basePrice}` : '';
+      document.getElementById('sheetPerUnit').innerText = p.minQty > 1 ? `(₹${(p.salePrice / p.minQty).toFixed(2)}/pc)` : '';
+      document.getElementById('sheetDesc').innerText = p.desc;
+
+      // Pills
+      document.getElementById('sheetPills').innerHTML = `
+        <div class="pill-item"><span>Pack Size</span><strong>${p.packSize || 'Standard'}</strong></div>
+        <div class="pill-item"><span>Size</span><strong>${p.size || 'Regular'}</strong></div>
+        <div class="pill-item"><span>Design</span><strong>${p.design || 'Handmade'}</strong></div>
+        <div class="pill-item"><span>Type</span><strong>${p.wick || 'Pure'}</strong></div>
+      `;
+
+      // Specs Table
+      document.getElementById('sheetSpecs').innerHTML = `
+        <tr><td>Pack Size</td><td>${p.packSize || 'Standard'}</td></tr>
+        <tr><td>Size</td><td>${p.size || 'Regular'}</td></tr>
+        <tr><td>Design</td><td>${p.design || 'Handmade'}</td></tr>
+        <tr><td>Minimum Order</td><td>${p.minQty} units</td></tr>
+      `;
+
+      // Reviews
+      renderSheetReviews(p);
+      document.getElementById('productDetailModal').classList.add('active');
+    }
+
+    function closeProductSheet() {
+      document.getElementById('productDetailModal').classList.remove('active');
+    }
+
+    function renderSheetReviews(p) {
+      const revs = p.reviews || [];
+      const container = document.getElementById('sheetReviewsContainer');
+      const avgEl = document.getElementById('sheetReviewAverage');
+
+      if (!revs.length) {
+        avgEl.innerText = "No ratings yet";
+        container.innerHTML = `<p style="font-size:12px; color:var(--text-muted);">Be the first to review this handmade item.</p>`;
+        return;
+      }
+
+      const sum = revs.reduce((a, b) => a + Number(b.rating), 0);
+      avgEl.innerText = `${(sum / revs.length).toFixed(1)} ★ (${revs.length})`;
+
+      container.innerHTML = revs.map(r => `
+        <div style="background:#ffffff; border:1px solid var(--border-warm); border-radius:8px; padding:10px;">
+          <div style="display:flex; justify-content:space-between; font-size:13px; font-weight:600;">
+            <span>${r.name} (${r.city})</span>
+            <span style="color:var(--accent-gold);">${'★'.repeat(r.rating)}</span>
           </div>
-
-          <!-- Local File Picker -->
-          <div class="form-group">
-            <label class="field-label">Upload Image</label>
-            <div class="upload-area" id="dropArea">
-              <i class="fa fa-cloud-upload"></i>
-              <span>Tap to pick a photo from your phone</span>
-              <input type="file" id="fileInput" accept="image/*" required onchange="handleImagePreview(event)">
-            </div>
-            
-            <div class="preview-box" id="previewContainer">
-              <img id="imagePreview" alt="Upload preview">
-            </div>
-          </div>
-
-          <!-- Submit Button -->
-          <button type="submit" class="submit-btn">
-            <i class="fa fa-check"></i> Post to Gallery
-          </button>
-        </form>
-      </div>
-    </section>
-
-    <!-- TAB 2: Gallery View -->
-    <section id="tab-gallery" class="tab-content">
-      <div class="card">
-        <h2>Live Gallery</h2>
-        <p class="desc">Uploaded images and submitted ratings appear here instantly.</p>
-        
-        <div class="gallery-grid" id="galleryContainer">
-          <div class="empty-state" id="emptyState">
-            <i class="fa fa-image"></i>
-            <p>No photos uploaded yet. Post one from the Review tab!</p>
-          </div>
+          <p style="font-size:12.5px; color:var(--text-muted); margin-top:3px;">${r.msg}</p>
+          ${r.img ? `<img src="${r.img}" style="width:50px; height:50px; object-fit:cover; border-radius:6px; margin-top:6px;" />` : ''}
         </div>
-      </div>
-    </section>
-  </main>
+      `).join('');
+    }
 
-  <!-- Fullscreen Lightbox Modal -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <span class="lightbox-close">&times;</span>
-    <img id="lightboxImg" src="" alt="Enlarged photo">
-  </div>
+    // Submit Review with Optional Photo
+    function handleReviewSubmit(e) {
+      e.preventDefault();
+      const pId = Number(document.getElementById('reviewProdId').value);
+      const name = document.getElementById('revName').value.trim();
+      const city = document.getElementById('revCity').value.trim();
+      const msg = document.getElementById('revMsg').value.trim();
+      const rating = document.querySelector('input[name="rating"]:checked')?.value || 5;
+      const file = document.getElementById('revFile').files[0];
 
-  <script>
-    let currentUploadedDataUrl = "";
+      const p = catalog.find(item => item.id === pId);
+      if (!p) return;
 
-    // Switch between the Review and Gallery views
-    function switchTab(tabName) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      const appendReview = (imgData = '') => {
+        if (!p.reviews) p.reviews = [];
+        p.reviews.unshift({ id: Date.now(), name, city, msg, rating: Number(rating), img: imgData });
+        saveState();
+        renderSheetReviews(p);
+        e.target.reset();
+                alert("Thank you! Your rating has been posted.");
+      };
 
-      if (tabName === 'review') {
-        document.querySelectorAll('.tab-btn')[0].classList.add('active');
-        document.getElementById('tab-review').classList.add('active');
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (ev) => appendReview(ev.target.result);
+        reader.readAsDataURL(file);
       } else {
-        document.querySelectorAll('.tab-btn')[1].classList.add('active');
-        document.getElementById('tab-gallery').classList.add('active');
+        appendReview();
       }
     }
 
-    // Process file locally using FileReader (Real upload experience)
-    function handleImagePreview(event) {
-      const file = event.target.files[0];
+    // Gallery Render with Empty State
+    function renderGallery() {
+      const container = document.getElementById('galleryDisplay');
+      if (!galleryItems.length) {
+        container.innerHTML = `
+          <div class="empty-gallery-box">
+            <i class="fa fa-picture-o"></i>
+            <h4>We are crafting something exciting!</h4>
+            <p>New handmade pieces and workshop memories will be uploaded here very soon. Check back shortly!</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="gallery-grid">
+          ${galleryItems.map(src => `<div class="gallery-item"><img src="${src}" /></div>`).join('')}
+        </div>
+      `;
+    }
+
+    // Admin Verification Trigger
+    function checkAdmin(input) {
+      const clean = (input || '').trim().toLowerCase();
+      return clean === "ruchi maheshwari" || 
+             clean === "daksh maheshwari" || 
+             clean === "hunnarhouse19@gmail.com" || 
+             clean === "daksh0413@gmail.com";
+    }
+
+    function triggerFounderAccess() {
+      const name = prompt("Please enter your name:");
+      if (!name) return;
+      if (checkAdmin(name)) {
+        openAdminModal();
+      } else {
+        switchTab('contact');
+        document.getElementById('custName').value = name;
+      }
+    }
+
+    function verifySupportEmail() {
+      const email = document.getElementById('footerSupportEmail').value;
+      if (checkAdmin(email)) {
+        openAdminModal();
+      } else if (email) {
+        switchTab('contact');
+        document.getElementById('custEmail').value = email;
+      }
+    }
+
+    // Admin Controls
+    function openAdminModal() {
+      renderAdminCatalog();
+      renderAdminReviews();
+      document.getElementById('adminModal').classList.add('active');
+    }
+
+    function closeAdminModal() {
+      document.getElementById('adminModal').classList.remove('active');
+    }
+
+    function switchAdminTab(k) {
+      document.querySelectorAll('[id^="adminTab-"]').forEach(el => el.style.display = 'none');
+      document.getElementById(`adminTab-${k}`).style.display = 'block';
+    }
+
+    function handleAdminAddProduct(e) {
+      e.preventDefault();
+      const file = document.getElementById('pPhotoFile').files[0];
       if (!file) return;
 
       const reader = new FileReader();
-      reader.onload = function(e) {
-        currentUploadedDataUrl = e.target.result;
-        const img = document.getElementById('imagePreview');
-        const container = document.getElementById('previewContainer');
-        img.src = currentUploadedDataUrl;
-        container.style.display = 'block';
+      reader.onload = function(ev) {
+        const item = {
+          id: Date.now(),
+          title: document.getElementById('pTitle').value.trim(),
+          category: document.getElementById('pCategory').value,
+          basePrice: Number(document.getElementById('pBasePrice').value) || 0,
+          salePrice: Number(document.getElementById('pSalePrice').value),
+          minQty: Number(document.getElementById('pMinQty').value) || 1,
+          desc: document.getElementById('pDesc').value.trim(),
+          img: ev.target.result,
+          reviews: []
+        };
+        catalog.unshift(item);
+        saveState();
+        renderProductGrids();
+        renderAdminCatalog();
+        e.target.reset();
+        alert("Product added successfully!");
       };
       reader.readAsDataURL(file);
     }
 
-    // Save and display entry inside the Gallery
-    function handleFormSubmit(e) {
-      e.preventDefault();
+    function renderAdminCatalog() {
+      const list = document.getElementById('adminProductsList');
+      list.innerHTML = catalog.map(p => `
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #eee; font-size:13px;">
+          <span>${p.title} (₹${p.salePrice})</span>
+          <button style="background:red; color:#fff; border:none; padding:4px 8px; border-radius:4px; cursor:pointer;" onclick="deleteProduct(${p.id})">Delete</button>
+        </div>
+      `).join('');
+    }
 
-      const title = document.getElementById('itemTitle').value.trim();
-      const ratingInput = document.querySelector('input[name="rating"]:checked');
-      const rating = ratingInput ? ratingInput.value : 5;
+    function deleteProduct(id) {
+      if (confirm("Are you sure you want to delete this product?")) {
+        catalog = catalog.filter(p => p.id !== id);
+        saveState();
+        renderProductGrids();
+        renderAdminCatalog();
+      }
+    }
 
-      if (!currentUploadedDataUrl) {
-        alert("Please select an image file to upload.");
+    function saveFounderSettings() {
+      const name = document.getElementById('admFounderName').value;
+      const bio = document.getElementById('admFounderBio').value;
+      const file = document.getElementById('admFounderFile').files[0];
+
+      if (name) document.getElementById('founderDisplayName').innerText = name;
+      if (bio) document.getElementById('founderBioText').innerText = bio;
+
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('founderDisplayPhoto').src = e.target.result;
+          alert("Profile updated!");
+        };
+        reader.readAsDataURL(file);
+      } else {
+        alert("Profile details saved!");
+      }
+    }
+
+    function uploadGalleryPhoto() {
+      const file = document.getElementById('admGalleryFile').files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        galleryItems.unshift(e.target.result);
+        saveState();
+        renderGallery();
+        alert("Photo added to live gallery!");
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function renderAdminReviews() {
+      const list = document.getElementById('adminReviewsList');
+      let revItems = [];
+      catalog.forEach(p => {
+        (p.reviews || []).forEach(r => revItems.push({ ...r, prodId: p.id, prodTitle: p.title }));
+      });
+
+      if (!revItems.length) {
+        list.innerHTML = `<p style="font-size:12px; color:var(--text-muted);">No reviews submitted yet.</p>`;
         return;
       }
 
-      // Hide empty notice if present
-      const emptyState = document.getElementById('emptyState');
-      if (emptyState) emptyState.style.display = 'none';
-
-      // Create Gallery Element
-      const gallery = document.getElementById('galleryContainer');
-      const item = document.createElement('div');
-      item.className = 'gallery-item';
-      item.onclick = function() { openLightbox(currentUploadedDataUrl); };
-
-      // Render Star icons representation
-      let starsHTML = '';
-      for (let i = 0; i < rating; i++) {
-        starsHTML += '<i class="fa fa-star"></i> ';
-      }
-
-      item.innerHTML = `
-        <img src="${currentUploadedDataUrl}" alt="${title}" loading="lazy">
-        <div class="gallery-info">
-          <span class="gallery-title">${title}</span>
-          <span class="gallery-rating">${starsHTML}</span>
+      list.innerHTML = revItems.map(r => `
+        <div style="padding:8px 0; border-bottom:1px solid #eee; font-size:12.5px;">
+          <strong>${r.prodTitle}</strong>: ${r.name} (${r.rating}★) - "${r.msg}"
+          <button style="background:red; color:#fff; border:none; padding:2px 6px; font-size:11px; border-radius:3px; margin-left:8px; cursor:pointer;" onclick="deleteReview(${r.prodId}, ${r.id})">Remove</button>
         </div>
-      `;
-
-      gallery.prepend(item);
-
-      // Reset Form State
-      document.getElementById('submissionForm').reset();
-      document.getElementById('previewContainer').style.display = 'none';
-      currentUploadedDataUrl = "";
-
-      // Switch to gallery to display result
-      switchTab('gallery');
+      `).join('');
     }
 
-    // Lightbox Controls
-    function openLightbox(src) {
-      const lb = document.getElementById('lightbox');
-      const img = document.getElementById('lightboxImg');
-      img.src = src;
-      lb.classList.add('active');
+    function deleteReview(pId, rId) {
+      if (confirm("Remove this review?")) {
+        const p = catalog.find(item => item.id === pId);
+        if (p) {
+          p.reviews = p.reviews.filter(r => r.id !== rId);
+          saveState();
+          renderAdminReviews();
+          renderProductGrids();
+        }
+      }
     }
 
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('active');
+    // Direct Inquiry Submit
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      alert("Namaste! We have received your inquiry and will be in touch shortly.");
+      e.target.reset();
     }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderProductGrids();
+      renderGallery();
+    });
   </script>
 </body>
 </html>
