@@ -1,1145 +1,606 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Google Verification -->
-  <meta name="google-site-verification" content="bsO3Wcmwg8HeskQwjh50f8aGdXcOBYx1ygl2lnGT0DM" />
-
-  <!-- Page Title -->
-  <title>Hunnar House | Handmade Gifts &amp; Candles</title>
-
-  <!-- Primary SEO Meta Tags -->
-  <meta name="description" content="Handmade soy candles and sweet chocolates crafted with love by Ruchi Maheshwari. Explore our collection of handcrafted celebration gifts at Hunnar House — Crafted by Heart." />
-  <meta name="author" content="Ruchi Maheshwari" />
-  <meta name="keywords" content="Hunnar House, Crafted by Heart, Ruchi Maheshwari, Soy Wax Candles, Handmade Chocolates, Artisanal Gifts, Celebration Hampers" />
-  <link rel="canonical" href="https://hunnarhouse.vercel.app/" />
-
-  <!-- Favicon & Touch Icons -->
-  <link rel="icon" type="image/png" sizes="192x192" href="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" />
-  <link rel="shortcut icon" type="image/png" href="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" />
-  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Hunnar House" />
-  <meta property="og:url" content="https://hunnarhouse.vercel.app/" />
-  <meta property="og:title" content="Hunnar House | Handmade Gifts &amp; Candles" />
-  <meta property="og:description" content="Handmade soy candles and sweet chocolates crafted with love by Ruchi Maheshwari." />
-  <meta property="og:image" content="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg" />
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery & Review Hub</title>
+  
+  <!-- Font Awesome for Stars & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
   <style>
     :root {
-      --wine: #4d101e;
-      --burgundy: #6b1d2f;
-      --rose: #822238;
-      --warm-bg: #fffaf7;
-      --card-bg: #ffffff;
-      --border-warm: #eadbd3;
-      --text-dark: #2b2224;
-      --text-muted: #5e5255;
-      --gold-gradient: linear-gradient(135deg, #ffd700 0%, #d4af37 50%, #aa7c11 100%);
-      --shadow-soft: 0 10px 30px rgba(77, 16, 30, 0.06);
+      --bg-dark: #0f1115;
+      --card-bg: #1a1d24;
+      --card-border: #282c37;
+      --text-main: #f0f2f5;
+      --text-muted: #9ba1b0;
+      --accent: #ffb300;
+      --accent-hover: #ffa000;
+      --btn-bg: #2563eb;
+      --btn-hover: #1d4ed8;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--warm-bg);
-      color: var(--text-dark);
-      line-height: 1.6;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
+    /* Fixed Dark Header */
     header {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-warm);
+      background-color: #000000;
+      border-bottom: 1px solid #1f232b;
       position: sticky;
       top: 0;
       z-index: 100;
-    }
-
-    .top-announcement {
-      background: var(--wine);
-      color: #fff;
-      text-align: center;
-      padding: 6px 12px;
-      font-size: 12px;
-      display: none;
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 12px 24px;
+      padding: 0.85rem 1.25rem;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      gap: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
 
-    .brand-group {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .brand-logo {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid var(--border-warm);
-      object-fit: cover;
-    }
-
-    .brand-text h1 {
-      font-family: 'Cinzel', serif;
-      font-size: 20px;
-      color: var(--wine);
-      line-height: 1.1;
-    }
-
-    .brand-text p {
-      font-family: 'Playfair Display', serif;
-      font-size: 12px;
-      color: var(--burgundy);
-      font-style: italic;
-    }
-
-    .nav-tabs {
-      display: flex;
-      gap: 8px;
-      list-style: none;
-    }
-
-    .nav-tab-btn {
-      background: none;
-      border: none;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-dark);
-      padding: 8px 16px;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .nav-tab-btn:hover,
-    .nav-tab-btn.active {
-      background: var(--burgundy);
+      gap: 0.6rem;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.3px;
       color: #ffffff;
     }
 
-    .search-box { position: relative; }
-    .search-input {
-      padding: 8px 14px 8px 34px;
-      border: 1px solid var(--border-warm);
-      border-radius: 20px;
-      font-size: 13px;
-      outline: none;
-      width: 170px;
-      transition: width 0.3s ease;
-    }
-    .search-input:focus { width: 220px; border-color: var(--burgundy); }
-    .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 12px; }
-
-    .hero {
-      max-width: 1200px;
-      margin: 30px auto;
-      padding: 0 24px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
-      gap: 36px;
+    .brand i {
+      color: var(--accent);
     }
 
-    .hero-content h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 40px;
-      color: var(--wine);
-      line-height: 1.25;
-      margin-bottom: 16px;
+    /* Navigation Tabs */
+    .tab-bar {
+      display: flex;
+      background: #11141a;
+      padding: 0.25rem;
+      border-radius: 999px;
+      border: 1px solid #232732;
     }
 
-    .hero-content p { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; }
-
-    .btn-primary {
-      display: inline-block;
-      background: var(--burgundy);
-      color: #fff;
-      padding: 10px 24px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 13px;
-      text-transform: uppercase;
+    .tab-btn {
+      background: transparent;
       border: none;
+      color: var(--text-muted);
+      padding: 0.45rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 999px;
       cursor: pointer;
-      transition: background 0.3s;
-    }
-    .btn-primary:hover { background: var(--wine); }
-
-    .founder-frame {
-      position: relative;
-      cursor: pointer;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: var(--shadow-soft);
-      border: 2px solid var(--border-warm);
-      transition: transform 0.4s ease;
-    }
-    .founder-frame:hover { transform: translateY(-4px); }
-    .founder-img { width: 100%; height: 380px; object-fit: cover; display: block; }
-    .founder-badge {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(43, 34, 36, 0.85));
-      color: #fff;
-      padding: 18px;
-      text-align: center;
-    }
-
-    .tab-content { display: none; max-width: 1200px; margin: 0 auto; padding: 30px 24px 60px; }
-    .tab-content.active { display: block; }
-
-    .section-title { text-align: center; margin-bottom: 32px; }
-    .section-title h3 { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--wine); }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .product-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-warm);
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-      transition: transform 0.3s ease;
-    }
-    .product-card:hover { transform: translateY(-4px); }
-
-    .product-thumb { width: 100%; height: 220px; object-fit: cover; }
-    .product-details { padding: 18px; display: flex; flex-direction: column; flex-grow: 1; }
-    .product-title { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--wine); margin-bottom: 6px; }
-    .product-desc { font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px; }
-    .product-price { font-weight: 700; color: var(--burgundy); font-size: 16px; margin-bottom: 12px; }
-
-    /* Star / Heart Rating Bar */
-    .rating-summary-bar {
+      transition: var(--transition);
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 14px;
+      gap: 0.4rem;
     }
-    .stars-display {
-      display: inline-flex;
-      gap: 3px;
-      font-size: 16px;
-      color: #d1c7c7;
+
+    .tab-btn.active {
+      background: #ffffff;
+      color: #000000;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
     }
-    .sharp-heart {
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0px 1px 2px rgba(170, 124, 17, 0.4));
+
+    /* Main Container */
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 1.25rem;
     }
-    .rating-score-badge {
-      font-weight: 700;
-      color: var(--burgundy);
-      font-size: 14px;
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
     }
-    .rating-count {
-      font-size: 12px;
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Card Box */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      margin-bottom: 1.25rem;
+    }
+
+    .card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p.desc {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.4;
+    }
+
+    /* Form Elements */
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    label.field-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.4rem;
+    }
+
+    input[type="text"], textarea {
+      width: 100%;
+      background: #11141a;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    input[type="text"]:focus, textarea:focus {
+      border-color: var(--btn-bg);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    }
+
+    /* Provided Star Rating Styles with Dark-Mode Adjustment */
+    .star-rating {
+      font-size: 0;
+      margin: 0.4rem 0 0.8rem;
+    }
+
+    .star-rating__wrap {
+      display: inline-block;
+      font-size: 1.5rem;
+    }
+
+    .star-rating__wrap:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .star-rating__ico {
+      float: right;
+      padding-left: 6px;
+      cursor: pointer;
+      color: var(--accent);
+      transition: transform 0.15s ease;
+    }
+
+    .star-rating__ico:hover {
+      transform: scale(1.15);
+    }
+
+    .star-rating__ico:last-child {
+      padding-left: 0;
+    }
+
+    .star-rating__input {
+      display: none;
+    }
+
+    .star-rating__ico:hover:before,
+    .star-rating__ico:hover ~ .star-rating__ico:before,
+    .star-rating__input:checked ~ .star-rating__ico:before {
+      content: "\f005";
+    }
+
+    /* File Upload Box */
+    .upload-area {
+      border: 2px dashed #343a46;
+      background: #12151c;
+      border-radius: 12px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .upload-area:hover, .upload-area.dragover {
+      border-color: var(--btn-bg);
+      background: #151a24;
+    }
+
+    .upload-area i {
+      font-size: 2rem;
+      color: var(--btn-bg);
+      margin-bottom: 0.5rem;
+    }
+
+    .upload-area span {
+      display: block;
+      font-size: 0.88rem;
       color: var(--text-muted);
     }
 
-    .product-actions {
-      display: flex;
-      gap: 8px;
-      margin-top: auto;
-    }
-
-    .query-card {
-      background: #ffffff;
-      border: 1px solid var(--border-warm);
-      border-radius: 12px;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 32px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .form-group { margin-bottom: 16px; }
-    .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--wine); }
-    .form-control {
+    input[type="file"] {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      padding: 10px 14px;
-      border: 1px solid var(--border-warm);
-      border-radius: 6px;
-      font-size: 14px;
-      outline: none;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
     }
-    .form-control:focus { border-color: var(--burgundy); }
 
-    /* Modals */
-    .modal-overlay {
+    .preview-box {
+      margin-top: 0.8rem;
+      position: relative;
+      display: none;
+      border-radius: 10px;
+      overflow: hidden;
+      max-height: 220px;
+      border: 1px solid var(--card-border);
+    }
+
+    .preview-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Submit Button */
+    .submit-btn {
+      width: 100%;
+      background: var(--btn-bg);
+      color: #ffffff;
+      border: none;
+      padding: 0.85rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .submit-btn:hover {
+      background: var(--btn-hover);
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+    }
+
+    .submit-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Gallery Grid View */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: var(--transition);
+      aspect-ratio: 1 / 1;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+      border-color: #3f4555;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.6rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .gallery-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .gallery-rating {
+      color: var(--accent);
+      font-size: 0.75rem;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-muted);
+      grid-column: span 2;
+    }
+
+    .empty-state i {
+      font-size: 2.5rem;
+      margin-bottom: 0.8rem;
+      opacity: 0.4;
+    }
+
+    /* Simple Image Lightbox */
+    .lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.65);
-      backdrop-filter: blur(4px);
+      background: rgba(0, 0, 0, 0.9);
       display: none;
       align-items: center;
       justify-content: center;
       z-index: 1000;
-      padding: 16px;
+      padding: 1rem;
     }
-    .modal-overlay.active { display: flex; }
-    .modal-card {
-      background: #ffffff;
-      border-radius: 14px;
-      width: 100%;
-      max-width: 750px;
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 100%;
       max-height: 85vh;
-      overflow-y: auto;
-      padding: 28px;
-      position: relative;
+      border-radius: 12px;
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
     }
-    .modal-close {
+
+    .lightbox-close {
       position: absolute;
-      top: 14px; right: 18px;
-      font-size: 24px;
-      background: none;
-      border: none;
+      top: 1.5rem;
+      right: 1.5rem;
+      color: #ffffff;
+      font-size: 1.8rem;
       cursor: pointer;
-      color: var(--text-muted);
-    }
-
-    .reviews-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin: 20px 0;
-      max-height: 250px;
-      overflow-y: auto;
-    }
-    .review-item {
-      border: 1px solid var(--border-warm);
-      border-radius: 8px;
-      padding: 12px;
-      background: var(--warm-bg);
-      position: relative;
-    }
-    .review-item-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 4px;
-    }
-    .review-author { font-weight: 600; font-size: 14px; color: var(--wine); }
-    .review-city { font-size: 12px; color: var(--text-muted); }
-    .review-img { max-width: 80px; max-height: 80px; border-radius: 4px; object-fit: cover; margin-top: 6px; }
-
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      margin-top: 12px;
-    }
-    .data-table th, .data-table td {
-      border: 1px solid var(--border-warm);
-      padding: 8px 10px;
-      text-align: left;
-    }
-    .data-table th { background: #fdf5f2; color: var(--wine); }
-
-    .admin-sub-tabs {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid var(--border-warm);
-      padding-bottom: 10px;
-    }
-    .admin-tab-btn {
-      padding: 6px 14px;
-      background: #f7f3f0;
-      border: 1px solid var(--border-warm);
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--wine);
-    }
-    .admin-tab-btn.active { background: var(--burgundy); color: #fff; }
-
-    footer {
-      background: #ffffff;
-      border-top: 1px solid var(--border-warm);
-      padding: 40px 24px 20px;
-      margin-top: 40px;
-    }
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      align-items: center;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border-warm);
-    }
-    .support-box {
-      background: var(--warm-bg);
-      border: 1px solid var(--border-warm);
-      padding: 20px;
-      border-radius: 8px;
-    }
-    .support-input-row { display: flex; gap: 8px; }
-
-    @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; }
-      .nav-tabs { display: none; }
-      .footer-container { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <div class="top-announcement" id="topAnnouncementBar"></div>
-
-  <!-- Header -->
+  <!-- Top Dark Header -->
   <header>
-    <div class="nav-container">
-      <div class="brand-group" onclick="switchTab('home')">
-        <img class="brand-logo" src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791132164/logo_hunnar_house_b5hefn.png" alt="Hunnar House Logo" />
-        <div class="brand-text">
-          <h1>Hunnar House</h1>
-          <p>Crafted by Heart &hearts;</p>
-        </div>
-      </div>
+    <div class="brand">
+      <i class="fa fa-star"></i>
+      <span>StarHub</span>
+    </div>
 
-      <ul class="nav-tabs">
-        <li><button class="nav-tab-btn active" onclick="switchTab('home')">Home</button></li>
-        <li><button class="nav-tab-btn" onclick="switchTab('candles')">Soy Candles</button></li>
-        <li><button class="nav-tab-btn" onclick="switchTab('chocolates')">Artisan Chocolates</button></li>
-        <li><button class="nav-tab-btn" onclick="switchTab('about')">About Artisan</button></li>
-        <li><button class="nav-tab-btn" onclick="switchTab('contact')">Direct Query</button></li>
-      </ul>
-
-      <div class="search-box">
-        <span class="search-icon">&#128269;</span>
-        <input type="text" class="search-input" placeholder="Search creations..." oninput="handleSearch(this.value)" />
-      </div>
+    <!-- Mode Selector Tabs -->
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('review')">
+        <i class="fa fa-pencil"></i> Review
+      </button>
+      <button class="tab-btn" onclick="switchTab('gallery')">
+        <i class="fa fa-picture-o"></i> Gallery
+      </button>
     </div>
   </header>
 
-  <!-- TAB: Home -->
-  <main id="tab-home" class="tab-content active">
-    <div class="hero">
-      <div class="hero-content">
-        <h2>Handmade Treasures for Cherished Celebrations</h2>
-        <p>
-          Welcome to Hunnar House. Every soy candle, fresh chocolate treat, and gift hamper is handcrafted with attention, warmth, and care by Ruchi Maheshwari.
-        </p>
-        <button class="btn-primary" onclick="switchTab('candles')">Explore Creations</button>
-      </div>
+  <main>
+    <!-- TAB 1: Review & Upload -->
+    <section id="tab-review" class="tab-content active">
+      <div class="card">
+        <h2>Submit Your Review</h2>
+        <p class="desc">Rate the experience and upload a photo directly from your device.</p>
 
-      <!-- Founder Photo Trigger -->
-      <div class="founder-frame" onclick="handleFounderClick()">
-        <img class="founder-img" src="https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg" alt="Ruchi Maheshwari — Artisan" />
-        <div class="founder-badge">
-          <span>Ruchi Maheshwari</span>
-          <small>Founder &bull; Crafted by Heart</small>
+        <form id="submissionForm" onsubmit="handleFormSubmit(event)">
+          <!-- Item / Title -->
+          <div class="form-group">
+            <label class="field-label" for="itemTitle">Item or Place Name</label>
+            <input type="text" id="itemTitle" placeholder="e.g. Handmade Ceramic Cup" required>
+          </div>
+
+          <!-- Star Rating using provided code -->
+          <div class="form-group">
+            <label class="field-label">Your Rating</label>
+            <div class="star-rating">
+              <div class="star-rating__wrap">
+                <input class="star-rating__input" id="star-rating-5" type="radio" name="rating" value="5" required>
+                <label class="star-rating__ico fa fa-star-o" for="star-rating-5" title="5 out of 5 stars"></label>
+                
+                <input class="star-rating__input" id="star-rating-4" type="radio" name="rating" value="4">
+                <label class="star-rating__ico fa fa-star-o" for="star-rating-4" title="4 out of 5 stars"></label>
+                
+                <input class="star-rating__input" id="star-rating-3" type="radio" name="rating" value="3">
+                <label class="star-rating__ico fa fa-star-o" for="star-rating-3" title="3 out of 5 stars"></label>
+                
+                <input class="star-rating__input" id="star-rating-2" type="radio" name="rating" value="2">
+                <label class="star-rating__ico fa fa-star-o" for="star-rating-2" title="2 out of 5 stars"></label>
+                
+                <input class="star-rating__input" id="star-rating-1" type="radio" name="rating" value="1">
+                <label class="star-rating__ico fa fa-star-o" for="star-rating-1" title="1 out of 5 stars"></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div class="form-group">
+            <label class="field-label" for="itemNotes">Short Feedback</label>
+            <textarea id="itemNotes" rows="3" placeholder="What stood out to you?"></textarea>
+          </div>
+
+          <!-- Local File Picker -->
+          <div class="form-group">
+            <label class="field-label">Upload Image</label>
+            <div class="upload-area" id="dropArea">
+              <i class="fa fa-cloud-upload"></i>
+              <span>Tap to pick a photo from your phone</span>
+              <input type="file" id="fileInput" accept="image/*" required onchange="handleImagePreview(event)">
+            </div>
+            
+            <div class="preview-box" id="previewContainer">
+              <img id="imagePreview" alt="Upload preview">
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="submit-btn">
+            <i class="fa fa-check"></i> Post to Gallery
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- TAB 2: Gallery View -->
+    <section id="tab-gallery" class="tab-content">
+      <div class="card">
+        <h2>Live Gallery</h2>
+        <p class="desc">Uploaded images and submitted ratings appear here instantly.</p>
+        
+        <div class="gallery-grid" id="galleryContainer">
+          <div class="empty-state" id="emptyState">
+            <i class="fa fa-image"></i>
+            <p>No photos uploaded yet. Post one from the Review tab!</p>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="section-title">
-      <h3>Handmade Collections</h3>
-      <p>Carefully made in small batches with love</p>
-    </div>
-    <div class="product-grid" id="featuredGrid"></div>
+    </section>
   </main>
 
-  <!-- TAB: Candles -->
-  <section id="tab-candles" class="tab-content">
-    <div class="section-title">
-      <h3>Aromatic Soy Wax Candles</h3>
-      <p>Clean-burning botanical wax poured with gentle essential oils</p>
-    </div>
-    <div class="product-grid" id="candlesGrid"></div>
-  </section>
-
-  <!-- TAB: Chocolates -->
-  <section id="tab-chocolates" class="tab-content">
-    <div class="section-title">
-      <h3>Fresh Artisan Chocolates</h3>
-      <p>Pure cocoa confections blended for celebrations and gifts</p>
-    </div>
-    <div class="product-grid" id="chocolatesGrid"></div>
-  </section>
-
-  <!-- TAB: About Us -->
-  <section id="tab-about" class="tab-content">
-    <div class="query-card" style="text-align: center;">
-      <h3 style="font-family:'Playfair Display',serif; font-size:26px; color:var(--wine); margin-bottom:12px;">Crafted by Heart</h3>
-      <p style="font-size:14.5px; color:var(--text-muted); line-height:1.8; margin-bottom:18px;">
-        At Hunnar House, skill and love come together. Guided by a belief that thoughtful gifts transform simple days into memorable occasions, each candle, chocolate box, and handmade token is carefully created in small batches to preserve its distinct, artisanal character.
-      </p>
-      <p style="font-family:'Cinzel',serif; font-size:15px; color:var(--wine); font-weight:700;">Ruchi Maheshwari</p>
-      <p style="font-size:13px; color:var(--burgundy);">Founder &amp; Creative Artisan</p>
-    </div>
-  </section>
-
-  <!-- TAB: Contact Form -->
-  <section id="tab-contact" class="tab-content">
-    <div class="query-card">
-      <div class="section-title" style="margin-bottom: 20px;">
-        <h3>Direct Inquiry</h3>
-        <p>Send a message directly for custom hampers, celebration favors, or bulk orders.</p>
-      </div>
-
-      <form id="contactForm" onsubmit="handleContactSubmit(event)">
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" id="custName" class="form-control" required />
-        </div>
-        <div class="form-group">
-          <label>City</label>
-          <input type="text" id="custCity" class="form-control" required />
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" id="custEmail" class="form-control" required />
-        </div>
-        <div class="form-group">
-          <label>Your Requirement / Message</label>
-          <textarea id="custMessage" class="form-control" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="width: 100%;">Send Inquiry</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Reviews Modal -->
-  <div class="modal-overlay" id="reviewsModal">
-    <div class="modal-card">
-      <button class="modal-close" onclick="closeReviewsModal()">&times;</button>
-      <h3 id="modalProductTitle" style="font-family:'Playfair Display',serif; color:var(--wine); margin-bottom:6px;">Product Reviews</h3>
-      <div id="modalProductRatingSummary" class="rating-summary-bar"></div>
-
-      <div class="reviews-list" id="reviewsListContainer"></div>
-
-      <!-- Add Review Section -->
-      <h4 style="font-size:15px; margin-top:20px; color:var(--wine);">Add Your Review</h4>
-      <form onsubmit="handleAddReview(event)" style="margin-top:10px;">
-        <input type="hidden" id="reviewProductId" />
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" id="revName" class="form-control" required />
-          </div>
-          <div class="form-group">
-            <label>City</label>
-            <input type="text" id="revCity" class="form-control" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Rating (Stars/Hearts)</label>
-          <select id="revStars" class="form-control" required>
-            <option value="5">5 Hearts (Excellent)</option>
-            <option value="4">4 Hearts (Very Good)</option>
-            <option value="3">3 Hearts (Good)</option>
-            <option value="2">2 Hearts (Average)</option>
-            <option value="1">1 Heart (Poor)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Image URL (Optional)</label>
-          <input type="url" id="revImg" class="form-control" placeholder="https://..." />
-        </div>
-        <div class="form-group">
-          <label>Your Review Message</label>
-          <textarea id="revMsg" class="form-control" rows="3" required></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="width:100%;">Submit Review</button>
-      </form>
-    </div>
+  <!-- Fullscreen Lightbox Modal -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightboxImg" src="" alt="Enlarged photo">
   </div>
-
-  <!-- Admin Portal Modal -->
-  <div class="modal-overlay" id="adminPortalModal">
-    <div class="modal-card">
-      <button class="modal-close" onclick="closeAdminPortal()">&times;</button>
-      <h3 style="font-family:'Cinzel',serif; color:var(--wine); margin-bottom:14px;">Studio Admin Portal</h3>
-
-      <div class="admin-sub-tabs">
-        <button class="admin-tab-btn active" onclick="switchAdminDeck('deckInquiries')">Inquiries</button>
-        <button class="admin-tab-btn" onclick="switchAdminDeck('deckProducts')">Catalog</button>
-        <button class="admin-tab-btn" onclick="switchAdminDeck('deckReviews')">Moderate Reviews</button>
-        <button class="admin-tab-btn" onclick="switchAdminDeck('deckAnnouncements')">Broadcasts</button>
-      </div>
-
-      <!-- Inquiries Deck -->
-      <div id="deckInquiries" class="admin-deck">
-        <h4 style="font-size:14px; margin-bottom:8px; color:var(--burgundy);">Customer Inquiries</h4>
-        <div style="overflow-x:auto;">
-          <table class="data-table">
-            <thead>
-              <tr><th>Date</th><th>Name</th><th>City</th><th>Email</th><th>Message</th></tr>
-            </thead>
-            <tbody id="inquiriesTableBody">
-              <tr><td colspan="5" style="text-align:center;">No inquiries received yet.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Product Catalog Deck -->
-      <div id="deckProducts" class="admin-deck" style="display:none;">
-        <h4 style="font-size:14px; margin-bottom:8px; color:var(--burgundy);">Add New Creation</h4>
-        <form onsubmit="handleCreateProduct(event)" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:18px;">
-          <div>
-            <label style="font-size:12px; font-weight:600;">Title</label>
-            <input type="text" id="newProdTitle" class="form-control" required />
-          </div>
-          <div>
-            <label style="font-size:12px; font-weight:600;">Category</label>
-            <select id="newProdCategory" class="form-control">
-              <option value="candles">Candles</option>
-              <option value="chocolates">Chocolates</option>
-            </select>
-          </div>
-          <div>
-            <label style="font-size:12px; font-weight:600;">Price (₹)</label>
-            <input type="text" id="newProdPrice" class="form-control" placeholder="e.g. ₹499" required />
-          </div>
-          <div>
-            <label style="font-size:12px; font-weight:600;">Image URL</label>
-            <input type="url" id="newProdImg" class="form-control" placeholder="https://..." required />
-          </div>
-          <div style="grid-column: span 2;">
-            <label style="font-size:12px; font-weight:600;">Description</label>
-            <input type="text" id="newProdDesc" class="form-control" required />
-          </div>
-          <button type="submit" class="btn-primary" style="grid-column: span 2;">Add to Live Catalog</button>
-        </form>
-
-        <h4 style="font-size:14px; margin-top:20px; color:var(--burgundy);">Manage Catalog Items</h4>
-        <div style="overflow-x:auto;">
-          <table class="data-table">
-            <thead>
-              <tr><th>Title</th><th>Category</th><th>Price</th><th>Action</th></tr>
-            </thead>
-            <tbody id="adminProductsTableBody"></tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Reviews Moderation Deck -->
-      <div id="deckReviews" class="admin-deck" style="display:none;">
-        <h4 style="font-size:14px; margin-bottom:8px; color:var(--burgundy);">Manage &amp; Moderate Reviews</h4>
-        <div style="overflow-x:auto;">
-          <table class="data-table">
-            <thead>
-              <tr><th>Product</th><th>Reviewer</th><th>City</th><th>Stars</th><th>Message</th><th>Actions</th></tr>
-            </thead>
-            <tbody id="adminReviewsTableBody"></tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Announcements Deck -->
-      <div id="deckAnnouncements" class="admin-deck" style="display:none;">
-        <h4 style="font-size:14px; margin-bottom:8px; color:var(--burgundy);">Top Announcement Banner</h4>
-        <div class="form-group">
-          <input type="text" id="announcementTextInput" class="form-control" placeholder="e.g. Festive gift boxes available now!" />
-        </div>
-        <div style="display:flex; gap:10px;">
-          <button class="btn-primary" onclick="updateAnnouncement()">Publish</button>
-          <button class="btn-primary" style="background:#8a7c80;" onclick="clearAnnouncement()">Remove</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div>
-        <h4 style="font-family:'Cinzel',serif; color:var(--wine); font-size:17px; margin-bottom:8px;">Hunnar House</h4>
-        <p style="font-size:13.5px; color:var(--text-muted);">Crafted by Heart &bull; Handmade Gifts, Chocolates &amp; Candles</p>
-        <p style="font-size:13px; color:var(--text-muted); margin-top:8px;">WhatsApp: +91 6396699104 &bull; hunnarhouse19@gmail.com</p>
-      </div>
-
-      <div class="support-box">
-        <p><strong>Support &amp; Portal Desk</strong>: Enter your email below for immediate assistance.</p>
-        <div class="support-input-row">
-          <input type="email" id="supportEmailInput" class="form-control" placeholder="Enter your email address" />
-          <button class="btn-primary" onclick="verifySupportEmail()">Submit</button>
-        </div>
-      </div>
-    </div>
-
-    <p style="text-align:center; font-size:12px; color:#8a7c80; margin-top:20px;">
-      &copy; 2026 Hunnar House &bull; Crafted by Heart. All rights reserved.
-    </p>
-  </footer>
 
   <script>
-    const EMAILJS_CONFIG = {
-      serviceId: "hunnarhouse",
-      publicKey: "66SDByOxsHd8RK6d_",
-      templateId: "template_v9s3zbh"
-    };
+    let currentUploadedDataUrl = "";
 
-    emailjs.init(EMAILJS_CONFIG.publicKey);
+    // Switch between the Review and Gallery views
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
 
-    // Initial Catalog with individual review objects
-    let catalog = JSON.parse(localStorage.getItem("hh_catalog")) || [
-      {
-        id: 1,
-        title: "Lavender Soy Candle",
-        category: "candles",
-        price: "₹499",
-        desc: "Lead-free wick, hand-poured pure soy wax with soothing natural aroma.",
-        img: "https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg",
-        reviews: [
-          { id: 101, name: "Sneha", city: "Mathura", stars: 5, msg: "The aroma is deeply calming and pleasant!", img: "" }
-        ]
-      },
-      {
-        id: 2,
-        title: "Artisan Chocolate Truffle Box",
-        category: "chocolates",
-        price: "₹599",
-        desc: "Fresh handcrafted truffles prepared with pure cocoa and roasted nuts.",
-        img: "https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg",
-        reviews: [
-          { id: 102, name: "Aarav", city: "Delhi", stars: 4, msg: "Delicious, rich chocolates. Great packaging!", img: "" }
-        ]
-      },
-      {
-        id: 3,
-        title: "Signature Celebration Hamper",
-        category: "candles",
-        price: "₹1,299",
-        desc: "Festive keepsake hamper containing twin aroma candles and handcrafted favors.",
-        img: "https://res.cloudinary.com/dpeijmtb6/image/upload/v1791720629/Hunnar_House_wvvnud.jpg",
-        reviews: [
-          { id: 103, name: "Pooja", city: "Agra", stars: 5, msg: "An unforgettable, thoughtful gift basket.", img: "" }
-        ]
+      if (tabName === 'review') {
+        document.querySelectorAll('.tab-btn')[0].classList.add('active');
+        document.getElementById('tab-review').classList.add('active');
+      } else {
+        document.querySelectorAll('.tab-btn')[1].classList.add('active');
+        document.getElementById('tab-gallery').classList.add('active');
       }
-    ];
-
-    let inquiries = JSON.parse(localStorage.getItem("hh_inquiries")) || [];
-
-    function saveCatalog() {
-      localStorage.setItem("hh_catalog", JSON.stringify(catalog));
     }
 
-    // Switch Top Navigation Tabs
-    function switchTab(tabKey) {
-      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.nav-tab-btn').forEach(btn => btn.classList.remove('active'));
+    // Process file locally using FileReader (Real upload experience)
+    function handleImagePreview(event) {
+      const file = event.target.files[0];
+      if (!file) return;
 
-      const activeTab = document.getElementById(`tab-${tabKey}`);
-      if (activeTab) activeTab.classList.add('active');
-
-      const matchingBtn = Array.from(document.querySelectorAll('.nav-tab-btn')).find(b =>
-        b.getAttribute('onclick')?.includes(tabKey)
-      );
-      if (matchingBtn) matchingBtn.classList.add('active');
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Compute average ratings and render sharp golden hearts
-    function getAverageRating(reviews = []) {
-      if (!reviews.length) return { avg: 0, count: 0 };
-      const sum = reviews.reduce((acc, r) => acc + Number(r.stars), 0);
-      return { avg: (sum / reviews.length).toFixed(1), count: reviews.length };
-    }
-
-    function renderSharpRating(avgScore) {
-      let heartsHtml = '';
-      const rounded = Math.round(avgScore);
-      for (let i = 1; i <= 5; i++) {
-        heartsHtml += `<span class="${i <= rounded ? 'sharp-heart' : ''}">&#10084;</span>`;
-      }
-      return heartsHtml;
-    }
-
-    // Render Product Cards
-    function renderCatalog() {
-      const featuredGrid = document.getElementById("featuredGrid");
-      const candlesGrid = document.getElementById("candlesGrid");
-      const chocolatesGrid = document.getElementById("chocolatesGrid");
-
-      const cardHtml = item => {
-        const { avg, count } = getAverageRating(item.reviews);
-        return `
-          <div class="product-card" data-title="${item.title.toLowerCase()}">
-            <img src="${item.img}" alt="${item.title}" class="product-thumb" />
-            <div class="product-details">
-              <h4 class="product-title">${item.title}</h4>
-              <p class="product-desc">${item.desc}</p>
-              
-              <div class="rating-summary-bar">
-                <span class="rating-score-badge">(${avg > 0 ? avg : '0.0'})</span>
-                <div class="stars-display">${renderSharpRating(avg)}</div>
-                <span class="rating-count">(${count})</span>
-              </div>
-
-              <span class="product-price">${item.price}</span>
-              <div class="product-actions">
-                <button class="btn-primary" style="flex:1; padding:8px 12px; font-size:12px;" onclick="openReviewsModal(${item.id})">Reviews</button>
-                <button class="btn-primary" style="flex:1; padding:8px 12px; font-size:12px; background:var(--wine);" onclick="inquireProduct('${item.title}')">Inquire</button>
-              </div>
-            </div>
-          </div>
-        `;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        currentUploadedDataUrl = e.target.result;
+        const img = document.getElementById('imagePreview');
+        const container = document.getElementById('previewContainer');
+        img.src = currentUploadedDataUrl;
+        container.style.display = 'block';
       };
-
-      if (featuredGrid) featuredGrid.innerHTML = catalog.map(cardHtml).join("");
-      if (candlesGrid) candlesGrid.innerHTML = catalog.filter(i => i.category === 'candles').map(cardHtml).join("");
-      if (chocolatesGrid) chocolatesGrid.innerHTML = catalog.filter(i => i.category === 'chocolates').map(cardHtml).join("");
+      reader.readAsDataURL(file);
     }
 
-    function inquireProduct(productName) {
-      switchTab('contact');
-      document.getElementById('custMessage').value = `Hello Ruchi, I would like to inquire about the ${productName}.`;
-    }
+    // Save and display entry inside the Gallery
+    function handleFormSubmit(e) {
+      e.preventDefault();
 
-    // Live Search
-    function handleSearch(query) {
-      const term = query.toLowerCase().trim();
-      document.querySelectorAll('.product-card').forEach(card => {
-        const title = card.getAttribute('data-title') || '';
-        card.style.display = title.includes(term) ? 'flex' : 'none';
-      });
-    }
+      const title = document.getElementById('itemTitle').value.trim();
+      const ratingInput = document.querySelector('input[name="rating"]:checked');
+      const rating = ratingInput ? ratingInput.value : 5;
 
-    // Reviews Modal Logic
-    function openReviewsModal(productId) {
-      const product = catalog.find(p => p.id === productId);
-      if (!product) return;
+      if (!currentUploadedDataUrl) {
+        alert("Please select an image file to upload.");
+        return;
+      }
 
-      document.getElementById('reviewProductId').value = product.id;
-      document.getElementById('modalProductTitle').innerText = `${product.title} — Reviews`;
+      // Hide empty notice if present
+      const emptyState = document.getElementById('emptyState');
+      if (emptyState) emptyState.style.display = 'none';
 
-      const { avg, count } = getAverageRating(product.reviews);
-      document.getElementById('modalProductRatingSummary').innerHTML = `
-        <span class="rating-score-badge">(${avg > 0 ? avg : '0.0'})</span>
-        <div class="stars-display">${renderSharpRating(avg)}</div>
-        <span class="rating-count">${count} customer rating(s)</span>
+      // Create Gallery Element
+      const gallery = document.getElementById('galleryContainer');
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+      item.onclick = function() { openLightbox(currentUploadedDataUrl); };
+
+      // Render Star icons representation
+      let starsHTML = '';
+      for (let i = 0; i < rating; i++) {
+        starsHTML += '<i class="fa fa-star"></i> ';
+      }
+
+      item.innerHTML = `
+        <img src="${currentUploadedDataUrl}" alt="${title}" loading="lazy">
+        <div class="gallery-info">
+          <span class="gallery-title">${title}</span>
+          <span class="gallery-rating">${starsHTML}</span>
+        </div>
       `;
 
-      const listContainer = document.getElementById('reviewsListContainer');
-      if (!product.reviews || !product.reviews.length) {
-        listContainer.innerHTML = `<p style="font-size:13px; color:var(--text-muted); text-align:center;">No reviews yet. Be the first to leave one!</p>`;
-      } else {
-        listContainer.innerHTML = product.reviews.map(r => `
-          <div class="review-item">
-            <div class="review-item-header">
-              <div>
-                <span class="review-author">${escapeHtml(r.name)}</span>
-                <span class="review-city">&bull; ${escapeHtml(r.city)}</span>
-              </div>
-              <div class="stars-display">${renderSharpRating(r.stars)}</div>
-            </div>
-            <p style="font-size:13.5px; color:var(--text-dark);">${escapeHtml(r.msg)}</p>
-            ${r.img ? `<img src="${escapeHtml(r.img)}" class="review-img" alt="Review Image" />` : ''}
-          </div>
-        `).join('');
-      }
+      gallery.prepend(item);
 
-      document.getElementById('reviewsModal').classList.add('active');
+      // Reset Form State
+      document.getElementById('submissionForm').reset();
+      document.getElementById('previewContainer').style.display = 'none';
+      currentUploadedDataUrl = "";
+
+      // Switch to gallery to display result
+      switchTab('gallery');
     }
 
-    function closeReviewsModal() {
-      document.getElementById('reviewsModal').classList.remove('active');
+    // Lightbox Controls
+    function openLightbox(src) {
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightboxImg');
+      img.src = src;
+      lb.classList.add('active');
     }
 
-    function handleAddReview(e) {
-      e.preventDefault();
-      const pId = Number(document.getElementById('reviewProductId').value);
-      const name = document.getElementById('revName').value.trim();
-      const city = document.getElementById('revCity').value.trim();
-      const stars = Number(document.getElementById('revStars').value);
-      const img = document.getElementById('revImg').value.trim();
-      const msg = document.getElementById('revMsg').value.trim();
-
-      const product = catalog.find(p => p.id === pId);
-      if (!product) return;
-
-      if (!product.reviews) product.reviews = [];
-      product.reviews.unshift({
-        id: Date.now(),
-        name,
-        city,
-        stars,
-        img,
-        msg
-      });
-
-      saveCatalog();
-      renderCatalog();
-      openReviewsModal(pId);
-      e.target.reset();
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
     }
-
-    // Admin Triggers (Ruchi Maheshwari & Daksh Maheshwari)
-    function checkAdminAccess(nameOrEmail) {
-      const val = (nameOrEmail || '').trim().toLowerCase();
-      return val === "ruchi maheshwari" || 
-             val === "daksh maheshwari" || 
-             val === "hunnarhouse19@gmail.com" || 
-             val === "daksh0413@gmail.com";
-    }
-
-    function handleFounderClick() {
-      const enteredName = prompt("Please enter your name:");
-      if (!enteredName) return;
-
-      if (checkAdminAccess(enteredName)) {
-        openAdminPortal();
-      } else {
-        switchTab('contact');
-        document.getElementById('custName').value = enteredName.trim();
-      }
-    }
-
-    function verifySupportEmail() {
-      const email = document.getElementById("supportEmailInput").value.trim().toLowerCase();
-      if (checkAdminAccess(email)) {
-        openAdminPortal();
-      } else if (email) {
-        switchTab('contact');
-        document.getElementById('custEmail').value = email;
-      }
-    }
-
-    // Contact Form Submission
-    function handleContactSubmit(event) {
-      event.preventDefault();
-      const name = document.getElementById("custName").value.trim();
-      const city = document.getElementById("custCity").value.trim();
-      const email = document.getElementById("custEmail").value.trim();
-      const message = document.getElementById("custMessage").value.trim();
-
-      inquiries.unshift({
-        date: new Date().toLocaleDateString(),
-        name,
-        city,
-        email,
-        message
-      });
-      localStorage.setItem("hh_inquiries", JSON.stringify(inquiries));
-      renderInquiriesTable();
-
-      emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, {
-        name,
-        to_email: email,
-        city,
-        message
-      }).catch(() => {});
-
-      alert(`Namaste ${name}, your inquiry has been sent! We will contact you soon.`);
-      event.target.reset();
-    }
-
-    // Admin Portal Functions
-    function openAdminPortal() {
-      renderAdminCatalog();
-      renderAdminReviews();
-      renderInquiriesTable();
-      document.getElementById("adminPortalModal").classList.add("active");
-    }
-
-    function closeAdminPortal() {
-      document.getElementById("adminPortalModal").classList.remove("active");
-    }
-
-    function switchAdminDeck(deckId) {
-      document.querySelectorAll('.admin-deck').forEach(d => d.style.display = 'none');
-      document.querySelectorAll('.admin-tab-btn').forEach(b => b.classList.remove('active'));
-      const activeDeck = document.getElementById(deckId);
-      if (activeDeck) activeDeck.style.display = 'block';
-
-      const clickedBtn = Array.from(document.querySelectorAll('.admin-tab-btn')).find(b =>
-        b.getAttribute('onclick')?.includes(deckId)
-      );
-      if (clickedBtn) clickedBtn.classList.add('active');
-    }
-
-    function renderInquiriesTable() {
-      const tbody = document.getElementById("inquiriesTableBody");
-      if (!inquiries.length) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;">No inquiries received yet.</td></tr>`;
-        return;
-      }
-      tbody.innerHTML = inquiries.map(inq => `
-        <tr>
-          <td>${inq.date}</td>
-          <td>${escapeHtml(inq.name)}</td>
-          <td>${escapeHtml(inq.city)}</td>
-          <td>${escapeHtml(inq.email)}</td>
-          <td>${escapeHtml(inq.message)}</td>
-        </tr>
-      `).join("");
-    }
-
-    function handleCreateProduct(e) {
-      e.preventDefault();
-      const newItem = {
-        id: Date.now(),
-        title: document.getElementById("newProdTitle").value.trim(),
-        category: document.getElementById("newProdCategory").value,
-        price: document.getElementById("newProdPrice").value.trim(),
-        img: document.getElementById("newProdImg").value.trim(),
-        desc: document.getElementById("newProdDesc").value.trim(),
-        reviews: []
-      };
-
-      catalog.unshift(newItem);
-      saveCatalog();
-      renderCatalog();
-      renderAdminCatalog();
-      e.target.reset();
-      alert("Creation successfully added to live catalog!");
-    }
-
-    function renderAdminCatalog() {
-      const tbody = document.getElementById("adminProductsTableBody");
-      tbody.innerHTML = catalog.map(p => `
-        <tr>
-          <td>${escapeHtml(p.title)}</td>
-          <td>${escapeHtml(p.category)}</td>
-          <td>${escapeHtml(p.price)}</td>
-          <td>
-            <button class="btn-primary" style="padding:4px 8px; font-size:11px; background:#b22222;" onclick="confirmDeleteProduct(${p.id})">Delete</button>
-          </td>
-        </tr>
-      `).join("");
-    }
-
-    function confirmDeleteProduct(id) {
-      const target = catalog.find(p => p.id === id);
-      if (!target) return;
-      if (confirm(`Admin confirmation required: Are you sure you want to permanently delete "${target.title}"?`)) {
-        catalog = catalog.filter(p => p.id !== id);
-        saveCatalog();
-        renderCatalog();
-        renderAdminCatalog();
-        renderAdminReviews();
-      }
-    }
-
-    function renderAdminReviews() {
-      const tbody = document.getElementById("adminReviewsTableBody");
-      let allReviews = [];
-      catalog.forEach(p => {
-        (p.reviews || []).forEach(r => {
-          allReviews.push({ ...r, productId: p.id, productTitle: p.title });
-        });
-      });
-
-      if (!allReviews.length) {
-        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;">No reviews to moderate.</td></tr>`;
-        return;
-      }
-
-      tbody.innerHTML = allReviews.map(r => `
-        <tr>
-          <td><strong>${escapeHtml(r.productTitle)}</strong></td>
-          <td>${escapeHtml(r.name)}</td>
-          <td>${escapeHtml(r.city)}</td>
-          <td>${r.stars} &#10084;</td>
-          <td>${escapeHtml(r.msg)}</td>
-          <td>
-            <button class="btn-primary" style="padding:4px 8px; font-size:11px; margin-bottom:4px;" onclick="editReview(${r.productId}, ${r.id})">Edit</button>
-            <button class="btn-primary" style="padding:4px 8px; font-size:11px; background:#b22222;" onclick="deleteReview(${r.productId}, ${r.id})">Delete</button>
-          </td>
-        </tr>
-      `).join("");
-    }
-
-    function editReview(pId, rId) {
-      const prod = catalog.find(p => p.id === pId);
-      if (!prod) return;
-      const rev = prod.reviews.find(r => r.id === rId);
-      if (!rev) return;
-
-      const newMsg = prompt("Edit Review Message:", rev.msg);
-      if (newMsg !== null) {
-        rev.msg = newMsg;
-        saveCatalog();
-        renderCatalog();
-        renderAdminReviews();
-      }
-    }
-
-    function deleteReview(pId, rId) {
-      if (!confirm("Admin confirmation: Delete this review?")) return;
-      const prod = catalog.find(p => p.id === pId);
-      if (!prod) return;
-
-      prod.reviews = prod.reviews.filter(r => r.id !== rId);
-      saveCatalog();
-      renderCatalog();
-      renderAdminReviews();
-    }
-
-    function updateAnnouncement() {
-      const text = document.getElementById("announcementTextInput").value.trim();
-      const bar = document.getElementById("topAnnouncementBar");
-      if (text) {
-        bar.textContent = text;
-        bar.style.display = "block";
-        localStorage.setItem("hh_announcement", text);
-      }
-    }
-
-    function clearAnnouncement() {
-      const bar = document.getElementById("topAnnouncementBar");
-      bar.style.display = "none";
-      bar.textContent = "";
-      localStorage.removeItem("hh_announcement");
-      document.getElementById("announcementTextInput").value = "";
-    }
-
-    function escapeHtml(string) {
-      const el = document.createElement('div');
-      el.textContent = string;
-      return el.innerHTML;
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      renderCatalog();
-      const savedNotice = localStorage.getItem("hh_announcement");
-      if (savedNotice) {
-        const bar = document.getElementById("topAnnouncementBar");
-        bar.textContent = savedNotice;
-        bar.style.display = "block";
-      }
-    });
   </script>
 </body>
 </html>
